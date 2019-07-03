@@ -37,7 +37,7 @@ vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
-v=18
+v=18.6
 while True:
   
     n = excel.main(float(v),0)
