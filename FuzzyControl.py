@@ -46,14 +46,14 @@ while True:
       v=18.6
       
         
-    n = excel.main(float(17.5),0)
+    n = excel.main(float(17.4),0)
     n = int(n)
     mcpras.set_value(n)
     P1=Node611.sensorm()
    
     time.sleep(0.5)
     
-    n = excel.main(float(17.5),0)
+    n = excel.main(float(17.4),0)
     n = int(n)
     mcpras.set_value(n)
     P2=Node611.sensorm()
