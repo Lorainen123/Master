@@ -15,8 +15,9 @@ while i<41:
     mcpras.set_value(n)
     P1=Node611.sensorm()
     archivo.write(str(P1)+'\n')
-   
+    i=i+1
     time.sleep(1)
+    
     
     
 archivo.close()
