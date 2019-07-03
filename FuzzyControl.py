@@ -37,7 +37,7 @@ vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
-v=18.6
+v=18.5
 while True:
   
     n = excel.main(float(v),0)
@@ -47,7 +47,7 @@ while True:
    
     time.sleep(1)
     
-    n = excel.main(float(v+0.1),0)
+    n = excel.main(float(v + 0.1),0)
     n = int(n)
     mcpras.set_value(n)
     P2=Node611.sensorm()
