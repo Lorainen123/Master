@@ -40,6 +40,12 @@ i= True
 v=18.5
 while True:
   
+    if v<14.6 :
+      v=14.5
+    elif v>18.5:
+      v=18.6
+      
+        
     n = excel.main(float(v),0)
     n = int(n)
     mcpras.set_value(n)
@@ -47,13 +53,19 @@ while True:
    
     time.sleep(1)
     
-    n = excel.main(float(v + 0.1),0)
+    n = excel.main(float(v + 0.3),0)
     n = int(n)
     mcpras.set_value(n)
     P2=Node611.sensorm()
     
     
     Pdif=P2-P1
+    
+    if (Pdif<0.5):
+      
+      Pdif=0
+      
+    
     
       
     vrefout.input['Pdif']=Pdif
