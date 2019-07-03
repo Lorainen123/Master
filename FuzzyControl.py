@@ -37,7 +37,7 @@ vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
-v=18.5
+v=18.3
 while True:
   
     if v<14.6 :
