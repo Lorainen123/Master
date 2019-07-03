@@ -61,13 +61,10 @@ while True:
     
     Pdif=P2-P1
     
-    if (Pdif<0.5):
+    if Pdif<0.5 :
       
       Pdif=0
-      
-    
-    
-      
+         
     vrefout.input['Pdif']=Pdif
     vrefout.compute()
     Vrefin=round(vrefout.output['Vrefd'],2)
