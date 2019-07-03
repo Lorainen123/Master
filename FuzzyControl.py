@@ -60,10 +60,9 @@ while True:
     
     
     Pdif=P2-P1
-    
-    if Pdif<0.5 :
-      
-      Pdif=0
+  
+    if (abs(Pdif)<0.5): 
+       Pdif=0
          
     vrefout.input['Pdif']=Pdif
     vrefout.compute()
