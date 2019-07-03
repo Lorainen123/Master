@@ -53,7 +53,7 @@ while True:
    
     time.sleep(1)
     
-    n = excel.main(float(v + 0.2),0)
+    n = excel.main(float(v + 0.1),0)
     n = int(n)
     mcpras.set_value(n)
     P2=Node611.sensorm()
