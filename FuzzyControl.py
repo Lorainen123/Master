@@ -61,10 +61,10 @@ P2=Node611.sensorm()
 
 while True:
   
-    if v<14.6 :
-      v=14.5
-    elif v>18.5:
-      v=18.6
+    if v2<14.6 :
+      v2=14.5
+    elif v2>18.5:
+      v2=18.6
       
     vrefout.input['Pdif']=Pdif
     vrefout.input['Vdif']=Vrefin
