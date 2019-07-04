@@ -31,8 +31,8 @@ Vdif['Z'] = fuzz.trimf(Vdif.universe, [-0.01, 0, 0.01])
 
 #Vref
 
-Vrefd['N'] = fuzz.trimf(Vrefd.universe, [-0.4, -0.3, -0.2])
-Vrefd['P'] = fuzz.trimf(Vrefd.universe, [0.4, 0.3, 0.2])
+Vrefd['N'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.2, -0.1])
+Vrefd['P'] = fuzz.trimf(Vrefd.universe, [0.3, 0.2, 0.1])
 Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.01, 0, 0.01])
 
 ##Rules
@@ -45,6 +45,7 @@ rule2=ctrl.Rule(Pdif['N']&Vdif['P'],Vrefd['N'])
 rule3=ctrl.Rule(Pdif['N']&Vdif['N'],Vrefd['P'])
 rule4=ctrl.Rule(Pdif['P']&Vdif['P'],Vrefd['P'])
 rule5=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
+rule6=ctrl.Rule(Vdif['Z'],Vrefd['Z'])
 
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
