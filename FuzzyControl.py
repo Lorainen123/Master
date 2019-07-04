@@ -52,9 +52,9 @@ vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 i= True
 Pdif=1
 Vrefin=-0.2
-V2=18.6
+v2=18.6
 
-n = excel.main(float(V2),0)
+n = excel.main(float(v2),0)
 n = int(n)
 mcpras.set_value(n)
 P2=Node611.sensorm()
