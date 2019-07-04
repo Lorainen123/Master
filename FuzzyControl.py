@@ -32,7 +32,7 @@ Vdif['Z'] = fuzz.trimf(Vdif.universe, [-0.01, 0, 0.01])
 #Vref
 
 Vrefd['N'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.2, -0.1])
-Vrefd['P'] = fuzz.trimf(Vrefd.universe, [0.3, 0.2, 0.1])
+Vrefd['P'] = fuzz.trimf(Vrefd.universe, [0.1, 0.2, 0.3])
 Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.01, 0, 0.01])
 
 ##Rules
