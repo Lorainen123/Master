@@ -47,7 +47,7 @@ rule4=ctrl.Rule(Pdif['P']&Vdif['P'],Vrefd['P'])
 rule5=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
 rule6=ctrl.Rule(Vdif['Z'],Vrefd['Z'])
 
-vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
+vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5, rule6])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
