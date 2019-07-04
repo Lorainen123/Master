@@ -82,7 +82,7 @@ while True:
   
     Pdif=P2-P1
   
-    time.sleep(1)
+    time.sleep(2)
     
   #  n = excel.main(float(v+0.2),0)
   #  n = int(n)
@@ -97,7 +97,7 @@ while True:
     
     print("Potencia del panel t= "+str(P1))
     print("Potencia del panel  t+1 = "+str(P2))
-    print("Vref = "+str(v))
+    print("Vref = "+str(v2))
     print("Cambio de potencia = "+str(Pdif))
     print("Cambio de voltaje = "+str(Vrefin))
  
