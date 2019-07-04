@@ -93,7 +93,7 @@ while True:
     
     
     
-    if (abs(Pdif)<0.6): 
+    if (abs(Pdif)<0.2): 
        Pdif=0
          
     
