@@ -124,7 +124,7 @@ def sensorm():
 
     S_2m=((S2/t)*(5.15/1023))
     S_2=-25.3+10*S_2m
-    S_2=round(S_2,1)
+    S_2=round(S_2,3)
  
     S_3m=((S3/t)*(5.15/1023))
     S_3=-25.3+10*S_3m
@@ -140,7 +140,7 @@ def sensorm():
     S_6 = 5.936*(S_6_temp-3.155)+32.8
     
     S_7 = ((S7/t)*(5.15/1023))*(37.5/7.5)
-    S_7 = round(S_7,1)
+    S_7 = round(S_7,3)
     
     S_8 = ((S8/t)*(5.15/1023))*(37000.0/7500.0)      
  
@@ -227,7 +227,7 @@ def sensorm():
     Vp=round(0.0326*log(S_2)+0.7812,3)
     Vpanel=1.1+S_7
     #Power of the panel
-    Pp = round((Vpanel)*S_2,1)
+    Pp = round((Vpanel)*S_2,3)
     #Calculation of battery current
     Ib = S_5-S_3+S_4
     
@@ -248,7 +248,7 @@ def sensorm():
     S_4=str(round(S_4,2))
     S_5=str(round(S_5,2))
     S_6=str(round(S_6,2))
-    S_7=str(round(S_7,1))
+    S_7=str(round(S_7,3))
     S_8=str(round(S_8,2))
     #Print values of each sensor
     #Sensors viewed from left to right and from bottom to top
