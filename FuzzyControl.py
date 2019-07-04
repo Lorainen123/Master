@@ -31,8 +31,8 @@ Vdif['Z'] = fuzz.trimf(Vdif.universe, [-0.01, 0, 0.01])
 
 #Vref
 
-Vrefd['N'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.2, -0.1])
-Vrefd['P'] = fuzz.trimf(Vrefd.universe, [0.1, 0.2, 0.3])
+Vrefd['N'] = fuzz.trimf(Vrefd.universe, [-0.4, -0.3, -0.2])
+Vrefd['P'] = fuzz.trimf(Vrefd.universe, [0.4, 0.3, 0.2])
 Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.01, 0, 0.01])
 
 ##Rules
@@ -51,7 +51,7 @@ vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
 Pdif=1
-Vrefin=-0.2
+Vdif=-0.2
 v2=18.6
 
 n = excel.main(float(v2),0)
@@ -67,12 +67,13 @@ while True:
       v2=18.6
       
     vrefout.input['Pdif']=Pdif
-    vrefout.input['Vdif']=Vrefin
+    vrefout.input['Vdif']=Vdif
     vrefout.compute()
     Vrefin=round(vrefout.output['Vrefd'],2)
     
     v=v2
     v2=v2+Vrefin
+    Vdif=v2-v
     P1=P2
     
     n = excel.main(float(v2),0)
