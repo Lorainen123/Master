@@ -101,13 +101,14 @@ while True:
        Pdif=P2-P1
        time.sleep(0.5)
 
-    
-    if (abs(dpdv)<1): 
-      dpdv=0
-     
+ 
     
    
     dpdv=Pdif/Vdif
+       
+    if (abs(dpdv)<1): 
+      dpdv=0
+     
     
        
   #  n = excel.main(float(v+0.2),0)
