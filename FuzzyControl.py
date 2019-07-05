@@ -109,7 +109,7 @@ while True:
    
     dpdv=Pdif/Vdif
        
-    if (abs(dpdv)<1): 
+    if (abs(pdif)<1): 
       dpdv=0
      
     
