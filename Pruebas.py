@@ -5,7 +5,7 @@ import time
 
 i=0
 v=14.5
-archivo=open("prueba2.txt","w")
+archivo=open("prueba3.txt","w")
 
 while i<41:
   
