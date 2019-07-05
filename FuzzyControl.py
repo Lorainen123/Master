@@ -73,7 +73,7 @@ while True:
     Vrefin=round(vrefout.output['Vrefd'],2)
     
     
-    if Vdif==0:
+    if Vrefin==0:
        n = excel.main(float(v2),0)
        n = int(n)
        mcpras.set_value(n)
