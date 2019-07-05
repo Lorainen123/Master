@@ -23,7 +23,6 @@ while i<41:
     P1=Node611.sensorm()
     archivo.write(str(P1)+'\n')
     i=i+1
-    time.sleep(1)
     
     
 archivo.close()
