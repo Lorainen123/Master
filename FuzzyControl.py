@@ -77,13 +77,15 @@ while True:
        n = excel.main(float(v2),0)
        n = int(n)
        mcpras.set_value(n)
+       time.sleep(1)
        P2=Node611.sensorm()
        
-       time.sleep(1)
+       
         
        n = excel.main(float(v2-0.3),0)
        n = int(n)
        mcpras.set_value(n)
+       time.sleep(1)
        P1=Node611.sensorm() 
        
        Pdif=P2-P1
@@ -97,9 +99,10 @@ while True:
        n = excel.main(float(v2),0)
        n = int(n)
        mcpras.set_value(n)
+       time.sleep(1)
        P2=Node611.sensorm()
        Pdif=P2-P1
-       time.sleep(1)
+       
 
  
     
