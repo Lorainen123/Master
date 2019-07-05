@@ -10,16 +10,16 @@ import time
 #Fuzzy Controller 
 
 Vrefd = ctrl.Consequent(np.arange(-2, 2, 0.1), 'Vrefd')
-Pdif = ctrl.Antecedent(np.arange(-200, 200, 0.01),'Pdif')
+dpdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dpdv')
 Vdif = ctrl.Antecedent(np.arange(-2, 2, 0.1),'Vdif')
 
 #Membership functions
 
 #Pdif
 
-Pdif['N'] = fuzz.trapmf(Pdif.universe, [-100,-2, -0.2, -0.01])
-Pdif['P'] = fuzz.trapmf(Pdif.universe, [0.01, 0.2, 2, 100])
-Pdif['Z'] = fuzz.trimf(Pdif.universe, [-0.01,0,0.01])
+dpdv['N'] = fuzz.trapmf(dpdv.universe, [-100,-2, -0.2, -0.01])
+dpdv['P'] = fuzz.trapmf(dpdv.universe, [0.01, 0.2, 2, 100])
+dpdv['Z'] = fuzz.trimf(dpdv.universe, [-0.01,0,0.01])
 
 #Vdif
 
@@ -40,18 +40,18 @@ Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.01, 0, 0.01])
 #rule1=ctrl.Rule(Pdif['P'],Vrefd['P'])
 #rule2=ctrl.Rule(Pdif['N'],Vrefd['N'])
 #rule3=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
-rule1=ctrl.Rule(Pdif['P']&Vdif['N'],Vrefd['N'])
-rule2=ctrl.Rule(Pdif['N']&Vdif['P'],Vrefd['N'])
-rule3=ctrl.Rule(Pdif['N']&Vdif['N'],Vrefd['P'])
-rule4=ctrl.Rule(Pdif['P']&Vdif['P'],Vrefd['P'])
-rule5=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
-rule6=ctrl.Rule(Vdif['Z'],Vrefd['Z'])
+rule1=ctrl.Rule(dpdv['P']&Vdif['N'],Vrefd['N'])
+rule2=ctrl.Rule(dpdv['N']&Vdif['P'],Vrefd['N'])
+rule3=ctrl.Rule(dpdv['N']&Vdif['N'],Vrefd['P'])
+rule4=ctrl.Rule(dpdv['P']&Vdif['P'],Vrefd['P'])
+rule5=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
+rule6=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
 
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5, rule6])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
-Pdif=1
+dpdv=-1
 Vrefin=-0.2
 v2=18.6
 
@@ -67,7 +67,7 @@ while True:
     elif v2>18.5:
       v2=18.6
       
-    vrefout.input['Pdif']=Pdif
+    vrefout.input['Pdif']=dpdv
     vrefout.input['Vdif']=Vrefin
     vrefout.compute()
     Vrefin=round(vrefout.output['Vrefd'],2)
@@ -83,8 +83,10 @@ while True:
     P2=Node611.sensorm()
   
     Pdif=P2-P1
-  
-    time.sleep(0.3)
+    
+    dpdv=Pdif/Vdif
+    
+    time.sleep(0.5)
     
   #  n = excel.main(float(v+0.2),0)
   #  n = int(n)
