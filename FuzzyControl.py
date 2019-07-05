@@ -17,8 +17,8 @@ Vdif = ctrl.Antecedent(np.arange(-2, 2, 0.1),'Vdif')
 
 #Pdif
 
-dpdv['N'] = fuzz.trapmf(dpdv.universe, [-100,-2, -0.2, -0.01])
-dpdv['P'] = fuzz.trapmf(dpdv.universe, [0.01, 0.2, 2, 100])
+dpdv['N'] = fuzz.trapmf(dpdv.universe, [-300,-2, -0.2, -0.01])
+dpdv['P'] = fuzz.trapmf(dpdv.universe, [0.01, 0.2, 2, 300])
 dpdv['Z'] = fuzz.trimf(dpdv.universe, [-0.01,0,0.01])
 
 #Vdif
