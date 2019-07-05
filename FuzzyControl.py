@@ -89,7 +89,7 @@ while True:
        Pdif=P2-P1
        Vdif=0.2
       
-  else:
+    else:
        v=v2
        v2=v2+Vrefin
        Vdif=v2-v
@@ -102,12 +102,12 @@ while True:
        time.sleep(0.5)
 
     
-   if (abs(Pdif)<0.2): 
+    if (abs(Pdif)<0.2): 
        Pdif=0
      
     
    
-   dpdv=Pdif/Vdif
+     dpdv=Pdif/Vdif
     
        
   #  n = excel.main(float(v+0.2),0)
