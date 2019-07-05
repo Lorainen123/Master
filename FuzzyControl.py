@@ -72,22 +72,44 @@ while True:
     vrefout.compute()
     Vrefin=round(vrefout.output['Vrefd'],2)
     
-    v=v2
-    v2=v2+Vrefin
-    Vdif=v2-v
-    P1=P2
     
-    n = excel.main(float(v2),0)
-    n = int(n)
-    mcpras.set_value(n)
-    P2=Node611.sensorm()
-  
-    Pdif=P2-P1
+    if Vdif==0:
+       n = excel.main(float(v2),0)
+       n = int(n)
+       mcpras.set_value(n)
+       P2=Node611.sensorm()
+       
+       time.sleep(0.5)
+        
+       n = excel.main(float(v2-0.2),0)
+       n = int(n)
+       mcpras.set_value(n)
+       P1=Node611.sensorm() 
+       
+       Pdif=P2-P1
+       Vdif=0.2
+      
+  else:
+       v=v2
+       v2=v2+Vrefin
+       Vdif=v2-v
+       P1=P2
+       n = excel.main(float(v2),0)
+       n = int(n)
+       mcpras.set_value(n)
+       P2=Node611.sensorm()
+       Pdif=P2-P1
+       time.sleep(0.5)
+
     
-    dpdv=Pdif/Vdif
+   if (abs(Pdif)<0.2): 
+       Pdif=0
+     
     
-    time.sleep(0.5)
+   
+   dpdv=Pdif/Vdif
     
+       
   #  n = excel.main(float(v+0.2),0)
   #  n = int(n)
   #  mcpras.set_value(n)
@@ -95,8 +117,6 @@ while True:
     
     
     
-    if (abs(Pdif)<0.2): 
-       Pdif=0
          
     
     print("Potencia del panel t= "+str(P1))
