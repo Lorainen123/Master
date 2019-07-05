@@ -84,7 +84,7 @@ while True:
   
     Pdif=P2-P1
   
-    time.sleep(0.1)
+    time.sleep(0.3)
     
   #  n = excel.main(float(v+0.2),0)
   #  n = int(n)
