@@ -52,7 +52,7 @@ vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 i= True
 dpdv=-1
-Vrefin=-0.2
+Vdif=-0.2
 v2=18.6
 
 n = excel.main(float(v2),0)
@@ -67,8 +67,8 @@ while True:
     elif v2>18.5:
       v2=18.6
       
-    vrefout.input['Pdif']=dpdv
-    vrefout.input['Vdif']=Vrefin
+    vrefout.input['dpdv']=dpdv
+    vrefout.input['Vdif']=Vdif
     vrefout.compute()
     Vrefin=round(vrefout.output['Vrefd'],2)
     
