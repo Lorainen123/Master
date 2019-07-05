@@ -62,9 +62,9 @@ P2=Node611.sensorm()
 
 while True:
   
-    if v2<14.6 :
+    if v2=<14.6 :
       v2=14.5
-    elif v2>18.5:
+    elif v2>=18.5:
       v2=18.6
       
     vrefout.input['dpdv']=dpdv
