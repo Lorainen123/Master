@@ -13,13 +13,15 @@ while i<41:
     n = excel.main(float(16),0)
     n = int(n)
     mcpras.set_value(n)
+    time.sleep(1)
     P1=Node611.sensorm()
     archivo.write(str(P1)+'\n')
-    time.sleep(1)
+   
     
     n = excel.main(float(16.2),0)
     n = int(n)
     mcpras.set_value(n)
+    time.sleep(1)
     P1=Node611.sensorm()
     archivo.write(str(P1)+'\n')
     i=i+1
