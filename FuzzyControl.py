@@ -107,7 +107,7 @@ while True:
      
     
    
-     dpdv=Pdif/Vdif
+    dpdv=Pdif/Vdif
     
        
   #  n = excel.main(float(v+0.2),0)
