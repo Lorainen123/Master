@@ -45,7 +45,7 @@ rule2=ctrl.Rule(dpdv['N']&Vdif['N'],Vrefd['N'])
 rule3=ctrl.Rule(dpdv['P']&Vdif['N'],Vrefd['P'])
 rule4=ctrl.Rule(dpdv['P']&Vdif['P'],Vrefd['P'])
 rule5=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
-rule6=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
+
 
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5, rule6])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
@@ -79,7 +79,7 @@ while True:
        mcpras.set_value(n)
        P2=Node611.sensorm()
        
-       time.sleep(0.5)
+       time.sleep(1)
         
        n = excel.main(float(v2-0.2),0)
        n = int(n)
@@ -99,7 +99,7 @@ while True:
        mcpras.set_value(n)
        P2=Node611.sensorm()
        Pdif=P2-P1
-       time.sleep(0.5)
+       time.sleep(1)
 
  
     
