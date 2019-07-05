@@ -102,8 +102,8 @@ while True:
        time.sleep(0.5)
 
     
-    if (abs(Pdif)<0.2): 
-       Pdif=0
+    if (abs(dpdv)<1): 
+      dpdv=0
      
     
    
