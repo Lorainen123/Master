@@ -46,7 +46,7 @@ def adquisicion ():
 		#print("Voltaje del panel = "+Vpanel)
   
 def main():
-	thread.start_new_thread(adquisicion)
+	thread.start_new_thread(adquisicion,)
 
 main()
 	
