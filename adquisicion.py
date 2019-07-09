@@ -19,7 +19,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 
-def adquisicion:
+def adquisicion ():
 	while True:     
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
@@ -45,7 +45,7 @@ def adquisicion:
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
   
-def main:
+def main():
 	thread.start_new_thread(adquisicion)
 
 main()
