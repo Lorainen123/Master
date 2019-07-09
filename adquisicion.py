@@ -39,8 +39,8 @@ def adquisicion (i):
     		Vpanel=1.1+S_7
    		 #Power of the panel
 		Pp = Vpanel*S_2
-		time.sleep()
-		toc = tm.default_timer(0.00988)
+		time.sleep(0.00988)
+		toc = tm.default_timer()
     
    		 #Power of the battery
    
