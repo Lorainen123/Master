@@ -80,7 +80,7 @@ Pp = round((Vpanel)*S_2,3)
 Ib = S_5-S_3+S_4
     
 if(Ib<=0.5):
-Ib=0.0001
+	Ib=0.0001
     #Power of the battery
 vbatt=round(0.0326*log(Ib)+0.7812,3)
 Pb = str(round((vbatt)*Ib,2))
