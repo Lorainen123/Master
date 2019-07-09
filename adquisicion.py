@@ -75,7 +75,7 @@ S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0)
 Vp=round(0.0326*log(S_2)+0.7812,3)
 Vpanel=1.1+S_7
     #Power of the panel
-Pp = round((Vpanel)*S_2,3)
+Pp = str(round((Vpanel)*S_2,3))
     #Calculation of battery current
 Ib = S_5-S_3+S_4
     
