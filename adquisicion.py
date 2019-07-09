@@ -112,7 +112,7 @@ print("Corriente sensor panel solar = "+S_2)	## Sensor 3 de ADC  Canal 7
     #print("Potencia de la fuente = "+Pf)
 print("Potencia del panel = "+Pp)
 print("Voltaje del panel = "+Vpanel)
-print("Voltaje de referencia = "+v)
+#print("Voltaje de referencia = "+v)
     #print("Potencia de la bateria = "+Pb)
   
 	
