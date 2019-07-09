@@ -44,8 +44,8 @@ def adquisicion (i):
     
    		 #Power of the battery
    
-		print("Corriente sensor panel solar sin filtrar = "+str(S_2))
-		print(toc-tic)
+		print(S_2)
+		#print(toc-tic)
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
   
