@@ -47,7 +47,7 @@ def adquisicion (i):
   
 def main():
 	i=1
-	thread.start_new_thread(adquisicion,i)
+	thread.start_new_thread(adquisicion,(i,))
 
 main()
 	
