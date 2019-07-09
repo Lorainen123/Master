@@ -10,6 +10,7 @@ import Adafruit_MCP3008
 import Adafruit_GPIO.SPI as SPI
 from ina219 import INA219
 import RPi.GPIO as GPIO
+from scipy import signal
 
 
 #Configuration SPI Port and device
@@ -84,6 +85,8 @@ while True:
     #Power of the battery
 	vbatt=round(0.0326*log(Ib)+0.7812,3)
 	Pb = str(round((vbatt)*Ib,2))
+	b, a = signal.butter(3, 0.05)
+	y = signal.filtfilt(b, a, S_2)
     #Conversion to string
 	Vpanel=str(Vpanel)
 	S_1=str(round(S_1,2))
@@ -94,6 +97,9 @@ while True:
 	S_6=str(round(S_6,2))
 	S_7=str(round(S_7,3))
 	S_8=str(round(S_8,2))
+	
+	
+        
     #Print values of each sensor
     #Sensors viewed from left to right and from bottom to top
     #print("Corriente sensor 1 = "+i)   ## Sensor de corriente 1 de I2C
@@ -103,15 +109,17 @@ while True:
 
     #print("Voltaje sensor 1 = "+S_6)	## Sensor 1 de ADC  Canal 4
     #print("Corriente sensor 5 = "+S_1)	## Sensor 2 de ADC  Canal 2
-	print("Corriente sensor panel solar = "+S_2)	## Sensor 3 de ADC  Canal 7
+	print("Corriente sensor panel solar sin filtrar = "+S_2)
+	print("Corriente sensor panel solar filtrada = "+str(y))
+	## Sensor 3 de ADC  Canal 7
     #print("Voltaje sensor 2 = "+S_7)	## Sensor 4 de ADC  Canal 5
     #print("Corriente sensor 7 = "+S_3)	## Sensor 5 de ADC  Canal 3
     #print("Corriente sensor 8 = "+S_4)	## Sensor 6 de ADC  Canal 1
     #print("Corriente sensor 9 = "+S_5)	## Sensor 7 de ADC  Canal 0
     #print("Voltaje sensor 3 = "+S_8)	## Sensor 8 de ADC  Canal 6
     #print("Potencia de la fuente = "+Pf)
-	print("Potencia del panel = "+Pp)
-	print("Voltaje del panel = "+Vpanel)
+	#print("Potencia del panel = "+Pp)
+	#print("Voltaje del panel = "+Vpanel)
 #print("Voltaje de referencia = "+v)
     #print("Potencia de la bateria = "+Pb)
   
