@@ -8,6 +8,7 @@ import Adafruit_GPIO.SPI as SPI
 from ina219 import INA219
 import RPi.GPIO as GPIO
 import thread
+import timeit as tm
 
 #Configuration SPI Port and device
 SPI_PORT   = 0
@@ -21,6 +22,7 @@ GPIO.setmode(GPIO.BCM)
 
 def adquisicion (i):
 	while i==1:     
+		tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
     		#Value for zero adjustment of the sensors
@@ -37,11 +39,13 @@ def adquisicion (i):
     		Vpanel=1.1+S_7
    		 #Power of the panel
 		Pp = Vpanel*S_2
+		
+		toc = tm.default_timer()
     
    		 #Power of the battery
    
 		print("Corriente sensor panel solar sin filtrar = "+str(S_2))
-
+		print(toc-tic)
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
   
