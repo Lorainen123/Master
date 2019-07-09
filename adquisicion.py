@@ -48,6 +48,7 @@ def adquisicion (i):
 def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
+	time.sleep(1)
 
 main()
 	
