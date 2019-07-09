@@ -19,8 +19,8 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 
-def adquisicion ():
-	while True:     
+def adquisicion (i):
+	while i==True:     
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
     		#Value for zero adjustment of the sensors
@@ -46,7 +46,8 @@ def adquisicion ():
 		#print("Voltaje del panel = "+Vpanel)
   
 def main():
-	thread.start_new_thread(adquisicion,)
+	i=True
+	thread.start_new_thread(adquisicion,i)
 
 main()
 	
