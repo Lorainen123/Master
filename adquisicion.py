@@ -86,7 +86,9 @@ while True:
 	vbatt=round(0.0326*log(Ib)+0.7812,3)
 	Pb = str(round((vbatt)*Ib,2))
 	b, a = signal.butter(3, 0.05)
-	y = signal.filtfilt(b, a, S_2)
+	#y = signal.filtfilt(b, a, S_2)
+	zi = signal.lfilter_zi(b, a)
+	z, _ = signal.lfilter(b, a, S_2, zi=zi*S_2])
     #Conversion to string
 	Vpanel=str(Vpanel)
 	S_1=str(round(S_1,2))
@@ -110,7 +112,7 @@ while True:
     #print("Voltaje sensor 1 = "+S_6)	## Sensor 1 de ADC  Canal 4
     #print("Corriente sensor 5 = "+S_1)	## Sensor 2 de ADC  Canal 2
 	print("Corriente sensor panel solar sin filtrar = "+S_2)
-	print("Corriente sensor panel solar filtrada = "+str(y))
+	print("Corriente sensor panel solar filtrada = "+str(z))
 	## Sensor 3 de ADC  Canal 7
     #print("Voltaje sensor 2 = "+S_7)	## Sensor 4 de ADC  Canal 5
     #print("Corriente sensor 7 = "+S_3)	## Sensor 5 de ADC  Canal 3
