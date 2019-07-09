@@ -87,7 +87,7 @@ Pb = str(round((vbatt)*Ib,2))
     #Conversion to string
 Vpanel=str(Vpanel)
 S_1=str(round(S_1,2))
-S_2=str(round(S_2,1))
+S_2=str(round(S_2,3))
 S_3=str(round(S_3,2))
 S_4=str(round(S_4,2))
 S_5=str(round(S_5,2))
