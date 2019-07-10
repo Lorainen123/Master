@@ -22,8 +22,8 @@ GPIO.setmode(GPIO.BCM)
 
 
 def adquisicion (i):
-	#global sw
-	while i==1:     
+	
+	while i==0:     
 		tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
@@ -56,7 +56,7 @@ def adquisicion (i):
 def main():
 	global sw
 	i=1
-	thread.start_new_thread(adquisicion,(i,))
+	thread.start_new_thread(adquisicion,(sw,))
 	while True:
 		if sw==1: 
 			print("dato leido")
