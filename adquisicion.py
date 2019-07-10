@@ -67,7 +67,7 @@ def main():
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
 		
-		time.sleep(1)
+		#time.sleep(1)
 		#tic = tm.default_timer()
 		if sw==1: #dato nuevo 
 			#print(A2)
