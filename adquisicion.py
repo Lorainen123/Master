@@ -22,6 +22,7 @@ GPIO.setmode(GPIO.BCM)
 
 
 def adquisicion (i):
+	global S
 	while i==1:     
 		tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
@@ -52,6 +53,7 @@ def adquisicion (i):
 		#print("Voltaje del panel = "+Vpanel)
   
 def main():
+	global S
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
