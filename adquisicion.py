@@ -79,7 +79,7 @@ def main():
 			toc = tm.default_timer()
 			print(toc-tic)
 			#print(S_2)
-			sw=0
+			sw=1
 		
 	
 
