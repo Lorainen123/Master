@@ -46,8 +46,8 @@ def adquisicion (i):
     
    		 #Power of the battery
    
-		print(S_2)
-		print(toc-tic)
+		#print(S_2)
+		#print(toc-tic)
 		sw=1
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
@@ -60,9 +60,9 @@ def main():
 	while True:
 		if sw==1: 
 			sw=0
-			print(sw)
+			#print(sw)
 		else: 
-			print(sw)
+			print("dato no leido")
 	
 	
 
