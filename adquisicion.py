@@ -64,10 +64,9 @@ def main():
 		if sw==1: #dato nuevo 
 			buf[0]=S_2
 			buf[1:N]=buf[0:N-1]
+			print(np.mean(buf))
 			
-		else: 
-			print("esperando dato")
-	
+		
 	
 
 main()
