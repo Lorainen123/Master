@@ -15,7 +15,7 @@ import timeit as tm
 SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
-N=200
+N=10
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
@@ -61,12 +61,12 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-		time.sleep(1)
-		#if sw==1: #dato nuevo 
-		#	buf[0]=S_2
-		#	buf[1:N]=buf[0:N-1]
-		#	print(np.mean(buf))
-		#	sw=0
+		#time.sleep(1)
+		if sw==1: #dato nuevo 
+			buf[0]=S_2
+			buf[1:N]=buf[0:N-1]
+			print(np.mean(buf))
+			sw=0
 		
 	
 
