@@ -64,7 +64,7 @@ def adquisicion (i):
 def main():
 	global sw
 	i=1
-	#thread.start_new_thread(adquisicion,(i,))
+	thread.start_new_thread(adquisicion,(i,))
 	while True:
 		
 		#time.sleep(0.00050)
@@ -79,7 +79,7 @@ def main():
 			toc = tm.default_timer()
 			print(toc-tic)
 			#print(S_2)
-			sw=1
+			sw=0
 		
 	
 
