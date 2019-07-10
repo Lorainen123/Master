@@ -24,7 +24,7 @@ GPIO.setmode(GPIO.BCM)
 
 
 def adquisicion (i):
-	global sw
+	global sw,S_2
 	while i==1:     
 		tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
@@ -49,7 +49,7 @@ def adquisicion (i):
    		 #Power of the battery
    
 		#print(S_2)
-		print(toc-tic)
+		#print(toc-tic)
 		sw=1
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
@@ -60,12 +60,12 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-		time.sleep(1)
-		#if sw==1: #dato nuevo 
-			#sw=0
+		if sw==1: #dato nuevo 
+			buf[0]=S_2
+			buf[1:N]=buf[0:N-1]
 			
-		#else: 
-			#print("dato no leido")
+		else: 
+			print("esperando dato")
 	
 	
 
