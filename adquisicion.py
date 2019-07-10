@@ -14,7 +14,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-sw=1
+sw=0
 N=100
 S_2=0
 buf = np.zeros((N,))
@@ -68,10 +68,9 @@ def main():
 	while True:
 		
 		tic = tm.default_timer()
-		#time.sleep(0.0000050)
+		time.sleep(0.00000050)
 		if sw==1: #dato nuevo 
 			#print(A2)
-			i=1
 			
 			buf[1:N]=buf[0:N-1]
 			buf[0]=S_2
