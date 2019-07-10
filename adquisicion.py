@@ -15,7 +15,7 @@ import timeit as tm
 SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
-N=10
+N=100
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
@@ -44,7 +44,7 @@ def adquisicion (i):
     		Vpanel=1.1+S_7
    		 #Power of the panel
 		#Pp = Vpanel*S_2
-		time.sleep(0.00070)
+		time.sleep(0.00040)
 		toc = tm.default_timer()
     
    		 #Power of the battery
