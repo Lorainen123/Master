@@ -53,7 +53,7 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-	i=1
+		i=1
 	
 	
 
