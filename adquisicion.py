@@ -53,9 +53,9 @@ def adquisicion (i):
 def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
-	while True:
-		i=1
-	
+	#while True:
+	#	i=1
+	time.sleep(1)
 	
 
 main()
