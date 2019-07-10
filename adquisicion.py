@@ -44,12 +44,12 @@ def adquisicion (i):
     		Vpanel=1.1+S_7
    		 #Power of the panel
 		#Pp = Vpanel*S_2
-		time.sleep(0.00988)
+		#time.sleep(0.00988)
 		toc = tm.default_timer()
     
    		 #Power of the battery
    
-		#print(S_2)
+		print(S_2)
 		#print(toc-tic)
 		sw=1
 		#print("Potencia del panel = "+Pp)
@@ -61,11 +61,12 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-		if sw==1: #dato nuevo 
-			buf[0]=S_2
-			buf[1:N]=buf[0:N-1]
-			print(np.mean(buf))
-			sw=0
+		time.sleep(1)
+		#if sw==1: #dato nuevo 
+		#	buf[0]=S_2
+		#	buf[1:N]=buf[0:N-1]
+		#	print(np.mean(buf))
+		#	sw=0
 		
 	
 
