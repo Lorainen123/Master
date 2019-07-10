@@ -26,7 +26,7 @@ GPIO.setmode(GPIO.BCM)
 
 def adquisicion (i):
 	global sw,S_2,A2
-	g=20
+	g=0
 	A2=0
 	while g<20:     
 		#tic = tm.default_timer()
@@ -53,6 +53,7 @@ def adquisicion (i):
    
 		#print(S_2)
 		#print(toc-tic)
+		g=g+1
 		
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
