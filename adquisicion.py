@@ -60,9 +60,9 @@ def main():
 	while True:
 		if sw==1: 
 			sw=0
-			#print(sw)
-		else: 
-			print("dato no leido")
+			print("dato leido")
+		#else: 
+			#print("dato no leido")
 	
 	
 
