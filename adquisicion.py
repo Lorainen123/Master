@@ -13,7 +13,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-
+S=0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 #Configuration pin output
@@ -22,7 +22,7 @@ GPIO.setmode(GPIO.BCM)
 
 
 def adquisicion (i):
-	
+	global S
 	while i==1:     
 		tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
@@ -53,7 +53,8 @@ def adquisicion (i):
 		#print("Voltaje del panel = "+Vpanel)
   
 def main():
-	global S=0
+	
+	
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
