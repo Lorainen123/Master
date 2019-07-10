@@ -1,3 +1,4 @@
+import numpy as np
 from math import *
 import time
 from time import sleep
