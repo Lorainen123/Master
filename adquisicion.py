@@ -63,8 +63,8 @@ def main():
 	while True:
 		#time.sleep(1)
 		if sw==1: #dato nuevo 
-			buf[0]=S_2
 			buf[1:N]=buf[0:N-1]
+			buf[0]=S_2
 			print(np.mean(buf))
 			sw=0
 		
