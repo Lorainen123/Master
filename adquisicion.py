@@ -67,17 +67,17 @@ def main():
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
 		
-		#time.sleep(1)
+		time.sleep(1)
 		#tic = tm.default_timer()
-		if sw==1: #dato nuevo 
+		#if sw==1: #dato nuevo 
 			#print(A2)
 			
-			buf[1:N]=buf[0:N-1]
-			buf[0]=S_2
+			#buf[1:N]=buf[0:N-1]
+			#buf[0]=S_2
 			#print(np.mean(buf))
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			sw=0
+			#sw=0
 		
 	
 
