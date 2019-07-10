@@ -50,7 +50,7 @@ def adquisicion (i):
    		 #Power of the battery
    
 		print(S_2)
-		print(toc-tic)
+		#print(toc-tic)
 		sw=1
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
