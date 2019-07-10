@@ -76,11 +76,12 @@ def main():
 			buf[1:N]=buf[0:N-1]
 			buf[0]=S_2
 			me=np.mean(buf)
+			sw=0
 			toc = tm.default_timer()
 			print(toc-tic)
 			#print(S_2)
-			sw=0
-		
+			
+		print(sw)
 		
 
 main()
