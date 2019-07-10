@@ -16,6 +16,7 @@ SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
 N=100
+S_2=0
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
@@ -50,7 +51,7 @@ def adquisicion (i):
     		#A2=A2+S_2
    		 #Power of the battery
    		sw=1
-		print(S_2)
+		
 		#print(toc-tic)
 		#g=g+1
 		
@@ -65,7 +66,7 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-		
+		print(S_2)
 		#time.sleep(0.00050)
 		tic = tm.default_timer()
 		if sw==1: #dato nuevo 
