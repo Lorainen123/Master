@@ -65,7 +65,7 @@ def main():
 			buf[0]=S_2
 			buf[1:N]=buf[0:N-1]
 			print(np.mean(buf))
-			
+			sw=0
 		
 	
 
