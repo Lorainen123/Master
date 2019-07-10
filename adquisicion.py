@@ -59,10 +59,10 @@ def main():
 	thread.start_new_thread(adquisicion,(sw,))
 	while True:
 		if sw==1: 
-			print("dato leido")
 			sw=0
+			print(sw)
 		else: 
-			print("dato no leido")
+			print(sw)
 	
 	
 
