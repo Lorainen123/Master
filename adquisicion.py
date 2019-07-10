@@ -13,6 +13,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
+s=1
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 #Configuration pin output
@@ -45,7 +46,7 @@ def adquisicion (i):
    		 #Power of the battery
    
 		print(S_2)
-		#print(toc-tic)
+		print(toc-tic)
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
   
