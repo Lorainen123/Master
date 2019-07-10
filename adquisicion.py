@@ -28,7 +28,7 @@ GPIO.setmode(GPIO.BCM)
 def adquisicion (i):
 	global sw,S_2
 
-	while i==1:     
+	while True:     
 		#tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
