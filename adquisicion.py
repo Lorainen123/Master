@@ -44,13 +44,13 @@ def adquisicion (i):
     		Vpanel=1.1+S_7
    		 #Power of the panel
 		#Pp = Vpanel*S_2
-		time.sleep(0.00388)
+		time.sleep(0.00088)
 		toc = tm.default_timer()
     
    		 #Power of the battery
    
 		print(S_2)
-		#print(toc-tic)
+		print(toc-tic)
 		sw=1
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
