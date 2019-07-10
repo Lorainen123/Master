@@ -66,7 +66,7 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-		print(S_2)
+		
 		#time.sleep(0.00050)
 		tic = tm.default_timer()
 		if sw==1: #dato nuevo 
@@ -78,6 +78,7 @@ def main():
 			me=np.mean(buf)
 			toc = tm.default_timer()
 			#print(toc-tic)
+			print(S_2)
 			sw=0
 		
 	
