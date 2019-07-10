@@ -54,7 +54,7 @@ def adquisicion (i):
   
 
 def main():
-	
+	global sw
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
