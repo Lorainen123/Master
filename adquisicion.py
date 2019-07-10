@@ -29,7 +29,7 @@ def adquisicion (i):
 	global sw,S_2
 
 	while i==1:     
-		tic = tm.default_timer()
+		#tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
     		#Value for zero adjustment of the sensors
@@ -47,12 +47,12 @@ def adquisicion (i):
    		 #Power of the panel
 		#Pp = Vpanel*S_2
 		time.sleep(0.00080)
-		toc = tm.default_timer()
+		#toc = tm.default_timer()
     		#A2=A2+S_2
    		 #Power of the battery
    		sw=1
 		
-		print(toc-tic)
+		#print(toc-tic)
 		#g=g+1
 		
 		#print("Potencia del panel = "+Pp)
@@ -67,7 +67,7 @@ def main():
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
 		
-		#tic = tm.default_timer()
+		tic = tm.default_timer()
 		time.sleep(0.0000050)
 		if sw==1: #dato nuevo 
 			#print(A2)
@@ -76,8 +76,8 @@ def main():
 			buf[1:N]=buf[0:N-1]
 			buf[0]=S_2
 			me=np.mean(buf)
-			#toc = tm.default_timer()
-			#print(toc-tic)
+			toc = tm.default_timer()
+			print(toc-tic)
 			#print(S_2)
 			sw=0
 		
