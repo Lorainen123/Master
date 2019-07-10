@@ -15,7 +15,7 @@ import timeit as tm
 SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
-N=40
+N=60
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
@@ -49,7 +49,7 @@ def adquisicion (i):
     
    		 #Power of the battery
    
-		print(S_2)
+		#print(S_2)
 		#print(toc-tic)
 		sw=1
 		#print("Potencia del panel = "+Pp)
@@ -64,7 +64,7 @@ def main():
 		if sw==1: #dato nuevo 
 			buf[0]=S_2
 			buf[1:N]=buf[0:N-1]
-			#print(np.mean(buf))
+			print(np.mean(buf))
 			sw=0
 		
 	
