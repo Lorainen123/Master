@@ -68,17 +68,17 @@ def main():
 	while True:
 		
 		time.sleep(0.00050)
-		#tic = tm.default_timer()
+		tic = tm.default_timer()
 		if sw==1: #dato nuevo 
 			#print(A2)
 			i=1
 			
-			#buf[1:N]=buf[0:N-1]
-			#buf[0]=S_2
-			#print(np.mean(buf))
-			#toc = tm.default_timer()
-			#print(toc-tic)
-			#sw=0
+			buf[1:N]=buf[0:N-1]
+			buf[0]=S_2
+			me=np.mean(buf)
+			toc = tm.default_timer()
+			print(toc-tic)
+			sw=0
 		
 	
 
