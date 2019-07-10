@@ -13,7 +13,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-s=1
+s=0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 #Configuration pin output
@@ -47,6 +47,7 @@ def adquisicion (i):
    
 		print(S_2)
 		print(toc-tic)
+		S=1
 		#print("Potencia del panel = "+Pp)
 		#print("Voltaje del panel = "+Vpanel)
   
@@ -54,7 +55,11 @@ def main():
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
 	while True:
-		time.sleep(1)
+		if S==1: 
+			print("dato leido")
+			S=0
+		else 
+			print("dato no leido")
 	
 	
 
