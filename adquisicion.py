@@ -21,8 +21,8 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
 
-def adquisicion ():
-	while True:     
+def adquisicion (i):
+	while i==1:     
 		tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
 		V2 = mcp.read_adc(5)
@@ -52,10 +52,10 @@ def adquisicion ():
   
 def main():
 	i=1
-	thread.start_new_thread(adquisicion,(,))
-	#while True:
-	#	i=1
-	time.sleep(1)
+	thread.start_new_thread(adquisicion,(i,))
+	while True:
+		time.sleep(1)
+	
 	
 
 main()
