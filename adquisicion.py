@@ -58,7 +58,7 @@ def main():
 		if S==1: 
 			print("dato leido")
 			S=0
-		else 
+		else: 
 			print("dato no leido")
 	
 	
