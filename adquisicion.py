@@ -30,7 +30,7 @@ def adquisicion (i):
 
 	while True:     
 		#tic = tm.default_timer()
-		A2 = mcp.read_adc(7)
+		A2 = mcp.read_adc(2)
 		V2 = mcp.read_adc(5)
     		#Value for zero adjustment of the sensors
     		#Conversion of digital value to analog
