@@ -69,8 +69,9 @@ def main():
 		
 		time.sleep(1)
 		#tic = tm.default_timer()
-		#if sw==1: #dato nuevo 
+		if sw==1: #dato nuevo 
 			#print(A2)
+			i=1
 			
 			#buf[1:N]=buf[0:N-1]
 			#buf[0]=S_2
