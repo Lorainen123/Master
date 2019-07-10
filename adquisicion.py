@@ -14,7 +14,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-sw=0
+sw=1
 N=100
 S_2=0
 buf = np.zeros((N,))
@@ -64,7 +64,7 @@ def adquisicion (i):
 def main():
 	global sw
 	i=1
-	thread.start_new_thread(adquisicion,(i,))
+	#thread.start_new_thread(adquisicion,(i,))
 	while True:
 		
 		#time.sleep(0.00050)
@@ -77,8 +77,8 @@ def main():
 			buf[0]=S_2
 			me=np.mean(buf)
 			toc = tm.default_timer()
-			#print(toc-tic)
-			print(S_2)
+			print(toc-tic)
+			#print(S_2)
 			sw=0
 		
 	
