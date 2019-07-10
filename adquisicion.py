@@ -14,7 +14,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-sw=1
+sw=0
 N=100
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
@@ -25,9 +25,8 @@ GPIO.setmode(GPIO.BCM)
 
 
 def adquisicion (i):
-	global sw,S_2,A2
-	g=0
-	A2=0
+	global sw,S_2
+
 	while i==1:     
 		#tic = tm.default_timer()
 		A2 = mcp.read_adc(7)
