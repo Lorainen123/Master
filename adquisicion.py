@@ -65,7 +65,7 @@ def main():
 	global sw
 	i=1
 	thread.start_new_thread(adquisicion,(i,))
-	while sw==1:
+	while True:
 		
 		time.sleep(1)
 		#tic = tm.default_timer()
