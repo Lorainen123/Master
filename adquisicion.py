@@ -68,7 +68,7 @@ def main():
 	while True:
 		
 		tic = tm.default_timer()
-		time.sleep(0.00050)
+		time.sleep(0.0000050)
 		if sw==1: #dato nuevo 
 			#print(A2)
 			i=1
