@@ -24,6 +24,47 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
+#Low current sensors configurations
+try:
+    ina = INA219(shunt_ohms=0.1,
+                 max_expected_amps = 2.0,
+                 address=0x40)
+
+    ina1 = INA219(shunt_ohms=0.1,
+                 max_expected_amps = 2.0,
+                 address=0x44)
+
+    ina2 = INA219(shunt_ohms=0.1,
+                 max_expected_amps = 2.0,
+                 address=0x41)
+
+    ina3 = INA219(shunt_ohms=0.1,
+                 max_expected_amps = 2.0,
+                 address=0x45)
+
+    ina.configure(voltage_range=ina.RANGE_32V,
+                  gain=ina.GAIN_AUTO,
+                  bus_adc=ina.ADC_128SAMP,
+                  shunt_adc=ina.ADC_128SAMP)
+
+    ina1.configure(voltage_range=ina.RANGE_32V,
+                  gain=ina.GAIN_AUTO,
+                  bus_adc=ina.ADC_128SAMP,
+                  shunt_adc=ina.ADC_128SAMP)
+
+    ina2.configure(voltage_range=ina.RANGE_32V,
+                  gain=ina.GAIN_AUTO,
+                  bus_adc=ina.ADC_128SAMP,
+                  shunt_adc=ina.ADC_128SAMP)
+
+    ina3.configure(voltage_range=ina.RANGE_32V,
+                  gain=ina.GAIN_AUTO,
+                  bus_adc=ina.ADC_128SAMP,
+                  shunt_adc=ina.ADC_128SAMP)
+except:
+    time.sleep(0.1)
+
+
 
 def adquisicion (i):
 	global sw,S_2
