@@ -52,7 +52,7 @@ except:
 
 def adquisicion2(i):
   
-	  global Ired
+	  global itotal
 	
 	  while True:
       
@@ -61,8 +61,8 @@ def adquisicion2(i):
         	        i1 = ina1.current()/1000
      		        i2 = ina2.current()/1000
                  	i3 = ina3.current()/1000
-	              	Ired=i+i1+i2+i3
-              		Ired=round(Ired,3)
+	              	itotal=i+i1+i2+i3
+              		itotal=round(itotal,3)
 		
 
 
@@ -77,7 +77,7 @@ while i<41:
     time.sleep(1)
    # P1=Node611.sensorm()
      
-    archivo.write(str(Ired)+'\n')
+    archivo.write(str(itotal)+'\n')
    
     
  #   n = excel.main(float(16.2),0)
