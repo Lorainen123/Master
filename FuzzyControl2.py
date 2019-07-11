@@ -96,10 +96,10 @@ rule9=ctrl.Rule(dired['PS']&Vdif['Z'],Vrefd['NS'])
 rule10=ctrl.Rule(dired['NS']&Vdif['PS'],Vrefd['PS'])
 rule11=ctrl.Rule(dired['PB']&Vdif['NS'],Vrefd['PS'])
 
-rule10=ctrl.Rule(dired['Z'],Vrefd['Z'])
+rule12=ctrl.Rule(dired['Z'],Vrefd['Z'])
 
 
-vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5,rule6,rule7,rule8, rule9,rule10])
+vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5,rule6,rule7,rule8, rule9,rule10,rule11,rule12])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 
