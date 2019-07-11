@@ -123,7 +123,7 @@ def main():
     n = excel.main(float(v2),0)
     n = int(n)
     mcpras.set_value(n)
-    ired2=adquisicion2()
+    Ired2=adquisicion2()
 
     while True:
   
