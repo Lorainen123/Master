@@ -66,7 +66,7 @@ except:
 
 
 
-def adquisicion (i):
+def adquisicion1 (i):
 	global sw,S_2
 
 	while True:     
@@ -101,12 +101,27 @@ def adquisicion (i):
 		#print("Voltaje del panel = "+Vpanel)
 	
 	#A2=A2/20
+	
+def adquisicion2(i):
+	#try:
+	while True:
+        	i = round(ina.current()/1000,2)
+        	i1 = round(ina1.current()/1000,2)
+     		i2 = round(ina2.current()/1000,2)
+        	i3 = round(ina3.current()/1000,2)
+		Ired=i+i1+i2+i3
+    #except:
+     #   i=0.0
+      #  i1=0.0
+      #  i2=0.0
+      #  i3=0.0
   
 
 def main():
 	global sw
 	i=1
-	thread.start_new_thread(adquisicion,(i,))
+	thread.start_new_thread(adquisicion1,(i,))
+	thread.start_new_thread(adquisicion2,(i,))
 	while True:
 		
 		#tic = tm.default_timer()
@@ -120,7 +135,8 @@ def main():
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			print(me)
+			#print(me)
+			print(Ired)
 			
 		#print(sw)
 		
