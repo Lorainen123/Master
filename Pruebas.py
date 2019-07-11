@@ -79,7 +79,7 @@ def main():
    # P1=Node611.sensorm()
      
     		archivo.write(str(itotal)+'\n')
-   
+   		i=i+1
     
  #   n = excel.main(float(16.2),0)
  #   n = int(n)
@@ -87,7 +87,7 @@ def main():
  #   time.sleep(1)
  #   P1=Node611.sensorm()
  #   archivo.write(str(P1)+'\n')
-   		 i=i+1
+   		
     
 main()  
 archivo.close()
