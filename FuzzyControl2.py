@@ -125,17 +125,17 @@ def main():
     mcpras.set_value(n)
     ired2=adquisicion2()
 
-while True:
+    while True:
   
-    if v2<=14.6 :
-      v2=14.5
-    elif v2>=18.5:
-      v2=18.6
+   	 if v2<=14.6 :
+     	 	v2=14.5
+ 	 elif v2>=18.5:
+      		v2=18.6
       
-    vrefout.input['dired']=dired
-    vrefout.input['Vdif']=Vdif
-    vrefout.compute()
-    Vrefin=round(vrefout.output['Vrefd'],2)
+   	 vrefout.input['dired']=dired
+    	 vrefout.input['Vdif']=Vdif
+    	 vrefout.compute()
+    	 Vrefin=round(vrefout.output['Vrefd'],2)
     
     
     #if Vrefin==0:
@@ -157,19 +157,29 @@ while True:
        #Vdif=0.2
       
     #else:
-    v=v2
-    v2=v2+Vrefin
-    Vdif=v2-v
-    Ired=Ired2
-    n = excel.main(float(v2),0)
-    n = int(n)
-    mcpras.set_value(n)
-    time.sleep(1)
-    Ired2=adquisicion2()
-    dired=Ired2-Ired
+   	 v=v2
+    	 v2=v2+Vrefin
+    	 Vdif=v2-v
+    	 Ired=Ired2
+    	 n = excel.main(float(v2),0)
+   	 n = int(n)
+    	 mcpras.set_value(n)
+    	 time.sleep(1)
+    	 Ired2=adquisicion2()
+    	 dired=Ired2-Ired
        
 
+    	 print("Corriente de la red t= "+str(Ired))
+    	 print("Corriente de la red t+1 = "+str(Ired2))
+   	 print("Vref = "+str(v2))
+   # print("Cambio de potencia/voltaje = "+str(dpdv))
+   	 print("Cambio de voltaje = "+str(Vrefin))
  
+  
+  
+
+
+ main()
     
    
    # dpdv=Pdif/Vdif
@@ -188,11 +198,3 @@ while True:
     
          
     
-    print("Corriente de la red t= "+str(Ired))
-    print("Corriente de la red t+1 = "+str(Ired2))
-    print("Vref = "+str(v2))
-   # print("Cambio de potencia/voltaje = "+str(dpdv))
-    print("Cambio de voltaje = "+str(Vrefin))
- 
-  
-  
