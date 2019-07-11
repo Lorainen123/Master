@@ -59,7 +59,7 @@ def adquisicion2(i):
 	
                  	i = ina.current()/1000
         	        i1 = ina1.current()/1000
-     		          i2 = ina2.current()/1000
+     		        i2 = ina2.current()/1000
                  	i3 = ina3.current()/1000
 	              	Ired=i+i1+i2+i3
               		Ired=round(Ired,3)
