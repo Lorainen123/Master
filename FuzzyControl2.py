@@ -175,7 +175,9 @@ def main():
     	 print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Ired2))
 	 print("Cambio de corriente ="+str(dired))
-   	 print("Vref = "+str(v2))
+	 print("Vref1"+str(v))
+   	 print("Vref2 = "+str(v2))
+	 print("diferencia de voltaje v2-v"+str(Vdif))
    # print("Cambio de potencia/voltaje = "+str(dpdv))
    	 print("Cambio de voltaje = "+str(Vrefin))
  
