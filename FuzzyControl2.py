@@ -116,7 +116,7 @@ def adquisicion2():
 def main(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dired=-1
+    dired=-0.1
     Vdif=0.2
     v2=18.6
 
