@@ -66,18 +66,19 @@ def adquisicion2(i):
 		
 
 
-    
-thread.start_new_thread(adquisicion2,(i,))
-while i<41:
+def main():
+	global itotal
+	thread.start_new_thread(adquisicion2,(i,))
+	while i<41:
   
    
-    n = excel.main(float(v+0.1*i),0)
-    n = int(n)
-    mcpras.set_value(n)
-    time.sleep(1)
+    		n = excel.main(float(v+0.1*i),0)
+   		n = int(n)
+    		mcpras.set_value(n)
+    		time.sleep(1)
    # P1=Node611.sensorm()
      
-    archivo.write(str(itotal)+'\n')
+    		archivo.write(str(itotal)+'\n')
    
     
  #   n = excel.main(float(16.2),0)
@@ -86,9 +87,9 @@ while i<41:
  #   time.sleep(1)
  #   P1=Node611.sensorm()
  #   archivo.write(str(P1)+'\n')
-    i=i+1
+   		 i=i+1
     
-    
+main()  
 archivo.close()
 
                   
