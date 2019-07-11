@@ -73,11 +73,11 @@ Vdif['PB'] = fuzz.trapmf(Vdif.universe, [0.29, 0.5, 0.63, 0.87])
 
 #Vref
 
-Vref['NB'] = fuzz.trapmf(Vref.universe, [-0.87, -0.63, -0.5, -0.29])
-Vref['NS'] = fuzz.trimf(Vref.universe, [-0.3, -0.145, -0.001])
-Vref['Z'] = fuzz.trimf(Vref.universe, [-0.002, 0, 0.002])
-Vref['PS'] = fuzz.trimf(Vref.universe, [0.01, 0.145, 0.3])
-Vref['PB'] = fuzz.trapmf(Vref.universe, [0.29, 0.5, 0.63, 0.87])
+Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.5, -0.29])
+Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.145, -0.001])
+Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.002, 0, 0.002])
+Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.01, 0.145, 0.3])
+Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
 
 ##Rules
 
