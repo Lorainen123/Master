@@ -131,11 +131,7 @@ def main():
 
     while True:
   
-   	 if v2<=14.6 :
-     	 	v2=14.5
- 	 elif v2>=18.5:
-      		v2=18.6
-      
+      	 
    	 vrefout.input['dired']=dired
     	 vrefout.input['Vdif']=Vdif
     	 vrefout.compute()
@@ -165,10 +161,17 @@ def main():
     	 v2=v2+Vrefin
     	 Vdif=v2-v
     	 Ired=Ired2
-    	 n = excel.main(float(v2),0)
-   	 n = int(n)
-    	 mcpras.set_value(n)
-    	 time.sleep(1)
+	 try:	
+    	 	n = excel.main(float(v2),0)
+   	 	n = int(n)
+    	 	mcpras.set_value(n)
+    	except:
+		n = excel.main(float(14.5),0)
+   	 	n = int(n)
+    	 	mcpras.set_value(n)
+		
+		
+	time.sleep(1)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
        
