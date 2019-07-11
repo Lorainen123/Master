@@ -19,7 +19,7 @@ N=150
 S_2=0
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
-itotal=0
+Ired=0
 
 #Configuration pin output
 GPIO.setwarnings(False)
