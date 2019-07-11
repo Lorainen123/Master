@@ -9,7 +9,7 @@ import thread
 i=0
 v=14.5
 archivo=open("prueba1.txt","w")
-
+itotal=0
 try:
     ina = INA219(shunt_ohms=0.1,
                  max_expected_amps = 2.0,
