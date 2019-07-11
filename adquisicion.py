@@ -107,10 +107,10 @@ def adquisicion2(i):
 	#try:
 	while True:
 		tic = tm.default_timer()
-        	i = ina.current()/1000
-        	i1 = ina1.current()/1000
-     		i2 = ina2.current()/1000
-        	i3 = ina3.current()/1000
+        	i = ina.current()/500
+        	i1 = ina1.current()/500
+     		i2 = ina2.current()/500
+        	i3 = ina3.current()/500
 		Ired=i+i1+i2+i3
 		toc = tm.default_timer()
 		print(toc-tic)
