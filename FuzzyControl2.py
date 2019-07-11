@@ -102,12 +102,12 @@ def adquisicion2():
 		#tic = tm.default_timer()
         	ired = ina.current()/1000
         	ired1 = ina1.current()/1000
-     		  ired2 = ina2.current()/1000
+     		ired2 = ina2.current()/1000
         	ired3 = ina3.current()/1000
 	      	Itotal=ired+ired1+ired2+ired3
 	      	Itotal=round(Itotal,3)
 	      	#time.sleep(0.00080)
-          return Itotal
+         	return Itotal
 		#toc = tm.default_timer()
 		#print(toc-tic)
 		
