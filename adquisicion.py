@@ -103,6 +103,7 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
+	global Ired
 	#try:
 	while True:
         	i = round(ina.current()/1000,2)
