@@ -95,11 +95,11 @@ rule8=ctrl.Rule(dired['PB']&Vdif['Z'],Vrefd['NS'])
 rule9=ctrl.Rule(dired['PS']&Vdif['Z'],Vrefd['NS'])
 rule10=ctrl.Rule(dired['NS']&Vdif['PS'],Vrefd['PS'])
 rule11=ctrl.Rule(dired['PB']&Vdif['NS'],Vrefd['PS'])
+rule12=ctrl.Rule(dired['PS']&Vdif['NS'],Vrefd['PS'])
+rule13=ctrl.Rule(dired['Z'],Vrefd['Z'])
 
-rule12=ctrl.Rule(dired['Z'],Vrefd['Z'])
 
-
-vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5,rule6,rule7,rule8, rule9,rule10,rule11,rule12])
+vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5,rule6,rule7,rule8, rule9,rule10,rule11,rule12,rule13])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 
@@ -173,6 +173,7 @@ def main():
 		n = excel.main(float(14.5),0)
    	 	n = int(n)
     	 	mcpras.set_value(n)
+		v2=14.5
 		
 		
 	 time.sleep(1)
