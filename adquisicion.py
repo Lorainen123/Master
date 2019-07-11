@@ -19,7 +19,7 @@ N=150
 S_2=0
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
-Ired=0
+Itotal=0
 
 #Configuration pin output
 GPIO.setwarnings(False)
@@ -104,16 +104,16 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global Ired
+	global Itotal
 	
 	while True:
 		#tic = tm.default_timer()
-        	i = ina.current()/1000
-        	i1 = ina1.current()/1000
-     		i2 = ina2.current()/1000
-        	i3 = ina3.current()/1000
-		Ired=i+i1+i2+i3
-		Ired=round(Ired,3)
+        	ired = ina.current()/1000
+        	ired1 = ina1.current()/1000
+     		ired2 = ina2.current()/1000
+        	ired3 = ina3.current()/1000
+		Itotal=ired+ired1+ired2+ired3
+		Itotal=round(Itotal,3)
 		time.sleep(0.00080)
 		#toc = tm.default_timer()
 		#print(toc-tic)
@@ -121,10 +121,10 @@ def adquisicion2(i):
   
 
 def main():
-	global sw, Ired
+	global sw, Itotal
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
-	#thread.start_new_thread(adquisicion2,(i,))
+	thread.start_new_thread(adquisicion2,(i,))
 	while True:
 		
 		#tic = tm.default_timer()
@@ -141,7 +141,7 @@ def main():
 			#print(me)
 			
 			
-		print(Ired)
+		print(Itotal)
 		
 
 main()
