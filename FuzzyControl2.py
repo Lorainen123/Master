@@ -165,7 +165,7 @@ def main():
     	 	n = excel.main(float(v2),0)
    	 	n = int(n)
     	 	mcpras.set_value(n)
-    	except:
+    	 except:
 		n = excel.main(float(14.5),0)
    	 	n = int(n)
     	 	mcpras.set_value(n)
