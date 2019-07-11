@@ -114,6 +114,7 @@ def adquisicion2(i):
         	i3 = ina3.current()/1000
 		Ired=i+i1+i2+i3
 		Ired=round(Ired,3)
+		time.sleep(0.00080)
 		#toc = tm.default_timer()
 		#print(toc-tic)
 		
