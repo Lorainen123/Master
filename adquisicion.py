@@ -19,6 +19,7 @@ N=150
 S_2=0
 buf = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
+itotal=0
 
 #Configuration pin output
 GPIO.setwarnings(False)
@@ -115,12 +116,11 @@ def adquisicion2(i):
 		Ired=round(Ired,3)
 		#toc = tm.default_timer()
 		#print(toc-tic)
-		return Ired
-   
+		
   
 
 def main():
-	global sw
+	global sw, Ired
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
 	#thread.start_new_thread(adquisicion2,(i,))
@@ -140,7 +140,7 @@ def main():
 			#print(me)
 			
 			
-		#print(sw)
+		print(Ired)
 		
 
 main()
