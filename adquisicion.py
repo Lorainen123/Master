@@ -104,22 +104,19 @@ def adquisicion1 (i):
 	
 def adquisicion2(i):
 	global Ired
-	#try:
+	
 	while True:
-		tic = tm.default_timer()
-        	i = ina.current()/500
-        	i1 = ina1.current()/500
-     		i2 = ina2.current()/500
-        	i3 = ina3.current()/500
+		#tic = tm.default_timer()
+        	i = ina.current()/1000
+        	i1 = ina1.current()/1000
+     		i2 = ina2.current()/1000
+        	i3 = ina3.current()/1000
 		Ired=i+i1+i2+i3
-		toc = tm.default_timer()
-		print(toc-tic)
-		#print(Ired)
-    #except:
-     #   i=0.0
-      #  i1=0.0
-      #  i2=0.0
-      #  i3=0.0
+		Ired=round(Ired,3)
+		#toc = tm.default_timer()
+		#print(toc-tic)
+		print(Ired)
+   
   
 
 def main():
