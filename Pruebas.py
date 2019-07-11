@@ -50,7 +50,7 @@ except:
     time.sleep(0.1)
     
 
-def adquisicion2(i):
+def adquisicion2(j):
   
 	  global itotal
 	
@@ -68,7 +68,8 @@ def adquisicion2(i):
 
 def main():
 	global itotal
-	thread.start_new_thread(adquisicion2,(i,))
+	j=1
+	thread.start_new_thread(adquisicion2,(j,))
 	while i<41:
   
    
