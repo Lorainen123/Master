@@ -111,6 +111,7 @@ def adquisicion2(i):
      		i2 = round(ina2.current()/1000,2)
         	i3 = round(ina3.current()/1000,2)
 		Ired=i+i1+i2+i3
+		print(Ired)
     #except:
      #   i=0.0
       #  i1=0.0
@@ -137,7 +138,7 @@ def main():
 			#toc = tm.default_timer()
 			#print(toc-tic)
 			#print(me)
-			print(Ired)
+			
 			
 		#print(sw)
 		
