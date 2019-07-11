@@ -106,10 +106,10 @@ def adquisicion2(i):
 	global Ired
 	#try:
 	while True:
-        	i = round(ina.current()/1000,2)
-        	i1 = round(ina1.current()/1000,2)
-     		i2 = round(ina2.current()/1000,2)
-        	i3 = round(ina3.current()/1000,2)
+        	i = ina.current()/1000
+        	i1 = ina1.current()/1000
+     		i2 = ina2.current()/1000
+        	i3 = ina3.current()/1000
 		Ired=i+i1+i2+i3
 		print(Ired)
     #except:
