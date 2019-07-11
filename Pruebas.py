@@ -57,11 +57,11 @@ def adquisicion2(i):
 	  while True:
       
 	
-                 	i = ina.current()/1000
-        	        i1 = ina1.current()/1000
-     		        i2 = ina2.current()/1000
-                 	i3 = ina3.current()/1000
-	              	itotal=i+i1+i2+i3
+                 	ired = ina.current()/1000
+        	        ired1 = ina1.current()/1000
+     		        ired2 = ina2.current()/1000
+                 	ired3 = ina3.current()/1000
+	              	itotal=ired+ired1+ired2+ired3
               		itotal=round(itotal,3)
 		
 
