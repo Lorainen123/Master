@@ -93,6 +93,7 @@ rule6=ctrl.Rule(dired['PS']&Vdif['NB'],Vrefd['PS'])
 rule7=ctrl.Rule(dired['PB']&Vdif['NB'],Vrefd['PS'])
 rule8=ctrl.Rule(dired['PB']&Vdif['Z'],Vrefd['NS'])
 rule9=ctrl.Rule(dired['PS']&Vdif['Z'],Vrefd['NS'])
+rule10=ctrl.Rule(dired['NS']&Vdif['PS'],Vrefd['PS'])
 
 rule10=ctrl.Rule(dired['Z'],Vrefd['Z'])
 
