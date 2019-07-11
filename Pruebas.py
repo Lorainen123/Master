@@ -4,6 +4,7 @@ import mcpras
 import time
 import numpy as np
 import thread
+from ina219 import INA219
 
 
 
