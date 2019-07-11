@@ -6,7 +6,7 @@ import numpy as np
 import thread
 
 
-i=0
+
 v=14.5
 archivo=open("prueba1.txt","w")
 itotal=0
@@ -68,8 +68,8 @@ def adquisicion2(j):
 
 def main():
 	global itotal
-	j=1
-	thread.start_new_thread(adquisicion2,(j,))
+	i=0
+	thread.start_new_thread(adquisicion2,(i,))
 	while i<41:
   
    
