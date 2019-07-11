@@ -57,11 +57,11 @@ Vdif = ctrl.Antecedent(np.arange(-0.9, 0.9, 0.1),'Vdif')
 #Membership functions
 
 #Dired 
-dired['NB'] = fuzz.trapmf(dired.universe, [-0.725, -0.525, -0.07, -0.04])
+dired['NB'] = fuzz.trapmf(dired.universe, [-2, -0.525, -0.07, -0.04])
 dired['NS'] = fuzz.trimf(dired.universe, [-0.05, -0.024, -0.002])
 dired['Z'] = fuzz.trimf(dired.universe, [-0.003, 0, 0.003])
 dired['PS'] = fuzz.trimf(dired.universe, [0.002, 0.024, 0.05])
-dired['PB'] = fuzz.trapmf(dired.universe, [0.04, 0.05, 0.525, 0.725])
+dired['PB'] = fuzz.trapmf(dired.universe, [0.04, 0.05, 0.525, 2])
 
 #Vdif
 
