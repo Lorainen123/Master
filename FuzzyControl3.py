@@ -125,28 +125,30 @@ def main():
     	 v2=v2+Vrefin
     	 Vdif=v2-v
     	 Ired=Ired2
-	 try:	
-    	 	n = excel.main(float(v2),0)
-   	 	n = int(n)
-    	 	mcpras.set_value(n)
-    	 except:
-		n = excel.main(float(14.5),0)
-   	 	n = int(n)
-    	 	mcpras.set_value(n)
-		v2=14.5
+	# try:	
+    	 n = excel.main(float(v2),0)
+   	 n = int(n)
+    	 mcpras.set_value(n)
+    	# except:
+	#	n = excel.main(float(14.5),0)
+   	# 	n = int(n)
+    	# 	mcpras.set_value(n)
+	#	v2=14.5
 		
 		
 	 time.sleep(1)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
 	 
-	#ry:
+	try:
 			
-	 dIdv=dired/Vdif
-        # except:
-	#	print("division por cero")
+	 	dIdv=dired/Vdif
+        except:
+		print("division por cero")
 
-    	 print("Corriente de la red t= "+str(Ired))
+    	
+	 
+	 print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Ired2))
 	 print("Cambio de corriente ="+str(dired))
 	 print("Vref1"+str(v))
