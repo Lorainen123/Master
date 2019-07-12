@@ -144,7 +144,10 @@ def main():
 			
 	 	dIdv=dired/Vdif
          except:
-		print("division por cero")
+		if dired==0:
+			dIdv=0
+		else:
+			dIdv=0.2
 
     	
 	 
