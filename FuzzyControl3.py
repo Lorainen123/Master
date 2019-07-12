@@ -125,15 +125,15 @@ def main():
     	 v2=v2+Vrefin
     	 Vdif=v2-v
     	 Ired=Ired2
-	# try:	
-    	 n = excel.main(float(v2),0)
-   	 n = int(n)
-    	 mcpras.set_value(n)
-    	# except:
-	#	n = excel.main(float(14.5),0)
-   	# 	n = int(n)
-    	# 	mcpras.set_value(n)
-	#	v2=14.5
+	 try:	
+    	 	n = excel.main(float(v2),0)
+   	 	n = int(n)
+    	 	mcpras.set_value(n)
+    	 except:
+		n = excel.main(float(14.5),0)
+   	 	n = int(n)
+    	 	mcpras.set_value(n)
+		v2=14.5
 		
 		
 	 time.sleep(1)
