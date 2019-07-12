@@ -8,4 +8,4 @@ pid.output_limits = (0, 10)
 
 while True:
 
-  control = pid(v) # The PID class implements __call__(), which means that to compute a new output value
+  control = pid(9) # The PID class implements __call__(), which means that to compute a new output value
