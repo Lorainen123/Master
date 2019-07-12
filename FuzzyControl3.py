@@ -140,10 +140,10 @@ def main():
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
 	 
-	try:
+	 try:
 			
 	 	dIdv=dired/Vdif
-        except:
+         except:
 		print("division por cero")
 
     	
