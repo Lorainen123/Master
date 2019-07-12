@@ -51,25 +51,16 @@ except:
 #Fuzzy Controller 
 
 Vrefd = ctrl.Consequent(np.arange(-0.9, 0.9, 0.1), 'Vrefd')
-dired = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dired')
-Vdif = ctrl.Antecedent(np.arange(-0.9, 0.9, 0.1),'Vdif')
+dIdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dIdv')
 
 #Membership functions
 
 #Dired 
-dired['NB'] = fuzz.trapmf(dired.universe, [-2, -0.525, -0.07, -0.04])
-dired['NS'] = fuzz.trimf(dired.universe, [-0.05, -0.024, -0.002])
-dired['Z'] = fuzz.trimf(dired.universe, [-0.003, 0, 0.003])
-dired['PS'] = fuzz.trimf(dired.universe, [0.002, 0.024, 0.05])
-dired['PB'] = fuzz.trapmf(dired.universe, [0.04, 0.05, 0.525, 2])
-
-#Vdif
-
-Vdif['NB'] = fuzz.trapmf(Vdif.universe, [-0.87, -0.63, -0.5, -0.29])
-Vdif['NS'] = fuzz.trimf(Vdif.universe, [-0.3, -0.145, -0.001])
-Vdif['Z'] = fuzz.trimf(Vdif.universe, [-0.002, 0, 0.002])
-Vdif['PS'] = fuzz.trimf(Vdif.universe, [0.01, 0.145, 0.3])
-Vdif['PB'] = fuzz.trapmf(Vdif.universe, [0.29, 0.5, 0.63, 0.87])
+dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-10, -1.05, -0.5, -0.24])
+dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
+dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.1, -0.02, 0.02, 0.1])
+dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
+dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 10])
 
 #Vref
 
@@ -84,22 +75,13 @@ Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
 #rule1=ctrl.Rule(Pdif['P'],Vrefd['P'])
 #rule2=ctrl.Rule(Pdif['N'],Vrefd['N'])
 #rule3=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
-rule1=ctrl.Rule(dired['PB']&Vdif['PS'],Vrefd['NB'])
-rule2=ctrl.Rule(dired['NB']&Vdif['NS'],Vrefd['NB'])
-rule3=ctrl.Rule(dired['NB']&Vdif['NB'],Vrefd['NS'])
-rule4=ctrl.Rule(dired['NS']&Vdif['NS'],Vrefd['NS'])
-rule5=ctrl.Rule(dired['NS']&Vdif['NB'],Vrefd['NS'])
-rule6=ctrl.Rule(dired['PS']&Vdif['NB'],Vrefd['PS'])
-rule7=ctrl.Rule(dired['PB']&Vdif['NB'],Vrefd['PS'])
-rule8=ctrl.Rule(dired['PB']&Vdif['Z'],Vrefd['NS'])
-rule9=ctrl.Rule(dired['PS']&Vdif['Z'],Vrefd['NS'])
-rule10=ctrl.Rule(dired['NS']&Vdif['PS'],Vrefd['PS'])
-rule11=ctrl.Rule(dired['PB']&Vdif['NS'],Vrefd['PS'])
-rule12=ctrl.Rule(dired['PS']&Vdif['NS'],Vrefd['PS'])
-rule13=ctrl.Rule(dired['Z'],Vrefd['Z'])
+rule1=ctrl.Rule(dired['PB'],Vrefd['NB'])
+rule2=ctrl.Rule(dired['NB'],Vrefd['PB'])
+rule3=ctrl.Rule(dired['PS'],Vrefd['NS'])
+rule4=ctrl.Rule(dired['NS'],Vrefd['PS'])
+rule5=ctrl.Rule(dired['Z'],Vrefd['Z'])
 
-
-vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5,rule6,rule7,rule8, rule9,rule10,rule11,rule12,rule13])
+vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 
@@ -124,8 +106,7 @@ def adquisicion2():
 def main(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dired=0.1
-    Vdif=0.2
+    dIdv=1 
     v2=18.6
 
     n = excel.main(float(v2),0)
@@ -136,32 +117,11 @@ def main():
     while True:
   
       	 
-   	 vrefout.input['dired']=dired
-    	 vrefout.input['Vdif']=Vdif
+   	 vrefout.input['dIdv']=dIdv
     	 vrefout.compute()
     	 Vrefin=round(vrefout.output['Vrefd'],2)
-    
-    
-    #if Vrefin==0:
-       #n = excel.main(float(v2),0)
-       #n = int(n)
-       #mcpras.set_value(n)
-       #time.sleep(1)
-       #P2=Node611.sensorm()
-       
-       
-        
-       #n = excel.main(float(v2-0.3),0)
-       #n = int(n)
-       #mcpras.set_value(n)
-       #time.sleep(1)
-       #P1=Node611.sensorm() 
-       
-       #Pdif=P2-P1
-       #Vdif=0.2
-      
-    #else:
-   	 v=v2
+   
+  	 v=v2
     	 v2=v2+Vrefin
     	 Vdif=v2-v
     	 Ired=Ired2
@@ -179,6 +139,7 @@ def main():
 	 time.sleep(1)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
+	 dIdv=dired/Vdif
        
 
     	 print("Corriente de la red t= "+str(Ired))
@@ -187,7 +148,8 @@ def main():
 	 print("Vref1"+str(v))
    	 print("Vref2 = "+str(v2))
 	 print("diferencia de voltaje v2-v"+str(Vdif))
-   # print("Cambio de potencia/voltaje = "+str(dpdv))
+		
+         print("Cambio de corriente/voltaje = "+str(dIdv))
    	 print("Cambio de voltaje = "+str(Vrefin))
  
   
