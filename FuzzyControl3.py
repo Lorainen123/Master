@@ -75,11 +75,11 @@ Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
 #rule1=ctrl.Rule(Pdif['P'],Vrefd['P'])
 #rule2=ctrl.Rule(Pdif['N'],Vrefd['N'])
 #rule3=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
-rule1=ctrl.Rule(dired['PB'],Vrefd['NB'])
-rule2=ctrl.Rule(dired['NB'],Vrefd['PB'])
-rule3=ctrl.Rule(dired['PS'],Vrefd['NS'])
-rule4=ctrl.Rule(dired['NS'],Vrefd['PS'])
-rule5=ctrl.Rule(dired['Z'],Vrefd['Z'])
+rule1=ctrl.Rule(dIdv['PB'],Vrefd['NB'])
+rule2=ctrl.Rule(dIdv['NB'],Vrefd['PB'])
+rule3=ctrl.Rule(dIdv['PS'],Vrefd['NS'])
+rule4=ctrl.Rule(dIdv['NS'],Vrefd['PS'])
+rule5=ctrl.Rule(dIdv['Z'],Vrefd['Z'])
 
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
@@ -139,8 +139,11 @@ def main():
 	 time.sleep(1)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
-	 dIdv=dired/Vdif
-       
+	 try:
+			
+	 	dIdv=dired/Vdif
+         except:
+		print("division por cero")
 
     	 print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Ired2))
