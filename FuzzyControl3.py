@@ -136,7 +136,7 @@ def main():
 		v2=14.5
 		
 		
-	 time.sleep(0.25)
+	 time.sleep(0.2)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
 	 
