@@ -139,11 +139,12 @@ def main():
 	 time.sleep(1)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
-	 try:
+	 
+	#ry:
 			
-	 	dIdv=dired/Vdif
-         except:
-		print("division por cero")
+	 dIdv=dired/Vdif
+        # except:
+	#	print("division por cero")
 
     	 print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Ired2))
