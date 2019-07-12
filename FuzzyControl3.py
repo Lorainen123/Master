@@ -144,7 +144,7 @@ def main():
 			
 	 	dIdv=dired/Vdif
          except:
-		if dired==0:
+		if dired<=0.003:
 			dIdv=0
 		else:
 			dIdv=0.2
