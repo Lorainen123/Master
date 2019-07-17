@@ -68,10 +68,10 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2, Ptotal
+	global sw,S_2, Ptotal, V1
 
 	while True:     
-		
+		## Potencia de la red
 		pred = ina.power()/1000
         	pred1 = ina1.power()/1000
      		pred2 = ina2.power()/1000
@@ -82,7 +82,7 @@ def adquisicion1 (i):
 		
 		#tic = tm.default_timer()
 		A2 = mcp.read_adc(2)
-		V2 = mcp.read_adc(5)
+		V1 = mcp.read_adc(4)
     		#Value for zero adjustment of the sensors
     		#Conversion of digital value to analog
     		#current sensors	
@@ -91,13 +91,7 @@ def adquisicion1 (i):
 		S_2=-25.3+10*S_2m
 		
    		 #voltage sensors
-   		S_7 = ((V2)*(5.15/1023))*(37.5/7.5)
-	
-    		#Calculation of panel voltage
-    		Vpanel=1.1+S_7
-   		 #Power of the panel
-		#Pp = Vpanel*S_2
-		
+    		
 		#toc = tm.default_timer()
     		#A2=A2+S_2
    		 #Power of the battery
@@ -130,7 +124,7 @@ def powerred(i):
   
 
 def main():
-	global sw, Ptotal
+	global sw, Ptotal, V1
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
 	#thread.start_new_thread(adquisicion2,(i,))
@@ -141,14 +135,19 @@ def main():
 		if sw==1: #dato nuevo 
 			#print(A2)
 			
-			buf[1:N]=buf[0:N-1]
-			buf[0]=Ptotal
-			me=np.mean(buf)
-			pred=6.8807+1.06223*me+0.00221977*me*me
+			bufred[1:N]=bufred[0:N-1]
+			bufred[0]=Ptotal
+			pred=np.mean(bufred)
+			pred=6.8807+1.06223*pred+0.00221977*pred*pred
+			
+			bufsol[1:N]=bufsol[0:N-1]
+			bufsol[0]=V1
+			psol=np.mean(bufsol)
+			
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			print(pred)
+			print(psol)
 			
 			
 		#print(Itotal)
