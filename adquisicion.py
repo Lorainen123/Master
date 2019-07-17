@@ -78,7 +78,7 @@ def adquisicion1 (i):
      		pred2 = ina2.power()/1000
         	pred3 = ina3.power()/1000
 		PRtotal=pred+pred1+pred2+pred3
-		PRtotal=round(Ptotal,3)
+		PRtotal=round(PRtotal,3)
 		
 		
 		#tic = tm.default_timer()
@@ -133,7 +133,7 @@ def main():
 			#print(A2)
 			
 			bufred[1:N]=bufred[0:N-1]
-			bufred[0]=Ptotal
+			bufred[0]=PRtotal
 			pred=np.mean(bufred)
 			pred=6.8807+1.06223*pred+0.00221977*pred*pred
 			
