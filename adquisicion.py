@@ -116,7 +116,7 @@ def adquisicion2(i):
 		Itotal=round(Itotal,3)
 		time.sleep(0.00080)
 		#toc = tm.default_timer()
-		print(ired)
+		print(ired1)
 		
   
 
