@@ -97,8 +97,8 @@ def adquisicion1 (i):
 		
 		A4 = mcp.read_adc(1)  ## corriente de la bateria
 		S_4m=(A4*(5.15/1023))
-    		S_4=-25.3+10*S_4m
-		
+    		#S_4=-25.3+10*S_4m
+		S_4=43.4613-47.717*S_4m + 12.0923*S_4m*S_4m
 		V2 = mcp.read_adc(5)
 		S_7 = (V2*(5.15/1023))*(37.5/7.5) ##voltaje de la bateria
 		
