@@ -67,15 +67,17 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 #Configuration pin output
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(16, GPIO.OUT)
-GPIO.setup(20, GPIO.OUT)
-GPIO.setup(26, GPIO.OUT)
+GPIO.setup(13, GPIO.OUT)  ## 1
+GPIO.setup(19, GPIO.OUT)  ## 2
+GPIO.setup(26, GPIO.OUT)  ## 3
 a=0
-GPIO.output(20,False)
-GPIO.output(26,True)  
+##GPIO.output(20,False)
+##GPIO.output(26,True)  
 t=0
 #Cycle for to take measures
 vr=True
+
+
 def sensorm():	
     #Initialization of sensors
     S1 = 0
@@ -273,4 +275,15 @@ def sensorm():
   
   #  vr=not vr
  #   time.sleep(0.01)
+
+
+
+def main():
+	
+	while True:
+		GPIO.output(13, False)
+		GPIO.output(19, False)
+		GPIO.output(26, False)
+		
+main()
 
