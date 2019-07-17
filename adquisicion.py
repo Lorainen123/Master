@@ -70,7 +70,7 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2, PRtotal, PStotal, S_4
+	global sw,S_2, PRtotal, PStotal, S_4, S_5
 
 	while True:     
 		## Potencia de la red
@@ -102,8 +102,16 @@ def adquisicion1 (i):
 		V2 = mcp.read_adc(5)
 		S_7 = (V2*(5.15/1023))*(37.5/7.5) ##voltaje de la bateria
 		
+		##potencia de la carga
 		
-   		sw=1
+		V3 = mcp.read_adc(6)
+		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
+   	        A5 = mcp.read_adc(0)
+		S_5m=((S5/t)*(5.15/1023))
+   		S_5=-25.3+10*S_5m
+
+		
+		sw=1
 		time.sleep(0.00080)
 		
 		#print(toc-tic)
@@ -155,10 +163,14 @@ def main():
 			bufbat[1:N]=bufbat[0:N-1]
 			bufbat[0]=S_4
 			pbat=np.mean(bufbat)
+			
+			bufload[1:N]=bufload[0:N-1]
+			bufload[0]=S_5
+			pload=np.mean(bufload)
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			print(pbat)
+			print(pload)
 			
 			
 		#print(Itotal)
