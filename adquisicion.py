@@ -19,6 +19,7 @@ N=150
 S_2=0
 bufred = np.zeros((N,))
 bufsol = np.zeros((N,))
+bufbat = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 Itotal=0
 
