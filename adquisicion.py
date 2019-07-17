@@ -116,7 +116,7 @@ def adquisicion1 (i):
 		sw=1
 		#time.sleep(0.00200)
 		
-		print(S_2)
+		#print(S_2)
 		#g=g+1
 		
 		#print("Potencia del panel = "+Pp)
@@ -128,14 +128,16 @@ def adquisicion2(i):
 	global Ptotal
 	
 	while True:
-		#tic = tm.default_timer()
+		tic = tm.default_timer()
                 V3 = mcp.read_adc(6)
 		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
    	        A5 = mcp.read_adc(0)
 		S_5m=((A5)*(5.15/1023))
    		S_5=(-25.3+10*S_5m)-0.2
 		PLtotal=S_8*S_5
-		print(S_5)
+		toc = tm.default_timer()
+    		
+		print(tic-toc)
 
 		
   
