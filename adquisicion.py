@@ -70,7 +70,7 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2, PRtotal, PStotal, S_7
+	global sw,S_2, PRtotal, PStotal, S_4
 
 	while True:     
 		## Potencia de la red
@@ -153,7 +153,7 @@ def main():
 			psol=np.mean(bufsol)
 			
 			bufbat[1:N]=bufbat[0:N-1]
-			bufbat[0]=S_7
+			bufbat[0]=S_4
 			pbat=np.mean(bufbat)
 			sw=0
 			#toc = tm.default_timer()
