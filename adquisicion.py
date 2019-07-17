@@ -108,10 +108,10 @@ def adquisicion2(i):
 	
 	while True:
 		#tic = tm.default_timer()
-        	ired = ina.bus_voltage()
-        	ired1 = ina1.bus_voltage()
-     		ired2 = ina2.bus_voltage()
-        	ired3 = ina3.bus_voltage()
+        	ired = ina.voltage()
+        	ired1 = ina1.voltage()
+     		ired2 = ina2.voltage()
+        	ired3 = ina3.voltage()
 		Itotal=ired+ired1+ired2+ired3
 		Itotal=round(Itotal,3)
 		time.sleep(0.00080)
