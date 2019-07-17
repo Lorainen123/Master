@@ -69,7 +69,7 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2, PRtotal, PStotal
+	global sw,S_2, PRtotal, PStotal, S_7
 
 	while True:     
 		## Potencia de la red
@@ -88,10 +88,20 @@ def adquisicion1 (i):
 		
 		V1 = mcp.read_adc(4)
 		V1 = V1*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
- 		PStotal=S_2*V1
+ 		PStotal=S_2*V1 ## potencia del panel solar
 		#toc = tm.default_timer()
-    		#A2=A2+S_2
-   		 
+    		
+		
+		## potencia de la bateria
+		
+		A4 = mcp.read_adc(1)  ## corriente de la bateria
+		S_4m=(A4*(5.15/1023))
+    		S_4=-25.3+10*S_4m
+		
+		V2 = mcp.read_adc(5)
+		S_7 = (V2*(5.15/1023))*(37.5/7.5) ##voltaje de la bateria
+		
+		
    		sw=1
 		time.sleep(0.00080)
 		
@@ -141,10 +151,13 @@ def main():
 			bufsol[0]=PStotal
 			psol=np.mean(bufsol)
 			
+			bufbat[1:N]=bufbat[0:N-1]
+			bufbat[0]=S_7
+			pbat=np.mean(bufbat)
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			print(psol)
+			print(pbat)
 			
 			
 		#print(Itotal)
