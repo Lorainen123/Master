@@ -82,21 +82,16 @@ def adquisicion1 (i):
 		
 		
 		#tic = tm.default_timer()
-		A2 = mcp.read_adc(2)
-		V1 = mcp.read_adc(4)
-		V1 = V1*(5.15/1023)*(37.5/7.5)
-    		#Value for zero adjustment of the sensors
-    		#Conversion of digital value to analog
-    		#current sensors	
-	
+		A2 = mcp.read_adc(2)  ## Corriente del panel solar
 		S_2m=((A2)*(5.15/1023))
 		S_2=-25.3+10*S_2m
 		
-   		 #voltage sensors
-    		
+		V1 = mcp.read_adc(4)
+		V1 = V1*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
+ 
 		#toc = tm.default_timer()
     		#A2=A2+S_2
-   		 #Power of the battery
+   		 
    		sw=1
 		time.sleep(0.00080)
 		
@@ -143,7 +138,7 @@ def main():
 			pred=6.8807+1.06223*pred+0.00221977*pred*pred
 			
 			bufsol[1:N]=bufsol[0:N-1]
-			bufsol[0]=V1
+			bufsol[0]=S_2
 			psol=np.mean(bufsol)
 			
 			sw=0
