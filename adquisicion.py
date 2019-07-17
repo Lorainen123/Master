@@ -77,8 +77,8 @@ def adquisicion1 (i):
         	pred1 = ina1.power()/1000
      		pred2 = ina2.power()/1000
         	pred3 = ina3.power()/1000
-		Ptotal=pred+pred1+pred2+pred3
-		Ptotal=round(Ptotal,3)
+		PRtotal=pred+pred1+pred2+pred3
+		PRtotal=round(Ptotal,3)
 		
 		
 		#tic = tm.default_timer()
@@ -88,7 +88,7 @@ def adquisicion1 (i):
 		
 		V1 = mcp.read_adc(4)
 		V1 = V1*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
- 
+ 		PStotal=S_2*V1
 		#toc = tm.default_timer()
     		#A2=A2+S_2
    		 
@@ -121,7 +121,7 @@ def powerred(i):
   
 
 def main():
-	global sw, Ptotal, V1, S_2
+	global sw, PRtotal, PStotal
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
 	#thread.start_new_thread(adquisicion2,(i,))
@@ -138,7 +138,7 @@ def main():
 			pred=6.8807+1.06223*pred+0.00221977*pred*pred
 			
 			bufsol[1:N]=bufsol[0:N-1]
-			bufsol[0]=V1
+			bufsol[0]=PStotal
 			psol=np.mean(bufsol)
 			
 			sw=0
