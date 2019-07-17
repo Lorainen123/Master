@@ -82,7 +82,7 @@ def adquisicion1 (i):
 		
 		
 		#tic = tm.default_timer()
-		A2 = mcp.read_adc(2)  ## Corriente del panel solar
+		A2 = mcp.read_adc(7)  ## Corriente del panel solar
 		S_2m=((A2)*(5.15/1023))
 		S_2=-25.3+10*S_2m
 		
@@ -121,7 +121,7 @@ def powerred(i):
   
 
 def main():
-	global sw, Ptotal, V1
+	global sw, Ptotal, V1, S_2
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
 	#thread.start_new_thread(adquisicion2,(i,))
