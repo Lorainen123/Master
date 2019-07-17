@@ -136,7 +136,7 @@ def adquisicion2(i):
    		S_5=(-25.3+10*S_5m)-0.2
 		PLtotal=S_8*S_5
 		toc = tm.default_timer()
-    		
+    		time.sleep(0.04984)
 		print(tic-toc)
 
 		
