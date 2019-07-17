@@ -109,7 +109,7 @@ def adquisicion2(i):
 	while True:
 		#tic = tm.default_timer()
         	ired = ina.voltage()
-        	ired1 = ina1.power()
+        	ired1 = ina1.power()/1000
      		ired2 = ina2.voltage()
         	ired3 = ina3.voltage()
 		Itotal=ired+ired1+ired2+ired3
