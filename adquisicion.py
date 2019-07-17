@@ -117,10 +117,10 @@ def powerred(i):
 	
 	while True:
 		#tic = tm.default_timer()
-        	pred = ina.voltage()
+        	pred = ina.power()/1000
         	pred1 = ina1.power()/1000
-     		pred2 = ina2.voltage()
-        	pred3 = ina3.voltage()
+     		pred2 = ina2.power()/1000
+        	pred3 = ina3.power()/1000
 		Ptotal=pred+pred1+pred2+pred3
 		Ptotal=round(Ptotal,3)
 		time.sleep(0.00080)
