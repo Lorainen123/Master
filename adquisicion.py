@@ -114,7 +114,7 @@ def adquisicion1 (i):
 
 		
 		sw=1
-		time.sleep(0.00080)
+		time.sleep(0.00200)
 		
 		#print(toc-tic)
 		#g=g+1
