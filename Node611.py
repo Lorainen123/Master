@@ -260,9 +260,9 @@ def sensorm():
     #print("Voltaje sensor 1 = "+S_6)	## Sensor 1 de ADC  Canal 4
     #print("Corriente sensor 5 = "+S_1)	## Sensor 2 de ADC  Canal 2
     #print("Corriente sensor panel solar = "+S_2)	## Sensor 3 de ADC  Canal 7
-    #print("Voltaje sensor 2 = "+S_7)	## Sensor 4 de ADC  Canal 5
+    print("Voltaje sensor 2 = "+S_7)	## Sensor 4 de ADC  Canal 5
     #print("Corriente sensor 7 = "+S_3)	## Sensor 5 de ADC  Canal 3
-    #print("Corriente sensor 8 = "+S_4)	## Sensor 6 de ADC  Canal 1
+    print("Corriente sensor 8 = "+S_4)	## Sensor 6 de ADC  Canal 1
     #print("Corriente sensor 9 = "+S_5)	## Sensor 7 de ADC  Canal 0
     #print("Voltaje sensor 3 = "+S_8)	## Sensor 8 de ADC  Canal 6
     #print("Potencia de la fuente = "+Pf)
