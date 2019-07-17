@@ -270,8 +270,7 @@ def sensorm():
     #print("Voltaje del panel = "+Vpanel)
     #print("Voltaje de referencia = "+v)
     #print("Potencia de la bateria = "+Pb)
-    return Pp
-	
+  
   #  vr=not vr
  #   time.sleep(0.01)
 
