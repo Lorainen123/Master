@@ -69,7 +69,7 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2, Ptotal, V1
+	global sw,S_2, PRtotal, PStotal
 
 	while True:     
 		## Potencia de la red
