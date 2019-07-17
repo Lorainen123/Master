@@ -15,7 +15,7 @@ import timeit as tm
 SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
-N=200
+N=50
 S_2=0
 bufred = np.zeros((N,))
 bufsol = np.zeros((N,))
