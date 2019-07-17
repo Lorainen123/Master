@@ -147,7 +147,7 @@ def main():
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			#print(me)
+			print(me)
 			
 			
 		#print(Itotal)
