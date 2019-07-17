@@ -138,7 +138,7 @@ def adquisicion2(i):
 		time.sleep(0.04984)
 		toc = tm.default_timer()
     		
-		print(tic-toc)
+		print(S_5)
 
 		
   
