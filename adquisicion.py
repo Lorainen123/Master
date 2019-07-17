@@ -133,7 +133,7 @@ def main():
 	global sw, Ptotal
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
-	thread.start_new_thread(adquisicion2,(i,))
+	#thread.start_new_thread(adquisicion2,(i,))
 	while True:
 		
 		#tic = tm.default_timer()
