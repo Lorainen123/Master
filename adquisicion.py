@@ -144,10 +144,11 @@ def main():
 			buf[1:N]=buf[0:N-1]
 			buf[0]=Ptotal
 			me=np.mean(buf)
+			pred=6.8807+1.06223*me+0.00221977*me*me
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			print(me)
+			print(pred)
 			
 			
 		#print(Itotal)
