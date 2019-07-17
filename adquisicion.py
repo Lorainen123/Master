@@ -84,7 +84,7 @@ def adquisicion1 (i):
 		
 		
 		#tic = tm.default_timer()
-		A2 = mcp.read_adc(7)  ## Corriente del panel solar
+		A2 = mcp.read_adc(2)  ## Corriente del panel solar
 		S_2m=((A2)*(5.15/1023))
 		S_2=(-25.3+10*S_2m)-0.2
 		
@@ -116,7 +116,7 @@ def adquisicion1 (i):
 		sw=1
 		#time.sleep(0.00200)
 		
-		#print(S_5)
+		print(S_2)
 		#g=g+1
 		
 		#print("Potencia del panel = "+Pp)
