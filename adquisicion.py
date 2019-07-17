@@ -84,7 +84,7 @@ def adquisicion1 (i):
 		#tic = tm.default_timer()
 		A2 = mcp.read_adc(2)
 		V1 = mcp.read_adc(4)
-		V1 = V1*(5.15/1023))*(37.5/7.5)
+		V1 = V1*(5.15/1023)*(37.5/7.5)
     		#Value for zero adjustment of the sensors
     		#Conversion of digital value to analog
     		#current sensors	
