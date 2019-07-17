@@ -138,7 +138,7 @@ def main():
 			pred=6.8807+1.06223*pred+0.00221977*pred*pred
 			
 			bufsol[1:N]=bufsol[0:N-1]
-			bufsol[0]=S_2
+			bufsol[0]=V1
 			psol=np.mean(bufsol)
 			
 			sw=0
