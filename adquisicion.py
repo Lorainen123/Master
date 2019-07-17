@@ -114,9 +114,9 @@ def adquisicion1 (i):
 
 		
 		sw=1
-		time.sleep(0.00200)
+		#time.sleep(0.00200)
 		
-		#print(toc-tic)
+		print(S_5)
 		#g=g+1
 		
 		#print("Potencia del panel = "+Pp)
@@ -172,7 +172,7 @@ def main():
 			sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
-			print(pload)
+			#print(pload)
 			
 			
 		#print(Itotal)
