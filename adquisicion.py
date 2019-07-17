@@ -68,9 +68,18 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2
+	global sw,S_2, Ptotal
 
 	while True:     
+		
+		pred = ina.voltage()
+        	pred1 = ina1.power()/1000
+     		pred2 = ina2.voltage()
+        	pred3 = ina3.voltage()
+		Ptotal=pred+pred1+pred2+pred3
+		Ptotal=round(Ptotal,3)
+		
+		
 		#tic = tm.default_timer()
 		A2 = mcp.read_adc(2)
 		V2 = mcp.read_adc(5)
@@ -103,25 +112,25 @@ def adquisicion1 (i):
 	
 	#A2=A2/20
 	
-def adquisicion2(i):
-	global Itotal
+def powerred(i):
+	global Ptotal
 	
 	while True:
 		#tic = tm.default_timer()
-        	ired = ina.voltage()
-        	ired1 = ina1.power()/1000
-     		ired2 = ina2.voltage()
-        	ired3 = ina3.voltage()
-		Itotal=ired+ired1+ired2+ired3
-		Itotal=round(Itotal,3)
+        	pred = ina.voltage()
+        	pred1 = ina1.power()/1000
+     		pred2 = ina2.voltage()
+        	pred3 = ina3.voltage()
+		Ptotal=pred+pred1+pred2+pred3
+		Ptotal=round(Ptotal,3)
 		time.sleep(0.00080)
 		#toc = tm.default_timer()
-		print(ired1)
+		#print(ired1)
 		
   
 
 def main():
-	global sw, Itotal
+	global sw, Ptotal
 	i=1
 	thread.start_new_thread(adquisicion1,(i,))
 	thread.start_new_thread(adquisicion2,(i,))
@@ -133,7 +142,7 @@ def main():
 			#print(A2)
 			
 			buf[1:N]=buf[0:N-1]
-			buf[0]=S_2
+			buf[0]=Ptotal
 			me=np.mean(buf)
 			sw=0
 			#toc = tm.default_timer()
