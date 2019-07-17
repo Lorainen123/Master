@@ -71,7 +71,7 @@ except:
 
 
 def adquisicion1 (i):
-	global sw,S_2, PRtotal, PStotal, S_4, S_5
+	global sw,S_2, PRtotal, PStotal, S_4, S_8
 
 	while True:     
 		## Potencia de la red
@@ -109,7 +109,7 @@ def adquisicion1 (i):
 		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
    	        A5 = mcp.read_adc(0)
 		S_5m=((A5)*(5.15/1023))
-   		S_5=-25.3+10*S_5m
+   		S_5=(-25.3+10*S_5m)-0.2
 
 		
 		sw=1
@@ -166,7 +166,7 @@ def main():
 			pbat=np.mean(bufbat)
 			
 			bufload[1:N]=bufload[0:N-1]
-			bufload[0]=S_5
+			bufload[0]=S_8
 			pload=np.mean(bufload)
 			sw=0
 			#toc = tm.default_timer()
