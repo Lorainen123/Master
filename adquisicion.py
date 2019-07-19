@@ -125,7 +125,7 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global Ptotal,i
+	global Ptotal
 	S_5T=0
 	j=0
 	while j<500:
