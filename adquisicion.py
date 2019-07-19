@@ -127,6 +127,7 @@ def adquisicion1 (i):
 def adquisicion2(i):
 	global Ptotal,S_5T,j, S_8T
 	S_5T=0
+	S_8T=0
 	j=0
 	while True:
 		#tic = tm.default_timer()
