@@ -128,7 +128,7 @@ def adquisicion2(i):
 	global Ptotal,S_5T,j
 	S_5T=0
 	j=0
-	while j<500:
+	while True:
 		#tic = tm.default_timer()
                 #V3 = mcp.read_adc(6)
 		#S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
@@ -140,7 +140,7 @@ def adquisicion2(i):
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
 		j=j+1
-    	S_5T=S_5T/j	
+    		
 	
 
 		
@@ -179,8 +179,10 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 		if j==500: 
+			print(S_5T/j)
+			j=0
+			S_5T=0
 			
-			print(S_5T)
 			
 		#print(Itotal)
 		
