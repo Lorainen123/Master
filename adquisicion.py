@@ -125,7 +125,7 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global Ptotal
+	global Ptotal,S_5T,j
 	S_5T=0
 	j=0
 	while j<500:
@@ -141,13 +141,13 @@ def adquisicion2(i):
 		#toc = tm.default_timer()
 		j=j+1
     	S_5T=S_5T/j	
-	print(S_5T)
+	
 
 		
   
 
 def main():
-	global sw, PRtotal, PStotal
+	global sw, PRtotal, PStotal,j
 	i=1
 	#thread.start_new_thread(adquisicion1,(i,))
 	thread.start_new_thread(adquisicion2,(i,))
@@ -178,7 +178,9 @@ def main():
 			#toc = tm.default_timer()
 			#print(toc-tic)
 			#print(pload)
+		if j==500: 
 			
+			print(S_5T)
 			
 		#print(Itotal)
 		
