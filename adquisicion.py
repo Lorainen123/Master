@@ -129,7 +129,7 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT
+	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT,j
 	
 	while True:
 		## potencia de la red
