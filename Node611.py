@@ -283,7 +283,7 @@ def main():
 	while True:
 		GPIO.output(13, False)
 		GPIO.output(19, False)
-		GPIO.output(26, False)
+		GPIO.output(26, True)
 		
 main()
 
