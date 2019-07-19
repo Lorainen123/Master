@@ -181,7 +181,8 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 		if j==500: 
-			print(S_5T/j)
+			S_5T=round((S_5T/j)-0.2,2)
+			print(S_5T)
 			j=0
 			S_5T=0
 			
