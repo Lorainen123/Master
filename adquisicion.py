@@ -17,6 +17,7 @@ SPI_DEVICE = 0
 sw=0
 N=50
 S_2=0
+j=0
 bufred = np.zeros((N,))
 bufsol = np.zeros((N,))
 bufbat = np.zeros((N,))
