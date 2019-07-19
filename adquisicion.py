@@ -125,19 +125,20 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global Ptotal,S_5T,j
+	global Ptotal,S_5T,j, S_8T
 	S_5T=0
 	j=0
 	while True:
 		#tic = tm.default_timer()
-                #V3 = mcp.read_adc(6)
-		#S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
+                V3 = mcp.read_adc(6)
+		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
+		S_8T=S_8T+S_8
    	        A5 = mcp.read_adc(0)
 		S_5m=round(((A5)*(5.15/1023)),2)
    		#S_5=(-25.3+10*S_5m)-0.2
 		S_5=(-2.54+S_5m)*(1/0.095)
 		S_5T=S_5T+S_5
-		#PLtotal=S_8*S_5
+		
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
 		j=j+1
@@ -149,7 +150,7 @@ def adquisicion2(i):
   
 
 def main():
-	global sw, PRtotal, PStotal,j, S_5T
+	global sw, PRtotal, PStotal,j, S_5T, S_8T
 	i=1
 	#thread.start_new_thread(adquisicion1,(i,))
 	thread.start_new_thread(adquisicion2,(i,))
@@ -181,10 +182,12 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 		if j==500: 
-			S_5T=round((S_5T/j)-0.2,2)
-			print(S_5T)
+			S_5T=(S_5T/j)-0.2
+			PLtotal=(S_8T/j)*S_5T
+			print(PLtotal)
 			j=0
 			S_5T=0
+			S_8T=0
 			
 			
 		#print(Itotal)
