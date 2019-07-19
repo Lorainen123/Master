@@ -141,6 +141,7 @@ def adquisicion2(i):
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
 		j=j+1
+		time.sleep(0.000005)
     		
 	
 
@@ -155,7 +156,7 @@ def main():
 	while True:
 		
 		#tic = tm.default_timer()
-		time.sleep(0.00005)
+		time.sleep(0.000005)
 		#if sw==1: #dato nuevo 
 			#print(A2)
 			
