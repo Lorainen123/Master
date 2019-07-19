@@ -135,7 +135,7 @@ def adquisicion2(i):
         	pred1 = ina1.power()/1000
      		pred2 = ina2.power()/1000
         	pred3 = ina3.power()/1000
-		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red después de los rectificadores
+		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
 		PRtotal=round(PRtotal,3)
 		
 		##potencia del panel solar
