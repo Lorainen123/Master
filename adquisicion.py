@@ -23,7 +23,7 @@ bufbat = np.zeros((N,))
 bufload = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 Itotal=0
-
+j=0
 #Configuration pin output
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -125,20 +125,23 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global Ptotal
-	
-	while True:
-		tic = tm.default_timer()
-                V3 = mcp.read_adc(6)
-		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
+	global Ptotal,i
+	S_5T=0
+	j=0
+	while j<500:
+		#tic = tm.default_timer()
+                #V3 = mcp.read_adc(6)
+		#S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
    	        A5 = mcp.read_adc(0)
 		S_5m=((A5)*(5.15/1023))
    		S_5=(-25.3+10*S_5m)-0.2
-		PLtotal=S_8*S_5
-		time.sleep(0.04984)
-		toc = tm.default_timer()
-    		
-		print(S_5)
+		S_5T=S_5T+S_5	
+		#PLtotal=S_8*S_5
+		#time.sleep(0.04984)
+		#toc = tm.default_timer()
+		j=j+1
+    	S_5T=S_5T/j	
+	print(S_5T)
 
 		
   
@@ -146,32 +149,32 @@ def adquisicion2(i):
 def main():
 	global sw, PRtotal, PStotal
 	i=1
-	thread.start_new_thread(adquisicion1,(i,))
+	#thread.start_new_thread(adquisicion1,(i,))
 	thread.start_new_thread(adquisicion2,(i,))
 	while True:
 		
 		#tic = tm.default_timer()
 		time.sleep(0.00000050)
-		if sw==1: #dato nuevo 
+		#if sw==1: #dato nuevo 
 			#print(A2)
 			
-			bufred[1:N]=bufred[0:N-1]
-			bufred[0]=PRtotal
-			pred=np.mean(bufred)
-			pred=6.8807+1.06223*pred+0.00221977*pred*pred
+		#	bufred[1:N]=bufred[0:N-1]
+		#	bufred[0]=PRtotal
+		#	pred=np.mean(bufred)
+		#	pred=6.8807+1.06223*pred+0.00221977*pred*pred
+		#	
+		#	bufsol[1:N]=bufsol[0:N-1]
+		#	bufsol[0]=PStotal
+		#	psol=np.mean(bufsol)
 			
-			bufsol[1:N]=bufsol[0:N-1]
-			bufsol[0]=PStotal
-			psol=np.mean(bufsol)
+		#	bufbat[1:N]=bufbat[0:N-1]
+		#	bufbat[0]=S_4
+		#	pbat=np.mean(bufbat)
 			
-			bufbat[1:N]=bufbat[0:N-1]
-			bufbat[0]=S_4
-			pbat=np.mean(bufbat)
-			
-			bufload[1:N]=bufload[0:N-1]
-			bufload[0]=PLtotal
-			pload=np.mean(bufload)
-			sw=0
+		#	bufload[1:N]=bufload[0:N-1]
+		#	bufload[0]=PLtotal
+		#	pload=np.mean(bufload)
+		#	sw=0
 			#toc = tm.default_timer()
 			#print(toc-tic)
 			#print(pload)
