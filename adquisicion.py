@@ -185,6 +185,7 @@ def main():
 		if j==500: 
 			S_5T=(S_5T/j)-0.2
 			PLtotal=(S_8T/j)*S_5T
+			PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
 			print(PLtotal)
 			j=0
 			S_5T=0
