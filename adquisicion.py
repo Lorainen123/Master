@@ -180,7 +180,7 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 		if j==500: 
-			print(S_5T/j)
+			print(j)
 			j=0
 			S_5T=0
 			
