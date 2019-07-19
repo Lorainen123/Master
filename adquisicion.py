@@ -24,6 +24,8 @@ bufload = np.zeros((N,))
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 Itotal=0
 j=0
+IpanelT=0
+VpanelT=0
 #Configuration pin output
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -125,20 +127,42 @@ def adquisicion1 (i):
 	#A2=A2/20
 	
 def adquisicion2(i):
-	global Ptotal,S_5T,j, S_8T
-	S_5T=0
-	S_8T=0
-	j=0
+	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT
+	
 	while True:
+		## potencia de la red
+		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+        	pred1 = ina1.power()/1000
+     		pred2 = ina2.power()/1000
+        	pred3 = ina3.power()/1000
+		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red después de los rectificadores
+		PRtotal=round(PRtotal,3)
+		
+		##potencia del panel solar
+		
 		#tic = tm.default_timer()
-                V3 = mcp.read_adc(6)
-		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
-		S_8T=S_8T+S_8
-   	        A5 = mcp.read_adc(0)
-		S_5m=round(((A5)*(5.15/1023)),2)
+		Ipanel = mcp.read_adc(2)  ## Corriente del panel solar
+		Ipanel=((Ipanel)*(5.15/1023))
+		Ipanel=(-25.3+10*Ipanel)-0.2
+		IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
+		
+		Vpanel = mcp.read_adc(4)
+		Vpanel = Vpanel*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
+		VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
+		
+ 		
+		#toc = tm.default_timer()
+  
+		## potencia de la carga
+		#tic = tm.default_timer()
+                Vcarga = mcp.read_adc(6)
+		Vcarga = ((Vcarga)*(5.15/1023))*(37000.0/7500.0) 
+		VcargaT=VcargaT+Vcarga
+   	        Icarga = mcp.read_adc(0)   ## 
+		Icarga=round(((Icarga)*(5.15/1023)),2)  ## voltaje desde el MCP
    		#S_5=(-25.3+10*S_5m)-0.2
-		S_5=(-2.54+S_5m)*(1/0.095)
-		S_5T=S_5T+S_5
+		Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
+		IcargaT=IcargaT+Icarga
 		
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
@@ -151,7 +175,7 @@ def adquisicion2(i):
   
 
 def main():
-	global sw, PRtotal, PStotal,j, S_5T, S_8T
+	global sw, PRtotal, PStotal,j, IcargaT, VcargaT, VpanelT, IpanelT
 	i=1
 	#thread.start_new_thread(adquisicion1,(i,))
 	thread.start_new_thread(adquisicion2,(i,))
@@ -182,14 +206,25 @@ def main():
 			#toc = tm.default_timer()
 			#print(toc-tic)
 			#print(pload)
+			
 		if j==500: 
-			S_5T=(S_5T/j)-0.2
-			PLtotal=(S_8T/j)*S_5T
+			
+			## potencia del panel solar			
+			PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
+			Ipanel=0
+			Vpanel=0
+			## potencia de la carga 
+			IcargaT=(IcargaT/j)-0.2
+			PLtotal=(VcargaT/j)*IcargaT
 			PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
+			IcargaT=0
+			VcargaT=0
+			
+			##potencia de la red
+			Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
+			
 			print(PLtotal)
 			j=0
-			S_5T=0
-			S_8T=0
 			
 			
 		#print(Itotal)
