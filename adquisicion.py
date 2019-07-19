@@ -170,7 +170,7 @@ def adquisicion2(i):
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
 		j=j+1
-		time.sleep(0.000005)
+		time.sleep(0.00005)
     		
 	
 
@@ -185,7 +185,7 @@ def main():
 	while True:
 		
 		#tic = tm.default_timer()
-		time.sleep(0.000005)
+		time.sleep(0.00005)
 		#if sw==1: #dato nuevo 
 			#print(A2)
 			
@@ -211,7 +211,6 @@ def main():
 			#print(pload)
 			
 		if j==500: 
-			
 			## potencia del panel solar			
 			PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
 			Ipanel=0
@@ -222,10 +221,8 @@ def main():
 			PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
 			IcargaT=0
 			VcargaT=0
-			
 			##potencia de la red
 			Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
-			
 			print(PLtotal)
 			j=0
 			
