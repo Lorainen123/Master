@@ -147,7 +147,7 @@ def adquisicion2(i):
   
 
 def main():
-	global sw, PRtotal, PStotal,j
+	global sw, PRtotal, PStotal,j, S_5T
 	i=1
 	#thread.start_new_thread(adquisicion1,(i,))
 	thread.start_new_thread(adquisicion2,(i,))
