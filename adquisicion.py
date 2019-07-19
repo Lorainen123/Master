@@ -135,8 +135,8 @@ def adquisicion2(i):
    	        A5 = mcp.read_adc(0)
 		S_5m=((A5)*(5.15/1023))
    		#S_5=(-25.3+10*S_5m)-0.2
-		S_5=(-2.5+S_5m)*15.15
-		S_5T=S_5T+S_5	
+		#S_5=(-2.5+S_5m)*15.15
+		S_5T=S_5T+S_5m	
 		#PLtotal=S_8*S_5
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
