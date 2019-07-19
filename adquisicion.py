@@ -26,6 +26,8 @@ Itotal=0
 j=0
 IpanelT=0
 VpanelT=0
+VcargaT=0
+IcargaT=0
 #Configuration pin output
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
