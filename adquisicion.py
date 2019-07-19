@@ -155,7 +155,7 @@ def main():
 	while True:
 		
 		#tic = tm.default_timer()
-		time.sleep(0.00000050)
+		#time.sleep(0.00000050)
 		#if sw==1: #dato nuevo 
 			#print(A2)
 			
@@ -180,7 +180,7 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 		if j==500: 
-			print(j)
+			print(S_5T/j)
 			j=0
 			S_5T=0
 			
