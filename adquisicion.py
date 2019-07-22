@@ -138,8 +138,7 @@ def adquisicion():
 		
 			time.sleep(0.001)
 		
-		
-		#print(j)
+			print(PLtotal)
 		
 			#time.sleep(0.00005)
 def adquisicion2():
@@ -162,7 +161,7 @@ def switches():
 			
 			
 			
-			print(PLtotal)
+			#print(PLtotal)
 			sw=0
 	
 		
