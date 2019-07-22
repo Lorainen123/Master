@@ -123,7 +123,7 @@ def adquisicion():
 		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
 		#print(PLtotal)
 		
-	#	print(toc-tic)
+		print(j)
 		
 			#time.sleep(0.00005)
 def adquisicion2():
