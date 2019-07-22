@@ -152,12 +152,12 @@ def switches():
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
 			sw=0
-			
-			if PStotal < 1:
-				Pstotal=0
-			elif PLtotal < 1:
-				PLtotal=0
-				print(PLtotal)
+			print(sw)
+			#if PStotal < 1:
+			#	Pstotal=0
+			#elif PLtotal < 1:
+			#	PLtotal=0
+				
 			#elif Pred < 1: 
 			#	Pred = 0
 			
