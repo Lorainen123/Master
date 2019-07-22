@@ -199,10 +199,10 @@ def main():
 	
 	hilo1=threading.Thread(target=adquisicion)
 	hilo2=threading.Thread(target=adquisicion2)
-	#hilo3=threading.Thread(target=switches)
+	hilo3=threading.Thread(target=switches)
 	hilo1.start()
 	hilo2.start()
-	#hilo3.start()
+	hilo3.start()
 	#else:
 			#print(PLtotal)
 			
