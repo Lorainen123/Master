@@ -169,8 +169,6 @@ def switches():
   
 
 def main():
-	global sw, PRtotal, PStotal,j, IcargaT, VcargaT, VpanelT, IpanelT
-	i=1
 	
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
