@@ -84,8 +84,8 @@ def adquisicion():
 	while True:
 		tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
-		Ipanel=0
-		Vpanel=0
+		IpanelT=0
+		VpanelT=0
 		
 		IcargaT=0
 		VcargaT=0
@@ -124,7 +124,7 @@ def adquisicion():
 		## potencia de la carga 
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
-		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
+		PLtotal=(-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2
 		
 		sw=1
 		
