@@ -171,7 +171,7 @@ def switches():
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
-			if PStotal>0 and Pred>7 and Pred<Pcarga   ## Estado No 1
+			if PStotal>0 and Pred>7 and Pred<Pcarga:   ## Estado No 1
 				
 				GPIO.output(13, False)
 				GPIO.output(19, False)
