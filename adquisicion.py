@@ -42,6 +42,10 @@ GPIO.setup(13, GPIO.OUT)  ## 1
 GPIO.setup(19, GPIO.OUT)  ## 2
 GPIO.setup(26, GPIO.OUT)  ## 3
 
+GPIO.output(13, False)
+GPIO.output(19, False)
+GPIO.output(26, False)
+
 #Low current sensors configurations
 try:
     ina = INA219(shunt_ohms=0.1,
@@ -131,16 +135,16 @@ def adquisicion():
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
 		
-		if PLtotal<1: 
+		if PLtotal<2: 
 			PLtotal=0
 			
-		elif PStotal <1:
+		elif PStotal <2:
 			PStotal=0
 			
 		print(PLtotal) 	
-		#sw=1
+		sw=1
 			
-		#print(PLtotal)
+		
 		time.sleep(0.001)
 		
 			
@@ -157,14 +161,26 @@ def adquisicion2():
 		#PRtotal=round(PRtotal,2)
 		##potencia de la red
 		Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
+		if Pred<1:
+			Pred=0
+		elif Pred>7+7*0.01 && Pred<7-7*0.01
+			Pred=7
 
 def switches():
 	global  PStotal, PLtotal, Pred, sw
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
-			
-			
+			if PStotal>0 && Pred>7 && Pred<Pcarga   ## Estado No 1
+				
+				GPIO.output(13, False)
+				GPIO.output(19, False)
+				GPIO.output(26, False)
+			elif Pred<=7:
+				GPIO.output(13, False)
+				GPIO.output(19, False)
+				GPIO.output(26, True)
+		
 			
 			#print(PLtotal)
 			sw=0
