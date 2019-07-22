@@ -135,7 +135,7 @@ def main():
 #	thread.start_new_thread(adquisicion2,(i,))
 	hilo1=threading.Thread(target=adquisicion)
 	hilo1.start()
-	while True:
+	#while True:
 		
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
@@ -163,21 +163,21 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 			
-		if j==500: 
-			## potencia del panel solar			
-			PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
-			Ipanel=0
-			Vpanel=0
-			## potencia de la carga 
-			IcargaT=(IcargaT/j)-0.2
-			PLtotal=(VcargaT/j)*IcargaT
-			PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
-			IcargaT=0
-			VcargaT=0
+	#	if j==500: 
+	#		## potencia del panel solar			
+	#		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
+	#		Ipanel=0
+	#		Vpanel=0
+	#		## potencia de la carga 
+	#		IcargaT=(IcargaT/j)-0.2
+	#		PLtotal=(VcargaT/j)*IcargaT
+	#		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
+	#		IcargaT=0
+	#		VcargaT=0
 			##potencia de la red
-			Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
+	#		Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
 			#print(PLtotal)
-			j=0
+	#		j=0
 			
 			
 		#print(Itotal)
