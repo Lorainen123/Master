@@ -134,7 +134,7 @@ def adquisicion():
 			elif Pred <= 1: 
 				Pred = 0.0
 		
-			sw=1
+			#sw=1
 			
 			print(PLtotal)
 			time.sleep(0.001)
