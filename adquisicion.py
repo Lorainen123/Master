@@ -141,7 +141,7 @@ def adquisicion():
 		elif PStotal <2:
 			PStotal=0
 			
-		
+		print(PLtotal)
 		sw=1
 			
 		
@@ -172,7 +172,7 @@ def switches():
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
-			print(Pred) 	
+			 	
 
 			if PStotal>0 and Pred>7 and Pred<Pcarga:   ## Estado No 1
 				
