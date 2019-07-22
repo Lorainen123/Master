@@ -131,11 +131,13 @@ def adquisicion():
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
 		
-		if PLtotal<20: 
+		if PLtotal<1: 
 			PLtotal=0
-			print(PLtotal) 
 			
+		elif: PStotal <1:
+			PStotal=0
 			
+		print(PLtotal) 	
 		#sw=1
 			
 		#print(PLtotal)
