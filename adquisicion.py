@@ -166,13 +166,14 @@ def adquisicion2():
 			elif Pred<7+7*0.1 and Pred>7-7*0.1:
 				Pred=7
 			
-			print(Pred) 	
-
+			
 def switches():
 	global  PStotal, PLtotal, Pred, sw
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
+			print(Pred) 	
+
 			if PStotal>0 and Pred>7 and Pred<Pcarga:   ## Estado No 1
 				
 				GPIO.output(13, False)
