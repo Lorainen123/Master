@@ -79,6 +79,13 @@ def adquisicion():
 		
 	while True:
 		tic = tm.default_timer()
+		#Inicializacion de variables antes de entrar al loop y obtener los promedios
+		Ipanel=0
+		Vpanel=0
+		
+		IcargaT=0
+		VcargaT=0
+		
 		for j in range(501):
 			
 			##potencia del panel solar
@@ -92,11 +99,7 @@ def adquisicion():
 			Vpanel = Vpanel*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
 			VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
 		
- 		
-			#toc = tm.default_timer()
-  
 			## potencia de la carga
-			#tic = tm.default_timer()
 			Vcarga = mcp.read_adc(6)
 			Vcarga = ((Vcarga)*(5.15/1023))*(37000.0/7500.0) 
 			VcargaT=VcargaT+Vcarga
@@ -109,7 +112,17 @@ def adquisicion():
 			#time.sleep(0.04984)
 		
 			#j=j+1
+		
 		toc = tm.default_timer()
+		## potencia del panel solar			
+		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
+			
+		## potencia de la carga 
+		IcargaT=(IcargaT/j)-0.2
+		PLtotal=(VcargaT/j)*IcargaT
+		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
+		#print(PLtotal)
+		
 		print(toc-tic)
 		
 			#time.sleep(0.00005)
@@ -121,7 +134,9 @@ def adquisicion2():
        		pred3 = ina3.power()/1000
 		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
 		PRtotal=round(PRtotal,3)
-	
+		##potencia de la red
+		Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
+
 
 		
   
@@ -129,20 +144,14 @@ def adquisicion2():
 def main():
 	global sw, PRtotal, PStotal,j, IcargaT, VcargaT, VpanelT, IpanelT
 	i=1
+	
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
+	
 	hilo1=threading.Thread(target=adquisicion)
 	hilo2=threading.Thread(target=adquisicion2)
 	hilo1.start()
 	hilo2.start()
-	#while True:
-	## potencia de la red
-	#	pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-       	#	pred1 = ina1.power()/1000
-     	#	pred2 = ina2.power()/1000
-       	#	pred3 = ina3.power()/1000
-	#	PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-	#	PRtotal=round(PRtotal,3)
 		
 	#while True:
 		
