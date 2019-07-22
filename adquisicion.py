@@ -134,7 +134,7 @@ def adquisicion():
 		if PLtotal<1: 
 			PLtotal=0
 			
-		elif: PStotal <1:
+		elif PStotal <1:
 			PStotal=0
 			
 		print(PLtotal) 	
