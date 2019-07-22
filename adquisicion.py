@@ -128,17 +128,10 @@ def adquisicion():
 			PLtotal=(VcargaT/j)*IcargaT
 			PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
 			
-			if PStotal <= 1:
-				Pstotal=0.0
-			elif PLtotal <= 1:
-				PLtotal=0.0
-				
-			elif Pred <= 1: 
-				Pred = 0.0
-		
-			#sw=1
 			
-			print(PLtotal)
+			sw=1
+			
+		#	print(PLtotal)
 			time.sleep(0.001)
 		
 			
@@ -171,7 +164,7 @@ def switches():
   
 
 def main():
-	
+	global PStotal, PLtotal, Pred
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
 	
@@ -182,8 +175,17 @@ def main():
 	hilo2.start()
 	#hilo3.start()
 		
-	#while True:
+	while True:
+		time.sleep(0.00005)
+		if PStotal <= 1:
+			Pstotal=0.0
+		elif PLtotal <= 1:
+			PLtotal=0.0
+				
+		elif Pred <= 1: 
+			Pred = 0.0
 		
+		print(PLtotal)
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
 		#if sw==1: #dato nuevo 
