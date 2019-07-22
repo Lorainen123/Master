@@ -113,7 +113,14 @@ def adquisicion():
 		print(toc-tic)
 		
 			#time.sleep(0.00005)
-    		
+def adquisicion2():
+		
+		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+       		pred1 = ina1.power()/1000
+     		pred2 = ina2.power()/1000
+       		pred3 = ina3.power()/1000
+		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
+		PRtotal=round(PRtotal,3)
 	
 
 		
@@ -125,15 +132,17 @@ def main():
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
 	hilo1=threading.Thread(target=adquisicion)
+	hilo2=threading.Thread(target=adquisicion2)
 	hilo1.start()
-	while True:
+	hilo2.start()
+	#while True:
 	## potencia de la red
-		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-       		pred1 = ina1.power()/1000
-     		pred2 = ina2.power()/1000
-       		pred3 = ina3.power()/1000
-		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-		PRtotal=round(PRtotal,3)
+	#	pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+       	#	pred1 = ina1.power()/1000
+     	#	pred2 = ina2.power()/1000
+       	#	pred3 = ina3.power()/1000
+	#	PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
+	#	PRtotal=round(PRtotal,3)
 		
 	#while True:
 		
