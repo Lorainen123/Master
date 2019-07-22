@@ -147,7 +147,7 @@ def adquisicion2():
 		Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
 
 def switches():
-	global  PStotal, PLtotal, sw
+	global  sw
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
