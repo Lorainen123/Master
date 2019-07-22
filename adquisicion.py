@@ -31,6 +31,9 @@ IpanelT=0
 VpanelT=0
 VcargaT=0
 IcargaT=0
+PStotal=0
+PLtotal=0
+Pred=0
 
 #Configuration pin output
 GPIO.setwarnings(False)
