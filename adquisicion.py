@@ -152,21 +152,21 @@ def adquisicion():
 			#time.sleep(0.00005)
 def adquisicion2():
 		global Pred
-		
-		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-       		pred1 = ina1.power()/1000
-     		pred2 = ina2.power()/1000
-       		pred3 = ina3.power()/1000
-		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-		#PRtotal=round(PRtotal,2)
-		##potencia de la red
-		Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
-		if Pred<1:
-			Pred=0
-		elif Pred>7+7*0.1 and Pred<7-7*0.1:
-			Pred=7
+		while True:
+			pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+       			pred1 = ina1.power()/1000
+     			pred2 = ina2.power()/1000
+       			pred3 = ina3.power()/1000
+			PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
+			#PRtotal=round(PRtotal,2)
+			##potencia de la red
+			Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
+			if Pred<1:
+				Pred=0
+			elif Pred>7+7*0.1 and Pred<7-7*0.1:
+				Pred=7
 			
-		print(Pred) 	
+			print(Pred) 	
 
 def switches():
 	global  PStotal, PLtotal, Pred, sw
