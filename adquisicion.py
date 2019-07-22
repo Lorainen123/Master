@@ -74,65 +74,14 @@ except:
     time.sleep(0.1)
 
 
-
-def adquisicion1 ():
-	global sw,S_2, PRtotal, PStotal, S_4, PLtotal
-
-	while True:     
-		## Potencia de la red
-		pred = ina.power()/1000
-        	pred1 = ina1.power()/1000
-     		pred2 = ina2.power()/1000
-        	pred3 = ina3.power()/1000
-		PRtotal=pred+pred1+pred2+pred3
-		PRtotal=round(PRtotal,3)
-		
-		
-		#tic = tm.default_timer()
-		A2 = mcp.read_adc(2)  ## Corriente del panel solar
-		S_2m=((A2)*(5.15/1023))
-		S_2=(-25.3+10*S_2m)-0.2
-		
-		V1 = mcp.read_adc(4)
-		V1 = V1*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
- 		PStotal=S_2*V1 ## potencia del panel solar
-		#toc = tm.default_timer()
-    		
-		
-		## potencia de la bateria
-		
-		A4 = mcp.read_adc(1)  ## corriente de la bateria
-		S_4m=(A4*(5.15/1023))
-    		#S_4=-25.3+10*S_4m
-		S_4=43.4613-47.717*S_4m + 12.0923*S_4m*S_4m
-		V2 = mcp.read_adc(5)
-		S_7 = (V2*(5.15/1023))*(37.5/7.5) ##voltaje de la bateria
-		
-		##potencia de la carga
-		
-		V3 = mcp.read_adc(6)
-		S_8 = ((V3)*(5.15/1023))*(37000.0/7500.0) 
-   	        A5 = mcp.read_adc(0)
-		S_5m=((A5)*(5.15/1023))
-   		S_5=(-25.3+10*S_5m)-0.2
-		PLtotal=S_8*S_5
-
-		
-		sw=1
-		time.sleep(0.0000200)
-		
-		#print(S_2)
-		#g=g+1
-		
-		#print("Potencia del panel = "+Pp)
-		#print("Voltaje del panel = "+Vpanel)
-	
-	#A2=A2/20
-	
-def adquisicion2():
+def adquisicion():
 	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT,j
-	
+		
 	while True:
+		
+		for j in range(501):
+		tic = tm.default_timer()
+		
 		## potencia de la red
 		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
         	pred1 = ina1.power()/1000
@@ -143,7 +92,6 @@ def adquisicion2():
 		
 		##potencia del panel solar
 		
-		#tic = tm.default_timer()
 		Ipanel = mcp.read_adc(2)  ## Corriente del panel solar
 		Ipanel=((Ipanel)*(5.15/1023))
 		Ipanel=(-25.3+10*Ipanel)-0.2
@@ -168,10 +116,12 @@ def adquisicion2():
 		IcargaT=IcargaT+Icarga
 		
 		#time.sleep(0.04984)
-		#toc = tm.default_timer()
-		print(PLtotal)
-		j=j+1
-		time.sleep(0.00005)
+		
+		#j=j+1
+		toc = tm.default_timer()
+		print(toc-tic)
+		
+		#time.sleep(0.00005)
     		
 	
 
