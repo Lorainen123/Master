@@ -80,48 +80,48 @@ def adquisicion():
 	while True:
 		
 		for j in range(501):
-		tic = tm.default_timer()
+			tic = tm.default_timer()
 		
-		## potencia de la red
-		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-        	pred1 = ina1.power()/1000
-     		pred2 = ina2.power()/1000
-        	pred3 = ina3.power()/1000
-		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-		PRtotal=round(PRtotal,3)
+			## potencia de la red
+			pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+        		pred1 = ina1.power()/1000
+     			pred2 = ina2.power()/1000
+        		pred3 = ina3.power()/1000
+			PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
+			PRtotal=round(PRtotal,3)
 		
-		##potencia del panel solar
+			##potencia del panel solar
 		
-		Ipanel = mcp.read_adc(2)  ## Corriente del panel solar
-		Ipanel=((Ipanel)*(5.15/1023))
-		Ipanel=(-25.3+10*Ipanel)-0.2
-		IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
+			Ipanel = mcp.read_adc(2)  ## Corriente del panel solar
+			Ipanel=((Ipanel)*(5.15/1023))
+			Ipanel=(-25.3+10*Ipanel)-0.2
+			IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
 		
-		Vpanel = mcp.read_adc(4)
-		Vpanel = Vpanel*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
-		VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
+			Vpanel = mcp.read_adc(4)
+			Vpanel = Vpanel*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
+			VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
 		
  		
-		#toc = tm.default_timer()
+			#toc = tm.default_timer()
   
-		## potencia de la carga
-		#tic = tm.default_timer()
-                Vcarga = mcp.read_adc(6)
-		Vcarga = ((Vcarga)*(5.15/1023))*(37000.0/7500.0) 
-		VcargaT=VcargaT+Vcarga
-   	        Icarga = mcp.read_adc(0)   ## 
-		Icarga=round(((Icarga)*(5.15/1023)),2)  ## voltaje desde el MCP
-   		#S_5=(-25.3+10*S_5m)-0.2
-		Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
-		IcargaT=IcargaT+Icarga
+			## potencia de la carga
+			#tic = tm.default_timer()
+			Vcarga = mcp.read_adc(6)
+			Vcarga = ((Vcarga)*(5.15/1023))*(37000.0/7500.0) 
+			VcargaT=VcargaT+Vcarga
+   	       		Icarga = mcp.read_adc(0)   ## 
+			Icarga=round(((Icarga)*(5.15/1023)),2)  ## voltaje desde el MCP
+   			#S_5=(-25.3+10*S_5m)-0.2
+			Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
+			IcargaT=IcargaT+Icarga
 		
-		#time.sleep(0.04984)
+			#time.sleep(0.04984)
 		
-		#j=j+1
-		toc = tm.default_timer()
-		print(toc-tic)
+			#j=j+1
+			toc = tm.default_timer()
+			print(toc-tic)
 		
-		#time.sleep(0.00005)
+			#time.sleep(0.00005)
     		
 	
 
