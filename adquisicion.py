@@ -131,12 +131,7 @@ def adquisicion():
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
 		
-		if PStotal <= 1:
-			Pstotal=0.0
-		elif PLtotal <= 1:
-			PLtotal=0.0
 		
-			
 		sw=1
 			
 		print(PLtotal)
@@ -186,6 +181,13 @@ def main():
 	while True:
 		time.sleep(0.00005)
 		
+		if PStotal <= 1:
+			Pstotal=0.0
+		elif PLtotal <= 1:
+			PLtotal=0.0
+		
+			
+		
 		if sw==1:
 			
 			#if PStotal <= 1:
@@ -196,7 +198,7 @@ def main():
 			#elif Pred <= 1: 
 			#	Pred = 0.0
 		
-			#print(PLtotal)
+			print(PLtotal)
 			
 			sw=0
 		#else:
