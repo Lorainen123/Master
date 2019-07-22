@@ -153,7 +153,7 @@ def main():
 	hilo1.start()
 	hilo2.start()
 		
-	#while True:
+	while True:
 		
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
@@ -181,7 +181,7 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 			
-	#	if j==500: 
+		if j==500: 
 	#		## potencia del panel solar			
 	#		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
 	#		Ipanel=0
@@ -198,7 +198,7 @@ def main():
 	#		j=0
 			
 			
-		#print(Itotal)
+			print("hola aqui estoy")
 		
 
 main()
