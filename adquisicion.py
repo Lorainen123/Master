@@ -109,10 +109,10 @@ def adquisicion():
 			Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
 			IcargaT=IcargaT+Icarga
 		
-			#time.sleep(0.04984)
+			
 		
 			#j=j+1
-		
+		time.sleep(0.001)
 		toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
@@ -123,7 +123,7 @@ def adquisicion():
 		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
 		#print(PLtotal)
 		
-		print(toc-tic)
+	#	print(toc-tic)
 		
 			#time.sleep(0.00005)
 def adquisicion2():
