@@ -78,9 +78,9 @@ def adquisicion():
 	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT,j
 		
 	while True:
-		
-		for j in range(501):
-			tic = tm.default_timer()
+		tic = tm.default_timer()
+		for j in range(20):
+			
 		
 			## potencia de la red
 			pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
@@ -118,8 +118,8 @@ def adquisicion():
 			#time.sleep(0.04984)
 		
 			#j=j+1
-			toc = tm.default_timer()
-			print(toc-tic)
+		toc = tm.default_timer()
+		print(toc-tic)
 		
 			#time.sleep(0.00005)
     		
