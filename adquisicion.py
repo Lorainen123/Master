@@ -184,7 +184,7 @@ def switches():
 			#	GPIO.output(13, False)
 			#	GPIO.output(19, False)
 			#	GPIO.output(26, True)
-			elif Pred<=PLtotal+Pltotal*0.1 and Pred>=PLtotal-Pltotal*0.1:
+			elif Pred<=PLtotal+PLtotal*0.1 and Pred>=PLtotal-PLtotal*0.1:
 				GPIO.output(13, False)
 				GPIO.output(19, True)
 				GPIO.output(26, True)
