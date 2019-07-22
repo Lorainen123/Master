@@ -79,7 +79,7 @@ def adquisicion():
 		
 	while True:
 		tic = tm.default_timer()
-		for j in range(20):
+		for j in range(501):
 			
 			##potencia del panel solar
 		
