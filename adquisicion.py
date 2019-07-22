@@ -167,7 +167,7 @@ def switches():
   
 
 def main():
-	global PStotal, PLtotal, Pred
+	global PStotal, PLtotal, Pred, sw
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
 	
