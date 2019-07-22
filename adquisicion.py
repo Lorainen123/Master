@@ -182,6 +182,7 @@ def main():
 			#print(pload)
 			
 		if j==500: 
+			print(j)
 	#		## potencia del panel solar			
 	#		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
 	#		Ipanel=0
@@ -198,7 +199,7 @@ def main():
 	#		j=0
 			
 			
-			print("hola aqui estoy")
+			
 		
 
 main()
