@@ -79,7 +79,7 @@ except:
 
 
 def adquisicion():
-	global PStotal, PLtotal, j
+	global PStotal, PLtotal, sw
 		
 	while True:
 		tic = tm.default_timer()
@@ -156,9 +156,10 @@ def switches():
 				Pstotal=0
 			elif PLtotal < 1:
 				PLtotal=0
+				print(PLtotal)
 			elif Pred < 1: 
 				Pred = 0
-			print(PLtotal)
+			
 	
 		
   
