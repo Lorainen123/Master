@@ -155,12 +155,12 @@ def switches():
 			
 			if PStotal < 0.0:
 				Pstotal=0.0
-			elif PLtotal < 0.0:
+			elif PLtotal < 1:
 				PLtotal=0.0
-				
+				print(PLtotal)
 			elif Pred < 0.0: 
 				Pred = 0.0
-			print(PLtotal)
+			
 			sw=0
 	
 		
