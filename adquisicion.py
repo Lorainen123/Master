@@ -162,7 +162,7 @@ def switches():
 			
 			
 			
-			print(sw)
+			print(PLtotal)
 			sw=0
 	
 		
