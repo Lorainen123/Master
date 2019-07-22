@@ -158,7 +158,7 @@ def switches():
 				PLtotal=0
 			elif Pred < 1: 
 				Pred = 0
-		print(PLtotal)
+			print(PLtotal)
 	
 		
   
