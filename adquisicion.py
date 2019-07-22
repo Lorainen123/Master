@@ -149,7 +149,7 @@ def adquisicion2():
 def switches():
 	global  PStotal, PLtotal, Pred, sw
 	while True:
-		if sw==1:   ##  ya terminó de calcular las potencias en el otro hilo
+		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
 			
 			if PStotal < 1:
 				Pstotal=0
