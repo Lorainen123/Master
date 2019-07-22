@@ -141,7 +141,7 @@ def adquisicion():
 		elif PStotal <2:
 			PStotal=0
 			
-		print(PLtotal) 	
+		
 		sw=1
 			
 		
@@ -165,6 +165,8 @@ def adquisicion2():
 			Pred=0
 		elif Pred>7+7*0.01 and Pred<7-7*0.01:
 			Pred=7
+			
+		print(Pred) 	
 
 def switches():
 	global  PStotal, PLtotal, Pred, sw
