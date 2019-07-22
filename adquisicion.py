@@ -8,7 +8,7 @@ import Adafruit_MCP3008
 import Adafruit_GPIO.SPI as SPI
 from ina219 import INA219
 import RPi.GPIO as GPIO
-import thread
+import threading
 import timeit as tm
 
 #Configuration SPI Port and device
@@ -75,7 +75,7 @@ except:
 
 
 
-def adquisicion1 (i):
+def adquisicion1 ():
 	global sw,S_2, PRtotal, PStotal, S_4, PLtotal
 
 	while True:     
@@ -119,7 +119,7 @@ def adquisicion1 (i):
 
 		
 		sw=1
-		#time.sleep(0.00200)
+		time.sleep(0.0000200)
 		
 		#print(S_2)
 		#g=g+1
@@ -129,7 +129,7 @@ def adquisicion1 (i):
 	
 	#A2=A2/20
 	
-def adquisicion2(i):
+def adquisicion2():
 	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT,j
 	
 	while True:
@@ -169,8 +169,9 @@ def adquisicion2(i):
 		
 		#time.sleep(0.04984)
 		#toc = tm.default_timer()
+		print(PLtotal)
 		j=j+1
-		time.sleep(0.0000005)
+		time.sleep(0.00005)
     		
 	
 
@@ -181,11 +182,13 @@ def main():
 	global sw, PRtotal, PStotal,j, IcargaT, VcargaT, VpanelT, IpanelT
 	i=1
 	#thread.start_new_thread(adquisicion1,(i,))
-	thread.start_new_thread(adquisicion2,(i,))
+#	thread.start_new_thread(adquisicion2,(i,))
+	hilo1=threading.Thread(target=adquisicion2)
+	hilo1.start()
 	while True:
 		
 		#tic = tm.default_timer()
-		time.sleep(0.00000005)
+	#	time.sleep(0.00000005)
 		#if sw==1: #dato nuevo 
 			#print(A2)
 			
@@ -223,7 +226,7 @@ def main():
 			VcargaT=0
 			##potencia de la red
 			Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
-			print(PLtotal)
+			#print(PLtotal)
 			j=0
 			
 			
