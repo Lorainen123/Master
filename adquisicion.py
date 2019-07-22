@@ -123,7 +123,7 @@ def adquisicion():
 		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
 		#print(PLtotal)
 		
-		print(j)
+		#print(j)
 		
 			#time.sleep(0.00005)
 def adquisicion2():
@@ -137,7 +137,12 @@ def adquisicion2():
 		##potencia de la red
 		Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
 
-
+def switches():
+	global j
+	while True:
+		if j==500:
+			print(j)
+	
 		
   
 
@@ -150,10 +155,12 @@ def main():
 	
 	hilo1=threading.Thread(target=adquisicion)
 	hilo2=threading.Thread(target=adquisicion2)
+	hilo3=threading.Thread(target=switches)
 	hilo1.start()
 	hilo2.start()
+	hilo3.start()
 		
-	while True:
+	#while True:
 		
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
@@ -181,8 +188,8 @@ def main():
 			#print(toc-tic)
 			#print(pload)
 			
-		if j==500: 
-			print(j)
+	#	if j==500: 
+	#		print(j)
 	#		## potencia del panel solar			
 	#		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
 	#		Ipanel=0
