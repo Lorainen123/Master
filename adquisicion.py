@@ -150,6 +150,7 @@ def switches():
 	global  PStotal, PLtotal, Pred, sw
 	while True:
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
+			sw=0
 			
 			if PStotal < 1:
 				Pstotal=0
