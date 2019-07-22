@@ -14,7 +14,7 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-
+sw=0
 #N=50
 #bufred = np.zeros((N,))
 #bufsol = np.zeros((N,))
@@ -79,7 +79,7 @@ except:
 
 
 def adquisicion():
-	global PRtotal, IpanelT, VpanelT, IcargaT, VcargaT,j
+	global PStotal, PLtotal, j
 		
 	while True:
 		tic = tm.default_timer()
@@ -125,7 +125,9 @@ def adquisicion():
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
-		print(PLtotal)
+		
+		sw=1
+		
 		time.sleep(0.001)
 		
 		
@@ -145,10 +147,17 @@ def adquisicion2():
 		Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
 
 def switches():
-	global j
+	global  PStotal, PLtotal, Pred, sw
 	while True:
-		if j==500:
-			print(j)
+		if sw==1:   ##  ya terminó de calcular las potencias en el otro hilo
+			
+			if PStotal < 1:
+				Pstotal=0
+			elif PLtotal < 1:
+				PLtotal=0
+			elif Pred < 1: 
+				Pred = 0
+		print(PLtotal)
 	
 		
   
@@ -162,10 +171,10 @@ def main():
 	
 	hilo1=threading.Thread(target=adquisicion)
 	hilo2=threading.Thread(target=adquisicion2)
-	#hilo3=threading.Thread(target=switches)
+	hilo3=threading.Thread(target=switches)
 	hilo1.start()
 	hilo2.start()
-	#hilo3.start()
+	hilo3.start()
 		
 	#while True:
 		
