@@ -79,7 +79,7 @@ except:
 
 
 def adquisicion():
-	global PStotal, PLtotal, sw
+	global PStotal, PLtotal, sw, Pred
 		
 	while True:
 		tic = tm.default_timer()
@@ -125,6 +125,14 @@ def adquisicion():
 			IcargaT=(IcargaT/j)-0.2
 			PLtotal=(VcargaT/j)*IcargaT
 			PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
+			
+			if PStotal < 1:
+				Pstotal=0.0
+			elif PLtotal < 1:
+				PLtotal=0.0
+				
+			elif Pred < 1: 
+				Pred = 0.0
 		
 			sw=1
 		
@@ -147,19 +155,13 @@ def adquisicion2():
 		Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
 
 def switches():
-	global  sw
+	global  PStotal, PLtotal, Pred, sw
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
 			
 			
-			if PStotal < 0.0:
-				Pstotal=0.0
-			elif PLtotal < 10:
-				PLtotal=0.0
-				
-			elif Pred < 0.0: 
-				Pred = 0.0
+			
 			print(sw)
 			sw=0
 	
