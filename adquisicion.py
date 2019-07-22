@@ -179,9 +179,9 @@ def main():
 	#hilo3.start()
 		
 	while True:
-			time.sleep(0.00005)
+		time.sleep(0.00005)
 		
-		#if sw==1:
+		if sw==1:
 			
 			if PStotal <= 1:
 				Pstotal=0.0
@@ -192,6 +192,9 @@ def main():
 				Pred = 0.0
 		
 			print(PLtotal)
+			
+			sw=0
+		else:
 			
 			sw=0
 		#tic = tm.default_timer()
