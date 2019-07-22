@@ -185,18 +185,18 @@ def main():
 			
 			if PStotal <= 1:
 				Pstotal=0.0
-			elif PLtotal <= 10:
+			elif PLtotal <= 1:
 				PLtotal=0.0
 				
 			elif Pred <= 1: 
 				Pred = 0.0
 		
-			print(PLtotal)
+			#print(PLtotal)
 			
 			sw=0
 		else:
+			print(PLtotal)
 			
-			sw=0
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
 		#if sw==1: #dato nuevo 
