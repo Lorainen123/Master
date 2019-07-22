@@ -121,21 +121,26 @@ def adquisicion():
 			
 		
 			#j=j+1
-		if sw==0 :
-			toc = tm.default_timer()
-			## potencia del panel solar			
-			PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
+		
+		toc = tm.default_timer()
+		## potencia del panel solar			
+		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
 			
-			## potencia de la carga 
-			IcargaT=(IcargaT/j)-0.2
-			PLtotal=(VcargaT/j)*IcargaT
-			PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
+		## potencia de la carga 
+		IcargaT=(IcargaT/j)-0.2
+		PLtotal=(VcargaT/j)*IcargaT
+		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
+		
+		if PStotal <= 1:
+			Pstotal=0.0
+		elif PLtotal <= 1:
+			PLtotal=0.0
+		
 			
+		sw=1
 			
-			sw=1
-			
-		#	print(PLtotal)
-			time.sleep(0.001)
+		print(PLtotal)
+		time.sleep(0.001)
 		
 			
 		
@@ -183,19 +188,19 @@ def main():
 		
 		if sw==1:
 			
-			if PStotal <= 1:
-				Pstotal=0.0
-			elif PLtotal <= 1:
-				PLtotal=0.0
+			#if PStotal <= 1:
+			#	Pstotal=0.0
+			#elif PLtotal <= 1:
+			#	PLtotal=0.0
 				
-			elif Pred <= 1: 
-				Pred = 0.0
+			#elif Pred <= 1: 
+			#	Pred = 0.0
 		
 			#print(PLtotal)
 			
 			sw=0
-		else:
-			print(PLtotal)
+		#else:
+			#print(PLtotal)
 			
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
