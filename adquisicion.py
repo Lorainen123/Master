@@ -179,13 +179,13 @@ def main():
 	#hilo3.start()
 		
 	while True:
-		time.sleep(0.00005)
+			time.sleep(0.00005)
 		
-		if sw==1:
+		#if sw==1:
 			
 			if PStotal <= 1:
 				Pstotal=0.0
-			elif PLtotal <= 1:
+			elif PLtotal <= 10:
 				PLtotal=0.0
 				
 			elif Pred <= 1: 
