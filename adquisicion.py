@@ -153,13 +153,13 @@ def switches():
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
 			
 			
-			if PStotal < 0:
-				Pstotal=0
-			elif PLtotal < 0:
-				PLtotal=0
+			if PStotal < 0.0:
+				Pstotal=0.0
+			elif PLtotal < 0.0:
+				PLtotal=0.0
 				
-			elif Pred < 0: 
-				Pred = 0
+			elif Pred < 0.0: 
+				Pred = 0.0
 			print(PStotal)
 			sw=0
 	
