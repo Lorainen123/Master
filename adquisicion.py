@@ -149,7 +149,7 @@ def adquisicion2():
 def switches():
 	global  PStotal, PLtotal, sw
 	while True:
-		#time.sleep(0.00005)
+		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
 			
 			
