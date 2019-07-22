@@ -134,7 +134,7 @@ def adquisicion():
 		
 		sw=1
 			
-		print(PLtotal)
+		#print(PLtotal)
 		time.sleep(0.001)
 		
 			
@@ -183,9 +183,9 @@ def main():
 		
 		if PStotal <= 1:
 			Pstotal=0.0
-		elif PLtotal <= 1:
+		elif PLtotal <= 10:
 			PLtotal=0.0
-		
+			print(PLtotal)
 			
 		
 		if sw==1:
@@ -198,7 +198,7 @@ def main():
 			#elif Pred <= 1: 
 			#	Pred = 0.0
 		
-			print(PLtotal)
+			
 			
 			sw=0
 		#else:
