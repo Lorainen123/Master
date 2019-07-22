@@ -141,8 +141,9 @@ def adquisicion():
 		elif PStotal <2:
 			PStotal=0
 			
-		print(PLtotal)
+		
 		sw=1
+		print(sw)
 			
 		
 		time.sleep(0.001)
