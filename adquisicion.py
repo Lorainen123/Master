@@ -116,19 +116,19 @@ def adquisicion():
 			
 		
 			#j=j+1
-		
-		toc = tm.default_timer()
-		## potencia del panel solar			
-		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
+		if sw==0 :
+			toc = tm.default_timer()
+			## potencia del panel solar			
+			PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
 			
-		## potencia de la carga 
-		IcargaT=(IcargaT/j)-0.2
-		PLtotal=(VcargaT/j)*IcargaT
-		PLtotal=(-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2
+			## potencia de la carga 
+			IcargaT=(IcargaT/j)-0.2
+			PLtotal=(VcargaT/j)*IcargaT
+			PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
 		
-		sw=1
+			sw=1
 		
-		time.sleep(0.001)
+			time.sleep(0.001)
 		
 		
 		#print(j)
@@ -142,16 +142,16 @@ def adquisicion2():
      		pred2 = ina2.power()/1000
        		pred3 = ina3.power()/1000
 		PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-		PRtotal=round(PRtotal,3)
+		#PRtotal=round(PRtotal,2)
 		##potencia de la red
-		Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
+		Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
 
 def switches():
 	global  PStotal, PLtotal, sw
 	while True:
 		time.sleep(0.00005)
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
-			sw=0
+			
 			
 			if PStotal < 1:
 				Pstotal=0
@@ -161,7 +161,7 @@ def switches():
 			elif Pred < 1: 
 				Pred = 0
 			print(PStotal)
-			
+			sw=0
 	
 		
   
