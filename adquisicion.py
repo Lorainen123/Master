@@ -131,7 +131,10 @@ def adquisicion():
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
 		
-		
+		if PLtotal<20: 
+			print(PLtotal) 
+			
+			
 		sw=1
 			
 		#print(PLtotal)
@@ -177,31 +180,7 @@ def main():
 	hilo1.start()
 	hilo2.start()
 	#hilo3.start()
-		
-	while True:
-		time.sleep(0.00005)
-		
-		if PStotal <= 1:
-			Pstotal=0.0
-		elif PLtotal <= 10:
-			PLtotal=0.0
-			print(PLtotal)
-			
-		
-		if sw==1:
-			
-			#if PStotal <= 1:
-			#	Pstotal=0.0
-			#elif PLtotal <= 1:
-			#	PLtotal=0.0
-				
-			#elif Pred <= 1: 
-			#	Pred = 0.0
-		
-			
-			
-			sw=0
-		#else:
+	#else:
 			#print(PLtotal)
 			
 		#tic = tm.default_timer()
