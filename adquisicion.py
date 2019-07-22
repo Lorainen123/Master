@@ -133,7 +133,7 @@ def main():
 	i=1
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
-	hilo1=threading.Thread(target=adquisicion2)
+	hilo1=threading.Thread(target=adquisicion)
 	hilo1.start()
 	while True:
 		
