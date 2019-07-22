@@ -14,24 +14,28 @@ import timeit as tm
 #Configuration SPI Port and device
 SPI_PORT   = 0
 SPI_DEVICE = 0
-sw=0
-N=50
-S_2=0
-j=0
-bufred = np.zeros((N,))
-bufsol = np.zeros((N,))
-bufbat = np.zeros((N,))
-bufload = np.zeros((N,))
+
+#N=50
+#bufred = np.zeros((N,))
+#bufsol = np.zeros((N,))
+#bufbat = np.zeros((N,))
+#bufload = np.zeros((N,))
+
+
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
-Itotal=0
+
 j=0
 IpanelT=0
 VpanelT=0
 VcargaT=0
 IcargaT=0
+
 #Configuration pin output
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
+GPIO.setup(13, GPIO.OUT)  ## 1
+GPIO.setup(19, GPIO.OUT)  ## 2
+GPIO.setup(26, GPIO.OUT)  ## 3
 
 #Low current sensors configurations
 try:
@@ -112,7 +116,7 @@ def adquisicion():
 			
 		
 			#j=j+1
-		time.sleep(0.001)
+		
 		toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
@@ -121,12 +125,15 @@ def adquisicion():
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
-		#print(PLtotal)
+		print(PLtotal)
+		time.sleep(0.001)
+		
 		
 		#print(j)
 		
 			#time.sleep(0.00005)
 def adquisicion2():
+		global Pred
 		
 		pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
        		pred1 = ina1.power()/1000
@@ -155,10 +162,10 @@ def main():
 	
 	hilo1=threading.Thread(target=adquisicion)
 	hilo2=threading.Thread(target=adquisicion2)
-	hilo3=threading.Thread(target=switches)
+	#hilo3=threading.Thread(target=switches)
 	hilo1.start()
 	hilo2.start()
-	hilo3.start()
+	#hilo3.start()
 		
 	#while True:
 		
