@@ -175,7 +175,7 @@ def switches():
 		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
 			 	
 
-			if PStotal>0 and Pred>7 and Pred<PLtotal:   ## Estado No 1
+			if PStotal>0 and Pred<PLtotal:   ## Estado No 1
 				
 				GPIO.output(13, False)
 				GPIO.output(19, False)
@@ -184,7 +184,7 @@ def switches():
 			#	GPIO.output(13, False)
 			#	GPIO.output(19, False)
 			#	GPIO.output(26, True)
-			elif Pred<=PLtotal+PLtotal*0.1 and Pred>=PLtotal-PLtotal*0.1:
+			elif Pred>=PLtotal+PLtotal*0.1:
 				GPIO.output(13, False)
 				GPIO.output(19, True)
 				GPIO.output(26, True)
