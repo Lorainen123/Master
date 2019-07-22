@@ -180,15 +180,20 @@ def main():
 		
 	while True:
 		time.sleep(0.00005)
-		if PStotal <= 1:
-			Pstotal=0.0
-		elif PLtotal <= 1:
-			PLtotal=0.0
-				
-		elif Pred <= 1: 
-			Pred = 0.0
 		
-		print(PLtotal)
+		if sw==1:
+			
+			if PStotal <= 1:
+				Pstotal=0.0
+			elif PLtotal <= 1:
+				PLtotal=0.0
+				
+			elif Pred <= 1: 
+				Pred = 0.0
+		
+			print(PLtotal)
+			
+			sw=0
 		#tic = tm.default_timer()
 	#	time.sleep(0.00000005)
 		#if sw==1: #dato nuevo 
