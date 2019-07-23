@@ -5,6 +5,7 @@ from skfuzzy import control as ctrl
 import excel
 import mcpras 
 import time
+import threading
 from ina219 import INA219
 #configuration of low current sensors
 Itotal=0
@@ -103,7 +104,7 @@ def adquisicion2():
 		
 
 
-def main(): 
+def fuzzy(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
     dIdv=1 
@@ -165,8 +166,9 @@ def main():
   
 
 
-main()
-    
+#main()
+hilo1=threading.Thread(target=fuzzy)
+hilo1.start()
    
    # dpdv=Pdif/Vdif
        
