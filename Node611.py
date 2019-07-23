@@ -278,12 +278,12 @@ def sensorm():
 
 
 
-def main():
+#def main():
 	
-	while True:
-		GPIO.output(13, False)
-		GPIO.output(19, False)
-		GPIO.output(26, False)
+	#while True:
+	#	GPIO.output(13, False)
+	#	GPIO.output(19, False)
+	#	GPIO.output(26, False)
 		
 #main()
 
