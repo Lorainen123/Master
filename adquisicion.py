@@ -160,9 +160,9 @@ def adquisicion():
 			
 		
 		sw=1
-		print("Potencia del panel = "+PStotal)
-		print("Potencia de la bat = "+PBtotal)
-		print("Potencia de la carga = "+PLtotal)
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la carga = "+str(PLtotal))
 		
 		time.sleep(0.001)
 		
