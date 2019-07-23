@@ -136,7 +136,7 @@ def adquisicion():
 		toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
-		print(VbatT/j)
+		print(IbatT/j)
 		
 		## potencia de la carga 
 		IcargaT=(IcargaT/j)-0.2
