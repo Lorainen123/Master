@@ -100,7 +100,7 @@ def adquisicion():
 	global PStotal, PLtotal, sw, Pred
 		
 	while True:
-		tic = tm.default_timer()
+		#tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
 		IpanelT=0
 		VpanelT=0
@@ -146,7 +146,7 @@ def adquisicion():
 		
 			#j=j+1
 		
-		toc = tm.default_timer()
+		#toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
 		
@@ -158,7 +158,7 @@ def adquisicion():
 		
 		## potencia de la bateria
 		PBtotal=round((IbatT*VbatT)/(j*j),2)
-		print(PBtotal)
+		#print(PBtotal)
 		
 		if PLtotal<2: 
 			PLtotal=0
