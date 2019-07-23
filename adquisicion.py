@@ -126,9 +126,10 @@ def adquisicion():
 			IcargaT=IcargaT+Icarga
 		
 			## potencia de la bateria
-			Vbat = mcp.read_adc(1)
-			Vbat=((Vbat)*(5.15/1023))
-			VbatT=VbatT+Vbat
+			Ibat = mcp.read_adc(1)
+			Ibat=((Ibat)*(5.15/1023))
+			Ibat=(-2.55+Ibat)*(1/0.068)
+			IbatT=IbatT+Ibat
 		
 			#j=j+1
 		
