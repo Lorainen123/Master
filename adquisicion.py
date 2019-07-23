@@ -105,7 +105,7 @@ def adquisicion():
 		
 			Ipanel = mcp.read_adc(2)  ## Corriente del panel solar
 			Ipanel=((Ipanel)*(5.15/1023))
-			Ipanel=(-25.3+10*Ipanel)-0.2
+			#Ipanel=(-25.3+10*Ipanel)-0.2
 			IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
 		
 			Vpanel = mcp.read_adc(4)
@@ -129,7 +129,7 @@ def adquisicion():
 		toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
-			
+		print(IpanelT/j)
 		## potencia de la carga 
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
@@ -202,10 +202,10 @@ def main():
 	
 	hilo1=threading.Thread(target=adquisicion)
 	hilo2=threading.Thread(target=adquisicion2)
-	hilo3=threading.Thread(target=switches)
+#	hilo3=threading.Thread(target=switches)
 	hilo1.start()
 	hilo2.start()
-	hilo3.start()
+#	hilo3.start()
 	#else:
 			#print(PLtotal)
 			
