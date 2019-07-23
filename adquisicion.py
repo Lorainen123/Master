@@ -99,7 +99,7 @@ def adquisicion():
 		IcargaT=0
 		VcargaT=0
 		
-		VbatT=0
+		IbatT=0
 		
 		for j in range(501):
 			
