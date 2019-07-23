@@ -1,3 +1,5 @@
+import os
+import sys
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
@@ -8,7 +10,30 @@ import time
 import threading
 from ina219 import INA219
 import RPi.GPIO as GPIO
+from math import *
+from time import sleep
+import serial
+import requests
+import Adafruit_MCP3008
+import Adafruit_GPIO.SPI as SPI
+import timeit as tm
+
+
 #configuration of low current sensors
+SPI_PORT   = 0
+SPI_DEVICE = 0
+mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
+
+j=0
+IpanelT=0
+VpanelT=0
+VcargaT=0
+IcargaT=0
+PStotal=0
+PLtotal=0
+PBtotal=0
+Pred=0
+
 Itotal=0
 
 GPIO.setwarnings(False)
