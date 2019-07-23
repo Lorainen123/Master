@@ -106,6 +106,7 @@ def adquisicion():
 			Ipanel = mcp.read_adc(7)  ## Corriente del panel solar
 			Ipanel=((Ipanel)*(5.15/1023))
 			#Ipanel=(-25.3+10*Ipanel)-0.2
+			Ipanel=(-2.6+Ipanel)*(1/0.09693)
 			IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
 		
 			Vpanel = mcp.read_adc(4)
