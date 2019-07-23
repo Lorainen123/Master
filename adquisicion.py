@@ -99,6 +99,8 @@ def adquisicion():
 		IcargaT=0
 		VcargaT=0
 		
+		VbatT=0
+		
 		for j in range(501):
 			
 			##potencia del panel solar
@@ -123,14 +125,18 @@ def adquisicion():
 			Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
 			IcargaT=IcargaT+Icarga
 		
-			
+			## potencia de la bateria
+			Vbat = mcp.read_adc(1)
+			Vbat=((Vbat)*(5.15/1023))
+			VbatT=VbatT+Vbat
 		
 			#j=j+1
 		
 		toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
-		print(IpanelT/j)
+		print(VbatT/j)
+		
 		## potencia de la carga 
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
