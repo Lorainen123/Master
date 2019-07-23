@@ -7,8 +7,18 @@ import mcpras
 import time
 import threading
 from ina219 import INA219
+import RPi.GPIO as GPIO
 #configuration of low current sensors
 Itotal=0
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(13, GPIO.OUT)  ## 1
+GPIO.setup(19, GPIO.OUT)  ## 2
+GPIO.setup(26, GPIO.OUT)  ## 3
+
+
+
 try:
     ina = INA219(shunt_ohms=0.1,
                  max_expected_amps = 2.0,
