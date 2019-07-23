@@ -285,5 +285,5 @@ def main():
 		GPIO.output(19, False)
 		GPIO.output(26, False)
 		
-main()
+#main()
 
