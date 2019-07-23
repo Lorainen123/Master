@@ -22,11 +22,11 @@ GPIO.output(SPI_CLK_PIN, False)
 GPIO.output(SPI_SDISDO_PIN, False)
 GPIO.output(SPI_CS_PIN, False)
 
-print ('Setup')
+#print ('Setup')
 GPIO.output(SPI_CS_PIN, True)
 GPIO.output(SPI_CLK_PIN, False)
 GPIO.output(SPI_CS_PIN, False)
-wait_a_key()
+#wait_a_key()
 
 def set_value(b):
     b = "0000" "00" "{0:010b}".format(b)
@@ -38,9 +38,9 @@ def set_value(b):
         GPIO.output(SPI_CLK_PIN, False)
         #For step by step checking: sleep()
 
-    wait_a_key()
+   # wait_a_key()
 
     GPIO.output(SPI_CS_PIN, True)
     sleep()
-    print('Voltaje ajustado')
+    #print('Voltaje ajustado')
 
