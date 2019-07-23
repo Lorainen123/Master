@@ -33,6 +33,7 @@ VcargaT=0
 IcargaT=0
 PStotal=0
 PLtotal=0
+PBtotal=0
 Pred=0
 
 #Configuration pin output
@@ -100,6 +101,7 @@ def adquisicion():
 		VcargaT=0
 		
 		IbatT=0
+		VbatT=0
 		
 		for j in range(501):
 			
@@ -130,18 +132,25 @@ def adquisicion():
 			Ibat=((Ibat)*(5.15/1023))
 			Ibat=(-2.55+Ibat)*(1/0.068)
 			IbatT=IbatT+Ibat
+			Vbat = mcp.read_adc(5)
+			Vbat = ((Vbat)*(5.15/1023))*(37000.0/7500.0) 
+			VbatT=VbatT+Vbat
 		
 			#j=j+1
 		
 		toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
-		print(IbatT/j)
+		
 		
 		## potencia de la carga 
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
 		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
+		
+		## potencia de la bateria
+		PBtotal=round((IbatT*VbatT)/(j*j),2)
+		print(PBtotal)
 		
 		if PLtotal<2: 
 			PLtotal=0
