@@ -96,7 +96,7 @@ vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 
-def adquisicion2():   
+def corrienteRed():   
 	#global Itotal
 	
 	#while True:  #adquisicion of low current sensors
@@ -123,7 +123,7 @@ def fuzzy():
     n = excel.main(float(v2),0)
     n = int(n)
     mcpras.set_value(n)
-    Ired2=adquisicion2()
+    Ired2=corrienteRed()
 
     while True:
   
@@ -148,7 +148,7 @@ def fuzzy():
 		
 		
 	 time.sleep(0.2)
-    	 Ired2=adquisicion2()
+    	 Ired2=corrienteRed()
     	 dired=Ired2-Ired
 	 
 	 try:
