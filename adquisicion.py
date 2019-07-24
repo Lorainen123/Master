@@ -103,7 +103,7 @@ def adquisicion():
 		IbatT=0
 		VbatT=0
 		
-		for j in range(1001):
+		for j in range(501):
 			
 			##potencia del panel solar
 		
