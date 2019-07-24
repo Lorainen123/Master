@@ -180,10 +180,10 @@ def adquisicion2():
 			#PRtotal=round(PRtotal,2)
 			##potencia de la red
 			Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
-			if Pred<1:
-				Pred=0
-			elif Pred<7+7*0.1 and Pred>7-7*0.1:
-				Pred=7
+		#	if Pred<1:
+		#		Pred=0
+		#	elif Pred<7+7*0.1 and Pred>7-7*0.1:
+		#		Pred=7
 			
 			
 def switches():
