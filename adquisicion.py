@@ -148,6 +148,7 @@ def adquisicion():
 		IcargaT=(IcargaT/j)-0.2
 		PLtotal=(VcargaT/j)*IcargaT
 		#PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
+		PLtotal=round((4.80352 + 0.624629*PLtotal+ 0.000745302*PLtotal*PLtotal),2)
 		
 		## potencia de la bateria
 		PBtotal=round((IbatT*VbatT)/(j*j),2)
