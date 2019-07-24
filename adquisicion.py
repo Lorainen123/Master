@@ -43,9 +43,9 @@ GPIO.setup(13, GPIO.OUT)  ## 1
 GPIO.setup(19, GPIO.OUT)  ## 2
 GPIO.setup(26, GPIO.OUT)  ## 3
 
-GPIO.output(13, False)
-GPIO.output(19, False)
-GPIO.output(26, False)
+#GPIO.output(13, False)
+#GPIO.output(19, False)
+#GPIO.output(26, False)
 
 #Low current sensors configurations
 try:
