@@ -130,7 +130,7 @@ def adquisicion():
 			## potencia de la bateria
 			Ibat = mcp.read_adc(1)
 			Ibat=((Ibat)*(5.15/1023))
-			#Ibat=(-2.55+Ibat)*(1/0.068)
+			Ibat=(-2.54+Ibat)*(1/0.1852)
 			IbatT=IbatT+Ibat
 			Vbat = mcp.read_adc(5)
 			Vbat = ((Vbat)*(5.15/1023))*(37000.0/7500.0) 
