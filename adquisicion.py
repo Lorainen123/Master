@@ -167,8 +167,8 @@ def adquisicion():
 		print("Voltaje Panel = "+str(VpanelT/j))
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
-		pred=adquisicion2()
-		print("Potencia de la red = "+str(pred))
+		#pred=adquisicion2()
+		#print("Potencia de la red = "+str(pred))
 	#	time.sleep(0.001)
 		
 			
@@ -227,10 +227,10 @@ def main():
 #	thread.start_new_thread(adquisicion2,(i,))
 	
 	hilo1=threading.Thread(target=adquisicion)
-	hilo2=threading.Thread(target=adquisicion2)
+	#hilo2=threading.Thread(target=adquisicion2)
 #	hilo3=threading.Thread(target=switches)
 	hilo1.start()
-	hilo2.start()
+	#hilo2.start()
 #	hilo3.start()
 	#else:
 			#print(PLtotal)
