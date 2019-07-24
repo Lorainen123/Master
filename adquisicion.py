@@ -150,7 +150,7 @@ def adquisicion():
 		
 		## potencia de la bateria
 		PBtotal=round((IbatT*VbatT)/(j*j),2)
-		print(IbatT)
+		print(IbatT/j)
 		
 		if PLtotal<2: 
 			PLtotal=0
