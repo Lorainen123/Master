@@ -150,7 +150,7 @@ def adquisicion():
 		
 		## potencia de la bateria
 		PBtotal=round((IbatT*VbatT)/(j*j),2)
-		print(IbatT/j)
+		#print(IbatT/j)
 		
 		if PLtotal<2: 
 			PLtotal=0
@@ -160,10 +160,10 @@ def adquisicion():
 			
 		
 		sw=1
-		#print("Potencia del panel = "+str(PStotal))
-		#print("Potencia de la bat = "+str(PBtotal))
-		#print("Potencia de la carga = "+str(PLtotal))
-		
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la carga = "+str(PLtotal))
+		print("Potencia de la Red = "+str(Pred))
 		time.sleep(0.001)
 		
 			
