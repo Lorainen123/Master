@@ -162,20 +162,21 @@ def adquisicion():
 			
 		
 		sw=1
-		#print("Potencia del panel = "+str(PStotal))
-		#print("Corriente Panel = "+str((IpanelT/j)-0.5))
-		#print("Voltaje Panel = "+str(VpanelT/j))
-		#print("Potencia de la bat = "+str(PBtotal))
-		#print("Potencia de la carga = "+str(PLtotal))
-		
+		print("Potencia del panel = "+str(PStotal))
+		print("Corriente Panel = "+str((IpanelT/j)-0.5))
+		print("Voltaje Panel = "+str(VpanelT/j))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la carga = "+str(PLtotal))
+		pred=adquisicion2()
+		print("Potencia de la red = "+str(pred))
 	#	time.sleep(0.001)
 		
 			
 		
 			#time.sleep(0.00005)
 def adquisicion2():
-		global Pred
-		while True:
+		#global Pred
+	#	while True:
 			pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
        			pred1 = ina1.power()/1000
      			pred2 = ina2.power()/1000
@@ -184,7 +185,8 @@ def adquisicion2():
 			#PRtotal=round(PRtotal,2)
 			##potencia de la red
 			Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
-			print("Potencia de la Red = "+str(Pred))
+			
+			return Pred
 		#	if Pred<1:
 		#		Pred=0
 		#	elif Pred<7+7*0.1 and Pred>7-7*0.1:
