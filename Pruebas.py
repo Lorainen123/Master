@@ -5,6 +5,7 @@ import time
 import numpy as np
 import thread
 from ina219 import INA219
+import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
