@@ -10,7 +10,7 @@ from ina219 import INA219
 
 v=14.5
 archivo=open("prueba1.txt","w")
-itotal=0
+Pred=0
 try:
     ina = INA219(shunt_ohms=0.1,
                  max_expected_amps = 2.0,
@@ -53,22 +53,24 @@ except:
 
 def adquisicion2(j):
   
-	  global itotal
+	  global Pred
 	
 	  while True:
       
 	
-                 	ired = ina.current()/1000
-        	        ired1 = ina1.current()/1000
-     		        ired2 = ina2.current()/1000
-                 	ired3 = ina3.current()/1000
-	              	itotal=ired+ired1+ired2+ired3
-              		itotal=round(itotal,3)
+                 	pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+       			pred1 = ina1.power()/1000
+     			pred2 = ina2.power()/1000
+       			pred3 = ina3.power()/1000
+			PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
+			#PRtotal=round(PRtotal,2)
+			##potencia de la red
+			Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
 		
 
 
 def main():
-	global itotal
+	global Pred
 	i=0
 	thread.start_new_thread(adquisicion2,(i,))
 	while i<41:
@@ -80,7 +82,7 @@ def main():
     		time.sleep(1)
    # P1=Node611.sensorm()
      
-    		archivo.write(str(itotal)+'\n')
+    		archivo.write(str(Pred)+'\n')
    		i=i+1
     
  #   n = excel.main(float(16.2),0)
