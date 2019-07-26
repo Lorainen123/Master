@@ -9,6 +9,9 @@ import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
+#Configuration SPI Port and device
+SPI_PORT   = 0
+SPI_DEVICE = 0
 
 v=14.5
 archivo=open("prueba1.txt","w")
