@@ -86,8 +86,15 @@ def main():
     		mcpras.set_value(n)
     		time.sleep(1)
    # P1=Node611.sensorm()
-     		Pred=adquisicion2()
-    		archivo.write(str(Pred)+'\n')
+     		
+		try:
+			Pred=adquisicion2()
+    		
+		except:
+			time.sleep(0.1)
+			Pred=adquisicion2()
+			
+		archivo.write(str(Pred)+'\n')
    		i=i+1
     
  #   n = excel.main(float(16.2),0)
