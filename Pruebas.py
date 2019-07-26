@@ -6,7 +6,8 @@ import numpy as np
 import thread
 from ina219 import INA219
 
-
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
 
 v=14.5
 archivo=open("prueba1.txt","w")
