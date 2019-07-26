@@ -14,7 +14,7 @@ SPI_PORT   = 0
 SPI_DEVICE = 0
 
 v=14.5
-archivo=open("prueba1.txt","w")
+#archivo=open("prueba1.txt","w")
 Pred=0
 try:
     ina = INA219(shunt_ohms=0.1,
@@ -94,7 +94,8 @@ def main():
 			time.sleep(0.1)
 			Pred=adquisicion2()
 			
-		archivo.write(str(Pred)+'\n')
+		print(Pred)	
+		#archivo.write(str(Pred)+'\n')
    		i=i+1
     
  #   n = excel.main(float(16.2),0)
@@ -106,6 +107,6 @@ def main():
    		
     
 main()  
-archivo.close()
+#archivo.close()
 
                   
