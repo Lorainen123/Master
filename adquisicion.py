@@ -226,11 +226,11 @@ def main():
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
 	
-#	hilo1=threading.Thread(target=adquisicion)
-	hilo2=threading.Thread(target=adquisicion2)
+	hilo1=threading.Thread(target=adquisicion)
+#	hilo2=threading.Thread(target=adquisicion2)
 #	hilo3=threading.Thread(target=switches)
-#	hilo1.start()
-	hilo2.start()
+	hilo1.start()
+#	hilo2.start()
 #	hilo3.start()
 	#else:
 			#print(PLtotal)
