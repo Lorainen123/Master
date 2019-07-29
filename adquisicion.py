@@ -165,7 +165,7 @@ def adquisicion():
 		#print("Potencia del panel = "+str(PStotal))
 		#print("Corriente Panel = "+str((IpanelT/j)-0.5))
 		#print("Voltaje Panel = "+str((VpanelT/j)+0.5))
-		#print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la bat = "+str(PBtotal))
 		#print("Potencia de la carga = "+str(PLtotal))
 		#pred=adquisicion2()
 		#print("Potencia de la red = "+str(pred))
