@@ -94,7 +94,7 @@ dIdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dIdv')
 #Dired 
 dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-50, -1.05, -0.5, -0.24])
 dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
-dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.1, -0.02, 0.02, 0.1])
+dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.24, -0.05, 0.05, 0.24])
 dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
 dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 50])
 
