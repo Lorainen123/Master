@@ -179,7 +179,7 @@ def main():
 	 time.sleep(0.2)
     	 Ired2=adquisicion2()
     	 dired=Ired2-Ired
-       
+       	 Vdif=round(Vdif,2)
 
     	# print("Corriente de la red t= "+str(Ired))
     	# print("Corriente de la red t+1 = "+str(Ired2))
