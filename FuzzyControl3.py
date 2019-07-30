@@ -269,7 +269,7 @@ def fuzzy():
 		v2=14.5
 		
 		
-	 time.sleep(0.2)
+	 time.sleep(0.3)
     	 Ired2=corrienteRed()
     	 dired=Ired2-Ired
 	 
