@@ -277,7 +277,7 @@ def fuzzy():
 		if dired<=0.01:
 			dIdv=0
 		else:
-			dIdv=0.2
+			dIdv=0.03
 
     	
 	 
