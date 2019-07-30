@@ -210,29 +210,30 @@ def corrienteRed():
 	#while i<:
 	#while True:  #adquisicion of low current sensors
 		#tic = tm.default_timer()
-		try:
+	#	try:
         		ired = ina.current()/1000
         		ired1 = ina1.current()/1000
      			ired2 = ina2.current()/1000
         		#ired3 = ina3.current()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
+			return Itotal
 	      	#time.sleep(0.00080)
          		
-		except:
-			time.sleep(0.1)
-			ired = ina.current()/1000
-        		ired1 = ina1.current()/1000
-     			ired2 = ina2.current()/1000
+	#	except:
+	#		time.sleep(0.1)
+	#		ired = ina.current()/1000
+        #		ired1 = ina1.current()/1000
+     	#		ired2 = ina2.current()/1000
         		#ired3 = ina3.current()/1000
-	      		Itotal=ired+ired1+ired2+ired2
-	      		Itotal=round(Itotal,3)
+	 #     		Itotal=ired+ired1+ired2+ired2
+	  #    		Itotal=round(Itotal,3)
 		#i=i+1
 	      	#time.sleep(0.00080)
       	#	ItotalT=ItotalT+Itotal	
 		#toc = tm.default_timer()
 		#print(toc-tic)
-		return Itotal
+			
 
 
 def fuzzy(): 
@@ -273,8 +274,19 @@ def fuzzy():
 		
 		
 	 time.sleep(0.2)
-    	 Ired2=corrienteRed()
-    	 dired=Ired2-Ired
+	
+	 try:
+    		Ired2=corrienteRed()
+	 except:
+		try:	
+    			time.sleep(0.1)
+			Ired2=corrienteRed()
+		except:
+			time.sleep(0.1)
+			Ired2=corrienteRed()
+		
+	
+	dired=Ired2-Ired
 	 
 	 try:
 			
