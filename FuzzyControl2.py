@@ -58,9 +58,9 @@ Vdif = ctrl.Antecedent(np.arange(-2, 2, 0.1),'Vdif')
 
 #Dired 
 dired['NB'] = fuzz.trapmf(dired.universe, [-2, -0.525, -0.07, -0.04])
-dired['NS'] = fuzz.trimf(dired.universe, [-0.07, -0.034, 0])
+dired['NS'] = fuzz.trimf(dired.universe, [-0.07, -0.034, -0.001])
 dired['Z'] = fuzz.trapmf(dired.universe, [-0.034, -0.003,  0.003, 0.034])
-dired['PS'] = fuzz.trimf(dired.universe, [0, 0.034, 0.07])
+dired['PS'] = fuzz.trimf(dired.universe, [0.001, 0.034, 0.07])
 dired['PB'] = fuzz.trapmf(dired.universe, [0.04, 0.07, 0.525, 2])
 
 #Vdif
