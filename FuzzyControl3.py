@@ -205,9 +205,9 @@ def adquisicion():
 
 def corrienteRed():   
 	#global Itotal
-	i=0
-	ItotalT=0
-	while i<10:
+	#i=0
+	#ItotalT=0
+	#while i<:
 	#while True:  #adquisicion of low current sensors
 		#tic = tm.default_timer()
 		try:
@@ -227,12 +227,12 @@ def corrienteRed():
         		#ired3 = ina3.current()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
-		i=i+1
+		#i=i+1
 	      	#time.sleep(0.00080)
-      		ItotalT=ItotalT+Itotal	
+      	#	ItotalT=ItotalT+Itotal	
 		#toc = tm.default_timer()
 		#print(toc-tic)
-	return ItotalT/10
+		return Itotal
 
 
 def fuzzy(): 
