@@ -18,19 +18,19 @@ v=14.5
 Pred=0
 try:
     ina = INA219(shunt_ohms=0.1,
-                 max_expected_amps = 3.0,
+                 max_expected_amps = 2.0,
                  address=0x40)
 
     ina1 = INA219(shunt_ohms=0.1,
-                 max_expected_amps = 3.0,
+                 max_expected_amps = 2.0,
                  address=0x44)
 
     ina2 = INA219(shunt_ohms=0.1,
-                 max_expected_amps = 3.0,
+                 max_expected_amps = 2.0,
                  address=0x41)
 
     ina3 = INA219(shunt_ohms=0.1,
-                 max_expected_amps = 3.0,
+                 max_expected_amps = 2.0,
                  address=0x45)
 
     ina.configure(voltage_range=ina.RANGE_32V,
@@ -62,11 +62,11 @@ def adquisicion2():
 	
 	#  while True:
       
-		 ired=ina.current()/1000
-                 pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-       		 pred1 = ina1.power()/1000
-     		 pred2 = ina2.power()/1000
-       		 pred3 = ina3.power()/1000
+		 ired=ina.power()/1000
+#                 pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
+ #      		 pred1 = ina1.power()/1000
+  #   		 pred2 = ina2.power()/1000
+  #     		 pred3 = ina3.power()/1000
 		 PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
 			#PRtotal=round(PRtotal,2)
 			##potencia de la red
