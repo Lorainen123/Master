@@ -286,7 +286,7 @@ def fuzzy():
 			Ired2=corrienteRed()
 		
 	
-	dired=Ired2-Ired
+	 dired=Ired2-Ired
 	 
 	 try:
 			
