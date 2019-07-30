@@ -1,7 +1,7 @@
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
-import Node611
+#import Node611
 import excel
 import mcpras 
 import time
