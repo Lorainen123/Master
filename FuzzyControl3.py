@@ -220,7 +220,7 @@ def corrienteRed():
 	      	#time.sleep(0.00080)
          		
 		except:
-			time.sleep(0.01)
+			time.sleep(0.1)
 			ired = ina.current()/1000
         		ired1 = ina1.current()/1000
      			ired2 = ina2.current()/1000
