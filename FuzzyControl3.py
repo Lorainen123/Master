@@ -302,13 +302,13 @@ def fuzzy():
 	 
 #	 print("Corriente de la red t= "+str(Ired))
 #    	 print("Corriente de la red t+1 = "+str(Ired2))
-	 print("Cambio de corriente ="+str(dired))
-	 print("Vref1"+str(v))
+	# print("Cambio de corriente ="+str(dired))
+	# print("Vref1"+str(v))
    	 print("Vref2 = "+str(v2))
 	# print("diferencia de voltaje v2-v"+str(Vdif))
 		
-         print("Cambio de corriente/voltaje = "+str(dIdv))
-   	 print("Cambio de voltaje = "+str(Vrefin))
+        # print("Cambio de corriente/voltaje = "+str(dIdv))
+   	# print("Cambio de voltaje = "+str(Vrefin))
  
 
 def main():
