@@ -229,7 +229,7 @@ def corrienteRed():
 	      		Itotal=round(Itotal,3)
 		i=i+1
 	      	#time.sleep(0.00080)
-         ItotalT=ItotalT+itotal	
+        ItotalT=ItotalT+Itotal	
 		#toc = tm.default_timer()
 		#print(toc-tic)
 	return ItotalT/10
