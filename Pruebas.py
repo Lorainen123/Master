@@ -105,10 +105,10 @@ def main():
  #   P1=Node611.sensorm()
  #   archivo.write(str(P1)+'\n')
    		
-while True:
-	ired=adquisicion2()
-	print(ired)
-#main()  
+#while True:
+#	ired=adquisicion2()
+#	print(ired)
+main()  
 #archivo.close()
 
                   
