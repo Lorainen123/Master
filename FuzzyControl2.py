@@ -50,34 +50,34 @@ except:
 
 #Fuzzy Controller 
 
-Vrefd = ctrl.Consequent(np.arange(-0.9, 0.9, 0.1), 'Vrefd')
+Vrefd = ctrl.Consequent(np.arange(-2, 2, 0.1), 'Vrefd')
 dired = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dired')
-Vdif = ctrl.Antecedent(np.arange(-0.9, 0.9, 0.1),'Vdif')
+Vdif = ctrl.Antecedent(np.arange(-2, 2, 0.1),'Vdif')
 
 #Membership functions
 
 #Dired 
 dired['NB'] = fuzz.trapmf(dired.universe, [-2, -0.525, -0.07, -0.04])
-dired['NS'] = fuzz.trimf(dired.universe, [-0.05, -0.024, -0.002])
-dired['Z'] = fuzz.trimf(dired.universe, [-0.003, 0, 0.003])
-dired['PS'] = fuzz.trimf(dired.universe, [0.002, 0.024, 0.05])
-dired['PB'] = fuzz.trapmf(dired.universe, [0.04, 0.05, 0.525, 2])
+dired['NS'] = fuzz.trimf(dired.universe, [-0.07, -0.034, 0])
+dired['Z'] = fuzz.trimf(dired.universe, [-0.034, 0, 0.034])
+dired['PS'] = fuzz.trimf(dired.universe, [0, 0.034, 0.07])
+dired['PB'] = fuzz.trapmf(dired.universe, [0.04, 0.07, 0.525, 2])
 
 #Vdif
 
-Vdif['NB'] = fuzz.trapmf(Vdif.universe, [-0.87, -0.63, -0.5, -0.29])
-Vdif['NS'] = fuzz.trimf(Vdif.universe, [-0.3, -0.145, -0.001])
-Vdif['Z'] = fuzz.trimf(Vdif.universe, [-0.002, 0, 0.002])
-Vdif['PS'] = fuzz.trimf(Vdif.universe, [0.01, 0.145, 0.3])
-Vdif['PB'] = fuzz.trapmf(Vdif.universe, [0.29, 0.5, 0.63, 0.87])
+Vdif['NB'] = fuzz.trapmf(Vdif.universe, [-2, -0.8, -0.5, -0.29])
+Vdif['NS'] = fuzz.trimf(Vdif.universe, [-0.5, -0.25, 0])
+Vdif['Z'] = fuzz.trimf(Vdif.universe, [-0.25, 0, 0.25])
+Vdif['PS'] = fuzz.trimf(Vdif.universe, [0, 0.25, 0.5])
+Vdif['PB'] = fuzz.trapmf(Vdif.universe, [0.29, 0.5, 0.8, 2])
 
 #Vref
 
-Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.5, -0.29])
-Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.145, -0.001])
-Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.002, 0, 0.002])
-Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.01, 0.145, 0.3])
-Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
+Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-2, -0.8, -0.5, -0.29])
+Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.5, -0.25, 0])
+Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.25, 0, 0.25])
+Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0, 0.25, 0.5])
+Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.8, 2])
 
 ##Rules
 
