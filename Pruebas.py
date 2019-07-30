@@ -62,7 +62,7 @@ def adquisicion2():
 	
 	#  while True:
       
-	
+		 ired=ina.current()/1000
                  pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
        		 pred1 = ina1.power()/1000
      		 pred2 = ina2.power()/1000
@@ -71,7 +71,7 @@ def adquisicion2():
 			#PRtotal=round(PRtotal,2)
 			##potencia de la red
 		 Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
-		 return Pred
+		 return ired
 
 
 def main():
@@ -105,8 +105,10 @@ def main():
  #   P1=Node611.sensorm()
  #   archivo.write(str(P1)+'\n')
    		
-    
-main()  
+while True:
+	ired=adquisicion2()
+	print(ired)
+#main()  
 #archivo.close()
 
                   
