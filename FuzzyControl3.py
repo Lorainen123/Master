@@ -66,17 +66,17 @@ try:
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
 
-    ina1.configure(voltage_range=ina.RANGE_32V,
+    ina1.configure(voltage_range=ina.RANGE_16V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
 
-    ina2.configure(voltage_range=ina.RANGE_32V,
+    ina2.configure(voltage_range=ina.RANGE_16V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
 
-    ina3.configure(voltage_range=ina.RANGE_32V,
+    ina3.configure(voltage_range=ina.RANGE_16V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
@@ -92,11 +92,11 @@ dIdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dIdv')
 #Membership functions
 
 #Dired 
-dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-10, -1.05, -0.5, -0.24])
+dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-50, -1.05, -0.5, -0.24])
 dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
 dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.1, -0.02, 0.02, 0.1])
 dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
-dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 10])
+dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 50])
 
 #Vref
 
