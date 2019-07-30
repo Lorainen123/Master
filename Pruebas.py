@@ -67,10 +67,10 @@ def adquisicion2():
  #      		 pred1 = ina1.power()/1000
   #   		 pred2 = ina2.power()/1000
   #     		 pred3 = ina3.power()/1000
-		 PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
+		# PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
 			#PRtotal=round(PRtotal,2)
 			##potencia de la red
-		 Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
+		 #Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
 		 return ired
 
 
