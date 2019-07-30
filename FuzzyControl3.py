@@ -275,14 +275,14 @@ def fuzzy():
          except:
 		if dired<=0.002:
 			dIdv=0
-		#else:
-		#	dIdv=0.2
+		else:
+			dIdv=0.2
 
     	
 	 
 #	 print("Corriente de la red t= "+str(Ired))
 #    	 print("Corriente de la red t+1 = "+str(Ired2))
-#	 print("Cambio de corriente ="+str(dired))
+	 print("Cambio de corriente ="+str(dired))
 	 print("Vref1"+str(v))
    	 print("Vref2 = "+str(v2))
 	# print("diferencia de voltaje v2-v"+str(Vdif))
