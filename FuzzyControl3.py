@@ -229,7 +229,7 @@ def corrienteRed():
 	      		Itotal=round(Itotal,3)
 		i=i+1
 	      	#time.sleep(0.00080)
-        ItotalT=ItotalT+Itotal	
+      		ItotalT=ItotalT+Itotal	
 		#toc = tm.default_timer()
 		#print(toc-tic)
 	return ItotalT/10
@@ -272,7 +272,7 @@ def fuzzy():
 		v2=14.5
 		
 		
-	 time.sleep(0.3)
+	 time.sleep(0.2)
     	 Ired2=corrienteRed()
     	 dired=Ired2-Ired
 	 
