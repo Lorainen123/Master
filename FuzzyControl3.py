@@ -273,8 +273,8 @@ def fuzzy():
 			
 	 	dIdv=dired/Vdif
          except:
-		#if abs(dIdv)<=0.003:
-		dIdv=0
+		if dired<=0.002:
+			dIdv=0
 		#else:
 		#	dIdv=0.2
 
