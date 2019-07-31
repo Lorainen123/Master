@@ -258,7 +258,7 @@ def fuzzy():
 		#dired=Ired2-Ired
 		Vrefin=0.2
 		
-	  else:
+	 else:
 			
 	 	v2=v2+Vrefin
 		Ired=Ired2
