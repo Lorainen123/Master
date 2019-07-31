@@ -301,7 +301,7 @@ def fuzzy():
 		Ired2=corrienteRed()
 		
 		if Ired<=1.01*Ired2 and Ired>=0.09*Ired2:
-			dIdv=1
+			dIdv=2
 		else:
 			dIdv=0
 		#dired=Ired2-Ired
