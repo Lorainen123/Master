@@ -243,7 +243,7 @@ def fuzzy():
    	 Vrefinabs=abs(Vrefin)
 	 
 	 if v2<14.6:
-		v2:14.5
+		v2=14.5
 			
 	 if Vrefinabs <0.05:
 		
