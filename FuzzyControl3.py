@@ -212,6 +212,7 @@ def adquisicion():
 
 def corrienteRed():   
 		i=0
+		ItotalT=0
 		while i<3:
 			
         		ired = ina.power()/1000
