@@ -300,7 +300,7 @@ def fuzzy():
 		time.sleep(0.2)
 		Ired2=corrienteRed()
 		
-		if Ired<=1.1*Ired2 and Ired>=0.9*Ired2:
+		if Ired<=1.01*Ired2 and Ired>=0.09*Ired2:
 			dIdv=1
 		else:
 			dIdv=0
