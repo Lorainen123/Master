@@ -211,6 +211,9 @@ def adquisicion():
 
 
 def corrienteRed():   
+		i=0
+		while i<3:
+			
         		ired = ina.power()/1000
         		ired1 = ina1.power()/1000
      			ired2 = ina2.power()/1000
@@ -218,8 +221,10 @@ def corrienteRed():
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
 			#Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+			i=i+1
+			ItotalT=ItotalT+Itotal
 			
-			return Itotal
+		return ItotalT/3
 	
 
 
