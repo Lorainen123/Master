@@ -284,10 +284,10 @@ def fuzzy():
     			Ired2=corrienteRed()
 	 	except:
 			try:	
-    				time.sleep(0.1)
+    				time.sleep(0.5)
 				Ired2=corrienteRed()
 			except:
-				time.sleep(0.1)
+				time.sleep(0.5)
 				Ired2=corrienteRed()
   	
 	
