@@ -287,7 +287,7 @@ def fuzzy():
 			v2=14.5
 		elif v2>18.5:
 			v2=18.6
-		dIdv=0
+		#dIdv=0
 		n = excel.main(float(v2),0)
    		n = int(n)
     		mcpras.set_value(n)
@@ -299,8 +299,13 @@ def fuzzy():
     		mcpras.set_value(n)
 		time.sleep(0.2)
 		Ired2=corrienteRed()
+		
+		if Ired<=1.1*Ired2 and Ired>=0.9*Ired2:
+			dIdv=1
+		else:
+			dIdv=0
 		#dired=Ired2-Ired
-		Vrefin=0.2
+		
 		
 	 else:
 		
@@ -327,11 +332,11 @@ def fuzzy():
 			except:
 				time.sleep(0.5)
 				Ired2=corrienteRed()
-  	
+  		dired=Ired2-Ired
+		dIdv=dired/Vrefin
 	
 
-	 dired=Ired2-Ired
-	 dIdv=dired/Vrefin
+	
 	 if dIdv>=500:
 		dIdv=500
 	 elif dIdv<=-500:
