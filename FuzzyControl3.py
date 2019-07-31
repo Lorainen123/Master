@@ -242,11 +242,11 @@ def fuzzy():
     	 Vrefin=round(vrefout.output['Vrefd'],2)
    	 Vrefinabs=abs(Vrefin)
 	 
-	 if v2<14.6:
-		v2=14.5
+	 
 			
 	 if Vrefinabs <0.05:
-		
+		if v2<14.6:
+			v2=14.5	
 		dIdv=0
 		n = excel.main(float(v2),0)
    		n = int(n)
@@ -263,11 +263,13 @@ def fuzzy():
 		Vrefin=0.2
 		
 	 else:
-			
+		
 	 	v2=v2+Vrefin
 		Ired=Ired2
 	
-	 	
+	 	if v2<14.6:
+			v2=14.5	
+			
 		n = excel.main(float(v2),0)
    	 	n = int(n)
     	 	mcpras.set_value(n)
@@ -284,7 +286,7 @@ def fuzzy():
 				time.sleep(0.1)
 				Ired2=corrienteRed()
   	
-	 
+	
 
 	 dired=Ired2-Ired
 	 dIdv=dired/Vrefin
