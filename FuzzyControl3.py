@@ -255,7 +255,7 @@ def fuzzy():
     	 Vrefin=round(vrefout.output['Vrefd'],2)
    	 Vrefinabs=abs(Vrefin)
 	 
-	 if Vrefinabs <0.01:
+	 if Vrefinabs <0.02:
 		Vrefin=0
 		
   	 v=v2
