@@ -92,17 +92,17 @@ dIdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dIdv')
 #Membership functions
 
 #Dired 
-dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-200, -1.05, -0.5, -0.24])
-dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
-dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.24, -0.05, 0.05, 0.24])
-dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
-dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 200])
+#dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-200, -1.05, -0.5, -0.24])
+#dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
+#dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.24, -0.05, 0.05, 0.24])
+#dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
+#dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 200])
 
-#dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -10, -4.8])
-#dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
-#dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-2, -0.4, 0.4, 2])
-#dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
-#dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
+dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -10, -4.8])
+dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
+dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-2, -0.4, 0.4, 2])
+dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
+dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
 
 
 #Vref
@@ -211,9 +211,9 @@ def adquisicion():
 
 
 def corrienteRed():   
-        		ired = ina.current()/1000
-        		ired1 = ina1.current()/1000
-     			ired2 = ina2.current()/1000
+        		ired = ina.power()/1000
+        		ired1 = ina1.power()/1000
+     			ired2 = ina2.power()/1000
         		#ired3 = ina3.current()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
@@ -226,7 +226,7 @@ def corrienteRed():
 def fuzzy(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dIdv=1
+    dIdv=5
     v2=18.6
 
     n = excel.main(float(v2),0)
@@ -288,7 +288,7 @@ def fuzzy():
 		if dired<=0.01:
 			dIdv=0
 		else:
-			dIdv=0.03
+			dIdv=2
 	# print (v2)
     	
 	 
