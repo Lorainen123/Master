@@ -240,8 +240,8 @@ def fuzzy():
    	 vrefout.input['dIdv']=dIdv
     	 vrefout.compute()
     	 Vrefin=round(vrefout.output['Vrefd'],2)
-   	 
-	 if Vrefin <0.05:
+   	 Vrefinabs=abs(Vrefin)
+	 if Vrefinabs <0.05:
 		
 		dIdv=0
 		n = excel.main(float(v2),0)
