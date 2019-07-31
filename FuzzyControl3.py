@@ -92,11 +92,18 @@ dIdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dIdv')
 #Membership functions
 
 #Dired 
-dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-200, -1.05, -0.5, -0.24])
-dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
-dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.24, -0.05, 0.05, 0.24])
-dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
-dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 200])
+#dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-200, -1.05, -0.5, -0.24])
+#dIdv['NS'] = fuzz.trimf(dIdv.universe, [-0.5, -0.24, -0.02])
+#dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.24, -0.05, 0.05, 0.24])
+#dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
+#dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 200])
+
+dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-200, -21, -10, -4.8])
+dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
+dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-0.2, -0.4, 0.4, 0.2])
+dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
+dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 200])
+
 
 #Vref
 
@@ -204,36 +211,16 @@ def adquisicion():
 
 
 def corrienteRed():   
-	#global Itotal
-	#i=0
-	#ItotalT=0
-	#while i<:
-	#while True:  #adquisicion of low current sensors
-		#tic = tm.default_timer()
-	#	try:
-        		ired = ina.current()/1000
-        		ired1 = ina1.current()/1000
-     			ired2 = ina2.current()/1000
+        		ired = ina.power()/1000
+        		ired1 = ina1.power()/1000
+     			ired2 = ina2.power()/1000
         		#ired3 = ina3.current()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
-			return Itotal
-	      	#time.sleep(0.00080)
-         		
-	#	except:
-	#		time.sleep(0.1)
-	#		ired = ina.current()/1000
-        #		ired1 = ina1.current()/1000
-     	#		ired2 = ina2.current()/1000
-        		#ired3 = ina3.current()/1000
-	 #     		Itotal=ired+ired1+ired2+ired2
-	  #    		Itotal=round(Itotal,3)
-		#i=i+1
-	      	#time.sleep(0.00080)
-      	#	ItotalT=ItotalT+Itotal	
-		#toc = tm.default_timer()
-		#print(toc-tic)
 			
+			
+			return Itotal
+	
 
 
 def fuzzy(): 
@@ -298,10 +285,10 @@ def fuzzy():
 	 	dIdv=dired/Vdif
          except:
 		dired=abs(dired)
-		if dired<=0.01:
+		if dired<=0.1:
 			dIdv=0
 		else:
-			dIdv=0.03
+			dIdv=0.5
 	# print (v2)
     	
 	 
