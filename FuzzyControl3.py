@@ -211,7 +211,7 @@ def adquisicion():
 
 
 def corrienteRed(): 
-		try:
+	try:
 		i=0
 		ItotalT=0
 		while i<3:
@@ -225,7 +225,7 @@ def corrienteRed():
 			#Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 			i=i+1
 			ItotalT=ItotalT+Itotal
-		except:
+	except:
 			try:
 				time.sleep(0.2)
 				i=0
