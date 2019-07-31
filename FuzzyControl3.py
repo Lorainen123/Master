@@ -211,9 +211,9 @@ def adquisicion():
 
 
 def corrienteRed():   
-        		ired = ina.power()/1000
-        		ired1 = ina1.power()/1000
-     			ired2 = ina2.power()/1000
+        		ired = ina.current()/1000
+        		ired1 = ina1.current()/1000
+     			ired2 = ina2.current()/1000
         		#ired3 = ina3.current()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
