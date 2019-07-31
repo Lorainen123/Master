@@ -282,8 +282,8 @@ def fuzzy():
   	
 	 
 
-	  dired=Ired2-Ired
-	  dIdv=dired/Vrefin
+	 dired=Ired2-Ired
+	 dIdv=dired/Vrefin
 	
 
 		#dired=abs(dired)
