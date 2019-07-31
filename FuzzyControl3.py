@@ -226,7 +226,7 @@ def corrienteRed():
 def fuzzy(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dIdv=4
+    dIdv=1
     v2=18.6
 
     n = excel.main(float(v2),0)
@@ -285,10 +285,10 @@ def fuzzy():
 	 	dIdv=dired/Vdif
          except:
 		dired=abs(dired)
-		if dired<=0.1:
+		if dired<=0.01:
 			dIdv=0
 		else:
-			dIdv=2
+			dIdv=0.03
 	# print (v2)
     	
 	 
