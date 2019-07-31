@@ -296,7 +296,7 @@ def fuzzy():
 	 dIdv=dired/Vrefin
 	 if dIdv>=500:
 		dIdv=500
-	 elif dIdv<=-500
+	 elif dIdv<=-500:
 		dIdv=-500
 	
 
