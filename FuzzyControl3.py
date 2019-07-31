@@ -87,7 +87,7 @@ except:
 #Fuzzy Controller 
 
 Vrefd = ctrl.Consequent(np.arange(-0.9, 0.9, 0.1), 'Vrefd')
-dIdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dIdv')
+dIdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dIdv')
 
 #Membership functions
 
@@ -98,11 +98,11 @@ dIdv = ctrl.Antecedent(np.arange(-200, 200, 0.01),'dIdv')
 #dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
 #dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 200])
 
-dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-200, -21, -10, -4.8])
+dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -10, -4.8])
 dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
 dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-2, -0.4, 0.4, 2])
 dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
-dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 200])
+dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
 
 
 #Vref
