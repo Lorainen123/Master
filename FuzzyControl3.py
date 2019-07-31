@@ -294,6 +294,10 @@ def fuzzy():
 
 	 dired=Ired2-Ired
 	 dIdv=dired/Vrefin
+	 if dIdv>=500:
+		dIdv=500
+	 elif dIdv<=-500
+		dIdv=-500
 	
 
 		#dired=abs(dired)
