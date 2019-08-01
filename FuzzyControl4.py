@@ -232,6 +232,7 @@ def corrienteRed():
 			i=i+1
 			PtotalT=PtotalT+Pred
 	except:
+		time.sleep(0.5)
 		i=0
 		PtotalT=0
 		while i<5:
@@ -246,7 +247,8 @@ def corrienteRed():
 			i=i+1
 			PtotalT=PtotalT+Pred
 			
-	except:
+	else:
+		time.sleep(0.5)
 		i=0
 		PtotalT=0
 		while i<5:
@@ -260,21 +262,7 @@ def corrienteRed():
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 			i=i+1
 			PtotalT=PtotalT+Pred
-	except:
-		i=0
-		PtotalT=0
-		while i<5:
 			
-        		ired = ina.power()/1000
-        		ired1 = ina1.power()/1000
-     			ired2 = ina2.power()/1000
-        		#ired3 = ina3.current()/1000
-	      		Itotal=ired+ired1+ired2+ired2
-	      		Itotal=round(Itotal,3)
-			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			i=i+1
-			PtotalT=PtotalT+Pred
-	
 	return PtotalT/5
 
 
