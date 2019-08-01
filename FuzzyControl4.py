@@ -98,17 +98,17 @@ dIdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dIdv')
 #dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.02, 0.24, 0.5])
 #dIdv['PB'] = fuzz.trapmf(dIdv.universe, [0.24, 0.5, 1.05, 200])
 
-dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -15, -10])
-dIdv['NS'] = fuzz.trimf(dIdv.universe, [-15, -8, -1])
-dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-8, -0.4, 0.4, 8])
-dIdv['PS'] = fuzz.trimf(dIdv.universe, [1, 8, 15])
-dIdv['PB'] = fuzz.trapmf(dIdv.universe, [10, 15, 21, 500])
+#dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -15, -10])
+#dIdv['NS'] = fuzz.trimf(dIdv.universe, [-15, -8, -1])
+#dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-8, -0.4, 0.4, 8])
+#dIdv['PS'] = fuzz.trimf(dIdv.universe, [1, 8, 15])
+#dIdv['PB'] = fuzz.trapmf(dIdv.universe, [10, 15, 21, 500])
 
-#dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -10, -4.8])
-#dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
-#dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-2, -0.4, 0.4, 2])
-#dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
-#dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
+dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -10, -4.8])
+dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
+dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-4.8, -0.4, 0.4, 4.8])
+dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
+dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
 
 
 #Vref
