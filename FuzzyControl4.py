@@ -270,6 +270,7 @@ def fuzzy():
     n = excel.main(float(v2),0)
     n = int(n)
     mcpras.set_value(n)
+    time.sleep(0.2)
     Ired2=corrienteRed()
 
     while True:
