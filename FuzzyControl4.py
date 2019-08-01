@@ -228,8 +228,9 @@ def corrienteRed():
 	      		Itotal=ired+ired1+ired2+ired3
 	      		Itotal=round(Itotal,3)
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			i=i+1
+			
 			PtotalT=PtotalT+Pred
+			i=i+1
 	except:
 			try:
 				time.sleep(0.2)
@@ -244,8 +245,9 @@ def corrienteRed():
 	      				Itotal=ired+ired1+ired2+ired3
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					i=i+1
+					
 					PtotalT=PtotalT+Pred
+					i=i+1
 			except:
 				time.sleep(0.2)
 				i=0
@@ -259,8 +261,9 @@ def corrienteRed():
 	      				Itotal=ired+ired1+ired2+ired3
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					i=i+1
+					
 					PtotalT=PtotalT+Pred
+					i=i+1
 	
 	return PtotalT/4
 
