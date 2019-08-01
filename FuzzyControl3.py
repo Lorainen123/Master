@@ -264,7 +264,7 @@ def corrienteRed():
 def fuzzy(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dIdv=2
+    dIdv=1
     v2=18.5
 
     n = excel.main(float(v2),0)
