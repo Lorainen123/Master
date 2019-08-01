@@ -224,8 +224,8 @@ def corrienteRed():
         		ired = ina.power()/1000
         		ired1 = ina1.power()/1000
      			ired2 = ina2.power()/1000
-        		#ired3 = ina3.current()/1000
-	      		Itotal=ired+ired1+ired2+ired2
+        		ired3 = ina3.power()/1000
+	      		Itotal=ired+ired1+ired2+ired3
 	      		Itotal=round(Itotal,3)
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 			i=i+1
@@ -240,8 +240,8 @@ def corrienteRed():
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
      					ired2 = ina2.power()/1000
-        				#ired3 = ina3.current()/1000
-	      				Itotal=ired+ired1+ired2+ired2
+        				ired3 = ina3.power()/1000
+	      				Itotal=ired+ired1+ired2+ired3
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
@@ -255,14 +255,14 @@ def corrienteRed():
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
      					ired2 = ina2.power()/1000
-        				#ired3 = ina3.current()/1000
-	      				Itotal=ired+ired1+ired2+ired2
+        				ired3 = ina3.power()/1000
+	      				Itotal=ired+ired1+ired2+ired3
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
 					PtotalT=PtotalT+Pred
 	
-	return PtotalT/5
+	return PtotalT/4
 
 
 def fuzzy(): 
