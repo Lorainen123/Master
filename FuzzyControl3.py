@@ -110,7 +110,7 @@ dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
 Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.5, -0.29])
 Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.145, -0.001])
 Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.002, 0, 0.002])
-Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.01, 0.145, 0.3])
+Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.001, 0.145, 0.3])
 Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
 
 ##Rules
@@ -264,7 +264,7 @@ def corrienteRed():
 def fuzzy(): 
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dIdv=1
+    dIdv=2
     v2=18.5
 
     n = excel.main(float(v2),0)
