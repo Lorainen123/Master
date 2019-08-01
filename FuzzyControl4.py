@@ -316,8 +316,8 @@ def fuzzy():
 		if dired>0.05*Ired2:
 			Iredbck=corrienteRed()
 			
-			if Iredbck>0.9*Ired2 and Iredbck<1.1*Ired
-				dIdv=0.5
+			if Iredbck>0.9*Ired2 and Iredbck<1.1*Ired:
+				dIdv=1.5
 				Ired2=Iredbck
 				dired=Ired-Ired
 		else:
