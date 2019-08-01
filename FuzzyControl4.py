@@ -290,7 +290,7 @@ def fuzzy():
     		Vrefin=round(vrefout.output['Vrefd'],3)
    	 	Vrefinabs=abs(Vrefin)
 		
-	elif sw==1:
+	 elif sw==1:
 		Vrefin=0.1
 		sw=0
 	 
