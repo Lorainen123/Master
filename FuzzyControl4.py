@@ -271,6 +271,7 @@ def fuzzy():
     #thread.start_new_thread(adquisicion2,(i,))
     dIdv=5
     v2=18.5
+    dired=0
 
     n = excel.main(float(v2),0)
     n = int(n)
