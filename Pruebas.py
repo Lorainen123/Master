@@ -103,7 +103,7 @@ def adquisicion2():
 					i=i+1
 					ItotalT=ItotalT+Itotal
 			
-	return ItotalT/3
+	return ItotalT/5
 	
 
 
