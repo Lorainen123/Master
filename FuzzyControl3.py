@@ -277,7 +277,7 @@ def fuzzy():
       	 
    	 vrefout.input['dIdv']=dIdv
     	 vrefout.compute()
-    	 Vrefin=round(vrefout.output['Vrefd'],2)
+    	 Vrefin=round(vrefout.output['Vrefd'],3)
    	 Vrefinabs=abs(Vrefin)
 	 
 	 #print("Corriente de la red t= "+str(Ired))
