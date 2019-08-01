@@ -84,7 +84,7 @@ def main():
     		n = excel.main(float(v+0.1*i),0)
    		n = int(n)
     		mcpras.set_value(n)
-    		time.sleep(1)
+    		time.sleep(0.3)
    # P1=Node611.sensorm()
      		
 		try:
