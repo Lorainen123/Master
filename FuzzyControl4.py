@@ -307,7 +307,7 @@ def fuzzy():
 					
 	 v2=v2+Vrefin
 	 Ired=Ired2
-	 print(V2)
+	 print(v2)
 	
 	 if v2<14.6:
 		v2=14.5	
