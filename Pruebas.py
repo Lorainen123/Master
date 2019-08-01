@@ -60,7 +60,7 @@ def adquisicion2():
 	try:
 		i=0
 		ItotalT=0
-		while i<3:
+		while i<5:
 			
         		ired = ina.power()/1000
         		ired1 = ina1.power()/1000
