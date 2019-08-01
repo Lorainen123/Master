@@ -210,11 +210,11 @@ def adquisicion():
 
 
 
-def corrienteRed(): 
+def adquisicion2(): 
 	try:
 		i=0
-		ItotalT=0
-		while i<3:
+		PtotalT=0
+		while i<5:
 			
         		ired = ina.power()/1000
         		ired1 = ina1.power()/1000
@@ -222,15 +222,15 @@ def corrienteRed():
         		#ired3 = ina3.current()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
-			#Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 			i=i+1
-			ItotalT=ItotalT+Itotal
+			PtotalT=PtotalT+Pred
 	except:
 			try:
 				time.sleep(0.2)
 				i=0
-				ItotalT=0
-				while i<3:
+				PtotalT=0
+				while i<5:
 			
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
@@ -238,14 +238,14 @@ def corrienteRed():
         				#ired3 = ina3.current()/1000
 	      				Itotal=ired+ired1+ired2+ired2
 	      				Itotal=round(Itotal,3)
-			#Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
-					ItotalT=ItotalT+Itotal
+					PtotalT=PtotalT+Pred
 			except:
 				time.sleep(0.2)
 				i=0
-				ItotalT=0
-				while i<3:
+				PtotalT=0
+				while i<5:
 				
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
@@ -255,10 +255,9 @@ def corrienteRed():
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
-					ItotalT=ItotalT+Itotal
-			
-	return ItotalT/3
+					PtotalT=PtotalT+Pred
 	
+	return PtotalT/5
 
 
 def fuzzy(): 
