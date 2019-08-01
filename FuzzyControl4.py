@@ -325,7 +325,7 @@ def fuzzy():
 	 try:
 	 	dIdv=dired/Vrefin
 	 except:
-		if dired>0:
+		if dired>0.05*Ired2:
 			dIdv=1.5
 		else:
 			dIdv=0
