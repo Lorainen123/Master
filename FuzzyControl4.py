@@ -290,59 +290,33 @@ def fuzzy():
 		
          print("Cambio de corriente/voltaje = "+str(dIdv))
    	 print("Cambio de voltaje = "+str(Vrefin))
-			
-	 if Vrefinabs <0.1:
-		if v2<14.6:
-			v2=14.5
-		elif v2>18.5:
-			v2=18.5
-		#dIdv=0
-		n = excel.main(float(v2),0)
-   		n = int(n)
-    		mcpras.set_value(n)
-		time.sleep(0.2)
-		Ired=corrienteRed()
-		
-		n = excel.main(float(v2+0.1),0)
-   		n = int(n)
-    		mcpras.set_value(n)
-		time.sleep(0.2)
-		Ired2=corrienteRed()
-		
-		if Ired<=1.01*Ired2 and Ired>=0.09*Ired2:
-			dIdv=2
-		else:
-			dIdv=0
-		#dired=Ired2-Ired
-		
-		
-	 else:
-		
-	 	v2=v2+Vrefin
-		Ired=Ired2
+					
+	 v2=v2+Vrefin
+	 Ired=Ired2
 	
-	 	if v2<14.6:
-			v2=14.5	
-		elif v2>18.5:
-			v2=18.6
+	 if v2<14.6:
+		v2=14.5	
+	 elif v2>18.5:
+		v2=18.6
 			
-		n = excel.main(float(v2),0)
-   	 	n = int(n)
-    	 	mcpras.set_value(n)
+	 n = excel.main(float(v2),0)
+   	 n = int(n)
+    	 mcpras.set_value(n)
 	 
-	 	time.sleep(0.2)
+	 time.sleep(0.2)
 	  
-	 	try:
-    			Ired2=corrienteRed()
-	 	except:
-			try:	
-    				time.sleep(0.5)
-				Ired2=corrienteRed()
-			except:
-				time.sleep(0.5)
-				Ired2=corrienteRed()
-  		dired=Ired2-Ired
-		dIdv=dired/Vrefin
+	 try:
+    		Ired2=corrienteRed()
+	 except:
+		try:	
+    			time.sleep(0.5)
+			Ired2=corrienteRed()
+		except:
+			time.sleep(0.5)
+			Ired2=corrienteRed()
+  		
+	 dired=Ired2-Ired
+	 dIdv=dired/Vrefin
 	
 
 	
