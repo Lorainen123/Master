@@ -325,7 +325,7 @@ def fuzzy():
 		else:
 			dIdv=0
 
-	 if Vrefin<0.2 and dIdv>15:
+	 if abs(Vrefin)<0.2 and abs(dIdv)>15:
 		dIdv=1.5
 	
 	
