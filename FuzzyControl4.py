@@ -343,8 +343,8 @@ def fuzzy():
 				dIdv=1.5
 				Ired2=Iredbck
 				dired=Ired-Ired
-		#else:
-			#sw=1
+		else:
+			sw=1
 			
 
 	 if abs(Vrefin)<0.2 and abs(dIdv)>15:
