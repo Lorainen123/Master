@@ -316,8 +316,13 @@ def fuzzy():
 			Ired2=corrienteRed()
   		
 	 dired=Ired2-Ired
-	 dIdv=dired/Vrefin
-	
+	 try:
+	 	dIdv=dired/Vrefin
+	 except:
+		if dIdv>0:
+			dIdv=0.5
+		else:
+			dIdv=0
 
 	
 	 if dIdv>=500:
