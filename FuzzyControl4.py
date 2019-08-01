@@ -327,6 +327,8 @@ def fuzzy():
 	 except:
 		if dired>0.05*Ired2:
 			dIdv=1.5
+			Ired2=corrienteRed()
+		
 		else:
 			dIdv=0
 
