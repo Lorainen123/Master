@@ -210,7 +210,7 @@ def adquisicion():
 
 
 
-def adquisicion2(): 
+def corrienteRed(): 
 	try:
 		i=0
 		PtotalT=0
