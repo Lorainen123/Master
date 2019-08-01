@@ -294,7 +294,7 @@ def fuzzy():
 		Vrefin=0.1
 		sw=0
 	 
-	 print("Corriente de la red t= "+str(Ired))
+	# print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Ired2))
 	 print("Cambio de corriente ="+str(dired))
 	# print("Vref1"+str(v))
