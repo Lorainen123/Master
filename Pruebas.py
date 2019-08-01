@@ -56,22 +56,55 @@ except:
     time.sleep(0.1)
     
 
-def adquisicion2():
-  
-	 # global Pred
+def adquisicion2(): 
+	try:
+		i=0
+		ItotalT=0
+		while i<3:
+			
+        		ired = ina.power()/1000
+        		ired1 = ina1.power()/1000
+     			ired2 = ina2.power()/1000
+        		#ired3 = ina3.current()/1000
+	      		Itotal=ired+ired1+ired2+ired2
+	      		Itotal=round(Itotal,3)
+			#Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+			i=i+1
+			ItotalT=ItotalT+Itotal
+	except:
+			try:
+				time.sleep(0.2)
+				i=0
+				ItotalT=0
+				while i<3:
+			
+        				ired = ina.power()/1000
+        				ired1 = ina1.power()/1000
+     					ired2 = ina2.power()/1000
+        				#ired3 = ina3.current()/1000
+	      				Itotal=ired+ired1+ired2+ired2
+	      				Itotal=round(Itotal,3)
+			#Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+					i=i+1
+					ItotalT=ItotalT+Itotal
+			except:
+				time.sleep(0.2)
+				i=0
+				ItotalT=0
+				while i<3:
+				
+        				ired = ina.power()/1000
+        				ired1 = ina1.power()/1000
+     					ired2 = ina2.power()/1000
+        				#ired3 = ina3.current()/1000
+	      				Itotal=ired+ired1+ired2+ired2
+	      				Itotal=round(Itotal,3)
+					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+					i=i+1
+					ItotalT=ItotalT+Itotal
+			
+	return ItotalT/3
 	
-	#  while True:
-      
-		 ired=ina.power()#/1000
-                 pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-      		 pred1 = ina1.power()/1000
-     		 pred2 = ina2.power()/1000
-      		 pred3 = ina3.power()/1000
-		 PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-			#PRtotal=round(PRtotal,2)
-			##potencia de la red
-		 Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
-		 return Pred
 
 
 def main():
