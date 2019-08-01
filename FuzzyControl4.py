@@ -268,7 +268,8 @@ def corrienteRed():
 	return PtotalT/4
 
 
-def fuzzy(): 
+def fuzzy():
+    sw=0
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
     dIdv=5
@@ -282,12 +283,16 @@ def fuzzy():
     Ired2=corrienteRed()
 
     while True:
-  
+         if sw=0:
       	 
-   	 vrefout.input['dIdv']=dIdv
-    	 vrefout.compute()
-    	 Vrefin=round(vrefout.output['Vrefd'],3)
-   	 Vrefinabs=abs(Vrefin)
+   	 	vrefout.input['dIdv']=dIdv
+    	 	vrefout.compute()
+    		Vrefin=round(vrefout.output['Vrefd'],3)
+   	 	Vrefinabs=abs(Vrefin)
+		
+	elif sw=1:
+		Vrefin=0.1
+		sw=0
 	 
 	 #print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Ired2))
@@ -338,7 +343,8 @@ def fuzzy():
 				Ired2=Iredbck
 				dired=Ired-Ired
 		else:
-			dIdv=0
+			sw=1
+			
 
 	 if abs(Vrefin)<0.2 and abs(dIdv)>15:
 		dIdv=1.5
