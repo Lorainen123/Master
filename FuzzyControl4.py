@@ -318,7 +318,7 @@ def fuzzy():
    	 n = int(n)
     	 mcpras.set_value(n)
 	 
-	 time.sleep(0.3)
+	 time.sleep(0.15)
 	  
 	# try:
     	 Ired2=corrienteRed()
