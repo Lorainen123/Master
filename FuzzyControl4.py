@@ -290,7 +290,7 @@ def fuzzy():
 	# print("diferencia de voltaje v2-v"+str(Vdif))
 		
          print("Cambio de corriente/voltaje = "+str(dIdv))
-   	 print("Cambio de voltaje= \n"+str(Vrefin))
+   	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
 					
 	 v2=v2+Vrefin
 	 Ired=Ired2
