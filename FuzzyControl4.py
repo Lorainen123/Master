@@ -283,14 +283,14 @@ def fuzzy():
     Ired2=corrienteRed()
 
     while True:
-         if sw=0:
+         if sw==0:
       	 
    	 	vrefout.input['dIdv']=dIdv
     	 	vrefout.compute()
     		Vrefin=round(vrefout.output['Vrefd'],3)
    	 	Vrefinabs=abs(Vrefin)
 		
-	elif sw=1:
+	elif sw==1:
 		Vrefin=0.1
 		sw=0
 	 
