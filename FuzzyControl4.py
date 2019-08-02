@@ -34,7 +34,7 @@ PLtotal=0
 PBtotal=0
 
 Pred = 0
-Pruea=  np.zeros(3,)
+Prueba=  np.zeros(3,)
 Itotal=0
 
 GPIO.setwarnings(False)
