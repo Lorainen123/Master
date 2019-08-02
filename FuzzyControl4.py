@@ -342,16 +342,16 @@ def fuzzy():
 			Iredbck=corrienteRed()
 			
 			if Iredbck>0.9*Ired2 and Iredbck<1.1*Ired2:
-				dIdv=1.5
+				sw=1
 				Ired2=Iredbck
-				dired=Ired-Ired
+				dired=Ired2-Ired
 		else:
 			sw=1
 			
 
 	 if abs(Vrefin)<0.2 and abs(dIdv)>15:
-		dIdv=1.5
-	
+		#dIdv=1.5
+		sw=1
 	
 	 if dIdv>=500:
 		dIdv=500
