@@ -227,7 +227,7 @@ def corrienteRed():
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
 			Pred[i]=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			if i==1:
+			if i>=1:
 				if Pred[i]>0.9*Pred[i-1] and Pred[i]<1.1*Pred[i-1]:
 					Pred[i]=Pred[i]
 				else:
@@ -252,7 +252,7 @@ def corrienteRed():
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					
 					#PtotalT=PtotalT+Pred
-					if i==1:
+					if i>=1:
 						if Pred[i]>0.9*Pred[i-1] and Pred[i]<1.1*Pred[i-1]:
 							Pred[i]=Pred[i]
 						else:
@@ -274,7 +274,7 @@ def corrienteRed():
 	      				Itotal=ired+ired1+ired2+ired2
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					if i==1
+					if i>=1:
 						if Pred[i]>0.9*Pred[i-1] and Pred[i]<1.1*Pred[i-1]:
 							Pred[i]=Pred[i]
 						else:
