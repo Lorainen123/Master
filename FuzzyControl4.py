@@ -237,7 +237,7 @@ def corrienteRed():
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				while i<3	
+				while i<3:	
 			
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
