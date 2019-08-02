@@ -60,7 +60,7 @@ def adquisicion2():
 	try:
 		i=0
 		PtotalT=0
-		while i<5:
+		while i<3:
 			
         		ired = ina.power()/1000
         		ired1 = ina1.power()/1000
@@ -72,13 +72,13 @@ def adquisicion2():
 			
 			i=i+1
 			PtotalT=PtotalT+Pred
-			time.sleep(0.01)
+			time.sleep(0.05)
 	except:
 			try:
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				while i<5:
+				while i<3:
 			
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
@@ -89,12 +89,12 @@ def adquisicion2():
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
 					PtotalT=PtotalT+Pred
-					time.sleep(0.01)
+					time.sleep(0.05)
 			except:
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				while i<5:
+				while i<3:
 				
         				ired = ina.power()/1000
         				ired1 = ina1.power()/1000
@@ -105,9 +105,9 @@ def adquisicion2():
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
 					PtotalT=PtotalT+Pred
-					time.sleep(0.01)
+					time.sleep(0.05)
 	
-	return PtotalT/5
+	return PtotalT/3
 	
 
 
