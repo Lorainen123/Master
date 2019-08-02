@@ -34,7 +34,7 @@ PLtotal=0
 PBtotal=0
 
 Pred = 0
-Prueba=  np.zeros(3,)
+Predv=  np.zeros(3,)
 Itotal=0
 
 GPIO.setwarnings(False)
@@ -230,12 +230,12 @@ def corrienteRed():
 			#print(type(Itotal))
 			
 			Pred=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
-			Prueba[i]=Pred
+			Predv[i]=Pred
 			#
 			#print(Pred[2])
-			#if i>=1:
-			#	if Pred[i]<0.9*Pred[i-1]:
-			#		Pred[i]=Pred[i-1]
+			if i>=1:
+				if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
+					Predv[i]=Predv[i-1]
 			       
 			#PtotalT=PtotalT+Pred
 			i=i+1
@@ -255,12 +255,12 @@ def corrienteRed():
 	      				Itotal=round(Itotal,3)
 					
 					Pred=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
-					Prueba[i]=Pred
+					Predv[i]=Pred
 					#print(Pred[2])
 					#PtotalT=PtotalT+Pred
-					#if i>=1:
-					#	if Pred[i]<0.9*Pred[i-1] or Pred[i]>1.1*Pred[i-1]:
-					#		Pred[i]=Pred[i-1]	
+					if i>=1:
+						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
+							Predv[i]=Predv[i-1]	
 					
 					i=i+1
 					#print("aqui estuve")
@@ -279,17 +279,17 @@ def corrienteRed():
 	      				Itotal=round(Itotal,3)
 					
 					Pred=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
-					Prueba[i]=Pred
+					Predv[i]=Pred
 					#print(Pred[0])
-					#if i>=1:
-						#if Pred[i]<0.9*Pred[i-1] or Pred[i]>1.1*Pred[i-1]:
-							#Pred[i]=Pred[i-1]
+					if i>=1:
+						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
+							Predv[i]=Predv[i-1]
 					#		print("no pude") 
 					#PtotalT=PtotalT+Pred
 					i=i+1
 					#print("aqui estuve")
 					time.sleep(0.05)
-	PtotalT=np.mean(Pred)
+	PtotalT=np.mean(Predv)
 	return PtotalT
 
 
