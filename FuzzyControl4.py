@@ -280,7 +280,7 @@ def corrienteRed():
 					i=i+1
 					#print("aqui estuve")
 					time.sleep(0.05)
-	#PtotalT=np.mean(Pred)
+	PtotalT=np.mean(Pred)
 	return PtotalT
 
 
