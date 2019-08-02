@@ -69,8 +69,10 @@ def adquisicion2():
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+			
 			i=i+1
 			PtotalT=PtotalT+Pred
+			time.sleep(0.01)
 	except:
 			try:
 				time.sleep(0.2)
@@ -87,6 +89,7 @@ def adquisicion2():
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
 					PtotalT=PtotalT+Pred
+					time.sleep(0.01)
 			except:
 				time.sleep(0.2)
 				i=0
@@ -102,6 +105,7 @@ def adquisicion2():
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					i=i+1
 					PtotalT=PtotalT+Pred
+					time.sleep(0.01)
 	
 	return PtotalT/5
 	
