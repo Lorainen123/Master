@@ -32,8 +32,8 @@ IcargaT=0
 PStotal=0
 PLtotal=0
 PBtotal=0
-Pred=0
 
+Pred = np.zeros((3,))
 Itotal=0
 
 GPIO.setwarnings(False)
@@ -226,9 +226,13 @@ def corrienteRed():
         		#ired3 = ina3.power()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
-			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			print(Pred)        
-			PtotalT=PtotalT+Pred
+			Pred[i]=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+			if Pred[i]>0.9*Pred[i-1] and Pred[i]<1.1*Pred[i-1]:
+				Pred[i]=Pred[i]
+			else:
+				Pred[i]=Pred[i-1]
+			       
+			#PtotalT=PtotalT+Pred
 			i=i+1
 			time.sleep(0.05)
 	except:
@@ -246,9 +250,13 @@ def corrienteRed():
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					
-					PtotalT=PtotalT+Pred
+					#PtotalT=PtotalT+Pred
+					if Pred[i]>0.9*Pred[i-1] and Pred[i]<1.1*Pred[i-1]:
+						Pred[i]=Pred[i]
+					else:
+						Pred[i]=Pred[i-1]	
 					i=i+1
-					print("aqui estuve")
+					#print("aqui estuve")
 					time.sleep(0.05)
 			except:
 				time.sleep(0.2)
@@ -263,12 +271,16 @@ def corrienteRed():
 	      				Itotal=ired+ired1+ired2+ired2
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					
-					PtotalT=PtotalT+Pred
+					if Pred[i]>0.9*Pred[i-1] and Pred[i]<1.1*Pred[i-1]:
+						Pred[i]=Pred[i]
+					else:
+						Pred[i]=Pred[i-1]
+					#PtotalT=PtotalT+Pred
 					i=i+1
-					print("aqui estuve")
-					time.sleep(0.05)	
-	return PtotalT/3
+					#print("aqui estuve")
+					time.sleep(0.05)
+	PtotalT=np.mean(Pred)
+	return PtotalT
 
 
 def fuzzy():
