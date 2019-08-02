@@ -225,10 +225,10 @@ def corrienteRed():
      			ired2 = ina2.power()/1000
         		#ired3 = ina3.power()/1000
 	      		Itotal=ired+ired1+ired2+ired2
-	      		#Itotal=round(Itotal,3)
-			print(type(Itotal))
-			Pred[i]=Itotal
-			#float64(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal)
+	      		Itotal=round(Itotal,3)
+			#print(type(Itotal))
+			Pred[i]=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
+			#
 			#print(Pred[2])
 			#if i>=1:
 			#	if Pred[i]<0.9*Pred[i-1]:
