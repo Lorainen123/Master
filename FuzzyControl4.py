@@ -266,8 +266,8 @@ def potenciaRed():
 							Predv[i]=Predv[i-1]
 			       
 			#PtotalT=PtotalT+Pred
-			i=i+1
-			time.sleep(0.05)
+					i=i+1
+					time.sleep(0.05)
 			except:
 				time.sleep(0.2)
 				i=0
@@ -290,6 +290,9 @@ def potenciaRed():
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
 							print("entre aqui")
 							Predv[i]=Predv[i-1]
+					i=i+1
+					time.sleep(0.05)
+					
 	PtotalT=np.mean(Predv)
 	return PtotalT
 
