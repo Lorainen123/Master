@@ -33,7 +33,7 @@ PStotal=0
 PLtotal=0
 PBtotal=0
 
-Pred = np.zeros((3,),dtype=np.float64)
+Pred = np.zeros((3,),dtype=np.float32)
 Itotal=0
 
 GPIO.setwarnings(False)
