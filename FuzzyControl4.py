@@ -434,7 +434,7 @@ def main():
  
 while True:
 	Pred=corrienteRed()
-	#print(Pred)
+	print(Pred)
 	
    # dpdv=Pdif/Vdif
        
