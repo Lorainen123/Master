@@ -437,7 +437,7 @@ def main():
 #hilo3.start()
  
 while True:
-	Pred=corrienteRed()
+	Pred=potenciaRed()
 	print(Pred)
 	
    # dpdv=Pdif/Vdif
