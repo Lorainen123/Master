@@ -303,6 +303,7 @@ def corrienteRed():
 					
 					PtotalT=PtotalT+Pred
 					i=i+1
+					print("aqui estuve")
 					time.sleep(0.05)
 			except:
 				time.sleep(0.2)
@@ -320,6 +321,7 @@ def corrienteRed():
 					
 					PtotalT=PtotalT+Pred
 					i=i+1
+					print("aqui estuve")
 					time.sleep(0.05)	
 	return PtotalT/3
 
