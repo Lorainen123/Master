@@ -221,53 +221,53 @@ def corrienteRed():
 		PtotalT=0
 		while i<3:
 			
-        	ired = ina.power()/1000
-        	ired1 = ina1.power()/1000
-     		ired2 = ina2.power()/1000
-        	ired3 = ina3.power()/1000
-	      	Itotal=ired+ired1+ired2+ired3
-	      	Itotal=round(Itotal,3)
-		Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+        		ired = ina.power()/1000
+        		ired1 = ina1.power()/1000
+     			ired2 = ina2.power()/1000
+        		ired3 = ina3.power()/1000
+	      		Itotal=ired+ired1+ired2+ired3
+	      		Itotal=round(Itotal,3)
+			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 		
-		PtotalT=PtotalT+Pred
-		i=i+1
-		time.sleep(0.05)
+			PtotalT=PtotalT+Pred
+			i=i+1
+			time.sleep(0.05)
 	except:
 			try:
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				
+				while i<3	
 			
-        			ired = ina.power()/1000
-        			ired1 = ina1.power()/1000
-     				ired2 = ina2.power()/1000
-        			ired3 = ina3.power()/1000
-	      			Itotal=ired+ired1+ired2+ired3
-	      			Itotal=round(Itotal,3)
-				Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+        				ired = ina.power()/1000
+        				ired1 = ina1.power()/1000
+     					ired2 = ina2.power()/1000
+        				ired3 = ina3.power()/1000
+	      				Itotal=ired+ired1+ired2+ired3
+	      				Itotal=round(Itotal,3)
+					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					
-				PtotalT=PtotalT+Pred
-				i=i+1
-				time.sleep(0.05)
+					PtotalT=PtotalT+Pred
+					i=i+1
+					time.sleep(0.05)
 			except:
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				#while i<5:
+				while i<3:
 				
-        			ired = ina.power()/1000
-        			ired1 = ina1.power()/1000
-     				ired2 = ina2.power()/1000
-        			ired3 = ina3.power()/1000
-	      			Itotal=ired+ired1+ired2+ired3
-	      			Itotal=round(Itotal,3)
-				Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
+        				ired = ina.power()/1000
+        				ired1 = ina1.power()/1000
+     					ired2 = ina2.power()/1000
+        				ired3 = ina3.power()/1000
+	      				Itotal=ired+ired1+ired2+ired3
+	      				Itotal=round(Itotal,3)
+					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
 					
-				PtotalT=PtotalT+Pred
-				i=i+1
-				time.sleep(0.05)	
-	return Pred
+					PtotalT=PtotalT+Pred
+					i=i+1
+					time.sleep(0.05)	
+	return PtotalT/3
 
 
 def fuzzy():
