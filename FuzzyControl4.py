@@ -225,8 +225,8 @@ def corrienteRed():
      			ired2 = ina2.power()/1000
         		#ired3 = ina3.power()/1000
 	      		Itotal=ired+ired1+ired2+ired2
-	      		Itotal=round(Itotal,3)
-			Pred[i]=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,2)
+	      		#Itotal=round(Itotal,3)
+			Pred[i]=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
 			#print(Pred[2])
 			#if i>=1:
 			#	if Pred[i]<0.9*Pred[i-1]:
@@ -247,8 +247,8 @@ def corrienteRed():
      					ired2 = ina2.power()/1000
         				#ired3 = ina3.power()/1000
 	      				Itotal=ired+ired1+ired2+ired2
-	      				Itotal=round(Itotal,3)
-					Pred[i]=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,2)
+	      				#Itotal=round(Itotal,3)
+					Pred[i]=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
 					#print(Pred[2])
 					#PtotalT=PtotalT+Pred
 					#if i>=1:
@@ -269,8 +269,8 @@ def corrienteRed():
      					ired2 = ina2.power()/1000
         				#ired3 = ina3.power()/1000
 	      				Itotal=ired+ired1+ired2+ired2
-	      				Itotal=round(Itotal,3)
-					Pred[i]=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,2)
+	      				#Itotal=round(Itotal,3)
+					Pred[i]=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
 					#print(Pred[0])
 					#if i>=1:
 						#if Pred[i]<0.9*Pred[i-1] or Pred[i]>1.1*Pred[i-1]:
