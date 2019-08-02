@@ -88,7 +88,7 @@ except:
 #Fuzzy Controller 
 
 Vrefd = ctrl.Consequent(np.arange(-0.9, 0.9, 0.1), 'Vrefd')
-dIdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dIdv')
+dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
 
 #Membership functions
 
@@ -105,11 +105,11 @@ dIdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dIdv')
 #dIdv['PS'] = fuzz.trimf(dIdv.universe, [1, 8, 15])
 #dIdv['PB'] = fuzz.trapmf(dIdv.universe, [10, 15, 21, 500])
 
-dIdv['NB'] = fuzz.trapmf(dIdv.universe, [-500, -21, -10, -4.8])
-dIdv['NS'] = fuzz.trimf(dIdv.universe, [-10, -4.8, -0.4])
-dIdv['Z'] = fuzz.trapmf(dIdv.universe, [-4.8, -0.4, 0.4, 4.8])
-dIdv['PS'] = fuzz.trimf(dIdv.universe, [0.4, 4.8, 10])
-dIdv['PB'] = fuzz.trapmf(dIdv.universe, [4.8, 10, 21, 500])
+dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -21, -10, -4.8])
+dpdv['NS'] = fuzz.trimf(dpdv.universe, [-10, -4.8, -0.4])
+dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-4.8, -0.4, 0.4, 4.8])
+dpdv['PS'] = fuzz.trimf(dpdv.universe, [0.4, 4.8, 10])
+dpdv['PB'] = fuzz.trapmf(dpdv.universe, [4.8, 10, 21, 500])
 
 
 #Vref
@@ -125,11 +125,11 @@ Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
 #rule1=ctrl.Rule(Pdif['P'],Vrefd['P'])
 #rule2=ctrl.Rule(Pdif['N'],Vrefd['N'])
 #rule3=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
-rule1=ctrl.Rule(dIdv['PB'],Vrefd['NB'])
-rule2=ctrl.Rule(dIdv['NB'],Vrefd['PB'])
-rule3=ctrl.Rule(dIdv['PS'],Vrefd['NS'])
-rule4=ctrl.Rule(dIdv['NS'],Vrefd['PS'])
-rule5=ctrl.Rule(dIdv['Z'],Vrefd['Z'])
+rule1=ctrl.Rule(dpdv['PB'],Vrefd['NB'])
+rule2=ctrl.Rule(dpdv['NB'],Vrefd['PB'])
+rule3=ctrl.Rule(dpdv['PS'],Vrefd['NS'])
+rule4=ctrl.Rule(dpdv['NS'],Vrefd['PS'])
+rule5=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
 
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
@@ -215,22 +215,22 @@ def adquisicion():
 
 
 
-def corrienteRed(): 
+def potenciaRed(): 
 	try:
 		i=0
-		PtotalT=0
+		#totalT=0
 		while i<3:
 			
-        		ired = ina.power()/1000
-        		ired1 = ina1.power()/1000
-     			ired2 = ina2.power()/1000
-        		#ired3 = ina3.power()/1000
-	      		Itotal=ired+ired1+ired2+ired2
-	      		Itotal=round(Itotal,3)
+        		pred_b = ina.power()/1000
+        		pred1_b = ina1.power()/1000
+     			pred2_b = ina2.power()/1000
+        		pred3_b = ina3.power()/1000
+	      		Ptotal_b=pred_b+pred1_b+pred2_b+pred2_b
+	      		Ptotal_b=round(Ptotal_b,3)
 			#print(type(Itotal))
 			
-			Pred=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
-			Predv[i]=Pred
+			Ptotal_b=6.8807+1.06223*Ptotal_b+0.00221977*Ptotal_b*Ptotal_b
+			Predv[i]=Ptotal_b
 			#
 			#print(Pred[2])
 			if i>=1:
@@ -248,50 +248,48 @@ def corrienteRed():
 				PtotalT=0
 				while i<3:	
 			
-        				ired = ina.power()/1000
-        				ired1 = ina1.power()/1000
-     					ired2 = ina2.power()/1000
-        				#ired3 = ina3.power()/1000
-	      				Itotal=ired+ired1+ired2+ired2
-	      				Itotal=round(Itotal,3)
-					
-					Pred=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
-					Predv[i]=Pred
-					#print(Pred[2])
-					#PtotalT=PtotalT+Pred
+        				pred_b = ina.power()/1000
+        				pred1_b = ina1.power()/1000
+     					pred2_b = ina2.power()/1000
+        				pred3_b = ina3.power()/1000
+	      				Ptotal_b=pred_b+pred1_b+pred2_b+pred2_b
+	      				Ptotal_b=round(Ptotal_b,3)
+			#print(type(Itotal))
+			
+					Ptotal_b=6.8807+1.06223*Ptotal_b+0.00221977*Ptotal_b*Ptotal_b
+					Predv[i]=Ptotal_b
+			#
+			#print(Pred[2])
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
 							print("entre aqui")
-							Predv[i]=Predv[i-1]	
-					
-					i=i+1
-					#print("aqui estuve")
-					time.sleep(0.05)
+							Predv[i]=Predv[i-1]
+			       
+			#PtotalT=PtotalT+Pred
+			i=i+1
+			time.sleep(0.05)
 			except:
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
 				while i<3:
 				
-        				ired = ina.power()/1000
-        				ired1 = ina1.power()/1000
-     					ired2 = ina2.power()/1000
-        				#ired3 = ina3.power()/1000
-	      				Itotal=ired+ired1+ired2+ired2
-	      				Itotal=round(Itotal,3)
-					
-					Pred=6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal
-					Predv[i]=Pred
-					#print(Pred[0])
+        				pred_b = ina.power()/1000
+        				pred1_b = ina1.power()/1000
+     					pred2_b = ina2.power()/1000
+        				pred3_b = ina3.power()/1000
+	      				Ptotal_b=pred_b+pred1_b+pred2_b+pred2_b
+	      				Ptotal_b=round(Ptotal_b,3)
+			#print(type(Itotal))
+			
+					Ptotal_b=6.8807+1.06223*Ptotal_b+0.00221977*Ptotal_b*Ptotal_b
+					Predv[i]=Ptotal_b
+			#
+			#print(Pred[2])
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
 							print("entre aqui")
 							Predv[i]=Predv[i-1]
-					#		print("no pude") 
-					#PtotalT=PtotalT+Pred
-					i=i+1
-					#print("aqui estuve")
-					time.sleep(0.05)
 	PtotalT=np.mean(Predv)
 	return PtotalT
 
@@ -300,20 +298,20 @@ def fuzzy():
     sw=0
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dIdv=5
+    dpdv=5
     v2=18.5
-    dired=0
+    dpred=0
 
     n = excel.main(float(v2),0)
     n = int(n)
     mcpras.set_value(n)
     time.sleep(0.2)
-    Ired2=corrienteRed()
+    Pred2= potenciaRed()
 
     while True:
          if sw==0:
       	 
-   	 	vrefout.input['dIdv']=dIdv
+   	 	vrefout.input['dpdv']=dpdv
     	 	vrefout.compute()
     		Vrefin=round(vrefout.output['Vrefd'],3)
    	 	Vrefinabs=abs(Vrefin)
@@ -323,18 +321,18 @@ def fuzzy():
 		sw=0
 	 
 	# print("Corriente de la red t= "+str(Ired))
-    	 print("Corriente de la red t+1 = "+str(Ired2))
-	 print("Cambio de corriente ="+str(dired))
+    	 print("Corriente de la red t+1 = "+str(Pred2))
+	 print("Cambio de corriente ="+str(dpred))
 	# print("Vref1"+str(v))
    	 print("Vref2 = "+str(v2))
 	
 	# print("diferencia de voltaje v2-v"+str(Vdif))
 	 	
-         print("Cambio de corriente/voltaje = "+str(dIdv))
+         print("Cambio de corriente/voltaje = "+str(dpdv))
    	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
 					
 	 v2=v2+Vrefin
-	 Ired=Ired2
+	 Pred=Pred2
 	# print(v2)
 	
 	 if v2<14.6:
@@ -349,7 +347,7 @@ def fuzzy():
 	 time.sleep(0.2)
 	  
 	# try:
-    	 Ired2=corrienteRed()
+    	 Pred2=potenciaRed()
 	#except:
 	#	try:	
     	#		time.sleep(0.5)
@@ -359,30 +357,30 @@ def fuzzy():
 	#		Ired2=corrienteRed()
   		
 	 
-	 dired=Ired2-Ired
+	 dpred=Pred2-Pred
 	
 	 try:
-	 	dIdv=dired/Vrefin
+	 	dpdv=dpred/Vrefin
 	 except:
-		if dired>0.05*Ired2:
-			Iredbck=corrienteRed()
+		if dpred>0.05*Pred2:
+			Predbck=potenciaRed()
 			
-			if Iredbck>0.9*Ired2 and Iredbck<1.1*Ired2:
+			if Predbck>0.9*Pred2 and Predbck<1.1*Pred2:
 				sw=1
-				Ired2=Iredbck
-				dired=Ired2-Ired
+				Pred2=Predbck
+				dpred=Pred2-Pred
 		else:
 			sw=1
 			
 
-	 if abs(Vrefin)<0.05 and abs(dIdv)>5:
+	 if abs(Vrefin)<0.05 and abs(dpdv)>5:
 		#dIdv=1.5
 		sw=1
 	
-	 if dIdv>=500:
-		dIdv=500
-	 elif dIdv<=-500:
-		dIdv=-500
+	 if dpdv>=500:
+		dpdv=500
+	 elif dpdv<=-500:
+		dpdv=-500
 	
 
 		#dired=abs(dired)
