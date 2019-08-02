@@ -378,15 +378,16 @@ def fuzzy():
 	 try:
 	 	dpdv=dpred/Vrefin
 	 except:
-		if dpred>0.05*Pred2:
-			Predbck=potenciaRed()
+		sw=1
+	#	if dpred>0.05*Pred2:
+	#		Predbck=potenciaRed()
 			
-			if Predbck>0.9*Pred2 and Predbck<1.1*Pred2:
-				sw=1
-				Pred2=Predbck
-				dpred=Pred2-Pred
-		else:
-			sw=1
+	#		if Predbck<0.9*Pred2 and Predbck>1.1*Pred2:
+	#			sw=1
+	#			Pred2=Predbck
+	#			dpred=Pred2-Pred
+	#	else:
+	#		sw=1
 			
 
 	 if abs(Vrefin)<0.05 and abs(dpdv)>5:
