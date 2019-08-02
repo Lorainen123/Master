@@ -226,7 +226,7 @@ def corrienteRed():
         		#ired3 = ina3.power()/1000
 	      		Itotal=ired+ired1+ired2+ired2
 	      		#Itotal=round(Itotal,3)
-			type(Itotal)
+			print(type(Itotal))
 			#Pred[i]=Itotal
 			#float64(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal)
 			#print(Pred[2])
