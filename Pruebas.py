@@ -70,7 +70,7 @@ def adquisicion2():
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			Prueba[0]=Pred
+			Prueba[i]=Pred
 			i=i+1
 			PtotalT=PtotalT+Pred
 			time.sleep(0.05)
@@ -88,7 +88,7 @@ def adquisicion2():
 	      				Itotal=ired+ired1+ired2+ired2
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					Prueba[0]=Pred
+					Prueba[i]=Pred
 					i=i+1
 					PtotalT=PtotalT+Pred
 					time.sleep(0.05)
@@ -105,7 +105,7 @@ def adquisicion2():
 	      				Itotal=ired+ired1+ired2+ired2
 	      				Itotal=round(Itotal,3)
 					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					Prueba[0]=Pred
+					Prueba[i]=Pred
 					i=i+1
 					PtotalT=PtotalT+Pred
 					time.sleep(0.05)
