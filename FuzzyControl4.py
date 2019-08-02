@@ -133,61 +133,6 @@ rule5=ctrl.Rule(dIdv['Z'],Vrefd['Z'])
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
-def adquisicion2(): 
-	try:
-		i=0
-		PtotalT=0
-		while i<3:
-			
-        		ired = ina.power()/1000
-        		ired1 = ina1.power()/1000
-     			ired2 = ina2.power()/1000
-        		#ired3 = ina3.current()/1000
-	      		Itotal=ired+ired1+ired2+ired2
-	      		Itotal=round(Itotal,3)
-			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			
-			i=i+1
-			PtotalT=PtotalT+Pred
-			time.sleep(0.05)
-	except:
-			try:
-				time.sleep(0.2)
-				i=0
-				PtotalT=0
-				while i<3:
-			
-        				ired = ina.power()/1000
-        				ired1 = ina1.power()/1000
-     					ired2 = ina2.power()/1000
-        				#ired3 = ina3.current()/1000
-	      				Itotal=ired+ired1+ired2+ired2
-	      				Itotal=round(Itotal,3)
-					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					i=i+1
-					PtotalT=PtotalT+Pred
-					time.sleep(0.05)
-			except:
-				time.sleep(0.2)
-				i=0
-				PtotalT=0
-				while i<3:
-				
-        				ired = ina.power()/1000
-        				ired1 = ina1.power()/1000
-     					ired2 = ina2.power()/1000
-        				#ired3 = ina3.current()/1000
-	      				Itotal=ired+ired1+ired2+ired2
-	      				Itotal=round(Itotal,3)
-					Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-					i=i+1
-					PtotalT=PtotalT+Pred
-					time.sleep(0.05)
-	
-	return PtotalT/3
-	
-
-
 def adquisicion():
 	global PStotal, PLtotal, sw, Pred
 		
@@ -282,7 +227,7 @@ def corrienteRed():
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-		
+			print("jeje")        
 			PtotalT=PtotalT+Pred
 			i=i+1
 			time.sleep(0.05)
@@ -466,7 +411,7 @@ def main():
 #hilo3.start()
  
 while True:
-	Pred=adquisicion2()
+	Pred=corrienteRed()
 	print(Pred)
 	
    # dpdv=Pdif/Vdif
