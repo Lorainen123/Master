@@ -61,22 +61,22 @@ try:
                  max_expected_amps = 2.0,
                  address=0x45)
 
-    ina.configure(voltage_range=ina.RANGE_16V,
+    ina.configure(voltage_range=ina.RANGE_32V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
 
-    ina1.configure(voltage_range=ina.RANGE_16V,
+    ina1.configure(voltage_range=ina.RANGE_32V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
 
-    ina2.configure(voltage_range=ina.RANGE_16V,
+    ina2.configure(voltage_range=ina.RANGE_32V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
 
-    ina3.configure(voltage_range=ina.RANGE_16V,
+    ina3.configure(voltage_range=ina.RANGE_32V,
                   gain=ina.GAIN_AUTO,
                   bus_adc=ina.ADC_128SAMP,
                   shunt_adc=ina.ADC_128SAMP)
