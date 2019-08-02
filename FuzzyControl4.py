@@ -236,7 +236,11 @@ def potenciaRed():
 			if i>=1:
 				if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
 					print("entre aqui")
-					Predv[i]=Predv[i-1]
+					if Predv[i]>Predv[i-1]:
+						
+						Predv[i]=Predv[i-1]
+					else: 
+						Predv[i-1]=Predv[i]
 			       
 			#PtotalT=PtotalT+Pred
 			i=i+1
@@ -263,7 +267,11 @@ def potenciaRed():
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
 							print("entre aqui")
-							Predv[i]=Predv[i-1]
+							if Predv[i]>Predv[i-1]:
+						
+								Predv[i]=Predv[i-1]
+							else: 
+								Predv[i-1]=Predv[i]
 			       
 			#PtotalT=PtotalT+Pred
 					i=i+1
@@ -289,7 +297,12 @@ def potenciaRed():
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
 							print("entre aqui")
-							Predv[i]=Predv[i-1]
+							if Predv[i]>Predv[i-1]:
+						
+								Predv[i]=Predv[i-1]
+							else: 
+								Predv[i-1]=Predv[i]
+							
 					i=i+1
 					time.sleep(0.05)
 					
