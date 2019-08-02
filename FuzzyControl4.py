@@ -227,7 +227,7 @@ def corrienteRed():
 	      		Itotal=ired+ired1+ired2+ired2
 	      		Itotal=round(Itotal,3)
 			Pred=round(6.8807+1.06223*Itotal+0.00221977*Itotal*Itotal,3)
-			print("jeje")        
+			print(Pred)        
 			PtotalT=PtotalT+Pred
 			i=i+1
 			time.sleep(0.05)
