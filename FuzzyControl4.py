@@ -339,10 +339,10 @@ def fuzzy():
    	 	Vrefinabs=abs(Vrefin)
 		
 	 elif sw==1:
-		Vrefin=0.1
+		Vrefin=0.2
 		sw=0
 	 elif sw==2:
-		Vrefin=-0.1
+		Vrefin=-0.2
 		sw=0
 		
 	 
