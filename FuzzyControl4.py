@@ -335,6 +335,10 @@ def fuzzy():
 	 elif sw==1:
 		Vrefin=0.1
 		sw=0
+	 elif sw==2:
+		Vrefin=-0.1
+		sw=0
+		
 	 
 	# print("Corriente de la red t= "+str(Ired))
     	 print("Corriente de la red t+1 = "+str(Pred2))
@@ -390,9 +394,13 @@ def fuzzy():
 	#		sw=1
 			
 
-	 if abs(Vrefin)<0.05 and abs(dpdv)>5:
+	 if abs(Vrefin)<0.09 and abs(dpdv)>5:
 		#dIdv=1.5
-		sw=1
+		if dpdv<0:
+			
+			sw=1
+		else:
+			sw=2
 	
 	 if dpdv>=500:
 		dpdv=500
