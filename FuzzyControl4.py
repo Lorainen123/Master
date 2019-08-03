@@ -112,9 +112,9 @@ dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
 #dpdv['PB'] = fuzz.trapmf(dpdv.universe, [4.8, 10, 21, 500])
 
 dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -31.5, -30, -15])
-dpdv['NS'] = fuzz.trimf(dpdv.universe, [-30, -15, -0.015])
-dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-4.5, -0.6, 0.6, 4.5])
-dpdv['PS'] = fuzz.trimf(dpdv.universe, [0.015, 15, 30])
+dpdv['NS'] = fuzz.trimf(dpdv.universe, [-30, -15, -2])
+dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-10, -2, 2, 10])
+dpdv['PS'] = fuzz.trimf(dpdv.universe, [2, 15, 30])
 dpdv['PB'] = fuzz.trapmf(dpdv.universe, [15, 30, 31.5, 500])
 
 
@@ -122,7 +122,7 @@ dpdv['PB'] = fuzz.trapmf(dpdv.universe, [15, 30, 31.5, 500])
 
 Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.4, -0.2])
 Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.4, -0.2, -0.001])
-Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.1, 0, 0.1])
+Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.15, 0, 0.15])
 Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.001, 0.2, 0.4])
 Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.2, 0.4, 0.63, 0.87])
 
