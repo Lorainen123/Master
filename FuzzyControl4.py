@@ -112,9 +112,9 @@ dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
 #dpdv['PB'] = fuzz.trapmf(dpdv.universe, [4.8, 10, 21, 500])
 
 dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -63, -60, -30])
-dpdv['NS'] = fuzz.trimf(dpdv.universe, [-60, -30, -4])
-dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-20, -2, 2, 20])
-dpdv['PS'] = fuzz.trimf(dpdv.universe, [4, 30, 60])
+dpdv['NS'] = fuzz.trimf(dpdv.universe, [-60, -30, 0])
+dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-20, -1, 1, 20])
+dpdv['PS'] = fuzz.trimf(dpdv.universe, [0, 30, 60])
 dpdv['PB'] = fuzz.trapmf(dpdv.universe, [30, 60, 63, 500])
 
 
