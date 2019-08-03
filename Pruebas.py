@@ -77,7 +77,7 @@ def adquisicion2():
 			#print(Pred[2])
 			if i>=1:
 				if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
-					print("entre aqui")
+					#print("entre aqui")
 					if Predv[i]>Predv[i-1]:
 						
 						Predv[i]=Predv[i-1]
@@ -108,7 +108,7 @@ def adquisicion2():
 			#print(Pred[2])
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
-							print("entre aqui")
+							#print("entre aqui")
 							if Predv[i]>Predv[i-1]:
 						
 								Predv[i]=Predv[i-1]
@@ -138,7 +138,7 @@ def adquisicion2():
 			#print(Pred[2])
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
-							print("entre aqui")
+							#print("entre aqui")
 							if Predv[i]>Predv[i-1]:
 						
 								Predv[i]=Predv[i-1]
