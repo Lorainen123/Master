@@ -61,7 +61,7 @@ def adquisicion2():
 	try:
 		i=0
 		#totalT=0
-		while i<3:
+		while i<5:
 			
         		pred_b = ina.power()/1000
         		pred1_b = ina1.power()/1000
@@ -92,7 +92,7 @@ def adquisicion2():
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				while i<3:	
+				while i<5:	
 			
         				pred_b = ina.power()/1000
         				pred1_b = ina1.power()/1000
@@ -122,7 +122,7 @@ def adquisicion2():
 				time.sleep(0.2)
 				i=0
 				PtotalT=0
-				while i<3:
+				while i<5:
 				
         				pred_b = ina.power()/1000
         				pred1_b = ina1.power()/1000
