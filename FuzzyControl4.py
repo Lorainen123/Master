@@ -320,7 +320,7 @@ def fuzzy():
     sw=0
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dpdv=5
+    dpdv=40
     v2=18.5
     dpred=0
 
@@ -339,10 +339,10 @@ def fuzzy():
    	 	Vrefinabs=abs(Vrefin)
 		
 	 elif sw==1:
-		Vrefin=0.2
+		Vrefin=0.1
 		sw=0
 	 elif sw==2:
-		Vrefin=-0.2
+		Vrefin=-0.1
 		sw=0
 		
 	 
