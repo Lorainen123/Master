@@ -320,7 +320,7 @@ def fuzzy():
     sw=0
     i= True
     #thread.start_new_thread(adquisicion2,(i,))
-    dpdv=40
+    dpdv=100
     v2=18.5
     dpred=0
 
