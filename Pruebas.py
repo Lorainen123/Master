@@ -15,7 +15,7 @@ SPI_DEVICE = 0
 
 v=14.5
 #archivo=open("prueba1.txt","w")
-Predv = np.zeros(3,)
+Predv = np.zeros(5,)
 Pred=0
 try:
     ina = INA219(shunt_ohms=0.1,
