@@ -406,7 +406,7 @@ def fuzzy():
 	#		sw=1
 			
 
-	 if abs(Vrefin)<0.09 and abs(dpdv)>15:
+	 if abs(Vrefin)<0.09 and abs(dpdv)>35:
 		#dIdv=1.5
 		if dpdv<0:
 			
