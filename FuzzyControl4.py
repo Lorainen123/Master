@@ -105,20 +105,26 @@ dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
 #dIdv['PS'] = fuzz.trimf(dIdv.universe, [1, 8, 15])
 #dIdv['PB'] = fuzz.trapmf(dIdv.universe, [10, 15, 21, 500])
 
-dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -21, -10, -4.8])
-dpdv['NS'] = fuzz.trimf(dpdv.universe, [-10, -4.8, -0.4])
-dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-4.8, -0.4, 0.4, 4.8])
-dpdv['PS'] = fuzz.trimf(dpdv.universe, [0.4, 4.8, 10])
-dpdv['PB'] = fuzz.trapmf(dpdv.universe, [4.8, 10, 21, 500])
+#dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -21, -10, -4.8])
+#dpdv['NS'] = fuzz.trimf(dpdv.universe, [-10, -4.8, -0.4])
+#dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-4.8, -0.4, 0.4, 4.8])
+#dpdv['PS'] = fuzz.trimf(dpdv.universe, [0.4, 4.8, 10])
+#dpdv['PB'] = fuzz.trapmf(dpdv.universe, [4.8, 10, 21, 500])
+
+dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -21, -10, -5])
+dpdv['NS'] = fuzz.trimf(dpdv.universe, [-10, -5, -0.01])
+dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-3, -0.4, 0.4, 3])
+dpdv['PS'] = fuzz.trimf(dpdv.universe, [0.01, 5, 10])
+dpdv['PB'] = fuzz.trapmf(dpdv.universe, [5, 10, 21, 500])
 
 
 #Vref
 
-Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.5, -0.29])
-Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.3, -0.145, -0.001])
-Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.002, 0, 0.002])
-Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.001, 0.145, 0.3])
-Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.29, 0.5, 0.63, 0.87])
+Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.4, -0.2])
+Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.4, -0.2, -0.001])
+Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.1, 0, 0.1])
+Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.001, 0.2, 0.4])
+Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.2, 0.4, 0.63, 0.87])
 
 ##Rules
 
@@ -379,10 +385,16 @@ def fuzzy():
 	 
 	 dpred=Pred2-Pred
 	
-	 try:
-	 	dpdv=dpred/Vrefin
-	 except:
+	# try:
+	 if Vrefin<0:
+		dpdv=dpred*-10
+	 elif Vrefin>0:
+		dpdv=dpred*10
+	 else:
 		sw=1
+		#dpdv=dpred/Vrefin
+	# except:
+	#	sw=1
 	#	if dpred>0.05*Pred2:
 	#		Predbck=potenciaRed()
 			
