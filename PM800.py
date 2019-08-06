@@ -1,4 +1,5 @@
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
+from pymodbus.register_read_message import ReadHoldingRegistersResponse
 
 client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 9600)
 
