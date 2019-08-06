@@ -5,3 +5,5 @@ client = ModbusClient(method='rtu', port= '/dev/ttyUSB09', bytesize=8, timeout=1
 if client.connect():
     
     print("puerto abierto")
+else:
+    print("puerto no abierto")
