@@ -8,8 +8,26 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-pmC1 = client.read_holding_registers(11720, 2, unit=1)#Current A 1100
+pmC1 = client.read_holding_registers(11712, 10, unit=1)#Current A 1100
 
-C1 = pmC1.registers[1]
+C1 = pmC1.registers[0]
+C2 = pmC1.registers[1]
+C3 = pmC1.registers[2]
+C4 = pmC1.registers[3]
+C5 = pmC1.registers[4]
+C6 = pmC1.registers[5]
+C7 = pmC1.registers[6]
+C8 = pmC1.registers[7]
+C9 = pmC1.registers[8]
+C10 = pmC1.registers[9]
 
 print(C1)
+print(C2)
+print(C3)
+print(C4)
+print(C5)
+print(C6)
+print(C7)
+print(C8)
+print(C9)
+print(C10)
