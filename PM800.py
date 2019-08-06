@@ -13,8 +13,7 @@ else:
     print("puerto no abierto")
 
 pmC1 = client.read_holding_registers(11729, 1, unit=1)#Current A 1100
-decoder = BinaryPayloadDecoder.fromRegisters(pmC1.registers, endian=Endian.Little)
-print(decoder.decode_32bit_float())
+ result=pmC1.decode word_order=little byte_order=little formatters=float64
 #C1 = pmC1.registers[0]
 #C2 = pmC1.registers[1]
 #C3 = pmC1.registers[2]
