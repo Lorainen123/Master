@@ -10,6 +10,6 @@ else:
 
 pmC1 = client.read_holding_registers(1123, 1, unit=1)#Current A 1100
 
-C1 = pmC1.registers[0]/1000
+C1 = pmC1.registers[0]
 
 print(C1)
