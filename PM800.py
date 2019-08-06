@@ -8,7 +8,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-pmC1 = client.read_holding_registers(11721, 1, unit=1)#Current A 1100
+pmC1 = client.read_holding_registers(11720, 1, unit=1)#Current A 1100
 
 C1 = pmC1.registers[0]
 
