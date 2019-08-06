@@ -160,7 +160,7 @@ def main():
 	while i<41:
   
    
-    		n = excel.main(float(v+0.1*i),0)
+    		n = excel.main(float(16),0)
    		n = int(n)
     		mcpras.set_value(n)
     		time.sleep(0.3)
