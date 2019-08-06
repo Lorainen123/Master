@@ -1,6 +1,6 @@
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 
-client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', baudrate= 9600, parity=N)
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB010', baudrate= 9600, parity=N)
 
 if client.connect():
     
