@@ -9,6 +9,7 @@ else:
     print("puerto no abierto")
 
 pmC1 = client.read_holding_registers(1099, 1, unit=2)#Current A 1100
-C1 = pmC1.registers[0]/1000
 
-print(C1)
+#C1 = pmC1.registers[0]/1000
+
+print(pmC1)
