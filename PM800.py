@@ -13,7 +13,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-result = client.read_holding_registers(11719, 2, unit=1)#Current A 1100
+result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 decoder = BinaryPayloadDecoder.fromRegisters(result.registers,  Endian.Big, wordorder=Endian.Big)
 print(decoder.decode_32bit_float())
 
