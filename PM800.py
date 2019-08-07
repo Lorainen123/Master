@@ -1,7 +1,8 @@
-from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
+from pymodbus.client.sync import ModbusSerialClient as ModbusClient
+
 
 
 
@@ -12,8 +13,11 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-pmC1 = client.read_holding_registers(11729, 1, unit=1)#Current A 1100
-result=pmC1.decode word_order=little byte_order=little formatters=float64
+result = client.read_holding_registers(11729, 1, unit=1)#Current A 1100
+decoder = BinaryPayloadDecoder.fromRegisters(result.registers, endian=Endian.Little)
+print "read_holding_registers: " + str(decoder.decode_32bit_float())
+
+
 #C1 = pmC1.registers[0]
 #C2 = pmC1.registers[1]
 #C3 = pmC1.registers[2]
