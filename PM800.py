@@ -14,7 +14,7 @@ else:
     print("puerto no abierto")
 
 result = client.read_holding_registers(11729, 1, unit=1)#Current A 1100
-decoder = BinaryPayloadDecoder.fromRegisters(result.registers, endian=Endian.Little)
+decoder = BinaryPayloadDecoder.fromRegisters(result.registers, wordorder=Endian.Little)
 print "read_holding_registers: " + str(decoder.decode_32bit_float())
 
 
