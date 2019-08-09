@@ -17,6 +17,10 @@ import requests
 import Adafruit_MCP3008
 import Adafruit_GPIO.SPI as SPI
 import timeit as tm
+from pymodbus.constants import Endian
+from pymodbus.payload import BinaryPayloadDecoder
+from pymodbus.payload import BinaryPayloadBuilder
+from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 
 
 #configuration of low current sensors
@@ -138,6 +142,14 @@ rule5=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
 vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 9600)
+if client.connect():
+    
+    print("puerto abierto")
+else:
+    print("puerto no abierto")
+
+
 def adquisicion():
 	global PStotal, PLtotal, Pred
 		
@@ -210,6 +222,9 @@ def adquisicion():
 			
 		
 		sw=1
+		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+		print("Potencia de la red = "+str(decoder.decode_32bit_float()))
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
@@ -239,7 +254,7 @@ def potenciaRed():
 			#print(Pred[2])
 			if i>=1:
 				if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
-					print("entre aqui")
+					#print("entre aqui")
 					if Predv[i]>Predv[i-1]:
 						
 						Predv[i]=Predv[i-1]
@@ -270,7 +285,7 @@ def potenciaRed():
 			#print(Pred[2])
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
-							print("entre aqui")
+							#print("entre aqui")
 							if Predv[i]>Predv[i-1]:
 						
 								Predv[i]=Predv[i-1]
@@ -300,7 +315,7 @@ def potenciaRed():
 			#print(Pred[2])
 					if i>=1:
 						if Predv[i]<0.9*Predv[i-1] or Predv[i]>1.1*Predv[i-1]:
-							print("entre aqui")
+							#print("entre aqui")
 							if Predv[i]>Predv[i-1]:
 						
 								Predv[i]=Predv[i-1]
@@ -464,6 +479,7 @@ def main():
 hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
 hilo3=threading.Thread(target=adquisicion)
+
 hilo1.start()
 #hilo2.start()
 hilo3.start()
