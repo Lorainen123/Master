@@ -6,6 +6,21 @@ import numpy as np
 import thread
 from ina219 import INA219
 import RPi.GPIO as GPIO
+from pymodbus.constants import Endian
+from pymodbus.payload import BinaryPayloadDecoder
+from pymodbus.payload import BinaryPayloadBuilder
+from pymodbus.client.sync import ModbusSerialClient as ModbusClient
+
+
+
+
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 9600)
+if client.connect():
+    
+    print("puerto abierto")
+else:
+    print("puerto no abierto")
+
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -166,14 +181,18 @@ def main():
     		time.sleep(0.3)
    # P1=Node611.sensorm()
      		
-		try:
-			Pred=adquisicion2()
-    		
-		except:
-			time.sleep(0.1)
-			Pred=adquisicion2()
-			
-		print(Pred)	
+#		try:
+#			Pred=adquisicion2()
+ #   		
+#		except:
+#			time.sleep(0.1)
+#			Pred=adquisicion2()
+#			
+#
+		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+
+		print(decoder.decode_32bit_float())	
 		#archivo.write(str(Pred)+'\n')
    		i=i+1
     
