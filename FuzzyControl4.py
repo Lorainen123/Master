@@ -227,13 +227,27 @@ def adquisicion():
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		Pred=decoder.decode_32bit_float()
 		sw=1
-	#	print("Potencia de la red = "+str(Pred))
-	#	print("Potencia del panel = "+str(PStotal))
-	#	print("Potencia de la bat = "+str(PBtotal))
-	#	print("Potencia de la carga = "+str(PLtotal))
+		print("Potencia de la red = "+str(Pred))
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la carga = "+str(PLtotal))
 		
 	#	time.sleep(0.001)
 
+		if PStotal>0 and Pred<PLtotal:
+				GPIO.output(13, False)
+				GPIO.output(19, False)
+				GPIO.output(26, False)
+				
+		elif Pred<=8:
+				GPIO.output(13, False)
+				GPIO.output(19, False)
+				GPIO.output(26, True)
+		elif PStotal<=0 and Pred<=0:
+				GPIO.output(13, False)
+				GPIO.output(19, True)
+				GPIO.output(26, False)
+				
 
 
 
@@ -491,11 +505,11 @@ def main():
 
 #main()
 hilo1=threading.Thread(target=fuzzy)
-hilo2=threading.Thread(target=main)
+#hilo2=threading.Thread(target=main)
 hilo3=threading.Thread(target=adquisicion)
 
 hilo1.start()
-hilo2.start()
+#hilo2.start()
 hilo3.start()
  
 #while True:
