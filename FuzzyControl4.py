@@ -458,6 +458,7 @@ def main():
 				GPIO.output(13, False)
 				GPIO.output(19, False)
 				GPIO.output(26, False)
+				sw=0
 #			elif x==2:
 #				GPIO.output(13, False)
 #				GPIO.output(19, False)
@@ -466,6 +467,7 @@ def main():
 				GPIO.output(13, False)
 				GPIO.output(19, True)
 				GPIO.output(26, False)
+				sw=0
 #			elif x==4:
 #				GPIO.output(13, False)
 #				GPIO.output(19, True)
