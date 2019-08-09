@@ -139,7 +139,7 @@ vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
 vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 def adquisicion():
-	global PStotal, PLtotal, sw, Pred
+	global PStotal, PLtotal, Pred
 		
 	while True:
 		#tic = tm.default_timer()
@@ -210,11 +210,11 @@ def adquisicion():
 			
 		
 		sw=1
-		#print("Potencia del panel = "+str(PStotal))
-		#print("Potencia de la bat = "+str(PBtotal))
-		#print("Potencia de la carga = "+str(PLtotal))
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la carga = "+str(PLtotal))
 		
-		time.sleep(0.001)
+	#	time.sleep(0.001)
 
 
 
@@ -345,15 +345,15 @@ def fuzzy():
 		
 	 
 	# print("Corriente de la red t= "+str(Ired))
-    	 print("Corriente de la red t+1 = "+str(Pred2))
-	 print("Cambio de corriente ="+str(dpred))
+    	# print("Corriente de la red t+1 = "+str(Pred2))
+	# print("Cambio de corriente ="+str(dpred))
 	# print("Vref1"+str(v))
-   	 print("Vref2 = "+str(v2))
+   	# print("Vref2 = "+str(v2))
 	
 	# print("diferencia de voltaje v2-v"+str(Vdif))
 	 	
-         print("Cambio de corriente/voltaje = "+str(dpdv))
-   	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
+        # print("Cambio de corriente/voltaje = "+str(dpdv))
+   	# print("Cambio de voltaje= "+str(Vrefin)+"\n")
 					
 	 v2=v2+Vrefin
 	 Pred=Pred2
@@ -463,10 +463,10 @@ def main():
 #main()
 hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
-#hilo3=threading.Thread(target=adquisicion)
+hilo3=threading.Thread(target=adquisicion)
 hilo1.start()
 #hilo2.start()
-#hilo3.start()
+hilo3.start()
  
 #while True:
 #	Pred=potenciaRed()
