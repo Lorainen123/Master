@@ -237,19 +237,19 @@ def adquisicion():
 		
 	#	time.sleep(0.001)
 
-		if PStotal>0 and Pred<PLtotal:
-				GPIO.output(13, False)
-				GPIO.output(19, False)
-				GPIO.output(26, False)
-				
-		elif Pred<=8:
-				GPIO.output(13, False)
-				GPIO.output(19, False)
-				GPIO.output(26, True)
-		elif PStotal<=0 and Pred<=0:
-				GPIO.output(13, False)
-				GPIO.output(19, True)
-				GPIO.output(26, False)
+#		if PStotal>0 and Pred<PLtotal:
+#				GPIO.output(13, False)
+#				GPIO.output(19, False)
+#				GPIO.output(26, False)
+#				
+#		elif Pred<=8:
+#				GPIO.output(13, False)
+#				GPIO.output(19, False)
+#				GPIO.output(26, True)
+#		elif PStotal<=0 and Pred<=0:
+#				GPIO.output(13, False)
+#				GPIO.output(19, True)
+#				GPIO.output(26, False)
 				
 
 
