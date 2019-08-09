@@ -2,7 +2,7 @@ from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
-
+import time
 
 
 
@@ -16,7 +16,7 @@ else:
 result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 print(decoder.decode_32bit_float())
-
+print(time.strftime('%H:%M:%S'))
 
 #C1 = pmC1.registers[0]
 #C2 = pmC1.registers[1]
