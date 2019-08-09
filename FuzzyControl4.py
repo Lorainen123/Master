@@ -36,6 +36,7 @@ IcargaT=0
 PStotal=0
 PLtotal=0
 PBtotal=0
+sw=0
 
 Pred = 0
 Predv=  np.zeros(3,)
@@ -151,7 +152,7 @@ else:
 
 
 def adquisicion():
-	global PStotal, PLtotal, Pred, PBtotal
+	global PStotal, PLtotal, Pred, PBtotal, sw
 		
 	while True:
 		#tic = tm.default_timer()
