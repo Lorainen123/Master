@@ -453,12 +453,13 @@ def main():
 		
 		#print('Ingrese el siguiente estado del sistema:')
 		#x = input()
+		
+		if sw==1:
 		print("Potencia de la red = "+str(Pred))
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
-		if sw==1:
-			
+		
 			if PStotal>0 and Pred<PLtotal:
 				GPIO.output(13, False)
 				GPIO.output(19, False)
