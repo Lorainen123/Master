@@ -468,38 +468,38 @@ def main():
 	global sw
 	while True:
 		
-		#print('Ingrese el siguiente estado del sistema:')
-		#x = input()
+			print('Ingrese el siguiente estado del sistema:')
+			x = input()
 		
-		if sw==1:
-			time.sleep(0.000001)
-			print("Potencia de la red = "+str(Pred))
-			print("Potencia del panel = "+str(PStotal))
-			print("Potencia de la bat = "+str(PBtotal))
-			print("Potencia de la carga = "+str(PLtotal))
+		#if sw==1:
+		#	time.sleep(0.000001)
+		#	print("Potencia de la red = "+str(Pred))
+		#	print("Potencia del panel = "+str(PStotal))
+		#	print("Potencia de la bat = "+str(PBtotal))
+		#	print("Potencia de la carga = "+str(PLtotal))
 		
-			if PStotal>0 and Pred<PLtotal:
+			if x==1:
 				GPIO.output(13, False)
 				GPIO.output(19, False)
 				GPIO.output(26, False)
 				sw=0
-			elif Pred<=8:
+			elif x==2:
 				GPIO.output(13, False)
 				GPIO.output(19, False)
 				GPIO.output(26, True)
-			elif PStotal<=0 and Pred<=0:
+			elif x==3:
 				GPIO.output(13, False)
 				GPIO.output(19, True)
 				GPIO.output(26, False)
 				sw=0
-#			elif x==4:
-#				GPIO.output(13, False)
-#				GPIO.output(19, True)
-#				GPIO.output(26, True)
-#			elif x==5:
-#				GPIO.output(13, True)
-#				GPIO.output(19, False)
-#				GPIO.output(26, False)
+			elif x==4:
+				GPIO.output(13, False)
+				GPIO.output(19, True)
+				GPIO.output(26, True)
+			elif x==5:
+				GPIO.output(13, True)
+				GPIO.output(19, False)
+				GPIO.output(26, False)
 			
 			
 	  
@@ -507,13 +507,13 @@ def main():
 
 
 #main()
-hilo1=threading.Thread(target=fuzzy)
-#hilo2=threading.Thread(target=main)
-hilo3=threading.Thread(target=adquisicion)
+#hilo1=threading.Thread(target=fuzzy)
+hilo2=threading.Thread(target=main)
+#hilo3=threading.Thread(target=adquisicion)
 
-hilo1.start()
-#hilo2.start()
-hilo3.start()
+#hilo1.start()
+hilo2.start()
+#hilo3.start()
  
 #while True:
 #	Pred=potenciaRed()
