@@ -151,7 +151,7 @@ else:
 
 
 def adquisicion():
-	global PStotal, PLtotal, Pred
+	global PStotal, PLtotal, Pred, PBtotal
 		
 	while True:
 		#tic = tm.default_timer()
@@ -221,10 +221,12 @@ def adquisicion():
 			PStotal=0
 			
 		
-		sw=1
+		
 		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
-		print("Potencia de la red = "+str(decoder.decode_32bit_float()))
+		Pred=decoder.decode_32bit_float()
+		sw=1
+		print("Potencia de la red = "+str(Pred))
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
@@ -445,30 +447,33 @@ def fuzzy():
 #	
 
 def main():
-	
+	global sw
 	while True:
-		print('Ingrese el siguiente estado del sistema:')
-		x = input()
-		if x==1:
-			GPIO.output(13, False)
-			GPIO.output(19, False)
-			GPIO.output(26, False)
-		elif x==2:
-			GPIO.output(13, False)
-			GPIO.output(19, False)
-			GPIO.output(26, True)
-		elif x==3:
-			GPIO.output(13, False)
-			GPIO.output(19, True)
-			GPIO.output(26, False)
-		elif x==4:
-			GPIO.output(13, False)
-			GPIO.output(19, True)
-			GPIO.output(26, True)
-		elif x==5:
-			GPIO.output(13, True)
-			GPIO.output(19, False)
-			GPIO.output(26, False)
+		
+		#print('Ingrese el siguiente estado del sistema:')
+		#x = input()
+		if sw==1:
+			
+			if PStotal>0 and Pred<PLtotal:
+				GPIO.output(13, False)
+				GPIO.output(19, False)
+				GPIO.output(26, False)
+#			elif x==2:
+#				GPIO.output(13, False)
+#				GPIO.output(19, False)
+#				GPIO.output(26, True)
+			elif PStotal<=0 and Pred<=0:
+				GPIO.output(13, False)
+				GPIO.output(19, True)
+				GPIO.output(26, False)
+#			elif x==4:
+#				GPIO.output(13, False)
+#				GPIO.output(19, True)
+#				GPIO.output(26, True)
+#			elif x==5:
+#				GPIO.output(13, True)
+#				GPIO.output(19, False)
+#				GPIO.output(26, False)
 			
 			
 	  
