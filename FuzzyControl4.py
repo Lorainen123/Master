@@ -227,10 +227,10 @@ def adquisicion():
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		Pred=decoder.decode_32bit_float()
 		sw=1
-		print("Potencia de la red = "+str(Pred))
-		print("Potencia del panel = "+str(PStotal))
-		print("Potencia de la bat = "+str(PBtotal))
-		print("Potencia de la carga = "+str(PLtotal))
+	#	print("Potencia de la red = "+str(Pred))
+	#	print("Potencia del panel = "+str(PStotal))
+	#	print("Potencia de la bat = "+str(PBtotal))
+	#	print("Potencia de la carga = "+str(PLtotal))
 		
 	#	time.sleep(0.001)
 
@@ -453,6 +453,10 @@ def main():
 		
 		#print('Ingrese el siguiente estado del sistema:')
 		#x = input()
+		print("Potencia de la red = "+str(Pred))
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la carga = "+str(PLtotal))
 		if sw==1:
 			
 			if PStotal>0 and Pred<PLtotal:
@@ -460,10 +464,10 @@ def main():
 				GPIO.output(19, False)
 				GPIO.output(26, False)
 				sw=0
-#			elif x==2:
-#				GPIO.output(13, False)
-#				GPIO.output(19, False)
-#				GPIO.output(26, True)
+			elif Pred<=8:
+				GPIO.output(13, False)
+				GPIO.output(19, False)
+				GPIO.output(26, True)
 			elif PStotal<=0 and Pred<=0:
 				GPIO.output(13, False)
 				GPIO.output(19, True)
