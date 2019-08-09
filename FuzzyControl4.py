@@ -455,10 +455,10 @@ def main():
 		#x = input()
 		
 		if sw==1:
-		print("Potencia de la red = "+str(Pred))
-		print("Potencia del panel = "+str(PStotal))
-		print("Potencia de la bat = "+str(PBtotal))
-		print("Potencia de la carga = "+str(PLtotal))
+			print("Potencia de la red = "+str(Pred))
+			print("Potencia del panel = "+str(PStotal))
+			print("Potencia de la bat = "+str(PBtotal))
+			print("Potencia de la carga = "+str(PLtotal))
 		
 			if PStotal>0 and Pred<PLtotal:
 				GPIO.output(13, False)
