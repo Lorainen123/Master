@@ -455,6 +455,7 @@ def main():
 		#x = input()
 		
 		if sw==1:
+			time.sleep(0.000001)
 			print("Potencia de la red = "+str(Pred))
 			print("Potencia del panel = "+str(PStotal))
 			print("Potencia de la bat = "+str(PBtotal))
