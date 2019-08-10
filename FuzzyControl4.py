@@ -41,6 +41,7 @@ sw=0
 Pred = 0
 Predv=  np.zeros(3,)
 Itotal=0
+state=1
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -234,6 +235,8 @@ def adquisicion():
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
+		
+		Estados(state)
 		
 	#	time.sleep(0.001)
 
@@ -462,19 +465,28 @@ def fuzzy():
 	# print (v2)
     	
 	 
-def zero():
-        return 'zero'
-def one():
+def S1():
+	global state
+	
+	if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal:
+		state=1
+		GPIO.output(13, False)
+		GPIO.output(19, False)
+		GPIO.output(26, False)
+	else:
+		print("no estoy en el estado 1)
+       
+def S2():
         return 'one'
 		
 		
 
-def Estados(i):
+def Estados(state):
         switcher={
-                0:zero,
-                1:one,
+                1:S1,
+                2:S2,
                 }
-        return switcher.get(i,"Invalid Estado")
+        return switcher.get(state,"Invalid Estado")
 
 def main():
 	global sw
@@ -500,12 +512,12 @@ def main():
 
 #main()
 #hilo1=threading.Thread(target=fuzzy)
-hilo2=threading.Thread(target=main)
-#hilo3=threading.Thread(target=adquisicion)
+#hilo2=threading.Thread(target=main)
+hilo3=threading.Thread(target=adquisicion)
 
 #hilo1.start()
-hilo2.start()
-#hilo3.start()
+#hilo2.start()
+hilo3.start()
  
 #while True:
 #	Pred=potenciaRed()
