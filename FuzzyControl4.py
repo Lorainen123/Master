@@ -160,6 +160,7 @@ def adquisicion():
 		
 	while True:
 		Estados(state)
+		time.sleep(1)
 		#tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
 		IpanelT=0
