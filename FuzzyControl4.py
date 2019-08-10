@@ -535,7 +535,7 @@ def Estados(state):
 		state2T()
 	elif state==3:
 		state3()
-	elif state='3T'
+	elif state=='3T'
 		state3T()
 
 def main():
