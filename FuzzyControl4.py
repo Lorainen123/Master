@@ -499,6 +499,8 @@ def state1T():
 		state=2
 	elif PStotal<=0 and Pred<=0:
 		state=3
+	elif Pred>PLtotal:
+		state=4
 	
 def state2():
         global state
@@ -528,6 +530,13 @@ def state3T():
 		state=1
 	else:
 		state='3T'
+def state4():
+        global state
+	GPIO.output(13, False)
+	GPIO.output(19, True)
+	GPIO.output(26, True)
+#	state='3T'
+	time.sleep(2)
 
 
 def Estados(state):
@@ -544,6 +553,10 @@ def Estados(state):
 		state3()
 	elif state=='3T':
 		state3T()
+	elif state==4:
+		state4()
+	elif state=='4T':
+		state4T()
 
 def main():
 	global sw
