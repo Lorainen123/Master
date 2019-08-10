@@ -489,7 +489,7 @@ def Estados(state):
 	#global state
         switcher={
                 1:S1,
-                2:S2,
+                2:S2
                 }
         return switcher.get(state,"Invalid Estado")
 
