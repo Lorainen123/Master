@@ -485,8 +485,8 @@ def S2():
 		
 		
 
-def Estados():
-	global state
+def Estados(state):
+	#global state
         switcher={
                 1:S1,
                 2:S2,
