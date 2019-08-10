@@ -473,7 +473,7 @@ def state1():
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, False)
-	print("aqui estuve")
+	return "string"
 	#elif  Pred<7:
 	#	state=2
        
