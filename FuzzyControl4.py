@@ -484,7 +484,7 @@ def state2():
 		GPIO.output(19, False)
 		GPIO.output(26, True)
 		state=2
-	else:
+	elif PBtotal>0:
 		state=1
 		
 		
