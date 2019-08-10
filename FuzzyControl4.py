@@ -490,6 +490,7 @@ def state2():
 	state='2T'
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 def state2T():
+	global state
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>0:
