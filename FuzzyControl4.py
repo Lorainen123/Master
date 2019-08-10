@@ -204,6 +204,10 @@ def adquisicion():
 			Vbat = mcp.read_adc(5)
 			Vbat = ((Vbat)*(5.15/1023))*(37000.0/7500.0) 
 			VbatT=VbatT+Vbat
+				
+			result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+			decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+			Pred=decoder.decode_32bit_float()
 		
 			#j=j+1
 		
@@ -228,10 +232,7 @@ def adquisicion():
 			PStotal=0
 			
 		
-		
-		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
-		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
-		Pred=decoder.decode_32bit_float()
+	
 		sw=1
 		print("Potencia de la red = "+str(Pred))
 		print("Potencia del panel = "+str(PStotal))
