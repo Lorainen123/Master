@@ -159,7 +159,7 @@ def adquisicion():
 	global PStotal, PLtotal, Pred, PBtotal, sw, state
 		
 	while True:
-		Estados(state)
+		
 		
 		#tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
@@ -240,6 +240,7 @@ def adquisicion():
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
+		Estados(state)
 		
 		
 	#	time.sleep(0.001)
@@ -483,7 +484,7 @@ def state1():
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, False)
-	time.sleep(1)
+	time.sleep(2)
 	state='1T'
 	
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
@@ -501,7 +502,7 @@ def state2():
 	GPIO.output(19, False)
 	GPIO.output(26, True)
 	state='2T'
-	time.sleep(1)
+	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 def state2T():
 	global state
