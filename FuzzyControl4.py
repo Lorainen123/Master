@@ -519,7 +519,7 @@ def state3():
 	GPIO.output(13, False)
 	GPIO.output(19, True)
 	GPIO.output(26, False)
-#	state='3T'
+	state='3T'
 	time.sleep(2)
 	
 def state3T():
