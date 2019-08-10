@@ -488,11 +488,10 @@ def state2():
 
 def Estados(state):
 	#global state
-        switcher={
-                1:state1,
-                2:state2,
-                }
-        return switcher.get(state,lambda : None)
+        if state==1
+		state1()
+	elif state==2
+		state2()
 
 def main():
 	global sw
