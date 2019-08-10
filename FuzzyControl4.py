@@ -156,7 +156,7 @@ else:
 
 
 def adquisicion():
-	global PStotal, PLtotal, Pred, PBtotal, sw, state
+	global PStotal, PLtotal, Pred, PBtotal, sw, state, VpanelT
 		
 	while True:
 		
@@ -237,7 +237,8 @@ def adquisicion():
 	
 	
 		sw=1
-		print("Voltaje del panel solar = "+str(VpanelT/j))
+		VpanelT=VpanelT/j
+		print("Voltaje del panel solar = "+str(VpanelT))
 		print("Potencia de la red = "+str(Pred))
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
@@ -539,6 +540,12 @@ def state4():
 #	state='3T'
 	time.sleep(2)
 
+def state4T():
+	global state
+	if  PStotal>0 and PBtotal<0 and VpanelT>17:
+		state=1
+	else:
+		state='4T'
 
 def Estados(state):
 	#global state
