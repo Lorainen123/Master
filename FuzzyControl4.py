@@ -159,6 +159,7 @@ def adquisicion():
 	global PStotal, PLtotal, Pred, PBtotal, sw, state
 		
 	while True:
+		Estados(state)
 		#tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
 		IpanelT=0
@@ -236,7 +237,7 @@ def adquisicion():
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
-		Estados(state)
+		
 		
 	#	time.sleep(0.001)
 
