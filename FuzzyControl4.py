@@ -473,11 +473,15 @@ def S1():
 		GPIO.output(13, False)
 		GPIO.output(19, False)
 		GPIO.output(26, False)
-	else:
-		print("no estoy en el estado 1")
+	elif (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal and Pred<7
+		state=2
        
 def S2():
-        return 'one'
+        global state
+	
+		GPIO.output(13, False)
+		GPIO.output(19, False)
+		GPIO.output(26, True)
 		
 		
 
