@@ -156,7 +156,7 @@ else:
 
 
 def adquisicion():
-	global PStotal, PLtotal, Pred, PBtotal, sw
+	global PStotal, PLtotal, Pred, PBtotal, sw, state
 		
 	while True:
 		#tic = tm.default_timer()
