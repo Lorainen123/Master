@@ -48,9 +48,9 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(13, GPIO.OUT)  ## 1
 GPIO.setup(19, GPIO.OUT)  ## 2
 GPIO.setup(26, GPIO.OUT)  ## 3
-#GPIO.output(13, False)
-#GPIO.output(19, False)
-#GPIO.output(26, False)
+GPIO.output(13, False)
+GPIO.output(19, False)
+GPIO.output(26, False)
 
 
 
@@ -473,8 +473,8 @@ def state1():
 		GPIO.output(13, False)
 		GPIO.output(19, False)
 		GPIO.output(26, False)
-	if Pred<7:
-		state=2
+	elif Pred<7:
+		print("estoy aqui")
 	
 def state2():
         global state
