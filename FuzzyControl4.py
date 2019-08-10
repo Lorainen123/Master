@@ -495,7 +495,7 @@ def state1T():
 	global state
 	if  Pred<PLtotal and Pred>8:
 		state='1T'
-	elif Pred<8 and PStotal>0:
+	elif Pred<8 and Pred>5 and PStotal>0:
 		state=2
 	elif PStotal<=0 and Pred<=0:
 		state=3
