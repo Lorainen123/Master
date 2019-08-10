@@ -178,7 +178,7 @@ def main():
     		n = excel.main(float(16),0)
    		n = int(n)
     		mcpras.set_value(n)
-    		time.sleep(0.3)
+    		time.sleep(1)
    # P1=Node611.sensorm()
      		
 #		try:
