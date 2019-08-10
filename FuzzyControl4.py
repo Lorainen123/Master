@@ -41,7 +41,7 @@ sw=0
 Pred = 0
 Predv=  np.zeros(3,)
 Itotal=0
-state=1
+state=2
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
