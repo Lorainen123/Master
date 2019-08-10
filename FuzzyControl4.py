@@ -521,6 +521,13 @@ def state3():
 	GPIO.output(26, False)
 #	state='3T'
 	time.sleep(2)
+	
+def state3T():
+	global state
+	if  PSTotal>0 or Pred>0:
+		state=1
+	else:
+		state='3T'
 
 
 def Estados(state):
