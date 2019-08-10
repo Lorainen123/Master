@@ -231,8 +231,8 @@ def adquisicion():
 		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		Pred=decoder.decode_32bit_float()
-		if Pred<6:
-			Pred=8.1
+		#if Pred<6:
+		#	Pred=8.1
 		
 	
 	
