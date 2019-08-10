@@ -468,15 +468,14 @@ def fuzzy():
 def state1():
 	global state
 	
-	#if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal and Pred>7:
-		#state=1
-	GPIO.output(13, False)
-	GPIO.output(19, False)
-	GPIO.output(26, False)
-	return "string"
-	#elif  Pred<7:
-	#	state=2
-       
+	if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal and Pred>7:
+		state=1
+		GPIO.output(13, False)
+		GPIO.output(19, False)
+		GPIO.output(26, False)
+	if Pred<7:
+		state=2
+	
 def state2():
         global state
 	
@@ -517,12 +516,12 @@ def main():
 
 #main()
 #hilo1=threading.Thread(target=fuzzy)
-hilo2=threading.Thread(target=main)
-#hilo3=threading.Thread(target=adquisicion)
+#hilo2=threading.Thread(target=main)
+hilo3=threading.Thread(target=adquisicion)
 
 #hilo1.start()
-hilo2.start()
-#hilo3.start()
+#hilo2.start()
+hilo3.start()
  
 #while True:
 #	Pred=potenciaRed()
