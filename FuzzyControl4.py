@@ -478,10 +478,7 @@ def state1():
 def state1T():
 	global state
 	if  Pred<PLtotal and Pred>8:
-		state=1
-		GPIO.output(13, False)
-		GPIO.output(19, False)
-		GPIO.output(26, False)
+		state='1T'
 	elif Pred<8:
 		state=2
 	
@@ -490,13 +487,11 @@ def state2():
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, True)
+	state='2T'
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 def state2T():
 	if  PBtotal<0:
-		GPIO.output(13, False)
-		GPIO.output(19, False)
-		GPIO.output(26, True)
-		state=2
+		state='2T'
 	elif PBtotal>0:
 		state=1
 		
@@ -510,6 +505,8 @@ def Estados(state):
 		state1T()
 	elif state==2:
 		state2()
+	elif state=='2T':
+		state2T()
 
 def main():
 	global sw
