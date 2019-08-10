@@ -488,9 +488,9 @@ def state2():
 
 def Estados(state):
 	#global state
-        if state==1
+        if state==1:
 		state1()
-	elif state==2
+	elif state==2:
 		state2()
 
 def main():
