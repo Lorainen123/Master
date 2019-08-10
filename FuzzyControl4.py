@@ -467,7 +467,16 @@ def fuzzy():
 	 
 def state1():
 	global state
+	
+	GPIO.output(13, False)
+	GPIO.output(19, False)
+	GPIO.output(26, False)
+	state='1T'
+	
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
+	
+def state1T():
+	global state
 	if  Pred<PLtotal and Pred>8:
 		state=1
 		GPIO.output(13, False)
@@ -478,7 +487,11 @@ def state1():
 	
 def state2():
         global state
+	GPIO.output(13, False)
+	GPIO.output(19, False)
+	GPIO.output(26, True)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
+def state2T():
 	if  PBtotal<0:
 		GPIO.output(13, False)
 		GPIO.output(19, False)
@@ -487,12 +500,14 @@ def state2():
 	elif PBtotal>0:
 		state=1
 		
-		
+
 
 def Estados(state):
 	#global state
         if state==1:
 		state1()
+	elif state=='1T'
+		state1T()
 	elif state==2:
 		state2()
 
