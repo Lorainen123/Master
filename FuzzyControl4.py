@@ -490,8 +490,9 @@ def Estados(state):
         switcher={
                 1:S1,
                 2:S2
+		3:lambda:'Ningun estado'
                 }
-        return switcher.get(state,"Invalid Estado")
+        return switcher.get(state,lambda :'Invalid')
 
 def main():
 	global sw
