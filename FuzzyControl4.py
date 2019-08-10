@@ -474,7 +474,7 @@ def S1():
 		GPIO.output(19, False)
 		GPIO.output(26, False)
 	else:
-		print("no estoy en el estado 1)
+		print("no estoy en el estado 1")
        
 def S2():
         return 'one'
