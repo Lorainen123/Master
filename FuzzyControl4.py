@@ -482,7 +482,7 @@ def main():
 		
 			print('Ingrese el siguiente estado del sistema:')
 			x = input()
-			Estados(x)
+			print(Estados(x))
 		
 		#if sw==1:
 		#	time.sleep(0.000001)
