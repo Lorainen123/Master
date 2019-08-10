@@ -468,7 +468,7 @@ def fuzzy():
 def S1():
 	global state
 	
-	if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal:
+	if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal and Pred>7:
 		state=1
 		GPIO.output(13, False)
 		GPIO.output(19, False)
