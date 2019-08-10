@@ -479,9 +479,9 @@ def S1():
 def S2():
         global state
 	
-		GPIO.output(13, False)
-		GPIO.output(19, False)
-		GPIO.output(26, True)
+	GPIO.output(13, False)
+	GPIO.output(19, False)
+	GPIO.output(26, True)
 		
 		
 
