@@ -236,7 +236,7 @@ def adquisicion():
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
-		Estados(state)
+		Estados()
 		
 	#	time.sleep(0.001)
 
@@ -485,7 +485,7 @@ def S2():
 		
 		
 
-def Estados(state):
+def Estados():
 	global state
         switcher={
                 1:S1,
