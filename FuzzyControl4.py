@@ -208,9 +208,6 @@ def adquisicion():
 			
 		
 			#j=j+1
-		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
-		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
-		Pred=decoder.decode_32bit_float()
 		#toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
@@ -257,7 +254,15 @@ def adquisicion():
 #				GPIO.output(19, True)
 #				GPIO.output(26, False)
 				
-
+def adquisicion2():
+	global Pred
+	
+	while True:
+		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+		Pred=decoder.decode_32bit_float()
+		
+	
 
 
 def potenciaRed(): 
@@ -540,10 +545,12 @@ def main():
 #hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
 hilo3=threading.Thread(target=adquisicion)
+hilo4=threading.Thread(target=adquisicion2)
 
 #hilo1.start()
 #hilo2.start()
 hilo3.start()
+hilo4.start()
  
 #while True:
 #	Pred=potenciaRed()
