@@ -465,18 +465,19 @@ def fuzzy():
 	# print (v2)
     	
 	 
-def S1():
+def state1():
 	global state
 	
-	if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal and Pred>7:
-		state=1
-		GPIO.output(13, False)
-		GPIO.output(19, False)
-		GPIO.output(26, False)
-	elif  Pred<7:
-		state=2
+	#if (0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and Pred<PLtotal and Pred>7:
+		#state=1
+	GPIO.output(13, False)
+	GPIO.output(19, False)
+	GPIO.output(26, False)
+	print("aqui estuve")
+	#elif  Pred<7:
+	#	state=2
        
-def S2():
+def state2():
         global state
 	
 	GPIO.output(13, False)
@@ -488,11 +489,10 @@ def S2():
 def Estados(state):
 	#global state
         switcher={
-                1:S1,
-                2:S2,
-		3:lambda:'Ningun estado'
+                1:state1,
+                2:state2,
                 }
-        return switcher.get(state,lambda :'Invalid')
+        return switcher.get(state,lambda : None)
 
 def main():
 	global sw
