@@ -474,7 +474,7 @@ def Estados(i):
                 0:zero,
                 1:one,
                 }
-         return switcher.get(i,"Invalid Estado")
+        return switcher.get(i,"Invalid Estado")
 
 def main():
 	global sw
