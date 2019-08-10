@@ -506,7 +506,7 @@ def Estados(state):
 	#global state
         if state==1:
 		state1()
-	elif state=='1T'
+	elif state=='1T':
 		state1T()
 	elif state==2:
 		state2()
