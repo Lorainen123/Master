@@ -462,7 +462,19 @@ def fuzzy():
 	# print (v2)
     	
 	 
-#	
+def zero():
+        return 'zero'
+def one():
+        return 'one'
+		
+		
+
+def Estados(i):
+        switcher={
+                0:zero,
+                1:one,
+                }
+         return switcher.get(i,"Invalid Estado")
 
 def main():
 	global sw
@@ -470,6 +482,7 @@ def main():
 		
 			print('Ingrese el siguiente estado del sistema:')
 			x = input()
+			Estados(i)
 		
 		#if sw==1:
 		#	time.sleep(0.000001)
@@ -478,28 +491,7 @@ def main():
 		#	print("Potencia de la bat = "+str(PBtotal))
 		#	print("Potencia de la carga = "+str(PLtotal))
 		
-			if x==1:
-				GPIO.output(13, False)
-				GPIO.output(19, False)
-				GPIO.output(26, False)
-				sw=0
-			elif x==2:
-				GPIO.output(13, False)
-				GPIO.output(19, False)
-				GPIO.output(26, True)
-			elif x==3:
-				GPIO.output(13, False)
-				GPIO.output(19, True)
-				GPIO.output(26, False)
-				sw=0
-			elif x==4:
-				GPIO.output(13, False)
-				GPIO.output(19, True)
-				GPIO.output(26, True)
-			elif x==5:
-				GPIO.output(13, True)
-				GPIO.output(19, False)
-				GPIO.output(26, False)
+		
 			
 			
 	  
@@ -508,12 +500,12 @@ def main():
 
 #main()
 #hilo1=threading.Thread(target=fuzzy)
-#hilo2=threading.Thread(target=main)
-hilo3=threading.Thread(target=adquisicion)
+hilo2=threading.Thread(target=main)
+#hilo3=threading.Thread(target=adquisicion)
 
 #hilo1.start()
-#hilo2.start()
-hilo3.start()
+hilo2.start()
+#hilo3.start()
  
 #while True:
 #	Pred=potenciaRed()
