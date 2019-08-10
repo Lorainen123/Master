@@ -160,7 +160,7 @@ def adquisicion():
 		
 	while True:
 		Estados(state)
-		time.sleep(1)
+		
 		#tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
 		IpanelT=0
@@ -205,12 +205,12 @@ def adquisicion():
 			Vbat = ((Vbat)*(5.15/1023))*(37000.0/7500.0) 
 			VbatT=VbatT+Vbat
 				
-			result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
-			decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
-			Pred=decoder.decode_32bit_float()
+			
 		
 			#j=j+1
-		
+		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+		Pred=decoder.decode_32bit_float()
 		#toc = tm.default_timer()
 		## potencia del panel solar			
 		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
@@ -474,6 +474,7 @@ def state1():
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, False)
+	time.sleep(1)
 	state='1T'
 	
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
@@ -491,6 +492,7 @@ def state2():
 	GPIO.output(19, False)
 	GPIO.output(26, True)
 	state='2T'
+	time.sleep(1)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 def state2T():
 	global state
