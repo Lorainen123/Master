@@ -474,7 +474,7 @@ def state1():
 		GPIO.output(19, False)
 		GPIO.output(26, False)
 	elif Pred<7:
-		print("estoy aqui")
+		state=2
 	
 def state2():
         global state
