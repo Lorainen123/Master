@@ -479,9 +479,13 @@ def state1():
 def state2():
         global state
 	
-	GPIO.output(13, False)
-	GPIO.output(19, False)
-	GPIO.output(26, True)
+	if 0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
+		GPIO.output(13, False)
+		GPIO.output(19, False)
+		GPIO.output(26, True)
+		state=2
+	else:
+		state=1
 		
 		
 
