@@ -497,7 +497,7 @@ def state1T():
 		state='1T'
 	elif Pred<8:
 		state=2
-	elif PStotal<0 and Pred<=8.1:
+	elif PStotal<=0 and Pred<=8.1:
 		state=3
 	
 def state2():
