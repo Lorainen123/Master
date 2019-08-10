@@ -524,7 +524,7 @@ def state3():
 	
 def state3T():
 	global state
-	if  PSTotal>0 or Pred>0:
+	if  PStotal>0 or Pred>0:
 		state=1
 	else:
 		state='3T'
