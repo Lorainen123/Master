@@ -546,7 +546,7 @@ def state4T():
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5:
 		state='4T'
-	elif VpanelT<18.3 and Vpanel>17.5 and PTred>50:
+	elif VpanelT<18.3 and VpanelT>17.5 and PTred>50:
 		state='4T'
 	elif VpanelT<17.5:
 		state='4T'
