@@ -93,6 +93,13 @@ except:
     time.sleep(0.1)
 
 
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 19200)
+if client.connect():
+    
+    print("puerto abierto")
+else:
+    print("puerto no abierto")
+
 def adquisicion():
 	global PStotal, PLtotal, sw, Pred
 		
