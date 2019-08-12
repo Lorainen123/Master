@@ -544,7 +544,7 @@ def state4():
 def state4T():
 	global state
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
-	if VpanelT<19 and PTred>73:
+	if VpanelT<19 and PTred>69:
 		state='4T'
 	else:
 		state=1
