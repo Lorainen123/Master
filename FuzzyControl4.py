@@ -156,7 +156,7 @@ else:
 
 
 def adquisicion():
-	global PStotal, PLtotal, Pred, PBtotal, sw, state, VpanelT
+	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT
 		
 	while True:
 		
@@ -230,7 +230,7 @@ def adquisicion():
 			
 		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
-		Pred=decoder.decode_32bit_float()
+		PTred=decoder.decode_32bit_float()
 		#if Pred<6:
 		#	Pred=8.1
 		
@@ -264,7 +264,7 @@ def adquisicion():
 #				GPIO.output(26, False)
 				
 def adquisicion2():
-	global Pred
+	global PTred
 	
 	while True:
 		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
@@ -495,13 +495,13 @@ def state1():
 	
 def state1T():
 	global state
-	if  Pred<PLtotal and Pred>8:
+	if  PTred<PLtotal and PTred>8:
 		state='1T'
-	elif Pred<8 and Pred>5 and PStotal>0:
+	elif PTred<8 and PTred>5 and PStotal>0:
 		state=2
-	elif PStotal<=0 and Pred<=0:
+	elif PStotal<=0 and PTred<=0:
 		state=3
-	elif Pred>PLtotal:
+	elif PTred>PLtotal:
 		state=4
 	
 def state2():
@@ -528,7 +528,7 @@ def state3():
 	
 def state3T():
 	global state
-	if  PStotal>0 or Pred>0:
+	if  PStotal>0 or PTred>0:
 		state=1
 	else:
 		state='3T'
@@ -589,7 +589,7 @@ def main():
 
 
 #main()
-#hilo1=threading.Thread(target=fuzzy)
+hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
 hilo3=threading.Thread(target=adquisicion)
 #hilo4=threading.Thread(target=adquisicion2)
