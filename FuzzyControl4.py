@@ -545,7 +545,7 @@ def state4T():
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if Vpanel<19 and PTred>73:
 		state='4T'
-	else
+	else:
 		state=1
 
 def Estados(state):
