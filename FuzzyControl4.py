@@ -550,6 +550,8 @@ def state4T():
 		state='4T'
 	elif VpanelT<17.5:
 		state='4T'
+	elif PTred<=0:
+		state=1
 	else:
 		state=1
 
