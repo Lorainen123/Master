@@ -495,13 +495,13 @@ def state1():
 	
 def state1T():
 	global state
-	if  PTred<PLtotal and PTred>8:
+	if  PTred<1.15*PLtotal and PTred>0.85*PLtotal and PTred>8:
 		state='1T'
 	elif PTred<8 and PTred>5 and PStotal>0:
 		state=2
 	elif PStotal<=0 and PTred<=0:
 		state=3
-	elif PTred>PLtotal:
+	elif PTred>1.15*PLtotal:
 		state=4
 	
 def state2():
