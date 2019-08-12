@@ -12,6 +12,11 @@ from ina219 import INA219
 import RPi.GPIO as GPIO
 import threading
 import timeit as tm
+from pymodbus.constants import Endian
+from pymodbus.payload import BinaryPayloadDecoder
+from pymodbus.payload import BinaryPayloadBuilder
+from pymodbus.client.sync import ModbusSerialClient as ModbusClient
+
 
 #Configuration SPI Port and device
 SPI_PORT   = 0
@@ -160,15 +165,17 @@ def adquisicion():
 		elif PStotal <2:
 			PStotal=0
 			
-		
+		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+		PTred=decoder.decode_32bit_float()
 		sw=1
-		#print("Potencia del panel = "+str(PStotal))
-		#print("Corriente Panel = "+str((IpanelT/j)-0.5))
-		#print("Voltaje Panel = "+str((VpanelT/j)+0.5))
+		print("Potencia del panel = "+str(PStotal))
+		print("Corriente Panel = "+str((IpanelT/j)-0.5))
+		print("Voltaje Panel = "+str((VpanelT/j)+0.5))
 		print("Potencia de la bat = "+str(PBtotal))
-		#print("Potencia de la carga = "+str(PLtotal))
+		print("Potencia de la carga = "+str(PLtotal))
 		#pred=adquisicion2()
-		print("Potencia de la red = "+str(pred))
+		print("Potencia de la red = "+str(Pred))
 	#	time.sleep(0.001)
 		
 			
