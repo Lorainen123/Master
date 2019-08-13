@@ -550,8 +550,8 @@ def state4T():
 #		state='4T'
 #	elif VpanelT<17.5 and VpanelT>5:
 #		state='4T'
-#	elif PTred<=5:
-#		state=1
+	elif PTred<=5:
+		state=1
 	elif VpanelT>20 and PTred<72:   ## radiacion alta
 		state=1
 #	else:
