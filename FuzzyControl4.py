@@ -239,6 +239,7 @@ def adquisicion():
 		sw=1
 		VpanelT=(VpanelT/j)+0.5
 		print("Voltaje del panel solar = "+str(VpanelT))
+		print("Corriente del panel solar ="+str(IpanelT/j))
 		print("Potencia de la red = "+str(PTred))
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
