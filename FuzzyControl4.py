@@ -554,8 +554,8 @@ def state4T():
 #		state=1
 	elif VpanelT>20 and PTred<70:   ## radiacion alta
 		state=1
-	else:
-		state=1
+#	else:
+#		state=1
 
 def Estados(state):
 	#global state
