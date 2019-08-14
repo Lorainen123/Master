@@ -143,6 +143,7 @@ def adquisicion():
 			## potencia de la bateria
 			Ibat = mcp.read_adc(1)
 			Ibat=((Ibat)*(5.15/1023))
+			Vsensor=Ibat
 			Ibat=(-2.54+Ibat)*(1/0.1852)
 			IbatT=IbatT+Ibat
 			Vbat = mcp.read_adc(5)
@@ -183,6 +184,8 @@ def adquisicion():
 	#	print((VpanelT/j)+0.5)
 		print("Potencia de la bat = "+str(PBtotal))
 		print("Corriente de la bat = "+str(IbatT/j))
+		print("voltaje sensor corriente de la bat = "+str(Vsensor/j))
+		
 		print("Voltaje de la bat = "+str(VbatT/j))
 	
 	#	print("Potencia de la carga = "+str(PLtotal))
