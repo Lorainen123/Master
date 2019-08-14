@@ -156,7 +156,7 @@ else:
 
 
 def adquisicion():
-	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT
+	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
 		
 	while True:
 		
@@ -546,6 +546,7 @@ def state4():
 
 def state4T():
 	global state
+	IpanelF=-0.99750086*VpanelT+20.8572306
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
 		state='4T'
@@ -555,7 +556,7 @@ def state4T():
 #		state='4T'
 	elif PTred<=5:
 		state=1
-	elif VpanelT>20 and PTred<72:   ## radiacion alta
+	elif IpanelF<1.4*IpanelT and IpanelF>0.6*IpanelT and PTred<72:   ## radiacion alta
 		state=1
 #	else:
 #		state=1
