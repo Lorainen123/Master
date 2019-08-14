@@ -515,7 +515,7 @@ def state1T():
 		state=2
 	elif PStotal<=0 and PTred<=0:
 		state=3
-	elif PTred<0.95*PLtotal:
+	elif PTred>0.95*PLtotal:
 		state=4
 	
 def state2():
