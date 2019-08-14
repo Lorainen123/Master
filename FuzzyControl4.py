@@ -243,6 +243,8 @@ def adquisicion():
 		print("Potencia de la red = "+str(PTred))
 		print("Potencia del panel = "+str(PStotal))
 		print("Potencia de la bat = "+str(PBtotal))
+		print("Corriente de la bat = "+str(IbatT/j))
+		print("Voltaje de la bat = "+str(VbatT/j))
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
 		Estados(state)
