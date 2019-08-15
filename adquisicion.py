@@ -187,20 +187,20 @@ def adquisicion():
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-		print("Potencia del panel = "+str(PStotal))
+	#	print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
-	#	print(IpanelT/j)
-	#	print((VpanelT/j)+0.5)
-		print("Potencia de la bat = "+str(PBtotal))
+		print(IpanelT/j)
+		print((VpanelT/j)+0.5)
+	#	print("Potencia de la bat = "+str(PBtotal))
 	#	print("Corriente de la bat = "+str(IbatT))
 	#	print("voltaje sensor corriente de la bat = "+str(Vsensor/j))
 		
 	#	print("Voltaje de la bat = "+str(VbatT/j))
 	
-		print("Potencia de la carga = "+str(PLtotal))
-		#pred=adquisicion2()
-		print("Potencia de la red = "+str(PTred))
+	#	print("Potencia de la carga = "+str(PLtotal))
+	#	#pred=adquisicion2()
+	#	print("Potencia de la red = "+str(PTred))
 	#	time.sleep(0.001)
 		
 			
