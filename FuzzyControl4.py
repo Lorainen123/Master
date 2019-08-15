@@ -229,7 +229,7 @@ def adquisicion():
 		else:
 			Ibat=0
 		
-		PBtotal=round((IbatT*VbatT)/(j),2)
+		PBtotal=(round((IbatT*VbatT)/(j),2))-13
 		
 		if PLtotal<2: 
 			PLtotal=0
