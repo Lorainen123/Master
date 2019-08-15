@@ -557,6 +557,7 @@ def state4():
 def state4T():
 	global state
 	IpanelF=-0.99750086*VpanelT+20.8572306
+	IpanelF1=-0.670684798*VpanelT+13.872848
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
 		state='4T'
@@ -568,6 +569,10 @@ def state4T():
 		state=1
 	elif IpanelF<1.4*IpanelT and IpanelF>0.6*IpanelT and PTred<75:   ## radiacion alta
 		state=1
+
+	elif IpanelF1<1.4*IpanelT and IpanelF1>0.6*IpanelT and PTred<50:   ## radiacion alta
+		state=1
+	
 #	else:
 #		state=1
 
