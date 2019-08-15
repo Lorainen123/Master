@@ -181,12 +181,12 @@ def main():
     		time.sleep(0.2)
    # P1=Node611.sensorm()
      		
-		try:
-			Pred=adquisicion2()
+#		try:
+		Pred=adquisicion2()
  #   		
-		except:
-			time.sleep(0.1)
-			Pred=adquisicion2()
+#		except:
+		#	time.sleep(0.1)
+		#	Pred=adquisicion2()
 #			
 #
 #		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
