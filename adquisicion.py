@@ -155,7 +155,7 @@ def adquisicion():
 		
 	#	toc = tm.default_timer()
 		## potencia del panel solar			
-		PStotal=round((IpanelT)*((VpanelT+0.5)/j)/j,2) ## potencia del panel solar promedio
+		PStotal=round(((IpanelT)*((VpanelT)+0.5)/j)/j,2) ## potencia del panel solar promedio
 		
 		
 		## potencia de la carga 
@@ -187,7 +187,7 @@ def adquisicion():
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-	#	print("Potencia del panel = "+str(PStotal))
+		print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
 		print(IpanelT/j)
