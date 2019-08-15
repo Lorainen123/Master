@@ -181,21 +181,22 @@ def main():
     		time.sleep(5)
    # P1=Node611.sensorm()
      		
-#		try:
-#			Pred=adquisicion2()
+		try:
+			Pred=adquisicion2()
  #   		
-#		except:
-#			time.sleep(0.1)
-#			Pred=adquisicion2()
+		except:
+			time.sleep(0.1)
+			Pred=adquisicion2()
 #			
 #
-		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
-		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+#		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+#		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 #		print(result.registers)
-		print(decoder.decode_32bit_float())
-		result.registers=0
+#		print(decoder.decode_32bit_float())
+#		result.registers=0
 		#archivo.write(str(Pred)+'\n')
-   		i=i+1
+ 		print(Pred)
+		i=i+1
     
  #   n = excel.main(float(16.2),0)
  #   n = int(n)
