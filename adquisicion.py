@@ -201,7 +201,7 @@ def adquisicion():
 	
 	#	print("Potencia de la carga = "+str(PLtotal))
 	#	#pred=adquisicion2()
-	#	print("Potencia de la red = "+str(PTred))
+		print("Potencia de la red = "+str(PTred))
 	#	time.sleep(0.001)
 		
 			
