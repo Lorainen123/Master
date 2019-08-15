@@ -172,7 +172,7 @@ def main():
 	#global Pred
 	i=0
 	#thread.start_new_thread(adquisicion2,(i,))
-	while i<41:
+	while True:
   
    
     		n = excel.main(float(16),0)
