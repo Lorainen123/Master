@@ -93,7 +93,7 @@ except:
     time.sleep(0.1)
 
 
-client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 19200)
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB1', bytesize=8, timeout=1, baudrate= 19200)
 if client.connect():
     
     print("puerto abierto")
@@ -190,10 +190,10 @@ def adquisicion():
 	#	print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
-		print(IpanelT/j)
-		print((VpanelT/j)+0.5)
-	#	print("Potencia de la bat = "+str(PBtotal))
-	#	print("Corriente de la bat = "+str(IbatT))
+	#	print(IpanelT/j)
+	#	print((VpanelT/j)+0.5)
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Corriente de la bat = "+str(IbatT))
 	#	print("voltaje sensor corriente de la bat = "+str(Vsensor/j))
 		
 	#	print("Voltaje de la bat = "+str(VbatT/j))
