@@ -108,7 +108,7 @@ def adquisicion():
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
 		IpanelT=0
 		VpanelT=0
-		IpanelV=0
+		VpanelV=0
 		
 		IcargaT=0
 		VcargaT=0
@@ -123,7 +123,7 @@ def adquisicion():
 		
 			Ipanel = mcp.read_adc(7)  ## Corriente del panel solar
 			Ipanel=((Ipanel)*(5.15/1023))
-			IpanelV=IpanelV+Ipanel
+			#IpanelV=IpanelV+Ipanel
 			Ipanel=Ipanel+0.03
 			#Ipanel=(-25.3+10*Ipanel)-0.2
 			Ipanel=(-2.6+Ipanel)*(1/0.09693)
@@ -131,7 +131,9 @@ def adquisicion():
 				IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
 		
 			Vpanel = mcp.read_adc(4)
+			VpanelV=VpanelV+Vpanel
 			Vpanel = Vpanel*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
+			
 			VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
 		
 			## potencia de la carga
@@ -194,7 +196,7 @@ def adquisicion():
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
 	#	print(PStotal)
-		print(IpanelV/j)
+		print(VpanelV/j)
 		print(IpanelT/j)
 		print((VpanelT/j)+0.5)
 	#	print("Potencia de la bat = "+str(PBtotal))
