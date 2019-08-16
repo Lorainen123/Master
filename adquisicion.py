@@ -122,6 +122,7 @@ def adquisicion():
 		
 			Ipanel = mcp.read_adc(7)  ## Corriente del panel solar
 			Ipanel=((Ipanel)*(5.15/1023))
+			IpanelV=IpanelV+Ipanel
 			#Ipanel=(-25.3+10*Ipanel)-0.2
 			Ipanel=(-2.6+Ipanel)*(1/0.09693)
 			if Ipanel>0:
@@ -191,6 +192,7 @@ def adquisicion():
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
 	#	print(PStotal)
+		print(IpanelV/j)
 		print(IpanelT/j)
 		print((VpanelT/j)+0.5)
 	#	print("Potencia de la bat = "+str(PBtotal))
