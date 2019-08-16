@@ -108,6 +108,7 @@ def adquisicion():
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
 		IpanelT=0
 		VpanelT=0
+		IpanelV=0
 		
 		IcargaT=0
 		VcargaT=0
