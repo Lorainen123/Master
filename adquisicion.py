@@ -199,7 +199,7 @@ def adquisicion():
 	#	print(PStotal)
 		print(VpanelV/j)
 		print(IpanelT/j)
-		print((VpanelT/j)+0.5)
+		print((VpanelT/j))
 	#	print("Potencia de la bat = "+str(PBtotal))
 	#	print("Corriente de la bat = "+str(IbatT))
 	#	print("voltaje sensor corriente de la bat = "+str(Vsensor/j))
