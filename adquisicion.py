@@ -131,8 +131,9 @@ def adquisicion():
 				IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
 		
 			Vpanel = mcp.read_adc(4)
+			Vpanel = Vpanel*(5.15/1023)
 			VpanelV=VpanelV+Vpanel
-			Vpanel = Vpanel*(5.15/1023)*(37.5/7.5)  ## voltaje del panel solar
+			Vpanel=Vpanel*(37.5/7.5)  ## voltaje del panel solar
 			
 			VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
 		
