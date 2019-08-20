@@ -558,7 +558,9 @@ def state4():
 
 def state4T():
 	global state
-	IpanelF=-0.99750086*VpanelT+20.8572306
+#	IpanelF=-0.99750086*VpanelT+20.8572306   
+	IpanelF=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
+	
 	IpanelF1=-0.670684798*VpanelT+13.872848
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
@@ -569,11 +571,11 @@ def state4T():
 #		state='4T'
 	elif PTred<=5:
 		state=1
-	elif IpanelF<1.2*IpanelT and IpanelF>0.8*IpanelT and PTred<75:   ## radiacion alta
+	elif IpanelF<1.1*IpanelT and IpanelF>0.9*IpanelT and PTred<75:   ## radiacion alta
 		state=1
 
-	elif IpanelF1<1.2*IpanelT and IpanelF1>0.8*IpanelT and PTred<50:   ## radiacion alta
-		state=1
+#	elif IpanelF1<1.2*IpanelT and IpanelF1>0.8*IpanelT and PTred<50:   ## radiacion alta
+#		state=1
 	
 #	else:
 #		state=1
@@ -620,14 +622,14 @@ def main():
 
 
 #main()
-hilo1=threading.Thread(target=fuzzy)
+#hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
-#hilo3=threading.Thread(target=adquisicion)
+hilo3=threading.Thread(target=adquisicion)
 #hilo4=threading.Thread(target=adquisicion2)
 
-hilo1.start()
+#hilo1.start()
 #hilo2.start()
-#hilo3.start()
+hilo3.start()
 #hilo4.start()
  
 #while True:
