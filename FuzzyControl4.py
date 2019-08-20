@@ -532,7 +532,7 @@ def state2T():
 	global state
 	if  PBtotal<0:
 		state='2T'
-	elif PBtotal>0:
+	elif PBtotal>7:
 		state=1
 def state3():
         global state
@@ -558,8 +558,8 @@ def state4():
 
 def state4T():
 	global state
-#	IpanelF=-0.99750086*VpanelT+20.8572306   
-	IpanelF=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
+	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
+	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
 	
 	IpanelF1=-0.670684798*VpanelT+13.872848
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
@@ -571,9 +571,13 @@ def state4T():
 #		state='4T'
 	elif PTred<=5:
 		state=1
-	elif IpanelF<1.1*IpanelT and IpanelF>0.9*IpanelT and PTred<75:   ## radiacion alta
+	elif IpanelFH<1.1*IpanelT and IpanelFH>0.9*IpanelT and PTred<75:   ## radiacion alta
+		state=1
+		
+	elif IpanelFH1<1.1*IpanelT and IpanelFH1>0.9*IpanelT and PTred<75:   ## radiacion alta
 		state=1
 
+		
 #	elif IpanelF1<1.2*IpanelT and IpanelF1>0.8*IpanelT and PTred<50:   ## radiacion alta
 #		state=1
 	
