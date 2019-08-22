@@ -101,8 +101,14 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Ejemplo3.xlsx')
+libro = xlsxwriter.Workbook('Experimento1.xlsx')
 hoja = libro.add_worksheet()
+hoja.write(0, 0,     "Estado")	
+hoja.write(0, 1,     "Voltaje Panel")
+hoja.write(0, 2,     "Corriente Panel")
+hoja.write(0, 3,     "Potencia de la red")
+hoja.write(0, 4,     "Potencia de la carga")
+hoja.write(0, 5,     "Hora")
 
 try:
 	global PStotal, PLtotal, sw, Pred
@@ -197,16 +203,21 @@ try:
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-	#	myData = str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"
-         		
 		hoja.write(k, 1,     str(VpanelT/j))
+		
+		hoja.write(k, 2,     str(IpanelT/j))
+		
+		hoja.write(k, 3,     str(PTred))
+		
+		hoja.write(k, 4,     str(PLtotal))
+		
+		hoja.write(k, 5,     time.strftime)
+		
+		
+		
+		
    		k=k+1
-		#libro.close()
-	
-	
- 	#	writer = csv.writer(myFile)
-	#	writer.writerows(myData)
-     
+		
 	#	print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
