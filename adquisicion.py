@@ -111,7 +111,7 @@ hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Hora")
 
 try:
-	global PStotal, PLtotal, sw, Pred
+	
 	k=1
 	while True:
 	#	tic = tm.default_timer()
