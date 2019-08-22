@@ -16,6 +16,7 @@ from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
+import csv
 
 
 #Configuration SPI Port and device
@@ -99,6 +100,8 @@ if client.connect():
     print("puerto abierto")
 else:
     print("puerto no abierto")
+
+myFile = open('example2.csv', 'w')
 
 def adquisicion():
 	global PStotal, PLtotal, sw, Pred
@@ -193,6 +196,12 @@ def adquisicion():
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
+		myData = [[str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"]]
+         		
+		with myFile:
+ 		    writer = csv.writer(myFile)
+		    writer.writerows(myData)
+     
 	#	print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
 	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
