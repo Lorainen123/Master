@@ -198,9 +198,10 @@ def adquisicion():
 		PTred=decoder.decode_32bit_float()
 		sw=1
 	#	myData = str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"
-         		
+         	libro.open()	
 		hoja.write(k, 1,     str(VpanelT/j))
    		k=k+1
+		libro.close()
 	
 	
  	#	writer = csv.writer(myFile)
