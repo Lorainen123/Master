@@ -104,7 +104,7 @@ else:
 libro = xlsxwriter.Workbook('Ejemplo3.xlsx')
 hoja = libro.add_worksheet()
 
-def adquisicion():
+try:
 	global PStotal, PLtotal, sw, Pred
 	k=1
 	while True:
@@ -198,10 +198,10 @@ def adquisicion():
 		PTred=decoder.decode_32bit_float()
 		sw=1
 	#	myData = str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"
-         	libro.open()	
+         		
 		hoja.write(k, 1,     str(VpanelT/j))
    		k=k+1
-		libro.close()
+		#libro.close()
 	
 	
  	#	writer = csv.writer(myFile)
@@ -225,7 +225,9 @@ def adquisicion():
 		print("Potencia de la red = "+str(PTred))
 	#	time.sleep(0.001)
 		
-			
+exception:
+	print("me sali")
+	
 		
 			#time.sleep(0.00005)
 def adquisicion2():
@@ -275,15 +277,15 @@ def switches():
 		
   
 
-def main():
-	global PStotal, PLtotal, Pred, sw
+#def main():
+#	global PStotal, PLtotal, Pred, sw
 	#thread.start_new_thread(adquisicion1,(i,))
 #	thread.start_new_thread(adquisicion2,(i,))
 	
-	hilo1=threading.Thread(target=adquisicion)
+	#hilo1=threading.Thread(target=adquisicion)
 #	hilo2=threading.Thread(target=adquisicion2)
 #	hilo3=threading.Thread(target=switches)
-	hilo1.start()
+	#hilo1.start()
 #	hilo2.start()
 #	hilo3.start()
 	#else:
@@ -336,6 +338,6 @@ def main():
 			
 		
 
-main()
+#main()
 	
 	
