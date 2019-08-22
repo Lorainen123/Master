@@ -226,7 +226,7 @@ try:
 	#	time.sleep(0.001)
 		
 except:
-	print("me sali")
+	libro.close()
 	
 		
 			#time.sleep(0.00005)
