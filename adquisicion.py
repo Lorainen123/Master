@@ -199,7 +199,7 @@ def adquisicion():
 		sw=1
 	#	myData = str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"
          		
-		hoja.write(k, col,     str(VpanelT/j))
+		hoja.write(k, 1,     str(VpanelT/j))
    		k=k+1
 	
 	
