@@ -16,7 +16,7 @@ from pymodbus.constants import Endian
 from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
-import csv
+import xlsxwriter
 
 
 #Configuration SPI Port and device
@@ -101,11 +101,12 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-myFile = open('example2.csv', 'w')
+libro = xlsxwriter.Workbook('Ejemplo3.xlsx')
+hoja = libro.add_worksheet()
 
 def adquisicion():
 	global PStotal, PLtotal, sw, Pred
-		
+	k=1
 	while True:
 	#	tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
@@ -196,11 +197,14 @@ def adquisicion():
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-		myData = [[str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"]]
+	#	myData = str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"
          		
-		
- 		writer = csv.writer(myFile)
-		writer.writerows(myData)
+		hoja.write(k, col,     str(VpanelT/j))
+   		k=k+1
+	
+	
+ 	#	writer = csv.writer(myFile)
+	#	writer.writerows(myData)
      
 	#	print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
