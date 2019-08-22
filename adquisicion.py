@@ -133,14 +133,14 @@ try:
 			GPIO.output(13, False)
 			GPIO.output(19, False)
 			GPIO.output(26, False)
-			time.sleep(4)
+			time.sleep(5)
 			state=4
 			A=1
 		elif state==4:
 			GPIO.output(13, False)
 			GPIO.output(19, True)
 			GPIO.output(26, True)
-			time.sleep(4)
+			time.sleep(5)
 			state=1
 			A=4
 			
