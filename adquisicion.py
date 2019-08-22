@@ -225,7 +225,7 @@ try:
 		print("Potencia de la red = "+str(PTred))
 	#	time.sleep(0.001)
 		
-exception:
+except:
 	print("me sali")
 	
 		
