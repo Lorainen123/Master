@@ -108,7 +108,8 @@ hoja.write(0, 1,     "Voltaje Panel")
 hoja.write(0, 2,     "Corriente Panel")
 hoja.write(0, 3,     "Potencia de la red")
 hoja.write(0, 4,     "Potencia de la carga")
-hoja.write(0, 5,     "Hora")
+hoja.write(0, 5,     "Potencia de la bateria")
+hoja.write(0, 6,     "Hora")
 
 try:
 	
@@ -132,13 +133,13 @@ try:
 			GPIO.output(13, False)
 			GPIO.output(19, False)
 			GPIO.output(26, False)
-			time.sleep(3)
+			time.sleep(4)
 			state=4
 		elif state==4:
 			GPIO.output(13, False)
 			GPIO.output(19, True)
 			GPIO.output(26, True)
-			time.sleep(3)
+			time.sleep(4)
 			state=1
 			
 		for j in range(501):
@@ -204,7 +205,7 @@ try:
 		else:
 			Ibat=0
 		
-		PBtotal=round((IbatT*VbatT)/(j),2)
+		PBtotal=round((IbatT*VbatT)/(j),2)-13
 		#print(IbatT/j)
 		
 		if PLtotal<2: 
@@ -227,7 +228,9 @@ try:
 		
 		hoja.write(k, 4,     str(PLtotal))
 		
-		hoja.write(k, 5,     time.strftime("%X"))
+		hoja.write(k, 5,     str(PBtotal))
+				
+		hoja.write(k, 6,     time.strftime("%X"))
 		
 		
 		
@@ -242,7 +245,7 @@ try:
 		print(IpanelT/j)
 		print((VpanelT/j))
 		print(time.strftime("%X"))
-	#	print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la bat = "+str(PBtotal))
 	#	print("Corriente de la bat = "+str(IbatT))
 	#	print("voltaje sensor corriente de la bat = "+str(Vsensor/j))
 		
