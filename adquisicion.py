@@ -198,9 +198,9 @@ def adquisicion():
 		sw=1
 		myData = [[str(VpanelT/j)+","+ str(Ipanel/j)+","+str(PTred)+"\n"]]
          		
-		with myFile:
- 		    writer = csv.writer(myFile)
-		    writer.writerows(myData)
+		
+ 		writer = csv.writer(myFile)
+		writer.writerows(myData)
      
 	#	print("Potencia del panel = "+str(PStotal))
 	#	print("Corriente Panel = "+str((IpanelT/j)))
