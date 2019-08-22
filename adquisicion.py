@@ -211,7 +211,7 @@ try:
 		
 		hoja.write(k, 4,     str(PLtotal))
 		
-		hoja.write(k, 5,     time.strftime)
+		#hoja.write(k, 5,     time.strftime)
 		
 		
 		
