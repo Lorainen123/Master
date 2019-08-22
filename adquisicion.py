@@ -113,6 +113,7 @@ hoja.write(0, 5,     "Hora")
 try:
 	
 	k=1
+	state=1
 	while True:
 	#	tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
@@ -127,6 +128,19 @@ try:
 		VbatT=0
 		
 		Vsensor=0
+		if state==1:
+			GPIO.output(13, False)
+			GPIO.output(19, False)
+			GPIO.output(26, False)
+			time.sleep(3)
+			state=4
+		elif state==4:
+			GPIO.output(13, False)
+			GPIO.output(19, True)
+			GPIO.output(26, True)
+			time.sleep(3)
+			state=1
+			
 		for j in range(501):
 			
 			##potencia del panel solar
@@ -203,6 +217,8 @@ try:
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
+		hoja.write(k, 0,     str(state)
+		
 		hoja.write(k, 1,     str(VpanelT/j))
 		
 		hoja.write(k, 2,     str(IpanelT/j))
