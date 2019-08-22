@@ -135,12 +135,14 @@ try:
 			GPIO.output(26, False)
 			time.sleep(4)
 			state=4
+			A=1
 		elif state==4:
 			GPIO.output(13, False)
 			GPIO.output(19, True)
 			GPIO.output(26, True)
 			time.sleep(4)
 			state=1
+			A=4
 			
 		for j in range(501):
 			
@@ -218,7 +220,7 @@ try:
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-		hoja.write(k, 0,     str(state))
+		hoja.write(k, 0,     str(A))
 		
 		hoja.write(k, 1,     str(VpanelT/j))
 		
