@@ -217,7 +217,7 @@ try:
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-		hoja.write(k, 0,     str(state)
+		hoja.write(k, 0,     str(state))
 		
 		hoja.write(k, 1,     str(VpanelT/j))
 		
