@@ -81,12 +81,6 @@ except:
 
 
 client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 19200)
-if client.connect():
-    
-    print("puerto abierto")
-else:
-    print("puerto no abierto")
-
 
 def adquisicion():
 	
@@ -183,11 +177,9 @@ def adquisicion():
 		PTred=decoder.decode_32bit_float()
 		sw=1
 		
-		return PTred
+		return PTred, PStotal, PBtotal, PLtotal
 
-A=adquisicion()
-print(A)	
-
+print(adquisicion())
 	
 		
 
