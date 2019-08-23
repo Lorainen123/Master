@@ -19,7 +19,7 @@ from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import xlsxwriter
 
 
-#Configuración puerto SPI
+#Configuracion puerto SPI
 SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
