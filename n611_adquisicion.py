@@ -19,28 +19,16 @@ from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import xlsxwriter
 
 
-#Configuration SPI Port and device
+#Configuración puerto SPI
 SPI_PORT   = 0
 SPI_DEVICE = 0
 sw=0
-#N=50
-#bufred = np.zeros((N,))
-#bufsol = np.zeros((N,))
-#bufbat = np.zeros((N,))
-#bufload = np.zeros((N,))
+
 
 
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 j=0
-IpanelT=0
-VpanelT=0
-VcargaT=0
-IcargaT=0
-PStotal=0
-PLtotal=0
-PBtotal=0
-Pred=0
 
 #Configuration pin output
 GPIO.setwarnings(False)
@@ -49,9 +37,7 @@ GPIO.setup(13, GPIO.OUT)  ## 1
 GPIO.setup(19, GPIO.OUT)  ## 2
 GPIO.setup(26, GPIO.OUT)  ## 3
 
-#GPIO.output(13, False)
-#GPIO.output(19, False)
-#GPIO.output(26, False)
+
 
 #Low current sensors configurations
 try:
@@ -101,20 +87,10 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Experimento3.xlsx')
-hoja = libro.add_worksheet()
-hoja.write(0, 0,     "Estado")	
-hoja.write(0, 1,     "Voltaje Panel")
-hoja.write(0, 2,     "Corriente Panel")
-hoja.write(0, 3,     "Potencia de la red")
-hoja.write(0, 4,     "Potencia de la carga")
-hoja.write(0, 5,     "Potencia de la bateria")
-hoja.write(0, 6,     "Hora")
 
-try:
+def adquisicion():
 	
-	k=1
-	state=1
+	
 	while True:
 	#	tic = tm.default_timer()
 		#Inicializacion de variables antes de entrar al loop y obtener los promedios
@@ -129,21 +105,7 @@ try:
 		VbatT=0
 		
 		Vsensor=0
-		if state==1:
-			GPIO.output(13, False)
-			GPIO.output(19, False)
-			GPIO.output(26, False)
-			time.sleep(5)
-			state=4
-			A=1
-		elif state==4:
-			GPIO.output(13, False)
-			GPIO.output(19, True)
-			GPIO.output(26, True)
-			time.sleep(5)
-			state=1
-			A=4
-			
+					
 		for j in range(501):
 			
 			##potencia del panel solar
@@ -220,157 +182,12 @@ try:
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		sw=1
-		hoja.write(k, 0,     str(A))
 		
-		hoja.write(k, 1,     str(VpanelT/j))
-		
-		hoja.write(k, 2,     str(IpanelT/j))
-		
-		hoja.write(k, 3,     str(PTred))
-		
-		hoja.write(k, 4,     str(PLtotal))
-		
-		hoja.write(k, 5,     str(PBtotal))
-				
-		hoja.write(k, 6,     time.strftime("%X"))
-		
-		
-		
-		
-   		k=k+1
-		
-	#	print("Potencia del panel = "+str(PStotal))
-	#	print("Corriente Panel = "+str((IpanelT/j)))
-	#	print("Voltaje Panel = "+str((VpanelT/j)+0.5))
-	#	print(PStotal)
-		print(VpanelV/j)
-		print(IpanelT/j)
-		print((VpanelT/j))
-		print(time.strftime("%X"))
-		print("Potencia de la bat = "+str(PBtotal))
-	#	print("Corriente de la bat = "+str(IbatT))
-	#	print("voltaje sensor corriente de la bat = "+str(Vsensor/j))
-		
-	#	print("Voltaje de la bat = "+str(VbatT/j))
-	
-	#	print("Potencia de la carga = "+str(PLtotal))
-	#	#pred=adquisicion2()
-		print("Potencia de la red = "+str(PTred))
-	#	time.sleep(0.001)
-		
-except:
-	libro.close()
-	
-		
-			#time.sleep(0.00005)
-def adquisicion2():
-		#global Pred
-	#	while True:
-			pred = ina.power()/1000   ##se leen los 4 sensores por I2C 
-       			pred1 = ina1.power()/1000
-     			pred2 = ina2.power()/1000
-       			pred3 = ina3.power()/1000
-			PRtotal=pred+pred1+pred2+pred3  ## se suma la potencia de cada sensor PRtotal= potencia de la red despues de los rectificadores
-			#PRtotal=round(PRtotal,2)
-			##potencia de la red
-			Pred=round(6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal,3)
-			print(Pred)
-			#return Pred
-		#	if Pred<1:
-		#		Pred=0
-		#	elif Pred<7+7*0.1 and Pred>7-7*0.1:
-		#		Pred=7
-			
-			
-def switches():
-	global  PStotal, PLtotal, Pred, sw
-	while True:
-		time.sleep(0.00005)
-		print(sw)	
-		if sw==1:   ##  ya termino de calcular las potencias en el otro hilo
-			 	
+		return PTred, PBtotal, PStotal, PLtotal
 
-			if PStotal>0 and Pred<PLtotal:   ## Estado No 1
-				
-				GPIO.output(13, False)
-				GPIO.output(19, False)
-				GPIO.output(26, False)
-			#elif Pred<=7:
-			#	GPIO.output(13, False)
-			#	GPIO.output(19, False)
-			#	GPIO.output(26, True)
-			elif Pred>=PLtotal+PLtotal*0.1:
-				GPIO.output(13, False)
-				GPIO.output(19, True)
-				GPIO.output(26, True)
-			
-			#print(PLtotal)
-			sw=0
+adquisicion()
 	
-		
-  
 
-#def main():
-#	global PStotal, PLtotal, Pred, sw
-	#thread.start_new_thread(adquisicion1,(i,))
-#	thread.start_new_thread(adquisicion2,(i,))
 	
-	#hilo1=threading.Thread(target=adquisicion)
-#	hilo2=threading.Thread(target=adquisicion2)
-#	hilo3=threading.Thread(target=switches)
-	#hilo1.start()
-#	hilo2.start()
-#	hilo3.start()
-	#else:
-			#print(PLtotal)
-			
-		#tic = tm.default_timer()
-	#	time.sleep(0.00000005)
-		#if sw==1: #dato nuevo 
-			#print(A2)
-			
-		#	bufred[1:N]=bufred[0:N-1]
-		#	bufred[0]=PRtotal
-		#	pred=np.mean(bufred)
-		#	pred=6.8807+1.06223*pred+0.00221977*pred*pred
-		#	
-		#	bufsol[1:N]=bufsol[0:N-1]
-		#	bufsol[0]=PStotal
-		#	psol=np.mean(bufsol)
-			
-		#	bufbat[1:N]=bufbat[0:N-1]
-		#	bufbat[0]=S_4
-		#	pbat=np.mean(bufbat)
-			
-		#	bufload[1:N]=bufload[0:N-1]
-		#	bufload[0]=PLtotal
-		#	pload=np.mean(bufload)
-		#	sw=0
-			#toc = tm.default_timer()
-			#print(toc-tic)
-			#print(pload)
-			
-	#	if j==500: 
-	#		print(j)
-	#		## potencia del panel solar			
-	#		PStotal=(IpanelT*VpanelT)/(j*j) ## potencia del panel solar promedio
-	#		Ipanel=0
-	#		Vpanel=0
-	#		## potencia de la carga 
-	#		IcargaT=(IcargaT/j)-0.2
-	#		PLtotal=(VcargaT/j)*IcargaT
-	#		PLtotal=-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal
-	#		IcargaT=0
-	#		VcargaT=0
-			##potencia de la red
-	#		Pred=6.8807+1.06223*PRtotal+0.00221977*PRtotal*PRtotal
-			#print(PLtotal)
-	#		j=0
-			
-			
-			
 		
 
-#main()
-	
-	
