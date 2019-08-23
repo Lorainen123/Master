@@ -9,7 +9,7 @@ import socket
 import random
 from n611_adquisicion import *
 
-pot=adquisicion()
+
 HOST = '192.168.1.102' # Server IP or Hostname
 PORT = 7680 # Pick an open Port (1000+ recommended), must match the client sport
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -35,6 +35,7 @@ while True:
 
 	# process your message
 	if data == 'Potencia':
+		pot=adquisicion()
 		reply = str(pot)
         
 	elif data == 'Voltaje':
