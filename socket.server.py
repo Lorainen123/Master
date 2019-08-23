@@ -36,6 +36,7 @@ while True:
 	# process your message
 	if data == 'Potencia':
 		pot=adquisicion()
+		print(pot)
 		reply = str(pot)
         
 	elif data == 'Voltaje':
