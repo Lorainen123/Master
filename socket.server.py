@@ -35,7 +35,7 @@ while True:
 
 	# process your message
 	if data == 'Potencia':
-		reply = pot
+		reply = str(pot)
         
 	elif data == 'Voltaje':
 		reply = 'Tampoco se'
