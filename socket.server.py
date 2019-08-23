@@ -7,7 +7,7 @@ Created on Sat Aug 17 13:22:35 2019
 
 import socket
 import random
-import n611_adquisicion
+from n611_adquisicion import *
 
 pot=adquisicion()
 HOST = '192.168.1.102' # Server IP or Hostname
