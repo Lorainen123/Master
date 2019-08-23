@@ -183,10 +183,10 @@ def adquisicion():
 		PTred=decoder.decode_32bit_float()
 		sw=1
 		
-		return PTred, PBtotal, PStotal, PLtotal
+		return PTred
 
-adquisicion()
-	
+A=adquisicion()
+print(A)	
 
 	
 		
