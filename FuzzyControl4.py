@@ -154,10 +154,19 @@ if client.connect():
 else:
     print("puerto no abierto")
 
+libro = xlsxwriter.Workbook('Experimento6.xlsx')
+hoja = libro.add_worksheet()
+hoja.write(0, 0,     "Estado")	
+hoja.write(0, 1,     "Voltaje Panel")
+hoja.write(0, 2,     "Corriente Panel")
+hoja.write(0, 3,     "Potencia de la red")
+hoja.write(0, 4,     "Potencia de la carga")
+hoja.write(0, 5,     "Potencia de la bateria")
+hoja.write(0, 6,     "Hora")
 
 def adquisicion():
 	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
-		
+	k=1
 	while True:
 		
 		
@@ -248,8 +257,17 @@ def adquisicion():
 	
 	
 		sw=1
+		
+		
+		
+		
+		
+   		k=k+1
+		
 		VpanelT=(VpanelT/j)
 		IpanelT=IpanelT/j
+		
+		
 		print("Voltaje del panel solar = "+str(VpanelT))
 		print("Corriente del panel solar ="+str(IpanelT))
 		print("Potencia de la red = "+str(PTred))
@@ -259,7 +277,23 @@ def adquisicion():
 		print("Voltaje de la bat = "+str(VbatT/j))
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
+		
+		hoja.write(k, 0,     str(state))
+		
+		hoja.write(k, 1,     str(VpanelT))
+		
+		hoja.write(k, 2,     str(IpanelT))
+		
+		hoja.write(k, 3,     str(PTred))
+		
+		hoja.write(k, 4,     str(PLtotal))
+		
+		hoja.write(k, 5,     str(PBtotal))
+				
+		hoja.write(k, 6,     time.strftime("%X"))
 		Estados(state)
+		
+		
 		time.sleep(2)
 		
 		
