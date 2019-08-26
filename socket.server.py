@@ -10,7 +10,7 @@ import random
 from n611_adquisicion import *
 
 
-HOST = '10.20.4.102' # Server IP or Hostname
+HOST = '10.20.59.8' # Server IP or Hostname
 PORT = 5040 # Pick an open Port (1000+ recommended), must match the client sport
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print ('Socket created')
