@@ -8,7 +8,7 @@ Created on Sun Aug 25 23:41:53 2019
 import socket
 from n611_adquisicion import *
 
-UDP_IP = "10.20.59.8"
+UDP_IP = "10.20.4.102"
 UDP_PORT = 5040
 MESSAGE = str(adquisicion())
 
