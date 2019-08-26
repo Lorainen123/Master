@@ -8,15 +8,16 @@ Created on Sun Aug 25 23:41:53 2019
 import socket
 from n611_adquisicion import *
 
-UDP_IP = "10.20.4.102"
+UDP_IP = "10.20.59.8"
 UDP_PORT = 5040
-MESSAGE = str(adquisicion())
 
 print "UDP target IP:", UDP_IP
 print "UDP target port:", UDP_PORT
-print "message:", MESSAGE
+
 
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 while True:
-  sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+    print "message:", MESSAGE
+    MESSAGE = str(adquisicion())
+    sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
