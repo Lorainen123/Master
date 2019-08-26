@@ -18,6 +18,6 @@ print "UDP target port:", UDP_PORT
 sock = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
 while True:
-    print "message:", MESSAGE
     MESSAGE = str(adquisicion())
+    print "message:", MESSAGE
     sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
