@@ -270,18 +270,7 @@ try:
 		VpanelT=(VpanelT/j)
 		IpanelT=IpanelT/j
 		
-		
-		print("Voltaje del panel solar = "+str(VpanelT))
-		print("Corriente del panel solar ="+str(IpanelT))
-		print("Potencia de la red = "+str(PTred))
-		print("Potencia del panel = "+str(PStotal))
-		print("Potencia de la bat = "+str(PBtotal))
-		print("Corriente de la bat = "+str(IbatT))
-		print("Voltaje de la bat = "+str(VbatT/j))
-		print("Potencia de la carga = "+str(PLtotal))
-		print(state)
-		
-		hoja.write(k, 0,     str(state))
+		#hoja.write(k, 0,     str(state))
 		
 		hoja.write(k, 1,     str(VpanelT))
 		
@@ -294,6 +283,18 @@ try:
 		hoja.write(k, 5,     str(PBtotal))
 				
 		hoja.write(k, 6,     time.strftime("%X"))
+		
+		print("Voltaje del panel solar = "+str(VpanelT))
+		print("Corriente del panel solar ="+str(IpanelT))
+		print("Potencia de la red = "+str(PTred))
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
+		print("Corriente de la bat = "+str(IbatT))
+		print("Voltaje de la bat = "+str(VbatT/j))
+		print("Potencia de la carga = "+str(PLtotal))
+		print(state)
+		
+	
 		Estados(state)
 		
 		
