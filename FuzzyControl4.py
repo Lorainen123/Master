@@ -166,9 +166,9 @@ hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
 hoja.write(0, 6,     "Hora")
 
-def adquisicion():
-#try:
-	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
+#def adquisicion():
+try:
+#	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
 	k=1
 	while True:
 		
@@ -316,8 +316,8 @@ def adquisicion():
 #				GPIO.output(13, False)
 #				GPIO.output(19, True)
 #				GPIO.output(26, False)
-#except:
-	#libro.close()
+except:
+	libro.close()
 				
 def adquisicion2():
 	global PTred
