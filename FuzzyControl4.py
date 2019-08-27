@@ -560,7 +560,7 @@ def state1T():
 		cont=0
 	elif PTred>0.90*PLtotal:
 		cont=cont+1
-		if cont>=200000:
+		if cont>=150:
 			cont=0
 			state=4
 			time1=time.time()
@@ -626,7 +626,7 @@ def state4T():
 			
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
-		if cont1>200000:
+		if cont1>150:
 			state=1
 		else:
 			state='4T'
