@@ -27,6 +27,8 @@ import xlsxwriter
 SPI_PORT   = 0
 SPI_DEVICE = 0
 mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
+cont=0
+cont1=0
 
 j=0
 IpanelT=0
@@ -600,7 +602,7 @@ def state4():
 	time.sleep(2)
 
 def state4T():
-	global state, time2, time1
+	global state, time2, time1, cont1
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
 	
@@ -620,11 +622,11 @@ def state4T():
 #	elif IpanelFH1<1.1*IpanelT and IpanelFH1>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
 	elif VpanelT>18.2 and PTred<80 and PStotal>15:
-		cont=cont+1
+		cont1=cont1+1
 			
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
-		if cont>200000:
+		if cont1>200000:
 			state=1
 		else:
 			state='4T'
