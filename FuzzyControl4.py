@@ -156,7 +156,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Experimento9.xlsx')
+libro = xlsxwriter.Workbook('Experimento10.xlsx')
 hoja = libro.add_worksheet()
 hoja.write(0, 0,     "Estado")	
 hoja.write(0, 1,     "Voltaje Panel")
@@ -166,9 +166,9 @@ hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
 hoja.write(0, 6,     "Hora")
 
-#def adquisicion():
-try:
-#	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
+def adquisicion():
+#try:
+	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
 	k=1
 	while True:
 		
@@ -316,8 +316,8 @@ try:
 #				GPIO.output(13, False)
 #				GPIO.output(19, True)
 #				GPIO.output(26, False)
-except:
-	libro.close()
+#except:
+#	libro.close()
 				
 def adquisicion2():
 	global PTred
@@ -688,15 +688,20 @@ def main():
 #main()
 #hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
-#hilo3=threading.Thread(target=adquisicion)
+hilo3=threading.Thread(target=adquisicion)
 #hilo4=threading.Thread(target=adquisicion2)
 
 #hilo1.start()
 #hilo2.start()
-#hilo3.start()
+hilo3.start()
 #hilo4.start()
  
-#while True:
+while True:
+	try:
+		a=1
+	
+	except:
+		libro.close()
 #	Pred=potenciaRed()
 #	print(Pred)
 	
