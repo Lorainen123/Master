@@ -166,8 +166,8 @@ hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
 hoja.write(0, 6,     "Hora")
 
-#def adquisicion():
-try:
+def adquisicion():
+#try:
 	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
 	k=1
 	while True:
@@ -270,7 +270,7 @@ try:
 		VpanelT=(VpanelT/j)
 		IpanelT=IpanelT/j
 		
-		#hoja.write(k, 0,     str(state))
+		hoja.write(k, 0,     str(state))
 		
 		hoja.write(k, 1,     str(VpanelT))
 		
@@ -316,8 +316,8 @@ try:
 #				GPIO.output(13, False)
 #				GPIO.output(19, True)
 #				GPIO.output(26, False)
-except:
-	libro.close()
+#except:
+	#libro.close()
 				
 def adquisicion2():
 	global PTred
@@ -688,12 +688,12 @@ def main():
 #main()
 #hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
-#hilo3=threading.Thread(target=adquisicion)
+hilo3=threading.Thread(target=adquisicion)
 #hilo4=threading.Thread(target=adquisicion2)
 
 #hilo1.start()
 #hilo2.start()
-#hilo3.start()
+hilo3.start()
 #hilo4.start()
  
 #while True:
