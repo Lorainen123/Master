@@ -315,7 +315,7 @@ try:
 #				GPIO.output(13, False)
 #				GPIO.output(19, True)
 #				GPIO.output(26, False)
-execpt:
+except:
 	libro.close()
 				
 def adquisicion2():
