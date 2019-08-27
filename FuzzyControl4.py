@@ -612,12 +612,14 @@ def state4T():
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
 		state='4T'
+		cont1=0
 #	elif VpanelT<18.3 and VpanelT>17.5 and PTred>50:
 #		state='4T'
 #	elif VpanelT<17.5 and VpanelT>5:
 #		state='4T'
 	elif PTred<=5:
 		state=1
+		cont1=0
 #	elif IpanelFH<1.1*IpanelT and IpanelFH>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
 		
@@ -630,6 +632,7 @@ def state4T():
 	#	tiempo=round(time2-time1,0)
 		if cont1>150:
 			state=1
+			cont1=0
 		else:
 			state='4T'
 #	elif VpanelT>18.5 and PTred<60:
