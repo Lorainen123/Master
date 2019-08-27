@@ -688,12 +688,12 @@ def main():
 #main()
 #hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
-hilo3=threading.Thread(target=adquisicion)
+#hilo3=threading.Thread(target=adquisicion)
 #hilo4=threading.Thread(target=adquisicion2)
 
 #hilo1.start()
 #hilo2.start()
-hilo3.start()
+#hilo3.start()
 #hilo4.start()
  
 #while True:
