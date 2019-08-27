@@ -101,7 +101,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Experimento6.xlsx')
+libro = xlsxwriter.Workbook('Experimento11.xlsx')
 hoja = libro.add_worksheet()
 hoja.write(0, 0,     "Estado")	
 hoja.write(0, 1,     "Voltaje Panel")
