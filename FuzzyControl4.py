@@ -623,7 +623,7 @@ def state4T():
 		
 #	elif IpanelFH1<1.1*IpanelT and IpanelFH1>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
-	elif VpanelT>18.2 and PTred<80 and PStotal>15:
+	elif VpanelT>18.35 and PTred<80 and PStotal>15:
 		cont1=cont1+1
 			
 	#	time2=time.time()
