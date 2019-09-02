@@ -20,7 +20,7 @@ while True:
     hora = time.strftime("%H:%M:%S")
 
     MESSAGE = str(adquisicion())+', ' + fecha +', '+ hora
-    MESSAGE = bytes(MESSAGE,'utf-8')
+    MESSAGE = bytes(MESSAGE)
     print("message:", MESSAGE)
     sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
     
