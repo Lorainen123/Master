@@ -23,5 +23,5 @@ while True:
     MESSAGE = bytes(MESSAGE)
     print("message:", MESSAGE)
     sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
-    time.sleep(5)
+    time.sleep(2)
     
