@@ -165,7 +165,7 @@ hoja.write(0, 2,     "Corriente Panel")
 hoja.write(0, 3,     "Potencia de la red")
 hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
-hoja.write(0, 6,     "Hora")
+#hoja.write(0, 6,     "Hora")
 
 #libro1 = xlsxwriter.Workbook('PruebaFuzzy2.xlsx')
 #hoja1 = libro.add_worksheet()
@@ -277,19 +277,19 @@ def adquisicion():
 		VpanelT=(VpanelT/j)
 		IpanelT=IpanelT/j
 		
-		hoja.write(k, 0,     str(state))
+	#	hoja.write(k, 0,     str(state))
 		
-		hoja.write(k, 1,     str(VpanelT))
+	#	hoja.write(k, 1,     str(VpanelT))
 		
-		hoja.write(k, 2,     str(IpanelT))
+	#	hoja.write(k, 2,     str(IpanelT))
 		
-		hoja.write(k, 3,     str(PTred))
+	#	hoja.write(k, 3,     str(PTred))
 		
-		hoja.write(k, 4,     str(PLtotal))
+	#	hoja.write(k, 4,     str(PLtotal))
 		
-		hoja.write(k, 5,     str(PBtotal))
+	#	hoja.write(k, 5,     str(PBtotal))
 				
-		hoja.write(k, 6,     time.strftime("%X"))
+	#	hoja.write(k, 6,     time.strftime("%X"))
 		
 	#	print("Voltaje del panel solar = "+str(VpanelT))
 	#	print("Corriente del panel solar ="+str(IpanelT))
@@ -472,11 +472,24 @@ def fuzzy():
 	 	
         # print("Cambio de corriente/voltaje = "+str(dpdv))
    	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
-	 k=k+1			
+	 k=k+1	
+	
 	 v2=v2+Vrefin
 	 print("Vref2 = "+str(v2))
 	 print (time.strftime("%X"))
 	 Pred=Pred2
+	 hoja.write(k, 0,     str(state))
+		
+	 hoja.write(k, 1,     str(VpanelT))
+		
+	 hoja.write(k, 2,     str(IpanelT))
+		
+	 hoja.write(k, 3,     str(PTred))
+		
+	 hoja.write(k, 4,     str(PLtotal))
+		
+	 hoja.write(k, 5,     str(PBtotal))
+
 	 hoja.write(k, 8,     str(v2))
 		
 	 hoja.write(k, 9,  time.strftime("%X"))
@@ -714,7 +727,7 @@ hilo3.start()
 while True:
 	try:
 		a=1
-	except (KeyboardInterrupt, SystemExit):
+	except :
 		
 		libro.close()
-		raise	
+		
