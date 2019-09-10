@@ -683,6 +683,8 @@ def Estados(state):
 
 def main():
 	global sw
+	hilo3=threading.Thread(target=adquisicion)
+	hilo3.start()
 	while True:
 			print("Aqui toy")
 			a=1
