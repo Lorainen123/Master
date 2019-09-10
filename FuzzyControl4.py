@@ -169,8 +169,8 @@ hoja.write(0, 5,     "Potencia de la bateria")
 
 #libro1 = xlsxwriter.Workbook('PruebaFuzzy2.xlsx')
 hoja1 = libro.add_worksheet()
-hoja1.write(0, 8,     "Vref Fuzzy")	
-hoja1.write(0, 9,     "Hora")
+hoja1.write(0, 0,     "Vref Fuzzy")	
+hoja1.write(0, 1,     "Hora")
 
 
 def adquisicion():
@@ -480,9 +480,9 @@ def fuzzy():
 	 Pred=Pred2
 	
 
-	 hoja.write(k, 0,     str(v2))
+	 hoja1.write(k, 0,     str(v2))
 		
-	 hoja.write(k, 1,  time.strftime("%X"))
+	 hoja1.write(k, 1,  time.strftime("%X"))
 	# print(v2)
 	
 	 if v2<14.6:
