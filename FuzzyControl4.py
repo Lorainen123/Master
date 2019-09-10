@@ -159,7 +159,7 @@ else:
 libro = xlsxwriter.Workbook('Fuzzy1.xlsx')
 hoja = libro.add_worksheet()
 libro1 = xlsxwriter.Workbook('Fuzzy2.xlsx')
-hoja1 = libro2.add_worksheet()
+hoja1 = libro1.add_worksheet()
 hoja.write(0, 0,     "Estado")	
 hoja.write(0, 1,     "Voltaje Panel")
 hoja.write(0, 2,     "Corriente Panel")
