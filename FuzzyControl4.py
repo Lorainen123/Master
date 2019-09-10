@@ -478,7 +478,7 @@ def fuzzy():
 	 Pred=Pred2
 	 hoja1.write(k, 0,     str(v2))
 		
-	 hoja1.write(k, 1,  time.strftime("%X")))
+	 hoja1.write(k, 1,  time.strftime("%X"))
 	# print(v2)
 	
 	 if v2<14.6:
