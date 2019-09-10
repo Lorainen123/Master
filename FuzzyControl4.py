@@ -684,9 +684,11 @@ def Estados(state):
 def main():
 	global sw
 	hilo3=threading.Thread(target=adquisicion)
+	hilo1=threading.Thread(target=fuzzy)
 	hilo3.start()
+	hilo1.start()
 	while True:
-			print("Aqui toy")
+			
 			a=1
 			#print('Ingrese el siguiente estado del sistema:')
 			#x = input()
