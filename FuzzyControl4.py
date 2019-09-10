@@ -715,12 +715,12 @@ hilo3.start()
 #hilo4.start()
  
 #while True:
-	try:
-        	main()
-    	except KeyboardInterrupt:
-     	       print('Interrupted')
-               try:
-           		 sys.exit(0)
-       	       except SystemExit:
-          		 os._exit(0)
+try:
+        main()
+except KeyboardInterrupt:
+     	print('Interrupted')
+        try:
+               sys.exit(0)
+       	except SystemExit:
+               os._exit(0)
 		
