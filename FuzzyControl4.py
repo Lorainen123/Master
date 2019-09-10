@@ -693,7 +693,7 @@ def main():
 			#print('Ingrese el siguiente estado del sistema:')
 			#x = input()
 			#print(Estados(x))
-		
+			time.sleep(0.000005)
 		#if sw==1:
 		#	time.sleep(0.000001)
 		#	print("Potencia de la red = "+str(Pred))
