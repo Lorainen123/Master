@@ -714,7 +714,7 @@ hilo3.start()
 while True:
 	try:
 		a=1
-	except:
+	except KeyboardInterrupt:
 		
 		libro.close()
 	#	time.sleep(2)
