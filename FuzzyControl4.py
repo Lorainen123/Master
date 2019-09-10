@@ -471,7 +471,7 @@ def fuzzy():
 	 	
         # print("Cambio de corriente/voltaje = "+str(dpdv))
    	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
-	 k+k+1			
+	 k=k+1			
 	 v2=v2+Vrefin
 	 print("Vref2 = "+str(v2))
 	 print (time.strftime("%X"))
