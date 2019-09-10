@@ -717,10 +717,8 @@ while True:
 	
 	except:
 		libro.close()
-		try:
-			a=1
-		except:
-			libro1.close()
+		time.sleep(2)
+		libro1.close()
 #	Pred=potenciaRed()
 #	print(Pred)
 	
