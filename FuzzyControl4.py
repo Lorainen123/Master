@@ -156,7 +156,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('PruebaFuzzy2.xlsx')
+libro = xlsxwriter.Workbook('PruebaFuzzy1.xlsx')
 hoja = libro.add_worksheet()
 
 hoja.write(0, 0,     "Estado")	
