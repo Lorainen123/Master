@@ -156,7 +156,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Fuzzy1.xlsx')
+libro = xlsxwriter.Workbook('Fuzzy3.xlsx')
 hoja = libro.add_worksheet()
 
 hoja.write(0, 0,     "Estado")	
@@ -167,7 +167,7 @@ hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
 hoja.write(0, 6,     "Hora")
 
-libro1 = xlsxwriter.Workbook('Fuzzy2.xlsx')
+libro1 = xlsxwriter.Workbook('Fuzzy4.xlsx')
 hoja1 = libro1.add_worksheet()
 hoja1.write(0, 0,     "Vref Fuzzy")	
 hoja1.write(0, 1,     "Hora")
@@ -716,8 +716,11 @@ while True:
 		a=1
 	
 	except:
-	#	libro.close()
-		libro1.close()
+		libro.close()
+		try:
+			a=1
+		except:
+			libro1.close()
 #	Pred=potenciaRed()
 #	print(Pred)
 	
