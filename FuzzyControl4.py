@@ -724,6 +724,7 @@ try:
         main()
 except KeyboardInterrupt:
      	print('Interrupted')
+	libro.close()
         try:
                sys.exit(0)
        	except SystemExit:
