@@ -158,8 +158,7 @@ else:
 
 libro = xlsxwriter.Workbook('Fuzzy1.xlsx')
 hoja = libro.add_worksheet()
-libro1 = xlsxwriter.Workbook('Fuzzy3.xlsx')
-hoja1 = libro1.add_worksheet()
+
 hoja.write(0, 0,     "Estado")	
 hoja.write(0, 1,     "Voltaje Panel")
 hoja.write(0, 2,     "Corriente Panel")
@@ -168,6 +167,8 @@ hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
 hoja.write(0, 6,     "Hora")
 
+libro1 = xlsxwriter.Workbook('Fuzzy2.xlsx')
+hoja1 = libro1.add_worksheet()
 hoja1.write(0, 0,     "Vref Fuzzy")	
 hoja1.write(0, 1,     "Hora")
 
@@ -715,7 +716,7 @@ while True:
 		a=1
 	
 	except:
-		libro.close()
+	#	libro.close()
 		libro1.close()
 #	Pred=potenciaRed()
 #	print(Pred)
