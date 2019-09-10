@@ -156,8 +156,10 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Experimento10.xlsx')
+libro = xlsxwriter.Workbook('Fuzzy1.xlsx')
 hoja = libro.add_worksheet()
+libro2 = xlsxwriter.Workbook('Fuzzy2.xlsx')
+hoja1 = libro2.add_worksheet()
 hoja.write(0, 0,     "Estado")	
 hoja.write(0, 1,     "Voltaje Panel")
 hoja.write(0, 2,     "Corriente Panel")
@@ -165,6 +167,10 @@ hoja.write(0, 3,     "Potencia de la red")
 hoja.write(0, 4,     "Potencia de la carga")
 hoja.write(0, 5,     "Potencia de la bateria")
 hoja.write(0, 6,     "Hora")
+
+hoja1.write(0, 0,     "Vref Fuzzy")	
+hoja1.write(0, 1,     "Hora")
+
 
 def adquisicion():
 #try:
@@ -284,18 +290,18 @@ def adquisicion():
 				
 		hoja.write(k, 6,     time.strftime("%X"))
 		
-		print("Voltaje del panel solar = "+str(VpanelT))
-		print("Corriente del panel solar ="+str(IpanelT))
-		print("Potencia de la red = "+str(PTred))
-		print("Potencia del panel = "+str(PStotal))
-		print("Potencia de la bat = "+str(PBtotal))
-		print("Corriente de la bat = "+str(IbatT))
-		print("Voltaje de la bat = "+str(VbatT/j))
-		print("Potencia de la carga = "+str(PLtotal))
-		print(state)
+	#	print("Voltaje del panel solar = "+str(VpanelT))
+	#	print("Corriente del panel solar ="+str(IpanelT))
+	#	print("Potencia de la red = "+str(PTred))
+	#	print("Potencia del panel = "+str(PStotal))
+	#	print("Potencia de la bat = "+str(PBtotal))
+	#	print("Corriente de la bat = "+str(IbatT))
+	#	print("Voltaje de la bat = "+str(VbatT/j))
+	#	print("Potencia de la carga = "+str(PLtotal))
+	#	print(state)
 		
 	
-		Estados(state)
+		Estados(1)
 		
 		
 		time.sleep(2)
@@ -438,7 +444,7 @@ def fuzzy():
     mcpras.set_value(n)
     time.sleep(0.2)
     Pred2= potenciaRed()
-
+    k=0
     while True:
          if sw==0:
       	 
@@ -456,8 +462,8 @@ def fuzzy():
 		
 	 
 	# print("Corriente de la red t= "+str(Ired))
-    	 print("Corriente de la red t+1 = "+str(Pred2))
-	 print("Cambio de corriente ="+str(dpred))
+    	# print("Corriente de la red t+1 = "+str(Pred2))
+	# print("Cambio de corriente ="+str(dpred))
 #	 print("Vref1"+str(v))
 #  	 print("Vref2 = "+str(v2))
 	
@@ -465,9 +471,14 @@ def fuzzy():
 	 	
         # print("Cambio de corriente/voltaje = "+str(dpdv))
    	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
-					
+	 k+k+1			
 	 v2=v2+Vrefin
+	 print("Vref2 = "+str(v2))
+	 print (time.strftime("%X"))
 	 Pred=Pred2
+	 hoja1.write(k, 0,     str(v2))
+		
+	 hoja1.write(k, 1,  time.strftime("%X")))
 	# print(v2)
 	
 	 if v2<14.6:
@@ -689,12 +700,12 @@ def main():
 
 
 #main()
-#hilo1=threading.Thread(target=fuzzy)
+hilo1=threading.Thread(target=fuzzy)
 #hilo2=threading.Thread(target=main)
 hilo3=threading.Thread(target=adquisicion)
 #hilo4=threading.Thread(target=adquisicion2)
 
-#hilo1.start()
+hilo1.start()
 #hilo2.start()
 hilo3.start()
 #hilo4.start()
@@ -705,6 +716,7 @@ while True:
 	
 	except:
 		libro.close()
+		libro1.close()
 #	Pred=potenciaRed()
 #	print(Pred)
 	
