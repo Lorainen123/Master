@@ -714,23 +714,8 @@ hilo3.start()
 while True:
 	try:
 		a=1
-	
 	except:
-		time.sleep(2)
+		
 		libro.close()
 	#	time.sleep(2)
 	#	libro1.close()
-#	Pred=potenciaRed()
-#	print(Pred)
-	
-   # dpdv=Pdif/Vdif
-       
-   # if (abs(Pdif)<1): 
-   #   dpdv=0
-     
-    
-       
-  #  n = excel.main(float(v+0.2),0)
-  #  n = int(n)
-  #  mcpras.set_value(n)
-  #  P2=Node611.sensorm()
