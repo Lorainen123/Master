@@ -156,7 +156,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('Prueba2Fuzzy1.xlsx')
+libro = xlsxwriter.Workbook('Prueba2Fuzzy2.xlsx')
 hoja = libro.add_worksheet()
 
 hoja.write(0, 0,     "Estado")	
@@ -366,10 +366,10 @@ def potenciaRed():
 			       
 			#PtotalT=PtotalT+Pred
 			i=i+1
-			time.sleep(0.05)
+			time.sleep(0.1)
 	except:
 			try:
-				time.sleep(0.2)
+				time.sleep(1)
 				i=0
 				PtotalT=0
 				while i<3:	
@@ -397,9 +397,9 @@ def potenciaRed():
 			       
 			#PtotalT=PtotalT+Pred
 					i=i+1
-					time.sleep(0.05)
+					time.sleep(0.1)
 			except:
-				time.sleep(0.2)
+				time.sleep(1)
 				i=0
 				PtotalT=0
 				while i<3:
@@ -426,7 +426,7 @@ def potenciaRed():
 								Predv[i-1]=Predv[i]
 							
 					i=i+1
-					time.sleep(0.05)
+					time.sleep(0.1)
 					
 	PtotalT=np.mean(Predv)
 	return PtotalT
