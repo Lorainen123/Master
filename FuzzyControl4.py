@@ -302,7 +302,7 @@ def adquisicion():
 	#	print(state)
 		
 	
-		Estados(1)
+		Estados(state)
 		
 		
 		time.sleep(2)
@@ -684,9 +684,9 @@ def Estados(state):
 def main():
 	global sw
 	hilo3=threading.Thread(target=adquisicion)
-	hilo1=threading.Thread(target=fuzzy)
+	#hilo1=threading.Thread(target=fuzzy)
 	hilo3.start()
-	hilo1.start()
+	#hilo1.start()
 	while True:
 			
 			a=1
