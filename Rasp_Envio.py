@@ -32,8 +32,9 @@ while True:
     now = datetime.now()
     fecha = now.strftime('%Y-%m-%d')
     hora = time.strftime("%H:%M:%S")
-
-    MESSAGE = str(adquisicion())+', ' + fecha +', '+ hora)
+    ADQ=aquisicion()
+    ADQ=ADQ[0:len(ADQ)-1]
+    MESSAGE = str(adquisicion())+', ' + fecha +', '+ hora
     MESSAGE = bytes(MESSAGE)
     print("message:", MESSAGE)
     sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
