@@ -8,8 +8,8 @@ Created on Sun Aug 25 23:41:53 2019
 import socket
 from n611_adquisicion import *
 
-UDP_IP = "10.20.4.102"
-UDP_PORT = 5040
+UDP_IP = "3.222.161.155"
+UDP_PORT = 5000
 
 print "UDP target IP:", UDP_IP
 print "UDP target port:", UDP_PORT
