@@ -4,8 +4,8 @@ import time
 from datetime import datetime
 
 
-UDP_IP = "181.192.172.207"
-UDP_PORT = 5011
+UDP_IP = "3.222.161.155"
+UDP_PORT = 5000
 
 #UDP_IP2 = "190.143.58.202"
 #UDP_PORT2 = 5011
