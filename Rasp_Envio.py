@@ -33,7 +33,7 @@ while True:
     fecha = now.strftime('%Y-%m-%d')
     hora = time.strftime("%H:%M:%S")
     ADQ=adquisicion()
-    ADQ=ADQ[1:len(ADQ)-1]
+    ADQ=ADQ[0:len(ADQ)]
     MESSAGE = str(ADQ)+', ' + fecha +', '+ hora
     MESSAGE = bytes(MESSAGE)
     print("message:", MESSAGE)
