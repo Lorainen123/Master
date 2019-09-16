@@ -2,6 +2,7 @@ import socket
 from n611_adquisicion import *
 import time
 from datetime import datetime
+from datetime import timedelta 
 
 
 UDP_IP = "3.222.161.155"
