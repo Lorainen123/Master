@@ -30,7 +30,7 @@ sock = socket.socket(socket.AF_INET, # Internet
   
 while True:
 #    MESSAGE = str(adquisicion())    
-    now = datetime.now() + timedelta(hours=5)
+    now = datetime.now() 
     fecha = now.strftime('%Y-%m-%d')
     hora = time.strftime("%H:%M:%S")
     ADQ=adquisicion()
