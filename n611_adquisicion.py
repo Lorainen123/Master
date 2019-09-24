@@ -83,7 +83,7 @@ except:
     time.sleep(0.1)
 
 
-client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 19200)
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB1', bytesize=8, timeout=1, baudrate= 19200)
 
 def adquisicion():
 	
