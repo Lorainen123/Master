@@ -5,7 +5,7 @@ from datetime import datetime
 from datetime import timedelta 
 
 
-UDP_IP = "3.222.161.155"
+UDP_IP = "3.89.222.210"
 UDP_PORT = 5000
 
 #UDP_IP2 = "190.143.58.202"
