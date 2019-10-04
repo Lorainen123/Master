@@ -1,4 +1,4 @@
-#import Node611
+import n611_adquisicion
 import excel
 import mcpras 
 import time
@@ -32,6 +32,17 @@ v=14.5
 #archivo=open("prueba1.txt","w")
 Predv = np.zeros(5,)
 Pred=0
+libro = xlsxwriter.Workbook('caracterización.xlsx')
+hoja = libro.add_worksheet()
+
+hoja.write(0, 0,     "No prueba")	
+hoja.write(0, 1,     "Hora")
+hoja.write(0, 2,     "Voltaje Ref")
+hoja.write(0, 3,     "Potencia RED")
+hoja.write(0, 4,     "Potencia Panel")
+hoja.write(0, 5,     "Potencia carga")
+#hoja.write(0, 6,     "Hora")
+
 try:
     ina = INA219(shunt_ohms=0.1,
                  max_expected_amps = 2.0,
@@ -170,25 +181,45 @@ def adquisicion2():
 
 def main():
 	#global Pred
+	v=14.5
 	i=0
+	k=1
 	#thread.start_new_thread(adquisicion2,(i,))
 	while True:
   
    
-    		n = excel.main(float(16),0)
+    		n = excel.main(float(v),0)
    		n = int(n)
     		mcpras.set_value(n)
-    		time.sleep(0.2)
+    		time.sleep(0.3)
    # P1=Node611.sensorm()
-     		
-#		try:
+     		Psol=n611_adquisicion.adquisicion()
+		
+		try:
 		Pred=adquisicion2()
- #   		
-#		except:
-		#	time.sleep(0.1)
-		#	Pred=adquisicion2()
-#			
-#
+    		
+		except:
+			time.sleep(1)
+			Pred=adquisicion2()
+		
+		Pload=Psol*0.76+Pred*0.56
+		
+		hoja.write(k, 0,     str(k))
+		
+		hoja.write(k, 1,      time.strftime("%X"))
+		
+		hoja.write(k, 2,     str(v))
+		
+		hoja.write(k, 3,     str(Pred))
+		
+		hoja.write(k, 4,     str(Psol))
+		
+		hoja.write(k, 5,     str(Pload))
+				
+	
+			
+			
+
 #		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 #		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 #		print(result.registers)
@@ -196,19 +227,33 @@ def main():
 #		result.registers=0
 		#archivo.write(str(Pred)+'\n')
  		print(Pred)
+		print(Psol)
+		print(v)
+		v=v+0.1
 		i=i+1
+		if i==35:
+			k=k+1
+			i=0
+			v=14.5
     
  #   n = excel.main(float(16.2),0)
  #   n = int(n)
  #   mcpras.set_value(n)
  #   time.sleep(1)
- #   P1=Node611.sensorm()
+    
  #   archivo.write(str(P1)+'\n')
    		
 #while True:
 #	ired=adquisicion2()
 #	print(ired)
-main()  
-#archivo.close()
+try:
+        main()
+except KeyboardInterrupt:
+     	print('Interrupted')
+	libro.close()
+        try:
+               sys.exit(0)
+       	except SystemExit:
+               os._exit(0)
 
                   
