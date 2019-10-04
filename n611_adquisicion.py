@@ -180,7 +180,7 @@ def adquisicion():
 		PTred=decoder.decode_32bit_float()
 		sw=1
 		
-		return PTred, PStotal, PBtotal, PLtotal
+		return  PStotal
 
 print(adquisicion())
 	
