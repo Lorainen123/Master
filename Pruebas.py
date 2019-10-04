@@ -184,6 +184,7 @@ def main():
 	v=14.5
 	i=0
 	k=1
+	j=1
 	#thread.start_new_thread(adquisicion2,(i,))
 	while True:
   
@@ -204,17 +205,17 @@ def main():
 		
 		Pload=Psol*0.76+Pred*0.56
 		
-		hoja.write(k, 0,     str(k))
+		hoja.write(j, 0,     str(k))
 		
-		hoja.write(k, 1,      time.strftime("%X"))
+		hoja.write(j, 1,      time.strftime("%X"))
 		
-		hoja.write(k, 2,     str(v))
+		hoja.write(j, 2,     str(v))
 		
-		hoja.write(k, 3,     str(Pred))
+		hoja.write(j, 3,     str(Pred))
 		
-		hoja.write(k, 4,     str(Psol))
+		hoja.write(j, 4,     str(Psol))
 		
-		hoja.write(k, 5,     str(Pload))
+		hoja.write(j, 5,     str(Pload))
 				
 	
 			
@@ -231,6 +232,7 @@ def main():
 		print(v)
 		v=v+0.1
 		i=i+1
+		j=j+1
 		if i==35:
 			k=k+1
 			i=0
