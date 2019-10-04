@@ -196,7 +196,7 @@ def main():
      		Psol=n611_adquisicion.adquisicion()
 		
 		try:
-		Pred=adquisicion2()
+			Pred=adquisicion2()
     		
 		except:
 			time.sleep(1)
