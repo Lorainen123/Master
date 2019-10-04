@@ -32,7 +32,7 @@ v=14.5
 #archivo=open("prueba1.txt","w")
 Predv = np.zeros(5,)
 Pred=0
-libro = xlsxwriter.Workbook('caracterizacion.xlsx')
+libro = xlsxwriter.Workbook('caracterizacion1.xlsx')
 hoja = libro.add_worksheet()
 
 hoja.write(0, 0,     "No prueba")	
