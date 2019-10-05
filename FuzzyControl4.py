@@ -483,7 +483,8 @@ def fuzzy():
 	 print (time.strftime("%X"))
 	 Pred=Pred2
 	 Psol=n611_adquisicion.adquisicion()	
-
+	 print(Pred)
+	 print(Psol)
 	
 		
 	 hoja1.write(k, 0,  time.strftime("%X"))
