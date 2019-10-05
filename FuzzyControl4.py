@@ -503,7 +503,7 @@ def fuzzy():
    	 n = int(n)
     	 mcpras.set_value(n)
 	 
-	 time.sleep(1)
+	 time.sleep(0.3)
 	  
 	# try:
     	 Pred2=potenciaRed()
