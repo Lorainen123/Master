@@ -505,9 +505,11 @@ def fuzzy():
 	 
 	 time.sleep(0.3)
 	  
-	# try:
-    	 Pred2=potenciaRed()
-	#except:
+	 try:
+    		 Pred2=potenciaRed()
+	 except:
+		time.sleep(1)
+		Pred2=potenciaRed()
 	#	try:	
     	#		time.sleep(0.5)
 	#		Ired2=corrienteRed()
