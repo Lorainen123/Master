@@ -476,12 +476,12 @@ def fuzzy():
 #	 print("diferencia de voltaje v2-v"+str(Vdif))
 	 	
         # print("Cambio de corriente/voltaje = "+str(dpdv))
-   	 print("Cambio de voltaje= "+str(Vrefin)+"\n")
+   	# print("Cambio de voltaje= "+str(Vrefin)+"\n")
 	 k=k+1	
 	
 	 v2=v2+Vrefin
-	 print("Vref2 = "+str(v2))
-	 print (time.strftime("%X"))
+	# print("Vref2 = "+str(v2))
+	# print (time.strftime("%X"))
 	 Pred=Pred2
 #	 Psol=n611_adquisicion.adquisicion()	
 #	 print(Pred)
@@ -566,7 +566,7 @@ def fuzzy():
 	 
 def state1():
 	global state, hilo1
-	hilo1.start()
+	#hilo1.start()
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, False)
@@ -599,7 +599,7 @@ def state2():
 	GPIO.output(19, False)
 	GPIO.output(26, True)
 	state='2T'
-	hilo1.raise_exception()
+	#hilo1.raise_exception()
 	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 def state2T():
@@ -614,7 +614,7 @@ def state3():
 	GPIO.output(19, True)
 	GPIO.output(26, False)
 	state='3T'
-	hilo1.raise_exception()
+	#hilo1.raise_exception()
 	time.sleep(2)
 	
 def state3T():
@@ -629,7 +629,7 @@ def state4():
 	GPIO.output(19, True)
 	GPIO.output(26, True)
 	state='4T'
-	hilo1.raise_exception()
+	#hilo1.raise_exception()
 	time.sleep(2)
 	
 
@@ -701,7 +701,7 @@ def main():
 	hilo3=threading.Thread(target=adquisicion)
 	hilo1=threading.Thread(target=fuzzy)
 	hilo3.start()
-	#hilo1.start()
+	hilo1.start()
 	while True:
 			
 			a=1
