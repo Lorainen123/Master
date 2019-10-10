@@ -157,23 +157,23 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('prueba1_fuzzy1v04.xlsx')
-#hoja = libro.add_worksheet()
+libro = xlsxwriter.Workbook('prueba_estados1.xlsx')
+hoja = libro.add_worksheet()
 
-#hoja.write(0, 0,     "Estado")	
-#hoja.write(0, 1,     "Voltaje Panel")
-#hoja.write(0, 2,     "Corriente Panel")
-#hoja.write(0, 3,     "Potencia de la red")
-#hoja.write(0, 4,     "Potencia de la carga")
-#hoja.write(0, 5,     "Potencia de la bateria")
-#hoja.write(0, 6,     "Hora")
+hoja.write(0, 0,     "Estado")	
+hoja.write(0, 1,     "Voltaje Panel")
+hoja.write(0, 2,     "Corriente Panel")
+hoja.write(0, 3,     "Potencia de la red")
+hoja.write(0, 4,     "Potencia de la carga")
+hoja.write(0, 5,     "Potencia de la bateria")
+hoja.write(0, 6,     "Hora")
 
 #libro1 = xlsxwriter.Workbook('PruebaFuzzy2.xlsx')
-hoja1 = libro.add_worksheet()
-hoja1.write(0, 0,     "Hora")	
-hoja1.write(0, 1,     "voltage")
-hoja1.write(0, 2,     "Pred")
-hoja1.write(0, 3,     "Psol")
+#hoja1 = libro.add_worksheet()
+#hoja1.write(0, 0,     "Hora")	
+#hoja1.write(0, 1,     "voltage")
+#hoja1.write(0, 2,     "Pred")
+#hoja1.write(0, 3,     "Psol")
 
 
 
@@ -483,15 +483,15 @@ def fuzzy():
 	 print("Vref2 = "+str(v2))
 	 print (time.strftime("%X"))
 	 Pred=Pred2
-	 Psol=n611_adquisicion.adquisicion()	
-	 print(Pred)
-	 print(Psol)
+#	 Psol=n611_adquisicion.adquisicion()	
+#	 print(Pred)
+#	 print(Psol)
 	
 		
-	 hoja1.write(k, 0,  time.strftime("%X"))
-	 hoja1.write(k, 1,     str(v2))
-	 hoja1.write(k, 2,  str(Pred))
-	 hoja1.write(k, 3, str(Psol))
+#	 hoja1.write(k, 0,  time.strftime("%X"))
+#	 hoja1.write(k, 1,     str(v2))
+#	 hoja1.write(k, 2,  str(Pred))
+#	 hoja1.write(k, 3, str(Psol))
 	# print(v2)
 	
 	 if v2<14.6:
@@ -566,7 +566,7 @@ def fuzzy():
 	 
 def state1():
 	global state
-	
+	hilo1.start()
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, False)
@@ -613,6 +613,7 @@ def state3():
 	GPIO.output(19, True)
 	GPIO.output(26, False)
 	state='3T'
+	hilo1.raise_exception()
 	time.sleep(2)
 	
 def state3T():
@@ -627,7 +628,9 @@ def state4():
 	GPIO.output(19, True)
 	GPIO.output(26, True)
 	state='4T'
+	hilo1.raise_exception()
 	time.sleep(2)
+	
 
 def state4T():
 	global state, time2, time1, cont1
@@ -694,10 +697,10 @@ def Estados(state):
 
 def main():
 	global sw
-	#hilo3=threading.Thread(target=adquisicion)
+	hilo3=threading.Thread(target=adquisicion)
 	hilo1=threading.Thread(target=fuzzy)
-	#hilo3.start()
-	hilo1.start()
+	hilo3.start()
+	#hilo1.start()
 	while True:
 			
 			a=1
