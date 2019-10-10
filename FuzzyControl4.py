@@ -298,13 +298,13 @@ def adquisicion():
 		
 	#	print("Voltaje del panel solar = "+str(VpanelT))
 	#	print("Corriente del panel solar ="+str(IpanelT))
-	#	print("Potencia de la red = "+str(PTred))
-	#	print("Potencia del panel = "+str(PStotal))
-	#	print("Potencia de la bat = "+str(PBtotal))
+		print("Potencia de la red = "+str(PTred))
+		print("Potencia del panel = "+str(PStotal))
+		print("Potencia de la bat = "+str(PBtotal))
 	#	print("Corriente de la bat = "+str(IbatT))
 	#	print("Voltaje de la bat = "+str(VbatT/j))
-	#	print("Potencia de la carga = "+str(PLtotal))
-	#	print(state)
+		print("Potencia de la carga = "+str(PLtotal))
+		print(state)
 		
 	
 		Estados(state)
