@@ -565,7 +565,7 @@ def fuzzy():
     	
 	 
 def state1():
-	global state
+	global state hilo1
 	hilo1.start()
 	GPIO.output(13, False)
 	GPIO.output(19, False)
@@ -608,7 +608,7 @@ def state2T():
 	elif PBtotal>7:
 		state=1
 def state3():
-        global state
+        global state hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, True)
 	GPIO.output(26, False)
@@ -623,7 +623,7 @@ def state3T():
 	else:
 		state='3T'
 def state4():
-        global state
+        global state hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, True)
 	GPIO.output(26, True)
@@ -696,7 +696,7 @@ def Estados(state):
 		state4T()
 
 def main():
-	global sw
+	global sw hilo1
 	hilo3=threading.Thread(target=adquisicion)
 	hilo1=threading.Thread(target=fuzzy)
 	hilo3.start()
