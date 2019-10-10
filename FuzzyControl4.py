@@ -594,11 +594,12 @@ def state1T():
 			time1=time.time()
 	
 def state2():
-        global state
+        global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, True)
 	state='2T'
+	hilo1.raise_exception()
 	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 def state2T():
