@@ -697,11 +697,11 @@ def Estados(state):
 		state4T()
 
 def main():
-	global sw, hilo1
+	global sw
 	hilo3=threading.Thread(target=adquisicion)
-	hilo1=threading.Thread(target=fuzzy)
+	#hilo1=threading.Thread(target=fuzzy)
 	hilo3.start()
-	hilo1.start()
+	#hilo1.start()
 	while True:
 			
 			a=1
