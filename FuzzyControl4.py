@@ -665,7 +665,7 @@ def state4T():
 			cont1=0
 		else:
 			state='4T'
-	elif VpanelT>19 and PTred<21 and PBtotal<5
+	elif VpanelT>19 and PTred<21 and PBtotal<5:
 	
 		cont1=cont1+1
 			
