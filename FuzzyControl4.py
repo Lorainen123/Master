@@ -157,7 +157,7 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('prueba_estados2.xlsx')
+libro = xlsxwriter.Workbook('prueba_estados3.xlsx')
 hoja = libro.add_worksheet()
 
 hoja.write(0, 0,     "Estado")	
@@ -656,6 +656,17 @@ def state4T():
 #	elif IpanelFH1<1.1*IpanelT and IpanelFH1>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
 	elif VpanelT>18.35 and PTred<80 and PStotal>15:
+		cont1=cont1+1
+			
+	#	time2=time.time()
+	#	tiempo=round(time2-time1,0)
+		if cont1>150:
+			state=1
+			cont1=0
+		else:
+			state='4T'
+	elif VpanelT>19 and PTred<21 and PBtotal<5
+	
 		cont1=cont1+1
 			
 	#	time2=time.time()
