@@ -1,6 +1,6 @@
 import socket
 from n611_adquisicion import *
-from FuzzyControl4 import *
+from FuzzyControl4 import Estados
 import time
 from datetime import datetime
 from datetime import timedelta
@@ -38,7 +38,11 @@ def SendData():
 def ReceiveData(sock):
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
     print ("received message:", data)
+<<<<<<< HEAD
     if data=="True":
+=======
+    if (data=="True"):
+>>>>>>> 9adc6f0027d618388f94e14e348fc7d438bc2298
         to5=True
     else:
         to5=False
