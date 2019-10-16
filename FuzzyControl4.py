@@ -306,8 +306,8 @@ def adquisicion():
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
 		
-	
-		Estados(state)
+		to5=False
+		Estados(state,to5)
 		
 		
 		time.sleep(2)
@@ -640,7 +640,7 @@ def state4T():
 	
 #	IpanelF1=-0.670684798*VpanelT+13.872848
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
-	if to5=True:
+	if to5==True:
 		state='5'
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
 		state='4T'

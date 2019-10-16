@@ -26,10 +26,10 @@ def SendData():
         MESSAGE = ADQ+', ' + fecha +', '+ hora + state
         MESSAGE = bytes(MESSAGE)
         print("message:", MESSAGE)
+	print("Si es")
         sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
-        break
     except socket.error:
-        print "Error de Conexión, reintentando..."
+        print "Error de Conexion, reintentando..."
         time.sleep(1)
     time.sleep(5)
     
@@ -38,7 +38,7 @@ def SendData():
 def ReceiveData(sock):
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
     print ("received message:", data)
-    if (data="True"):
+    if data=="True":
         to5=True
     else:
         to5=False
