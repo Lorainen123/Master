@@ -27,7 +27,6 @@ def SendData():
         MESSAGE = bytes(MESSAGE)
         print("message:", MESSAGE)
         sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
-        break
     except socket.error:
         print "Error de Conexión, reintentando..."
         time.sleep(1)
