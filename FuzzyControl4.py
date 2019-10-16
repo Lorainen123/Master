@@ -640,6 +640,8 @@ def state4T():
 	
 #	IpanelF1=-0.670684798*VpanelT+13.872848
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
+	if to5=True:
+		state='5'
 	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
 		state='4T'
 		cont1=0
@@ -688,7 +690,12 @@ def state4T():
 #	else:
 #		state=1
 
-def Estados(state):
+def state5():
+	time.sleep(5)
+	state='4'
+
+to5=False
+def Estados(state,to5):
 	#global state
         if state==1:
 		state1()
@@ -706,6 +713,8 @@ def Estados(state):
 		state4()
 	elif state=='4T':
 		state4T()
+	elif state=='5':
+		state5()
 
 def main():
 	global sw
