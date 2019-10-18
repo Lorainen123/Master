@@ -1,7 +1,6 @@
 import socket
 from n611_adquisicion import *
 from FuzzyControl4 import Estados
-print("Pase por Fuzzy")
 import time
 from datetime import datetime
 from datetime import timedelta
@@ -45,10 +44,10 @@ def ReceiveData(sock):
         to5=True
     else:
         to5=False
-    
+x = threading.Thread(target=ReceiveData, args=(1,))
+x.start()    
 while True:
     Estados(state,to5)	
     print("send")	
     sock=SendData()
-    ReceiveData(sock)
     
