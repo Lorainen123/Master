@@ -717,6 +717,7 @@ def Estados(state,to5):
 		state4T()
 	elif state=='5':
 		state5()
+	print(state)
 	return state
 
 def main():
