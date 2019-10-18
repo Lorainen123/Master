@@ -696,7 +696,7 @@ def state5():
 
 to5=False
 def Estados(state,to5):
-	print("Estoy en estados")
+	adquisicion()
 	#global state
 	
         if state==1:
@@ -720,9 +720,9 @@ def Estados(state,to5):
 
 def main():
 	global sw
-	hilo3=threading.Thread(target=adquisicion)
+	#hilo3=threading.Thread(target=adquisicion)
 	#hilo1=threading.Thread(target=fuzzy)
-	hilo3.start()
+	#hilo3.start()
 	#hilo1.start()
 	#while True:
 			
