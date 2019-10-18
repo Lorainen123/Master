@@ -49,7 +49,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 x = threading.Thread(target=ReceiveData, args=(1,))
 x.start()    
 while True:
-    Estados(state,to5)	
+    state=Estados(state,to5)	
     print("send")	
     SendData()
     
