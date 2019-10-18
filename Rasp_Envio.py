@@ -47,7 +47,7 @@ def ReceiveData(sock):
 sock = socket.socket(socket.AF_INET, # Internet
                          socket.SOCK_DGRAM) # UDP
 x = threading.Thread(target=ReceiveData, args=(1,))
-x.start()    
+#x.start()    
 while True:
     state1=Estados(state,to5)	
     print("send")	
