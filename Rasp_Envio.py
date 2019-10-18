@@ -24,7 +24,7 @@ def SendData(state):
         ADQ=adquisicion()
         ADQ=str(ADQ)
         ADQ=ADQ[1:len(ADQ)-1]
-        MESSAGE = ADQ+', ' + fecha +', '+ hora +', '+ str(state)
+        MESSAGE = ADQ+', ' + fecha +', '+ hora +', '+ str(state1)
         MESSAGE = bytes(MESSAGE)
         print("message:", MESSAGE)
 	print("Si es")
@@ -49,7 +49,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 x = threading.Thread(target=ReceiveData, args=(1,))
 x.start()    
 while True:
-    state=Estados(state,to5)	
+    state1=Estados(state,to5)	
     print("send")	
-    SendData(state)
+    SendData(state1)
     
