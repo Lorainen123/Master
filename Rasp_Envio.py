@@ -45,7 +45,8 @@ def ReceiveData(sock):
         to5=False
     
 while True:
-    Estados(state,to5)
+    Estados(state,to5)	
+    print("send")	
     sock=SendData()
     ReceiveData(sock)
     
