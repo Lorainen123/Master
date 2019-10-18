@@ -34,7 +34,6 @@ def SendData():
         time.sleep(1)
     time.sleep(5)
     
-    return sock
         
 def ReceiveData(sock):
     data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
@@ -52,5 +51,5 @@ x.start()
 while True:
     Estados(state,to5)	
     print("send")	
-    sock=SendData()
+    SendData()
     
