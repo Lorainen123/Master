@@ -1,6 +1,7 @@
 import socket
 from n611_adquisicion import *
 from FuzzyControl4 import Estados
+print("Pase por Fuzzy")
 import time
 from datetime import datetime
 from datetime import timedelta
