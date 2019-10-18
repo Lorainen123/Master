@@ -263,7 +263,7 @@ def adquisicion():
 		elif PStotal <2:
 			PStotal=0
 			
-		result = client.read_holding_registers(11729, 2, unit=2)#Current A 1100
+		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
 		PTred=decoder.decode_32bit_float()
 		#if Pred<6:
