@@ -696,6 +696,7 @@ def state5():
 
 to5=False
 def Estados(state,to5):
+	print("Estoy en estados")
 	#global state
 	adquisicion()
         if state==1:
