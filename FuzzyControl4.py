@@ -724,13 +724,13 @@ def main():
 	#hilo1=threading.Thread(target=fuzzy)
 	#hilo3.start()
 	#hilo1.start()
-	while True:
+	#while True:
 			
-			a=1
+	#		a=1
 			#print('Ingrese el siguiente estado del sistema:')
 			#x = input()
 			#print(Estados(x))
-			time.sleep(0.000005)
+	#		time.sleep(0.000005)
 		#if sw==1:
 		#	time.sleep(0.000001)
 		#	print("Potencia de la red = "+str(Pred))
