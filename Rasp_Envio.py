@@ -14,8 +14,7 @@ print("UDP target IP:", UDP_IP)
 print("UDP target port:", UDP_PORT)
 
 def SendData():
-    sock = socket.socket(socket.AF_INET, # Internet
-                         socket.SOCK_DGRAM) # UDP
+    
 
 #    MESSAGE = str(adquisicion())
     try:
@@ -45,6 +44,9 @@ def ReceiveData(sock):
         to5=True
     else:
         to5=False
+	
+sock = socket.socket(socket.AF_INET, # Internet
+                         socket.SOCK_DGRAM) # UDP
 x = threading.Thread(target=ReceiveData, args=(1,))
 x.start()    
 while True:
