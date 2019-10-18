@@ -13,7 +13,7 @@ UDP_PORT = 5000
 print("UDP target IP:", UDP_IP)
 print("UDP target port:", UDP_PORT)
 
-def SendData():
+def SendData(state):
     
 
 #    MESSAGE = str(adquisicion())
@@ -51,5 +51,5 @@ x.start()
 while True:
     state=Estados(state,to5)	
     print("send")	
-    SendData()
+    SendData(state)
     
