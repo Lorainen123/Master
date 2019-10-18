@@ -4,6 +4,7 @@ from FuzzyControl4 import Estados
 import time
 from datetime import datetime
 from datetime import timedelta
+import threading
 
 state=1
 to5=True
