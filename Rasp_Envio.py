@@ -7,6 +7,7 @@ from datetime import datetime
 from datetime import timedelta
 
 state=1
+to5=True
 UDP_IP = "3.89.222.210"
 UDP_PORT = 5000
 print("UDP target IP:", UDP_IP)
