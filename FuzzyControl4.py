@@ -182,137 +182,137 @@ def adquisicion():
 #try:
 	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
 	k=1
-	while True:
-		
-		
-		#tic = tm.default_timer()
-		#Inicializacion de variables antes de entrar al loop y obtener los promedios
-		IpanelT=0
-		VpanelT=0
-		
-		IcargaT=0
-		VcargaT=0
-		
-		IbatT=0
-		VbatT=0
-		
-		for j in range(501):
-			
-			##potencia del panel solar
-		
-			Ipanel = mcp.read_adc(7)  ## Corriente del panel solar
-			Ipanel=((Ipanel)*(5.15/1023))+0.03
-			#Ipanel=(-25.3+10*Ipanel)-0.2
-			Ipanel=(-2.6+Ipanel)*(1/0.09693)
-			IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
-		
-			Vpanel = mcp.read_adc(4)
-			Vpanel = Vpanel*(5.15/1023)
-			#*(37.5/7.5)  ## voltaje del panel solar
-			Vpanel=4.093*Vpanel+3.4444
-			VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
-		
-			## potencia de la carga
-			Vcarga = mcp.read_adc(6)
-			Vcarga = ((Vcarga)*(5.15/1023))*(37000.0/7500.0) 
-			VcargaT=VcargaT+Vcarga
-   	       		Icarga = mcp.read_adc(0)   ## 
-			Icarga=round(((Icarga)*(5.15/1023)),2)  ## voltaje desde el MCP
-   			#S_5=(-25.3+10*S_5m)-0.2
-			Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
-			IcargaT=IcargaT+Icarga
-		
-			## potencia de la bateria
-			Ibat = mcp.read_adc(1)
-			Ibat=((Ibat)*(5.15/1023))
-			#Vsensor=Vsensor+Ibat
-			#Ibat=(-2.54+Ibat)*(1/0.1852)
-			IbatT=IbatT+Ibat
-			Vbat = mcp.read_adc(5)
-			Vbat = ((Vbat)*(5.15/1023))*(37000.0/7500.0) 
-			VbatT=VbatT+Vbat
-				
-			
-		
-			#j=j+1
-		#toc = tm.default_timer()
-		## potencia del panel solar			
-		PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
-		
-		
-		## potencia de la carga 
-		IcargaT=(IcargaT/j)-0.2
-		PLtotal=(VcargaT/j)*IcargaT
-		PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
-		
+	#while True:
+
+
+	#tic = tm.default_timer()
+	#Inicializacion de variables antes de entrar al loop y obtener los promedios
+	IpanelT=0
+	VpanelT=0
+
+	IcargaT=0
+	VcargaT=0
+
+	IbatT=0
+	VbatT=0
+
+	for j in range(501):
+
+		##potencia del panel solar
+
+		Ipanel = mcp.read_adc(7)  ## Corriente del panel solar
+		Ipanel=((Ipanel)*(5.15/1023))+0.03
+		#Ipanel=(-25.3+10*Ipanel)-0.2
+		Ipanel=(-2.6+Ipanel)*(1/0.09693)
+		IpanelT=IpanelT+Ipanel   ## Suma de corriente del panel solar sin promediar
+
+		Vpanel = mcp.read_adc(4)
+		Vpanel = Vpanel*(5.15/1023)
+		#*(37.5/7.5)  ## voltaje del panel solar
+		Vpanel=4.093*Vpanel+3.4444
+		VpanelT= VpanelT+Vpanel #  Suma de voltaje del panel solar sin promediar
+
+		## potencia de la carga
+		Vcarga = mcp.read_adc(6)
+		Vcarga = ((Vcarga)*(5.15/1023))*(37000.0/7500.0) 
+		VcargaT=VcargaT+Vcarga
+		Icarga = mcp.read_adc(0)   ## 
+		Icarga=round(((Icarga)*(5.15/1023)),2)  ## voltaje desde el MCP
+		#S_5=(-25.3+10*S_5m)-0.2
+		Icarga=(-2.54+Icarga)*(1/0.095)  ## calculo de corriente de la carga
+		IcargaT=IcargaT+Icarga
+
 		## potencia de la bateria
-		IbatT=IbatT/j
-		
-		if IbatT<2.4:
-			IbatT=6*IbatT-14.28
-		elif IbatT>2.46:
-			IbatT=5*IbatT-11.86
-		else:
-			Ibat=0
-		
-		PBtotal=(round((IbatT*VbatT)/(j),2))-13
-		
-		if PLtotal<2: 
-			PLtotal=0
-			
-		elif PStotal <2:
-			PStotal=0
-			
-		result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
-		decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
-		PTred=decoder.decode_32bit_float()
-		#if Pred<6:
-		#	Pred=8.1
-		
-	
-	
-		sw=1
-		
-		
-		
-		
-		
-   		k=k+1
-		
-		VpanelT=(VpanelT/j)
-		IpanelT=IpanelT/j
-		
-		hoja.write(k, 0,     str(state))
-		
-		hoja.write(k, 1,     str(VpanelT))
-		
-		hoja.write(k, 2,     str(IpanelT))
-		
-		hoja.write(k, 3,     str(PTred))
-		
-		hoja.write(k, 4,     str(PLtotal))
-		
-		hoja.write(k, 5,     str(PBtotal))
-				
-		hoja.write(k, 6,     time.strftime("%X"))
-		
-	#	print("Voltaje del panel solar = "+str(VpanelT))
-	#	print("Corriente del panel solar ="+str(IpanelT))
-		print("Potencia de la red = "+str(PTred))
-		print("Potencia del panel = "+str(PStotal))
-		print("Potencia de la bat = "+str(PBtotal))
-	#	print("Corriente de la bat = "+str(IbatT))
-	#	print("Voltaje de la bat = "+str(VbatT/j))
-		print("Potencia de la carga = "+str(PLtotal))
-		print(state)
-		
-		#to5=False
-		#Estados(state,to5)
-		
-		
-		time.sleep(2)
-		
-		
+		Ibat = mcp.read_adc(1)
+		Ibat=((Ibat)*(5.15/1023))
+		#Vsensor=Vsensor+Ibat
+		#Ibat=(-2.54+Ibat)*(1/0.1852)
+		IbatT=IbatT+Ibat
+		Vbat = mcp.read_adc(5)
+		Vbat = ((Vbat)*(5.15/1023))*(37000.0/7500.0) 
+		VbatT=VbatT+Vbat
+
+
+
+		#j=j+1
+	#toc = tm.default_timer()
+	## potencia del panel solar			
+	PStotal=round((IpanelT*VpanelT)/(j*j),2) ## potencia del panel solar promedio
+
+
+	## potencia de la carga 
+	IcargaT=(IcargaT/j)-0.2
+	PLtotal=(VcargaT/j)*IcargaT
+	PLtotal=round((-6.96327 + 0.742732*PLtotal + 0.00062677*PLtotal*PLtotal)+2,2)
+
+	## potencia de la bateria
+	IbatT=IbatT/j
+
+	if IbatT<2.4:
+		IbatT=6*IbatT-14.28
+	elif IbatT>2.46:
+		IbatT=5*IbatT-11.86
+	else:
+		Ibat=0
+
+	PBtotal=(round((IbatT*VbatT)/(j),2))-13
+
+	if PLtotal<2: 
+		PLtotal=0
+
+	elif PStotal <2:
+		PStotal=0
+
+	result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
+	decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+	PTred=decoder.decode_32bit_float()
+	#if Pred<6:
+	#	Pred=8.1
+
+
+
+	sw=1
+
+
+
+
+
+	k=k+1
+
+	VpanelT=(VpanelT/j)
+	IpanelT=IpanelT/j
+
+	hoja.write(k, 0,     str(state))
+
+	hoja.write(k, 1,     str(VpanelT))
+
+	hoja.write(k, 2,     str(IpanelT))
+
+	hoja.write(k, 3,     str(PTred))
+
+	hoja.write(k, 4,     str(PLtotal))
+
+	hoja.write(k, 5,     str(PBtotal))
+
+	hoja.write(k, 6,     time.strftime("%X"))
+
+#	print("Voltaje del panel solar = "+str(VpanelT))
+#	print("Corriente del panel solar ="+str(IpanelT))
+	print("Potencia de la red = "+str(PTred))
+	print("Potencia del panel = "+str(PStotal))
+	print("Potencia de la bat = "+str(PBtotal))
+#	print("Corriente de la bat = "+str(IbatT))
+#	print("Voltaje de la bat = "+str(VbatT/j))
+	print("Potencia de la carga = "+str(PLtotal))
+	print(state)
+
+	#to5=False
+	#Estados(state,to5)
+
+
+	time.sleep(2)
+
+
 	#	time.sleep(0.001)
 
 #		if PStotal>0 and Pred<PLtotal:
