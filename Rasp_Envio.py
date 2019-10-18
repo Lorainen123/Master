@@ -25,7 +25,7 @@ def SendData():
         ADQ=adquisicion()
         ADQ=str(ADQ)
         ADQ=ADQ[1:len(ADQ)-1]
-        MESSAGE = ADQ+', ' + fecha +', '+ hora + str(state)
+        MESSAGE = ADQ+', ' + fecha +', '+ hora +', '+ str(state)
         MESSAGE = bytes(MESSAGE)
         print("message:", MESSAGE)
 	print("Si es")
