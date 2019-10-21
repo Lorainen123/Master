@@ -22,7 +22,7 @@ def SendData(state):
         fecha = now.strftime('%Y-%m-%d')
         hora = time.strftime("%H:%M:%S")
         ADQ=adquisicion()
-	print(ADQ)
+	print("Adquisicion: "+ADQ)
         ADQ=str(ADQ)
         ADQ=ADQ[1:len(ADQ)-1]
         MESSAGE = ADQ+', ' + fecha +', '+ hora +', '+ str(state1)
