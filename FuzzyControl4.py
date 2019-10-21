@@ -307,7 +307,8 @@ def adquisicion():
 
 	#to5=False
 	#Estados(state,to5)
-	return [PTred, PStotal, PBtotal, PLtotal]
+	Potencias=[PTred, PStotal, PBtotal, PLtotal]
+	return Potencias
 
 	time.sleep(2)
 
