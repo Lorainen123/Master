@@ -308,7 +308,7 @@ def adquisicion():
 
 	#to5=False
 	#Estados(state,to5)
-
+	return PTred, PStotal, PBtotal, PLtotal
 
 	time.sleep(2)
 
