@@ -25,7 +25,7 @@ def SendData(state1,mycursor,mydb):
     fecha = now.strftime('%Y-%m-%d')
     hora = time.strftime("%H:%M:%S")
     sql = "INSERT INTO datos (P1, P2, P3, P4, fecha, hora, estado) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-    state1=state1[0]
+    state1=state1
     ADQ=adquisicion()  
     val = (ADQ[0], ADQ[1], ADQ[2], ADQ[3],fecha, hora, state1)
     
