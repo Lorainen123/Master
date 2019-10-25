@@ -717,19 +717,19 @@ def Estados(state,to5):
 		state5()
 	return state
 
-def main():
-	global sw
-	hilo3=threading.Thread(target=adquisicion)
+#def main():
+#	global sw
+#	hilo3=threading.Thread(target=adquisicion)
 	#hilo1=threading.Thread(target=fuzzy)
-	hilo3.start()
+#	hilo3.start()
 	#hilo1.start()
-	while True:
-			
-			a=1
+#	while True:
+#			
+#			a=1
 			#print('Ingrese el siguiente estado del sistema:')
 			#x = input()
 			#print(Estados(x))
-			time.sleep(0.000005)
+#			time.sleep(0.000005)
 		#if sw==1:
 		#	time.sleep(0.000001)
 		#	print("Potencia de la red = "+str(Pred))
