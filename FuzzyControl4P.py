@@ -758,6 +758,7 @@ def main():
 #while True:
 try:
         #main()
+	pass
 except KeyboardInterrupt:
      	print('Interrupted')
 	libro.close()
