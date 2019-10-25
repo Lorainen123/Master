@@ -715,6 +715,7 @@ def Estados(state,to5):
 		state4T()
 	elif state=='5':
 		state5()
+	return state
 
 def main():
 	global sw
