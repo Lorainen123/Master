@@ -1,6 +1,6 @@
 
 
-from FuzzyControl4 import *
+from FuzzyControl4+ import *
 import time
 from datetime import datetime
 from datetime import timedelta
