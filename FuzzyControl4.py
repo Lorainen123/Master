@@ -586,6 +586,7 @@ def state1T():
 		state=3
 		cont=0
 	elif PTred>0.90*PLtotal:
+		print("PTred>0.90*PLtotal")
 		cont=cont+1
 		if cont>=150:
 			cont=0
