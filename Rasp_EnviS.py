@@ -50,7 +50,7 @@ def ReceiveData(mycursor):
     
 #x.start()    
 while True:
-    state1=Estados(state4,to5)    
+    state1=Estados(4,to5)    
     print("Sending")    
     SendData(state1,mycursor,mydb)
     to5=ReceiveData(mycursor)
