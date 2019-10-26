@@ -773,6 +773,7 @@ def state5T(to5):
 #		state=1
 	else: 
 		state='5T'
+	return state
 
 to5=False
 def Estados(state,to5):
