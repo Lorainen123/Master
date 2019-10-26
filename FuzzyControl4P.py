@@ -593,7 +593,7 @@ def state1T(to5):
 	elif PTred>0.90*PLtotal:
 		print("PTred>0.90*PLtotal")
 		cont=cont+1
-		if cont>=50:
+		if cont>=10:
 			cont=0
 			state='4'
 			print("Del 1 al 4")
