@@ -579,6 +579,7 @@ def state1(to5):
 	
 def state1T(to5):
 	global state,cont
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()  
 	print("Estoy en 1T")
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
 		state='1T'
@@ -611,6 +612,7 @@ def state2(to5):
 	return state
 def state2T(to5):
 	global state
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
@@ -628,6 +630,7 @@ def state3(to5):
 	
 def state3T(to5):
 	global state
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
 	if  PStotal>0 or PTred>0:
 		state='1'
 	else:
@@ -645,6 +648,7 @@ def state4(to5):
 
 def state4T(to5):
 	global state,cont1
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
 	
