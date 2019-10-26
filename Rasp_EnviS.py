@@ -56,7 +56,7 @@ while True:
     SendData(state1,mycursor,mydb)
     to5=ReceiveData(mycursor)
     contador = contador +1
-    if contador > 10:
+    if contador > 5:
         r = requests.get("http://ec2-3-89-222-210.compute-1.amazonaws.com:9000/ON")
         contador = 0
         print(r)
