@@ -578,7 +578,7 @@ def state1():
 	return state
 	
 def state1T():
-	global cont
+	global state,cont
 	print("Estoy en 1T")
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
 		state='1T'
@@ -599,7 +599,7 @@ def state1T():
 	return state
 	
 def state2():
-        
+        global state
 	GPIO.output(13, False)
 	GPIO.output(19, False)
 	GPIO.output(26, True)
@@ -609,14 +609,14 @@ def state2():
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 	return state
 def state2T():
-	
+	global state
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
 		state=1
 	return state
 def state3():
-        
+        global state
 	GPIO.output(13, False)
 	GPIO.output(19, True)
 	GPIO.output(26, False)
@@ -626,14 +626,14 @@ def state3():
 	return state
 	
 def state3T():
-	
+	global state
 	if  PStotal>0 or PTred>0:
 		state=1
 	else:
 		state='3T'
 	return state
 def state4():
-        
+        global state
 	GPIO.output(13, False)
 	GPIO.output(19, True)
 	GPIO.output(26, True)
@@ -643,7 +643,7 @@ def state4():
 	return state
 
 def state4T():
-	global cont1
+	global state,cont1
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
 	
@@ -700,6 +700,7 @@ def state4T():
 #		state=1
 	return state
 def state5():
+	global state
 	time.sleep(5)
 	state='4'
 	return state
