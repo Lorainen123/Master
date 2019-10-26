@@ -46,6 +46,7 @@ def ReceiveData(mycursor):
         to5=True
     else:
         to5=False
+    print("To5= "+to5)
     return to5
     
 #x.start()    
