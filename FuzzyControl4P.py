@@ -179,7 +179,7 @@ hoja.write(0, 6,     "Hora")
 
 def adquisicion():
 #try:
-	global PStotal, PLtotal, PTred, PBtotal, sw, state, VpanelT, IpanelT
+	global PStotal, PLtotal, PTred, PBtotal, sw, VpanelT, IpanelT
 	k=1
 	while True:
 		
