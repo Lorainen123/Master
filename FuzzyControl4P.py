@@ -305,8 +305,8 @@ def adquisicion():
 		print("Potencia de la carga = "+str(PLtotal))
 		print(state)
 		
-		to5=False
-		Estados(state,to5)
+		#to5=False
+		#Estados(state,to5)
 		
 		
 		time.sleep(2)
