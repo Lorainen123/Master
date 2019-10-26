@@ -59,7 +59,7 @@ while True:
     if contador > 10:
         r = requests.get("http://ec2-3-89-222-210.compute-1.amazonaws.com:9000/ON")
         contador = 0
-    print(r)
+        print(r)
 
 
 
