@@ -715,14 +715,64 @@ def state5(to5):
 	GPIO.output(13, True)
 	GPIO.output(19, False)
 	GPIO.output(26, False)
+	state='5T'
+	return state
+def state5T(to5):
+	global state,cont3
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
+#	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
+#	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
+	
+#	IpanelF1=-0.670684798*VpanelT+13.872848
+#	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if to5==False:
         	state='4'
         	print("Estado: "+str(state))
-        else:
-		state='5'
-	time.sleep(5)
+	elif VpanelT<19 and VpanelT>18.3 and PTred>20 or PStotal<=5 and PTred>5:
+		state='5T'
+		cont3=0
+#	elif VpanelT<18.3 and VpanelT>17.5 and PTred>50:
+#		state='4T'
+#	elif VpanelT<17.5 and VpanelT>5:
+#		state='4T'
+	elif PTred<=5:
+		state='1'
+		cont3=0
+		print("Estado 1 Razon 0")
+#	elif IpanelFH<1.1*IpanelT and IpanelFH>0.9*IpanelT and PTred<75:   ## radiacion alta
+#		state=1
+		
+#	elif IpanelFH1<1.1*IpanelT and IpanelFH1>0.9*IpanelT and PTred<75:   ## radiacion alta
+#		state=1
+	elif VpanelT>18.35 and PTred<80 and PStotal>15:
+		cont3=cont3+1
+			
+	#	time2=time.time()
+	#	tiempo=round(time2-time1,0)
+		if cont3>50:
+			state='1'
+			cont3=0
+			print("Estado 1 Razon 1")
+		else:
+			state='5T'
+			print("Estado 5 Razon 1")
+	elif VpanelT>19 and PTred<21 and PBtotal<5:
 	
-	return state
+		cont3=cont3+1
+			
+	#	time2=time.time()
+	#	tiempo=round(time2-time1,0)
+		if cont3>50:
+			state='1'
+			cont3=0
+			print("Estado 1 Razon 2")
+		else:
+			state='5T'
+			print("Estado 5 Razon 2")
+#	elif VpanelT>18.5 and PTred<60:
+#		state=1
+	else: 
+		state='5T'
 
 to5=False
 def Estados(state,to5):
@@ -746,6 +796,8 @@ def Estados(state,to5):
 		state=state4T(to5)
 	elif state=='5':
 		state=state5(to5)
+	elif state=='5T':
+		state=state5T(to5)
 	print(state)
 	return state
 
