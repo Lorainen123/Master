@@ -577,6 +577,7 @@ def state1():
 	return state
 	
 def state1T():
+	global cont
 	print("Estoy en 1T")
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
 		state='1T'
@@ -641,7 +642,7 @@ def state4():
 	return state
 
 def state4T():
-	
+	global cont1
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
 	
