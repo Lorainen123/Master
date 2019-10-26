@@ -584,17 +584,17 @@ def state1T(to5):
 		state='1T'
 		cont=0
 	elif PTred<8 and PTred>5 and PStotal>0:
-		state=2
+		state='2'
 		cont=0
 	elif PStotal<=0 and PTred<=0:
-		state=3
+		state='3'
 		cont=0
 	elif PTred>0.90*PLtotal:
 		print("PTred>0.90*PLtotal")
 		cont=cont+50
 		if cont>=150:
 			cont=0
-			state=4
+			state='4'
 			time1=time.time()
 	return state
 	
@@ -613,7 +613,7 @@ def state2T(to5):
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
-		state=1
+		state='1'
 	return state
 def state3(to5):
         global state
@@ -628,7 +628,7 @@ def state3(to5):
 def state3T(to5):
 	global state
 	if  PStotal>0 or PTred>0:
-		state=1
+		state='1'
 	else:
 		state='3T'
 	return state
@@ -659,7 +659,7 @@ def state4T(to5):
 #	elif VpanelT<17.5 and VpanelT>5:
 #		state='4T'
 	elif PTred<=5:
-		state=1
+		state='1'
 		cont1=0
 #	elif IpanelFH<1.1*IpanelT and IpanelFH>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
@@ -672,7 +672,7 @@ def state4T(to5):
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
 		if cont1>150:
-			state=1
+			state='1'
 			cont1=0
 		else:
 			state='4T'
@@ -683,7 +683,7 @@ def state4T(to5):
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
 		if cont1>150:
-			state=1
+			state='1'
 			cont1=0
 		else:
 			state='4T'
