@@ -576,7 +576,7 @@ def state1():
 	return state
 	
 def state1T():
-	
+	print("Estoy en 1T")
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
 		state='1T'
 		cont=0
