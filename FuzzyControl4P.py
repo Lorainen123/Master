@@ -565,6 +565,7 @@ def fuzzy():
     	
 	 
 def state1():
+	global state
 	print("Estoy en estado 1")
 	#hilo1.start()
 	GPIO.output(13, False)
