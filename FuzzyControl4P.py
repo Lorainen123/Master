@@ -671,7 +671,7 @@ def state4T(to5):
 			
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
-		if cont1>150:
+		if cont1>50:
 			state='1'
 			cont1=0
 		else:
@@ -682,7 +682,7 @@ def state4T(to5):
 			
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
-		if cont1>150:
+		if cont1>50:
 			state='1'
 			cont1=0
 		else:
