@@ -595,6 +595,7 @@ def state1T(to5):
 		if cont>=50:
 			cont=0
 			state='4'
+			print("Del 1 al 4")
 			time1=time.time()
 	return state
 	
@@ -674,8 +675,10 @@ def state4T(to5):
 		if cont1>50:
 			state='1'
 			cont1=0
+			print("Estado 1 Razon 1")
 		else:
 			state='4T'
+			print("Estado 4 Razon 1")
 	elif VpanelT>19 and PTred<21 and PBtotal<5:
 	
 		cont1=cont1+1
@@ -685,8 +688,10 @@ def state4T(to5):
 		if cont1>50:
 			state='1'
 			cont1=0
+			print("Estado 1 Razon 2")
 		else:
 			state='4T'
+			print("Estado 4 Razon 2")
 #	elif VpanelT>18.5 and PTred<60:
 #		state=1
 	else: 
