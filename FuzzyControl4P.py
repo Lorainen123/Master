@@ -573,6 +573,7 @@ def state1():
 	state='1T'
 	
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
+	return state
 	
 def state1T():
 	global state, time1, cont
@@ -592,6 +593,7 @@ def state1T():
 			cont=0
 			state=4
 			time1=time.time()
+	return state
 	
 def state2():
         global state, hilo1
@@ -602,12 +604,14 @@ def state2():
 	#hilo1.raise_exception()
 	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
+	return state
 def state2T():
 	global state
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
 		state=1
+	return state
 def state3():
         global state, hilo1
 	GPIO.output(13, False)
@@ -616,6 +620,7 @@ def state3():
 	state='3T'
 	#hilo1.raise_exception()
 	time.sleep(2)
+	return state
 	
 def state3T():
 	global state
@@ -623,6 +628,7 @@ def state3T():
 		state=1
 	else:
 		state='3T'
+	return state
 def state4():
         global state, hilo1
 	GPIO.output(13, False)
@@ -631,7 +637,7 @@ def state4():
 	state='4T'
 	#hilo1.raise_exception()
 	time.sleep(2)
-	
+	return state
 
 def state4T():
 	global state, time2, time1, cont1
@@ -689,32 +695,33 @@ def state4T():
 	
 #	else:
 #		state=1
-
+	return state
 def state5():
 	time.sleep(5)
 	state='4'
+	return state
 
 to5=False
 def Estados(state,to5):
 	#global state
         if state==1:
-		state1()
+		state=state1()
 	elif state=='1T':
-		state1T()
+		state=state1T()
 	elif state==2:
-		state2()
+		state=state2()
 	elif state=='2T':
-		state2T()
+		state=state2T()
 	elif state==3:
-		state3()
+		state=state3()
 	elif state=='3T':
-		state3T()
+		state=state3T()
 	elif state==4:
-		state4()
+		state=state4()
 	elif state=='4T':
-		state4T()
+		state=state4T()
 	elif state=='5':
-		state5()
+		state=state5()
 	return state
 
 #def main():
