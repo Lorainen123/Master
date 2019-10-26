@@ -563,7 +563,7 @@ def fuzzy():
 	# print (v2)
     	
 	 
-def state1(state):
+def state1():
 	global state, hilo1
 	#hilo1.start()
 	GPIO.output(13, False)
@@ -575,7 +575,7 @@ def state1(state):
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
 	return state
 	
-def state1T(state):
+def state1T():
 	global state, time1, cont
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
 		state='1T'
@@ -595,7 +595,7 @@ def state1T(state):
 			time1=time.time()
 	return state
 	
-def state2(state):
+def state2():
         global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, False)
@@ -605,14 +605,14 @@ def state2(state):
 	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 	return state
-def state2T(state):
+def state2T():
 	global state
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
 		state=1
 	return state
-def state3(state):
+def state3():
         global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, True)
@@ -622,14 +622,14 @@ def state3(state):
 	time.sleep(2)
 	return state
 	
-def state3T(state):
+def state3T():
 	global state
 	if  PStotal>0 or PTred>0:
 		state=1
 	else:
 		state='3T'
 	return state
-def state4(state):
+def state4():
         global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, True)
@@ -639,7 +639,7 @@ def state4(state):
 	time.sleep(2)
 	return state
 
-def state4T(state):
+def state4T():
 	global state, time2, time1, cont1
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
