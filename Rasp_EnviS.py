@@ -8,7 +8,7 @@ import requests
 
 state1='1'
 to5=True
-contador = 0
+contador = 11
 import mysql.connector
         
 mydb = mysql.connector.connect(
