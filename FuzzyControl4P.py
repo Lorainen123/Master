@@ -703,25 +703,28 @@ def state5(state):
 
 to5=False
 def Estados(state,to5):
+	adquisicion()
 	#global state
+	
         if state==1:
-		state=state1(state)
+		state1()
 	elif state=='1T':
-		state=state1T(state)
+		state1T()
 	elif state==2:
-		state=state2(state)
+		state2()
 	elif state=='2T':
-		state=state2T(state)
+		state2T()
 	elif state==3:
-		state=state3(state)
+		state3()
 	elif state=='3T':
-		state=state3T(state)
+		state3T()
 	elif state==4:
-		state=state4(state)
+		state4()
 	elif state=='4T':
-		state=state4T(state)
+		state4T()
 	elif state=='5':
-		state=state5(state)
+		state5()
+	print(state)
 	return state
 
 #def main():
