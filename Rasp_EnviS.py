@@ -4,7 +4,7 @@ from FuzzyControl4P import *
 import time
 from datetime import datetime
 from datetime import timedelta
-import threading
+import requests
 
 state1='1'
 to5=True
@@ -55,3 +55,5 @@ while True:
     print("Sending")    
     SendData(state1,mycursor,mydb)
     to5=ReceiveData(mycursor)
+    r = requests.get("http://ec2-3-89-222-210.compute-1.amazonaws.com:9000/ON")
+    print(r)
