@@ -708,9 +708,10 @@ def state5(to5):
 	if to5==False:
         	state='4'
         	print("Estado: "+str(state))
-        
+        else
+		state='5'
 	time.sleep(5)
-	state='5'
+	
 	return state
 
 to5=False
