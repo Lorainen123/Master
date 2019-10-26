@@ -310,7 +310,8 @@ def adquisicion():
 		
 		
 		time.sleep(2)
-		
+		Potencias=[PTred, PStotal, PBtotal, PLtotal]
+		return Potencias
 		
 	#	time.sleep(0.001)
 
