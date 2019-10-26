@@ -662,6 +662,7 @@ def state4T(to5):
 	elif PTred<=5:
 		state='1'
 		cont1=0
+		print("Estado 1 Razon 0")
 #	elif IpanelFH<1.1*IpanelT and IpanelFH>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
 		
