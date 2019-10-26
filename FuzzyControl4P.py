@@ -592,7 +592,7 @@ def state1T(to5):
 	elif PTred>0.90*PLtotal:
 		print("PTred>0.90*PLtotal")
 		cont=cont+1
-		if cont>=150:
+		if cont>=50:
 			cont=0
 			state='4'
 			time1=time.time()
