@@ -564,7 +564,7 @@ def fuzzy():
 	# print (v2)
     	
 	 
-def state1():
+def state1(to5):
 	global state
 	print("Estoy en estado 1")
 	#hilo1.start()
@@ -577,7 +577,7 @@ def state1():
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
 	return state
 	
-def state1T():
+def state1T(to5):
 	global state,cont
 	print("Estoy en 1T")
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
@@ -598,7 +598,7 @@ def state1T():
 			time1=time.time()
 	return state
 	
-def state2():
+def state2(to5):
         global state
 	GPIO.output(13, False)
 	GPIO.output(19, False)
@@ -608,14 +608,14 @@ def state2():
 	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
 	return state
-def state2T():
+def state2T(to5):
 	global state
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
 		state=1
 	return state
-def state3():
+def state3(to5):
         global state
 	GPIO.output(13, False)
 	GPIO.output(19, True)
@@ -625,14 +625,14 @@ def state3():
 	time.sleep(2)
 	return state
 	
-def state3T():
+def state3T(to5):
 	global state
 	if  PStotal>0 or PTred>0:
 		state=1
 	else:
 		state='3T'
 	return state
-def state4():
+def state4(to5):
         global state
 	GPIO.output(13, False)
 	GPIO.output(19, True)
@@ -642,7 +642,7 @@ def state4():
 	time.sleep(2)
 	return state
 
-def state4T():
+def state4T(to5):
 	global state,cont1
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
@@ -651,7 +651,7 @@ def state4T():
 #	if  PStotal>0 and PBtotal<0 and VpanelT>17:
 	if to5==True:
 		state='5'
-	if VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
+	elif VpanelT<19 and VpanelT>18.3 and PTred>69 or PStotal<=5 and PTred>5:
 		state='4T'
 		cont1=0
 #	elif VpanelT<18.3 and VpanelT>17.5 and PTred>50:
@@ -699,10 +699,18 @@ def state4T():
 #	else:
 #		state=1
 	return state
-def state5():
+def state5(to5):
+	
 	global state
+	GPIO.output(13, True)
+	GPIO.output(19, False)
+	GPIO.output(26, False)
+	if to5==False:
+        	state='4'
+        	print("Estado: "+str(state))
+        
 	time.sleep(5)
-	state='4'
+	state='5'
 	return state
 
 to5=False
@@ -719,7 +727,7 @@ def Estados(state,to5):
 		state=state2T()
 	elif state=='3':
 		state=state3()
-	elif state=='3T':
+	elif state=='3T':	
 		state=state3T()
 	elif state=='4':
 		state=state4()
