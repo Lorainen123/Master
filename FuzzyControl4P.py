@@ -572,7 +572,7 @@ def state1(to5):
 	GPIO.output(19, False)
 	GPIO.output(26, False)
 	time.sleep(2)
-	state='1'
+	state='1T'
 	
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
 	return state
