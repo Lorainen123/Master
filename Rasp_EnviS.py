@@ -33,7 +33,7 @@ def SendData(state1,mycursor,mydb):
     
     mydb.commit()
     print("Subido")
-    time.sleep(5)
+    time.sleep(1)
     
         
 def ReceiveData(mycursor):
