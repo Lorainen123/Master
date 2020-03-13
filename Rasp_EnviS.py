@@ -1,6 +1,6 @@
 
 
-from FuzzyControl4P import *
+from FuzzyControl4PY import *
 import time
 from datetime import datetime
 from datetime import timedelta
@@ -20,7 +20,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-def SendData(state1,mycursor,mydb):         
+def SendData(state1,mycursor,mydb):     
     now = datetime.now()
     fecha = now.strftime('%Y-%m-%d')
     hora = time.strftime("%H:%M:%S")
@@ -57,9 +57,9 @@ while True:
     to5=ReceiveData(mycursor)
     contador = contador +1
     if contador > 5:
-        r = requests.get("http://ec2-18-207-247-146.compute-1.amazonaws.com:9000/ON")
+       # r = requests.get("http://ec2-18-207-247-146.compute-1.amazonaws.com:9000/ON")
         contador = 0
-        print(r)
+       # print(r)
 
 
 

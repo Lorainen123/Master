@@ -1,8 +1,9 @@
+
 import os
 import sys
 import numpy as np
-import skfuzzy as fuzz
-from skfuzzy import control as ctrl
+#import skfuzzy as fuzz
+#from skfuzzy import control as ctrl
 #import Node611
 import excel
 import mcpras 
@@ -22,7 +23,6 @@ from pymodbus.payload import BinaryPayloadDecoder
 from pymodbus.payload import BinaryPayloadBuilder
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import xlsxwriter
-
 #configuration of low current sensors
 SPI_PORT   = 0
 SPI_DEVICE = 0
@@ -57,6 +57,7 @@ GPIO.output(26, False)
 
 
 try:
+
     ina = INA219(shunt_ohms=0.1,
                  max_expected_amps = 2.0,
                  address=0x40)
@@ -98,8 +99,8 @@ except:
 
 #Fuzzy Controller 
 
-Vrefd = ctrl.Consequent(np.arange(-0.9, 0.9, 0.1), 'Vrefd')
-dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
+#Vrefd = ctrl.Consequent(np.arange(-0.9, 0.9, 0.1), 'Vrefd')
+#dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
 
 #Membership functions
 
@@ -121,33 +122,33 @@ dpdv = ctrl.Antecedent(np.arange(-500, 500, 0.01),'dpdv')
 #dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-4.8, -0.4, 0.4, 4.8])
 #dpdv['PS'] = fuzz.trimf(dpdv.universe, [0.4, 4.8, 10])
 #dpdv['PB'] = fuzz.trapmf(dpdv.universe, [4.8, 10, 21, 500])
-dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -52.5, -50, -25])
-dpdv['NS'] = fuzz.trimf(dpdv.universe, [-50, -25, 0])
-dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-16.6, -1, 1, 16.6])
-dpdv['PS'] = fuzz.trimf(dpdv.universe, [0, 25, 50])
-dpdv['PB'] = fuzz.trapmf(dpdv.universe, [25, 50, 52.5, 500])
+#dpdv['NB'] = fuzz.trapmf(dpdv.universe, [-500, -52.5, -50, -25])
+#dpdv['NS'] = fuzz.trimf(dpdv.universe, [-50, -25, 0])
+#dpdv['Z'] = fuzz.trapmf(dpdv.universe, [-16.6, -1, 1, 16.6])
+#dpdv['PS'] = fuzz.trimf(dpdv.universe, [0, 25, 50])
+#dpdv['PB'] = fuzz.trapmf(dpdv.universe, [25, 50, 52.5, 500])
 
 #Vref
 
-Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.4, -0.2])
-Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.4, -0.2, -0.001])
-Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.15, 0, 0.15])
-Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.001, 0.2, 0.4])
-Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.2, 0.4, 0.63, 0.87])
+#Vrefd['NB'] = fuzz.trapmf(Vrefd.universe, [-0.87, -0.63, -0.4, -0.2])
+#Vrefd['NS'] = fuzz.trimf(Vrefd.universe, [-0.4, -0.2, -0.001])
+#Vrefd['Z'] = fuzz.trimf(Vrefd.universe, [-0.15, 0, 0.15])
+#Vrefd['PS'] = fuzz.trimf(Vrefd.universe, [0.001, 0.2, 0.4])
+#Vrefd['PB'] = fuzz.trapmf(Vrefd.universe, [0.2, 0.4, 0.63, 0.87])
 
 ##Rules
 
 #rule1=ctrl.Rule(Pdif['P'],Vrefd['P'])
 #rule2=ctrl.Rule(Pdif['N'],Vrefd['N'])
 #rule3=ctrl.Rule(Pdif['Z'],Vrefd['Z'])
-rule1=ctrl.Rule(dpdv['PB'],Vrefd['NB'])
-rule2=ctrl.Rule(dpdv['NB'],Vrefd['PB'])
-rule3=ctrl.Rule(dpdv['PS'],Vrefd['NS'])
-rule4=ctrl.Rule(dpdv['NS'],Vrefd['PS'])
-rule5=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
+#rule1=ctrl.Rule(dpdv['PB'],Vrefd['NB'])
+#rule2=ctrl.Rule(dpdv['NB'],Vrefd['PB'])
+#rule3=ctrl.Rule(dpdv['PS'],Vrefd['NS'])
+#rule4=ctrl.Rule(dpdv['NS'],Vrefd['PS'])
+#rule5=ctrl.Rule(dpdv['Z'],Vrefd['Z'])
 
-vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
-vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
+#vref_ctrl = ctrl.ControlSystem([rule1, rule2, rule3,rule4, rule5])
+#vrefout = ctrl.ControlSystemSimulation(vref_ctrl)
 
 client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 19200)
 if client.connect():
@@ -156,16 +157,16 @@ if client.connect():
 else:
     print("puerto no abierto")
 
-libro = xlsxwriter.Workbook('prueba_estados6.xlsx')
-hoja = libro.add_worksheet()
+#libro = xlsxwriter.Workbook('prueba_estados6.xlsx')
+#hoja = libro.add_worksheet()
 
-hoja.write(0, 0,     "Estado")	
-hoja.write(0, 1,     "Voltaje Panel")
-hoja.write(0, 2,     "Corriente Panel")
-hoja.write(0, 3,     "Potencia de la red")
-hoja.write(0, 4,     "Potencia de la carga")
-hoja.write(0, 5,     "Potencia de la bateria")
-hoja.write(0, 6,     "Hora")
+#hoja.write(0, 0,     "Estado")	
+#hoja.write(0, 1,     "Voltaje Panel")
+#hoja.write(0, 2,     "Corriente Panel")
+#hoja.write(0, 3,     "Potencia de la red")
+#hoja.write(0, 4,     "Potencia de la carga")
+#hoja.write(0, 5,     "Potencia de la bateria")
+#hoja.write(0, 6,     "Hora")
 
 #libro1 = xlsxwriter.Workbook('PruebaFuzzy2.xlsx')
 #hoja1 = libro.add_worksheet()
@@ -281,37 +282,38 @@ def adquisicion():
 		VpanelT=(VpanelT/j)
 		IpanelT=IpanelT/j
 		
-		hoja.write(k, 0,     str(state))
+		#hoja.write(k, 0,     str(state))
 		
-		hoja.write(k, 1,     str(VpanelT))
+		#hoja.write(k, 1,     str(VpanelT))
 		
-		hoja.write(k, 2,     str(IpanelT))
+		#hoja.write(k, 2,     str(IpanelT))
 		
-		hoja.write(k, 3,     str(PTred))
+		#hoja.write(k, 3,     str(PTred))
 		
-		hoja.write(k, 4,     str(PLtotal))
+		#hoja.write(k, 4,     str(PLtotal))
 		
-		hoja.write(k, 5,     str(PBtotal))
+		#hoja.write(k, 5,     str(PBtotal))
 				
-		hoja.write(k, 6,     time.strftime("%X"))
+		#hoja.write(k, 6,     time.strftime("%X"))
 		
 	#	print("Voltaje del panel solar = "+str(VpanelT))
 	#	print("Corriente del panel solar ="+str(IpanelT))
-		print("Potencia de la red = "+str(PTred))
-		print("Potencia del panel = "+str(PStotal))
-		print("Potencia de la bat = "+str(PBtotal))
+	#	print("Potencia de la red = "+str(PTred))
+	#	print("Potencia del panel = "+str(PStotal))
+	#	print("Potencia de la bat = "+str(PBtotal))
 	#	print("Corriente de la bat = "+str(IbatT))
 	#	print("Voltaje de la bat = "+str(VbatT/j))
-		print("Potencia de la carga = "+str(PLtotal))
-		print(state)
+	#	print("Potencia de la carga = "+str(PLtotal))
+	#	print(state)
 		
-		#to5=False
-		#Estados(state,to5)
+		to5=False
+		Estados(state,to5)
 		
 		
 		time.sleep(2)
 		Potencias=[PTred, PStotal, PBtotal, PLtotal]
 		return Potencias
+
 		
 	#	time.sleep(0.001)
 
@@ -437,34 +439,34 @@ def potenciaRed():
 	return PtotalT
 
 
-def fuzzy():
-    sw=0
-    i= True
-    #thread.start_new_thread(adquisicion2,(i,))
-    dpdv=100
-    v2=18.5
-    dpred=0
+#def fuzzy():
+#    sw=0
+#    i= True
+#    #thread.start_new_thread(adquisicion2,(i,))
+#    dpdv=100
+#    v2=18.5
+#    dpred=0
 
-    n = excel.main(float(v2),0)
-    n = int(n)
-    mcpras.set_value(n)
-    time.sleep(0.2)
-    Pred2= potenciaRed()
-    k=0
-    while True:
-         if sw==0:
+#    n = excel.main(float(v2),0)
+#    n = int(n)
+#    mcpras.set_value(n)
+#    time.sleep(0.2)
+#    Pred2= potenciaRed()
+#    k=0
+#    while True:
+#         if sw==0:
       	 
-   	 	vrefout.input['dpdv']=dpdv
-    	 	vrefout.compute()
-    		Vrefin=round(vrefout.output['Vrefd'],3)
-   	 	Vrefinabs=abs(Vrefin)
+#   	 	vrefout.input['dpdv']=dpdv
+#    	 	vrefout.compute()
+#    		Vrefin=round(vrefout.output['Vrefd'],3)
+#   	 	Vrefinabs=abs(Vrefin)
 		
-	 elif sw==1:
-		Vrefin=0.1
-		sw=0
-	 elif sw==2:
-		Vrefin=-0.1
-		sw=0
+#	 elif sw==1:
+#		Vrefin=0.1
+#		sw=0
+#	 elif sw==2:
+#		Vrefin=-0.1
+#		sw=0
 		
 	 
 	# print("Corriente de la red t= "+str(Ired))
@@ -477,12 +479,12 @@ def fuzzy():
 	 	
         # print("Cambio de corriente/voltaje = "+str(dpdv))
    	# print("Cambio de voltaje= "+str(Vrefin)+"\n")
-	 k=k+1	
+#	 k=k+1	
 	
-	 v2=v2+Vrefin
+#	 v2=v2+Vrefin
 	# print("Vref2 = "+str(v2))
 	# print (time.strftime("%X"))
-	 Pred=Pred2
+#	 Pred=Pred2
 #	 Psol=n611_adquisicion.adquisicion()	
 #	 print(Pred)
 #	 print(Psol)
@@ -494,22 +496,22 @@ def fuzzy():
 #	 hoja1.write(k, 3, str(Psol))
 	# print(v2)
 	
-	 if v2<14.6:
-		v2=14.5	
-	 elif v2>18.5:
-		v2=18.5
+#	 if v2<14.6:
+#		v2=14.5	
+#	 elif v2>18.5:
+#		v2=18.5
 			
-	 n = excel.main(float(v2),0)
-   	 n = int(n)
-    	 mcpras.set_value(n)
+#	 n = excel.main(float(v2),0)
+#   	 n = int(n)
+#    	 mcpras.set_value(n)
 	 
-	 time.sleep(0.3)
+#	 time.sleep(0.3)
 	  
-	 try:
-    		 Pred2=potenciaRed()
-	 except:
-		time.sleep(1)
-		Pred2=potenciaRed()
+#	 try:
+#    		 Pred2=potenciaRed()
+#	 except:
+#		time.sleep(1)
+#		Pred2=potenciaRed()
 	#	try:	
     	#		time.sleep(0.5)
 	#		Ired2=corrienteRed()
@@ -518,15 +520,15 @@ def fuzzy():
 	#		Ired2=corrienteRed()
   		
 	 
-	 dpred=Pred2-Pred
+#	 dpred=Pred2-Pred
 	
 	# try:
-	 if Vrefin<0:
-		dpdv=dpred*-10
-	 elif Vrefin>0:
-		dpdv=dpred*10
-	 else:
-		sw=1
+#	 if Vrefin<0:
+#		dpdv=dpred*-10
+#	 elif Vrefin>0:
+#		dpdv=dpred*10
+#	 else:
+#		sw=1
 		#dpdv=dpred/Vrefin
 	# except:
 	#	sw=1
@@ -541,18 +543,18 @@ def fuzzy():
 	#		sw=1
 			
 
-	 if abs(Vrefin)<0.09 and abs(dpdv)>35:
+#	 if abs(Vrefin)<0.09 and abs(dpdv)>35:
 		#dIdv=1.5
-		if dpdv<0:
+#		if dpdv<0:
 			
-			sw=1
-		else:
-			sw=2
+#			sw=1
+#		else:
+#			sw=2
 	
-	 if dpdv>=500:
-		dpdv=500
-	 elif dpdv<=-500:
-		dpdv=-500
+#	 if dpdv>=500:
+#		dpdv=500
+#	 elif dpdv<=-500:
+#		dpdv=-500
 	
 
 		#dired=abs(dired)
@@ -851,4 +853,5 @@ except KeyboardInterrupt:
                sys.exit(0)
        	except SystemExit:
                os._exit(0)
+
 

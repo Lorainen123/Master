@@ -6,7 +6,7 @@ import time
 
 
 
-client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 9600)
+client = ModbusClient(method='rtu', port= '/dev/ttyUSB0', bytesize=8, timeout=1, baudrate= 19200)
 if client.connect():
     
     print("puerto abierto")
@@ -15,8 +15,9 @@ else:
 
 result = client.read_holding_registers(11729, 2, unit=1)#Current A 1100
 decoder = BinaryPayloadDecoder.fromRegisters(result.registers, byteorder=Endian.Big )
+#print(decoder)
 print(decoder.decode_32bit_float())
-print(time.strftime('%H:%M:%S'))
+#print(time.strftime('%H:%M:%S'))
 
 #C1 = pmC1.registers[0]
 #C2 = pmC1.registers[1]

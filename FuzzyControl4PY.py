@@ -309,9 +309,10 @@ def adquisicion():
 		print(state)
 		
 		to5=False
-		Estados(4,to5)
+		Estados(state,to5)
 		
-		
+		Potencias=[PTred, PStotal, PBtotal, PLtotal]
+		return Potencias
 		time.sleep(2)
 		
 		
@@ -566,7 +567,7 @@ def fuzzy():
 	# print (v2)
     	
 	 
-def state1():
+def state1(to5):
 	global state, hilo1
 	#hilo1.start()
 	GPIO.output(13, False)
@@ -574,29 +575,32 @@ def state1():
 	GPIO.output(26, False)
 	time.sleep(2)
 	state='1T'
-	
+	return state
 	#(0.57*PStotal+0.41*Pred)<1.1*PLtotal and (0.57*PStotal+0.41*Pred)>0.9*PLtotal and
 	
-def state1T():
+def state1T(to5):
 	global state, time1, cont
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
+	print("estoy en 1T")
 	if  PTred>0.95*PLtotal and PTred<1.05*PLtotal and PTred>8:
 		state='1T'
 		cont=0
 	elif PTred<8 and PTred>5 and PStotal>0:
-		state=2
+		state='2'
 		cont=0
 	elif PStotal<=0 and PTred<=0:
-		state=3
+		state='3'
 		cont=0
 	elif PTred>0.90*PLtotal:
 		print("PTred>0.90*PLtotal")
 		cont=cont+1
-		if cont>=150:
+		if cont>=10:
 			cont=0
-			state=4
+			state='4'
 			time1=time.time()
+	return state
 	
-def state2():
+def state2(to5):
         global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, False)
@@ -605,13 +609,16 @@ def state2():
 	#hilo1.raise_exception()
 	time.sleep(2)
 	#0.57*PStotal<1.1*PLtotal and 0.57*PStotal>0.9*PLtotal
-def state2T():
+	return state
+def state2T(to5):
 	global state
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
 	if  PBtotal<0:
 		state='2T'
 	elif PBtotal>7:
-		state=1
-def state3():
+		state='1'
+	return state
+def state3(to5):
         global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, True)
@@ -619,14 +626,16 @@ def state3():
 	state='3T'
 	#hilo1.raise_exception()
 	time.sleep(2)
-	
-def state3T():
+	return state
+def state3T(to5):
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
 	global state
 	if  PStotal>0 or PTred>0:
-		state=1
+		state='1'
 	else:
 		state='3T'
-def state4():
+	return state
+def state4(to5):
         global state, hilo1
 	GPIO.output(13, False)
 	GPIO.output(19, True)
@@ -634,10 +643,11 @@ def state4():
 	state='4T'
 	#hilo1.raise_exception()
 	time.sleep(2)
-	
+	return state
 
-def state4T():
+def state4T(to5):
 	global state, time2, time1, cont1
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
 #	IpanelFH=-0.99750086*VpanelT+20.8572306  #radiacion alta sin nube
 #	IpanelFH1=-1.5512*VpanelT+30.8982506    # radiacion alta parcialmente nubaldo
 	
@@ -653,7 +663,7 @@ def state4T():
 #	elif VpanelT<17.5 and VpanelT>5:
 #		state='4T'
 	elif PTred<=5:
-		state=1
+		state='1'
 		cont1=0
 #	elif IpanelFH<1.1*IpanelT and IpanelFH>0.9*IpanelT and PTred<75:   ## radiacion alta
 #		state=1
@@ -665,8 +675,8 @@ def state4T():
 			
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
-		if cont1>150:
-			state=1
+		if cont1>50:
+			state='1'
 			cont1=0
 		else:
 			state='4T'
@@ -676,16 +686,16 @@ def state4T():
 			
 	#	time2=time.time()
 	#	tiempo=round(time2-time1,0)
-		if cont1>150:
-			state=1
+		if cont1>50:
+			state='1'
 			cont1=0
 		else:
 			state='4T'
 #	elif VpanelT>18.5 and PTred<60:
 #		state=1
-#	else: 
-#		state='4T'
-#		
+	else: 
+		state='4T'
+	return state
 		
 #	elif IpanelF1<1.2*IpanelT and IpanelF1>0.8*IpanelT and PTred<50:   ## radiacion alta
 #		state=1
@@ -693,46 +703,78 @@ def state4T():
 #	else:
 #		state=1
 
-def state5():
-	time.sleep(5)
-	state='4'
-
+def state5(to5):
+#	time.sleep(5)
+	global state
+	GPIO.output(13, True)
+	GPIO.output(19, False)
+	GPIO.output(26, False)
+	state='5T'
+	return state
+def state5T(to5):
+	global state, cont3
+	[PTred, PStotal, PBtotal, PLtotal]=adquisicion()
+	if to5==False:
+		state='4'
+	elif VpanelT<19 and VpanelT>18.3 and PTred>20 or PStotal<=5 and PTred>5:
+		state='5T'
+		cont3=0
+	elif PTred<=5:
+		state='1'
+		cont3=0
+	elif VpanelT>18.35 and PTred<80 and PStotal>15:
+		cont3=cont3+1
+		if cont3>50:
+			state='1'
+			cont3=0
+		else:
+			state='5T'
+	elif VpanelT>19 and PTred<21 and PBtotal>5:
+		cont3=cont3+1
+		if cont3>50:
+			state='1'
+			cont3=0
+		else:
+			state='5T'
+	else:
+		state='5'
+	return state
 to5=False
 def Estados(state,to5):
 	#global state
-        if state==1:
-		state1()
+        if state=='1':
+		state=state1(to5)
 	elif state=='1T':
-		state1T()
-	elif state==2:
-		state2()
+		state=state1(to5)
+	elif state=='2':
+		state=state2(to5)
 	elif state=='2T':
-		state2T()
-	elif state==3:
-		state3()
+		state=state2T(to5)
+	elif state=='3':
+		state=state3(to5)
 	elif state=='3T':
-		state3T()
-	elif state==4:
-		state4()
+		state=state3T(to5)
+	elif state=='4':
+		state=state4(to5)
 	elif state=='4T':
-		state4T()
+		state=state4T(to5)
 	elif state=='5':
-		state5()
+		state=state5(to5)
 	return state
 
-def main():
-	global sw
-	hilo3=threading.Thread(target=adquisicion)
+#def main():
+#	global sw
+#	hilo3=threading.Thread(target=adquisicion)
 	#hilo1=threading.Thread(target=fuzzy)
-	hilo3.start()
+#	hilo3.start()
 	#hilo1.start()
-	while True:
+#	while True:
 			
-			a=1
+#			a=1
 			#print('Ingrese el siguiente estado del sistema:')
 			#x = input()
 #			print("lo q sea")
-			time.sleep(0.000005)
+#			time.sleep(0.000005)
 		#if sw==1:
 		#	time.sleep(0.000001)
 		#	print("Potencia de la red = "+str(Pred))
@@ -759,12 +801,13 @@ def main():
 #hilo4.start()
  
 #while True:
-#try:
-main()
-#except KeyboardInterrupt:
-#     	print('Interrupted')
-#	libro.close()
-#        try:
-#               sys.exit(0)
-#       	except SystemExit:
-#               os._exit(0)
+try:
+#main()
+	pass
+except KeyboardInterrupt:
+     	print('Interrupted')
+	libro.close()
+        try:
+               sys.exit(0)
+       	except SystemExit:
+               os._exit(0)
